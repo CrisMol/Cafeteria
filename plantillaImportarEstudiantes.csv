@@ -1,0 +1,829 @@
+codigo familia;nombre familia;codigo estudiante;apellidos ;nombre;grado;sexo(m/f);email notifiaciones;celular notificaciones
+1757017882;Albuja Guarderas;1001;Albuja Guarderas;José Ignacio;INI1;m;merino_daniel1@hotmail.com;991943124
+1757723174;Calispa Pazmiño;1002;Calispa Pazmiño;Camila Isabel;INI1;m;sunrisecaterincorp@yahoo.com;991943124
+1757178643;Calles Borja;1003;Calles Borja;Isabel Fernanda;INI1;m;d.merino@corpsunrise.com;991943124
+1757436777;Charpentier Mejía;1004;Charpentier Mejía;Ian;INI1;m;ealban@corpsunrise.com;991943124
+1757083512;Díaz Flores;1005;Díaz Flores;Emma Alejandra;INI1;m;daniel.merino@katulatam.com;991943124
+1757507536;Garzón Dominichini;1006;Garzón Dominichini;Tomás;INI1;m;merino_daniel1@hotmail.com;991943124
+1757317308;Godoy Barragán;1007;Godoy Barragán;María Clara;INI1;m;sunrisecaterincorp@yahoo.com;991943124
+1757437098;Guzmán Pereira;1008;Guzmán Pereira;Jacobo Alejandro;INI1;m;d.merino@corpsunrise.com;991943124
+1757167257;Paez Aviles;1009;Paez Aviles;Valentina;INI1;m;ealban@corpsunrise.com;991943124
+1757746936;Ramirez Araque;1010;Ramirez Araque;Aaron Santiago;INI1;m;daniel.merino@katulatam.com;991943124
+1758380180;Recalde Cevallos;1011;Recalde Cevallos;Sebastián Alejandro;INI1;m;merino_daniel1@hotmail.com;991943124
+1757039340;Romo Saá;1012;Romo Saá;José María;INI1;m;sunrisecaterincorp@yahoo.com;991943124
+1757578743;Segura Barbecho;1013;Segura Barbecho;Andrés Sebastián;INI1;m;d.merino@corpsunrise.com;991943124
+1757383888;Vaca Muñoz;1014;Vaca Muñoz;Martín André;INI1;m;ealban@corpsunrise.com;991943124
+1757313745;Atiaga Barragán;1015;Atiaga Barragán;Raquel Daniela;INI1;m;daniel.merino@katulatam.com;991943124
+1757307200;Cáceres Ramón;1016;Cáceres Ramón;Martín Nicolás;INI1;m;merino_daniel1@hotmail.com;991943124
+1757723281;Calispa Pazmiño;1017;Calispa Pazmiño;Gabriel Alejandro;INI1;m;sunrisecaterincorp@yahoo.com;991943124
+1757384473;Calvi Parisetti Suárez;1018;Calvi Parisetti Suárez;Tobia;INI1;m;d.merino@corpsunrise.com;991943124
+1757569544;Díaz Jiménez;1019;Díaz Jiménez;Luciana;INI1;m;ealban@corpsunrise.com;991943124
+1757567043;Galarza Burbano;1020;Galarza Burbano;Sihara Amelie;INI1;m;daniel.merino@katulatam.com;991943124
+1756582233;Herrera Lagla;1021;Herrera Lagla;Rafaela;INI1;m;merino_daniel1@hotmail.com;991943124
+1757513955;Llerena Ruiz;1022;Llerena Ruiz;Emilia Nathalie;INI1;m;sunrisecaterincorp@yahoo.com;991943124
+1757276678;Londoño Ayala;1023;Londoño Ayala;Ariana Valentina;INI1;m;d.merino@corpsunrise.com;991943124
+1757362734;Miranda Bucheli;1024;Miranda Bucheli;Ana Paula;INI1;m;ealban@corpsunrise.com;991943124
+1757100027;Ramírez Astudillo;1025;Ramírez Astudillo;Gabriel;INI1;m;daniel.merino@katulatam.com;991943124
+1757402811;Romero Jarrín;1026;Romero Jarrín;Nicolás Andrés;INI1;m;merino_daniel1@hotmail.com;991943124
+1757662075;Rosero Calderón;1027;Rosero Calderón;Julieta Victoria;INI1;m;sunrisecaterincorp@yahoo.com;991943124
+1757088164;Terán Delgado;1028;Terán Delgado;Amanda;INI1;m;d.merino@corpsunrise.com;991943124
+1757319270;Benítez Riofrío;1029;Benítez Riofrío;Felipe Nicolás;INI1;m;ealban@corpsunrise.com;991943124
+1757520091;De la Torre Falconí;1030;De la Torre Falconí;Ana Victoria;INI1;m;daniel.merino@katulatam.com;991943124
+1757429467;Haro Ortiz;1031;Haro Ortiz;Nicolás Mauricio;INI1;m;merino_daniel1@hotmail.com;991943124
+1757369861;Herrera Carrillo;1032;Herrera Carrillo;Ana Sofía;INI1;m;sunrisecaterincorp@yahoo.com;991943124
+1757287774;León Toro;1033;León Toro;Juan José;INI1;m;d.merino@corpsunrise.com;991943124
+1757540115;Moya Ramírez;1034;Moya Ramírez;Pedro José;INI1;m;ealban@corpsunrise.com;991943124
+1757171440;Panchez Michelena;1035;Panchez Michelena;Antonia;INI1;m;daniel.merino@katulatam.com;991943124
+1757319007;Ríos Cáceres;1036;Ríos Cáceres;Emmanuel Luis;INI1;m;merino_daniel1@hotmail.com;991943124
+1757557945;Sánchez Ferri;1037;Sánchez Ferri;Caetana María;INI1;m;sunrisecaterincorp@yahoo.com;991943124
+1757046253;Sánchez Rodriguez;1038;Sánchez Rodriguez;Martín Andrés;INI1;m;d.merino@corpsunrise.com;991943124
+1757015399;Santiana Muñoz;1039;Santiana Muñoz;Bernarda;INI1;m;ealban@corpsunrise.com;991943124
+1757664063;Valarezo De la Torre;1040;Valarezo De la Torre;Rafaela;INI1;m;daniel.merino@katulatam.com;991943124
+1757230337;Altamirano Díaz;1041;Altamirano Díaz;Agustín Nicolás;INI1;m;merino_daniel1@hotmail.com;991943124
+1757441017;Alvear Pareja;1042;Alvear Pareja;José Manuel;INI1;m;sunrisecaterincorp@yahoo.com;991943124
+1757321664;Andrade Hidalgo;1043;Andrade Hidalgo;Matías;INI1;m;d.merino@corpsunrise.com;991943124
+1757178197;Avellán León;1044;Avellán León;Julían Fernando;INI1;m;ealban@corpsunrise.com;991943124
+1757514003;Cazar Costa;1045;Cazar Costa;Nicole;INI1;m;daniel.merino@katulatam.com;991943124
+1757730021;Cobo Valdez;1046;Cobo Valdez;Florencia;INI1;m;merino_daniel1@hotmail.com;991943124
+1757487192;Delgado De la Torre;1047;Delgado De la Torre;Martín Nicolás;INI1;m;sunrisecaterincorp@yahoo.com;991943124
+1757126774;Espín Guerra;1048;Espín Guerra;Rebeca;INI1;m;d.merino@corpsunrise.com;991943124
+1757155062;Granja Carrillo;1049;Granja Carrillo;Victoria Amelie;INI1;m;ealban@corpsunrise.com;991943124
+1757611056;Jalkh Roldán;1050;Jalkh Roldán;Emilia Alegría;INI1;m;daniel.merino@katulatam.com;991943124
+1757381841;Páez Salgado;1051;Páez Salgado;Isabella Cecilia;INI1;m;merino_daniel1@hotmail.com;991943124
+1757251895;Recalde Reascos;1052;Recalde Reascos;Emiliano;INI1;m;sunrisecaterincorp@yahoo.com;991943124
+1757623119;Río Valencia;1053;Río Valencia;Agustín Manuel;INI1;m;d.merino@corpsunrise.com;991943124
+1756815716;Almeida Baquero;1054;Almeida Baquero;Alina Rafaela;INI2;m;ealban@corpsunrise.com;991943124
+1756838601;Barba Albornoz;1055;Barba Albornoz;Tadeo Sebastián;INI2;m;daniel.merino@katulatam.com;991943124
+1756458111;Bedón Salinas;1056;Bedón Salinas;Ana Paula;INI2;m;merino_daniel1@hotmail.com;991943124
+1756452643;Begnini Catagña;1057;Begnini Catagña;Francisco José;INI2;m;sunrisecaterincorp@yahoo.com;991943124
+1756029060;Burneo Cordero;1058;Burneo Cordero;Iñaki;INI2;m;d.merino@corpsunrise.com;991943124
+1756606289;Cepeda Aguirre;1059;Cepeda Aguirre;Rafael Antonio;INI2;m;ealban@corpsunrise.com;991943124
+1756369847;Guerra Coral;1060;Guerra Coral;María Caridad;INI2;m;daniel.merino@katulatam.com;991943124
+1756490247;Heredia Vargas;1061;Heredia Vargas;Iván Francisco;INI2;m;merino_daniel1@hotmail.com;991943124
+1756794754;Jaramillo Méndez;1062;Jaramillo Méndez;Rafaela Francisca;INI2;m;sunrisecaterincorp@yahoo.com;991943124
+1756735187;Machado Chávez;1063;Machado Chávez;Emilio José;INI2;m;d.merino@corpsunrise.com;991943124
+1756983613;Montiel Romo;1064;Montiel Romo;Mia Sophia;INI2;m;ealban@corpsunrise.com;991943124
+1756458624;Moya Carvajal;1065;Moya Carvajal;Doménica Gabriela;INI2;m;daniel.merino@katulatam.com;991943124
+1756911796;Ortega Aguirre;1066;Ortega Aguirre;Sofia Yael;INI2;m;merino_daniel1@hotmail.com;991943124
+1756734172;Pachano Ruiz;1067;Pachano Ruiz;Santiago Agustín;INI2;m;sunrisecaterincorp@yahoo.com;991943124
+1756407480;Pinto Benavides;1068;Pinto Benavides;Carolina Estefanía;INI2;m;d.merino@corpsunrise.com;991943124
+1756341374;Rada Revelo;1069;Rada Revelo;Larissa;INI2;m;ealban@corpsunrise.com;991943124
+1756895494;Ricaurte Mc Coll;1070;Ricaurte Mc Coll;Emilio Nicolás;INI2;m;daniel.merino@katulatam.com;991943124
+1756364483;Rosero Recalde;1071;Rosero Recalde;Paula;INI2;m;merino_daniel1@hotmail.com;991943124
+1756462188;Terán Oviedo;1072;Terán Oviedo;Juan Manuel;INI2;m;sunrisecaterincorp@yahoo.com;991943124
+1756703250;Torres Torres;1073;Torres Torres;Julián Alejandro;INI2;m;d.merino@corpsunrise.com;991943124
+1756502256;Yerovi Villacrés;1074;Yerovi Villacrés;Cayetana;INI2;m;ealban@corpsunrise.com;991943124
+1756770275;Zapata González;1075;Zapata González;Ana Paula;INI2;m;daniel.merino@katulatam.com;991943124
+1756752687;Álvarez Unda;1076;Álvarez Unda;Josué Julián;INI2;m;merino_daniel1@hotmail.com;991943124
+1756157853;Bastidas Cando;1077;Bastidas Cando;Esteban David;INI2;m;sunrisecaterincorp@yahoo.com;991943124
+1756356000;Baus Velasteguí;1078;Baus Velasteguí;Lucas;INI2;m;d.merino@corpsunrise.com;991943124
+1756564504;Bleggi Sosa;1079;Bleggi Sosa;Francesco;INI2;m;ealban@corpsunrise.com;991943124
+1756499388;Carrión Soto;1080;Carrión Soto;Mauricio Gabriel;INI2;m;daniel.merino@katulatam.com;991943124
+1756448260;Díaz Jiménez;1081;Díaz Jiménez;Isabella;INI2;m;merino_daniel1@hotmail.com;991943124
+1756374532;Fonseca Dávila;1082;Fonseca Dávila;Valentina;INI2;m;sunrisecaterincorp@yahoo.com;991943124
+1756462709;Game Pallares;1083;Game Pallares;Valentina;INI2;m;d.merino@corpsunrise.com;991943124
+1756715130;Jácome Maldonado;1084;Jácome Maldonado;Agustín;INI2;m;ealban@corpsunrise.com;991943124
+1756802722;Jurado Regalado;1085;Jurado Regalado;Ana Paula;INI2;m;daniel.merino@katulatam.com;991943124
+1756954440;Lauret Roldán;1086;Lauret Roldán;Ariaan;INI2;m;merino_daniel1@hotmail.com;991943124
+1756957534;Marcillo Yamunaque;1087;Marcillo Yamunaque;Martina Zoé;INI2;m;sunrisecaterincorp@yahoo.com;991943124
+1756228662;Merizalde Parra;1088;Merizalde Parra;María Caridad;INI2;m;d.merino@corpsunrise.com;991943124
+1756918411;Moreno Piedra;1089;Moreno Piedra;Emma Sofía;INI2;m;ealban@corpsunrise.com;991943124
+1756656425;Mosquera Silva;1090;Mosquera Silva;Samuel Alejandro;INI2;m;daniel.merino@katulatam.com;991943124
+1756871016;Narváez Ron;1091;Narváez Ron;Julián Estuardo;INI2;m;merino_daniel1@hotmail.com;991943124
+1756690713;Ponce López;1092;Ponce López;Isaac Emilio;INI2;m;sunrisecaterincorp@yahoo.com;991943124
+1756654057;Río Valencia;1093;Río Valencia;Florencia Victoria;INI2;m;d.merino@corpsunrise.com;991943124
+1756345870;Valarezo De la Torre;1094;Valarezo De la Torre;Valentina;INI2;m;ealban@corpsunrise.com;991943124
+1756595672;Vintimilla Zumárraga;1095;Vintimilla Zumárraga;Agustín;INI2;m;daniel.merino@katulatam.com;991943124
+1756266951;Barona Espinosa;1096;Barona Espinosa;Ana Sofía;INI2;m;merino_daniel1@hotmail.com;991943124
+1756902423;Bedón Latacunga;1097;Bedón Latacunga;Gabriel Nicolás;INI2;m;sunrisecaterincorp@yahoo.com;991943124
+1756309405;Carpio Rovalino;1098;Carpio Rovalino;Isabel Tatiana;INI2;m;d.merino@corpsunrise.com;991943124
+1756503577;Cayo Villegas;1099;Cayo Villegas;Judy Patricia;INI2;m;ealban@corpsunrise.com;991943124
+1756948335;Chiriboga Zambrano;1100;Chiriboga Zambrano;Maya;INI2;m;daniel.merino@katulatam.com;991943124
+511287299;Craven;1101;Craven;Wilfred Vytautas;INI2;m;merino_daniel1@hotmail.com;991943124
+1756658413;García Viteri;1102;García Viteri;Benjamín Fernando;INI2;m;sunrisecaterincorp@yahoo.com;991943124
+1756928790;Intriago Peña;1103;Intriago Peña;Martina Cecilia;INI2;m;d.merino@corpsunrise.com;991943124
+1756924997;Játiva Mayorga;1104;Játiva Mayorga;Danna Isabella;INI2;m;ealban@corpsunrise.com;991943124
+1756889190;Katz Pontón;1105;Katz Pontón;Caleb;INI2;m;daniel.merino@katulatam.com;991943124
+1756828610;Lombeida Manjarrez;1106;Lombeida Manjarrez;Emiliana Rafaela;INI2;m;merino_daniel1@hotmail.com;991943124
+1756866016;Martínez Vera;1107;Martínez Vera;Melanie Claudia;INI2;m;sunrisecaterincorp@yahoo.com;991943124
+1756648117;Matovelle Mantilla;1108;Matovelle Mantilla;Valentín Javier;INI2;m;d.merino@corpsunrise.com;991943124
+1757348477;Páez Riofrío;1109;Páez Riofrío;Lucas Francisco;INI2;m;ealban@corpsunrise.com;991943124
+1756974885;Peñaherrera Silva;1110;Peñaherrera Silva;José Ignacio;INI2;m;daniel.merino@katulatam.com;991943124
+1756258396;Prado Dávalos;1111;Prado Dávalos;Julio Joaquín;INI2;m;merino_daniel1@hotmail.com;991943124
+1756575393;Proaño Robles;1112;Proaño Robles;Alejandra Mikaela;INI2;m;sunrisecaterincorp@yahoo.com;991943124
+1756967715;Rosero Echeverría;1113;Rosero Echeverría;José Ignacio;INI2;m;d.merino@corpsunrise.com;991943124
+1756617001;Silva Naranjo;1114;Silva Naranjo;Luciana;INI2;m;ealban@corpsunrise.com;991943124
+1756914527;Teca Suárez;1115;Teca Suárez;Sebastián Alejandro;INI2;m;daniel.merino@katulatam.com;991943124
+1756496525;Vásconez Petruska;1116;Vásconez Petruska;Nicolás;INI2;m;merino_daniel1@hotmail.com;991943124
+1755511381;Vinueza Basantes;1117;Vinueza Basantes;Martina Guadalupe;INI2;m;sunrisecaterincorp@yahoo.com;991943124
+1754636064;Almeida Lombeyda;1118;Almeida Lombeyda;Lucas;EGB1;m;d.merino@corpsunrise.com;991943124
+1752502110;Calispa Pazmiño;1119;Calispa Pazmiño;Juan Alberto;EGB1;m;ealban@corpsunrise.com;991943124
+1755207683;Calvi Parisetti Suárez;1120;Calvi Parisetti Suárez;Tiago;EGB1;m;daniel.merino@katulatam.com;991943124
+1754635165;Dávila Yépez;1121;Dávila Yépez;Emmanuel Antonio;EGB1;m;merino_daniel1@hotmail.com;991943124
+1754989034;Flores Benavides;1122;Flores Benavides;Sofía Anahí;EGB1;m;sunrisecaterincorp@yahoo.com;991943124
+1755842232;Guzmán Armendaris;1123;Guzmán Armendaris;Sara;EGB1;m;d.merino@corpsunrise.com;991943124
+1755743547;Jalkh Roldán;1124;Jalkh Roldán;Elías David;EGB1;m;ealban@corpsunrise.com;991943124
+1756370308;Jaramillo Merizalde;1125;Jaramillo Merizalde;Micaela Francisca;EGB1;m;daniel.merino@katulatam.com;991943124
+1754717971;Moreno Donoso;1126;Moreno Donoso;Lucas;EGB1;m;merino_daniel1@hotmail.com;991943124
+1755417829;Naranjo Llerena;1127;Naranjo Llerena;Alegría;EGB1;m;sunrisecaterincorp@yahoo.com;991943124
+1754757852;Pachano Ruiz;1128;Pachano Ruiz;Alegría;EGB1;m;d.merino@corpsunrise.com;991943124
+1755973540;Páez Salazar;1129;Páez Salazar;Sofía;EGB1;m;ealban@corpsunrise.com;991943124
+1755225859;Prado Villacís;1130;Prado Villacís;Alejandra Isabel;EGB1;m;daniel.merino@katulatam.com;991943124
+1755347950;Salcedo Vásquez;1131;Salcedo Vásquez;Emma Sophia;EGB1;m;merino_daniel1@hotmail.com;991943124
+1755320643;Salvador Jaramillo;1132;Salvador Jaramillo;Olivia;EGB1;m;sunrisecaterincorp@yahoo.com;991943124
+1755406020;Serrano Daza;1133;Serrano Daza;María Paz;EGB1;m;d.merino@corpsunrise.com;991943124
+1755198866;Varhola Caballero;1134;Varhola Caballero;Tomás Agustín;EGB1;m;ealban@corpsunrise.com;991943124
+103289146;Vassallo Rodríguez;1135;Vassallo Rodríguez;Alessia;EGB1;m;daniel.merino@katulatam.com;991943124
+1754647210;Veintimilla Silva;1136;Veintimilla Silva;Felipe Rafael;EGB1;m;merino_daniel1@hotmail.com;991943124
+1754187712;Carpio Rovalino;1137;Carpio Rovalino;Patricio Alejandro;EGB1;m;sunrisecaterincorp@yahoo.com;991943124
+1754702684;Cervantes Carrillo;1138;Cervantes Carrillo;Joaquín Alejandro;EGB1;m;d.merino@corpsunrise.com;991943124
+1756407860;Del Pozo Noboa;1139;Del Pozo Noboa;Marco Adrián;EGB1;m;ealban@corpsunrise.com;991943124
+1755485164;Franco Bossano;1140;Franco Bossano;Julián Homero;EGB1;m;daniel.merino@katulatam.com;991943124
+1755617048;Guerra Bermeo;1141;Guerra Bermeo;Violeta;EGB1;m;merino_daniel1@hotmail.com;991943124
+1754639233;Guerrero Mora;1142;Guerrero Mora;Alejandro Agustín;EGB1;m;sunrisecaterincorp@yahoo.com;991943124
+1755755426;Meza Ortega;1143;Meza Ortega;María Paz;EGB1;m;d.merino@corpsunrise.com;991943124
+1755336219;Morales Salguero;1144;Morales Salguero;Ana Carolina;EGB1;m;ealban@corpsunrise.com;991943124
+1754305751;Paredes Marín;1145;Paredes Marín;Luana Isabela;EGB1;m;daniel.merino@katulatam.com;991943124
+1755531785;Paredes Terán;1146;Paredes Terán;Julián Felipe;EGB1;m;merino_daniel1@hotmail.com;991943124
+1754511309;Pazmiño Angulo;1147;Pazmiño Angulo;Pedro José;EGB1;m;sunrisecaterincorp@yahoo.com;991943124
+1755606660;Peralta Parra;1148;Peralta Parra;Francesca de los Angeles;EGB1;m;d.merino@corpsunrise.com;991943124
+642400728;Power Falbo;1149;Power Falbo;Liliana Bridget;EGB1;m;ealban@corpsunrise.com;991943124
+1755025374;Rodríguez Benavides;1150;Rodríguez Benavides;Giuliana Rafaela;EGB1;m;daniel.merino@katulatam.com;991943124
+1755348032;Salcedo Vásquez;1151;Salcedo Vásquez;Fitha Emilia;EGB1;m;merino_daniel1@hotmail.com;991943124
+1754416871;Saltos Salazar;1152;Saltos Salazar;Aliah Victoria;EGB1;m;sunrisecaterincorp@yahoo.com;991943124
+1755915152;Terán Aguinaga;1153;Terán Aguinaga;Sara;EGB1;m;d.merino@corpsunrise.com;991943124
+1755881537;Vaca López;1154;Vaca López;César Joaquín;EGB1;m;ealban@corpsunrise.com;991943124
+1755919147;Vásquez Varela;1155;Vásquez Varela;Luciana Belén;EGB1;m;daniel.merino@katulatam.com;991943124
+1754894515;Vázquez Mora;1156;Vázquez Mora;Rafaella Fernanda;EGB1;m;merino_daniel1@hotmail.com;991943124
+1756412225;Videla Pérez;1157;Videla Pérez;Triana Sofía;EGB1;m;sunrisecaterincorp@yahoo.com;991943124
+1754761656;Atiaga Barragán;1158;Atiaga Barragán;Rebeca Isabel;EGB1;m;d.merino@corpsunrise.com;991943124
+1754772018;Ballagan Torres;1159;Ballagan Torres;Lennel Abraham;EGB1;m;ealban@corpsunrise.com;991943124
+1754298204;Barriga Cathcart;1160;Barriga Cathcart;José Enrique;EGB1;m;daniel.merino@katulatam.com;991943124
+1755889761;Cazar Costa;1161;Cazar Costa;Ariana Carolina;EGB1;m;merino_daniel1@hotmail.com;991943124
+1754688727;Cevallos Berrazueta;1162;Cevallos Berrazueta;Luciana;EGB1;m;sunrisecaterincorp@yahoo.com;991943124
+1728362201;Cobo Encalada;1163;Cobo Encalada;Rafaela Thais;EGB1;m;d.merino@corpsunrise.com;991943124
+3050275563;Cruz La Motta;1164;Cruz La Motta;Carlos Alejandro;EGB1;m;ealban@corpsunrise.com;991943124
+1755284005;Del Posso Cevallos;1165;Del Posso Cevallos;Rafaella Belén;EGB1;m;daniel.merino@katulatam.com;991943124
+1755415070;Galvez Orbe;1166;Galvez Orbe;Joaquin Nicolás;EGB1;m;merino_daniel1@hotmail.com;991943124
+1756258651;Gordillo Flores;1167;Gordillo Flores;Ricardo José;EGB1;m;sunrisecaterincorp@yahoo.com;991943124
+1756327225;Guerra Mieles;1168;Guerra Mieles;Franklin Joshua;EGB1;m;d.merino@corpsunrise.com;991943124
+1754911707;Guilcapi Lien;1169;Guilcapi Lien;Milena Wantshu;EGB1;m;ealban@corpsunrise.com;991943124
+1755165279;Guzmán Rivadeneira;1170;Guzmán Rivadeneira;Emilio José;EGB1;m;daniel.merino@katulatam.com;991943124
+1755339999;Hidalgo Cárdenas;1171;Hidalgo Cárdenas;Julián Camilo;EGB1;m;merino_daniel1@hotmail.com;991943124
+1754801171;León Bravo;1172;León Bravo;Emilia Alejandra;EGB1;m;sunrisecaterincorp@yahoo.com;991943124
+1755969225;Muñoz Moncayo;1173;Muñoz Moncayo;Mateo Nicolás;EGB1;m;d.merino@corpsunrise.com;991943124
+1754614723;Sacoto-Arias Arboleda;1174;Sacoto-Arias Arboleda;Dante;EGB1;m;ealban@corpsunrise.com;991943124
+1755599683;Troya Donoso;1175;Troya Donoso;Luciana;EGB1;m;daniel.merino@katulatam.com;991943124
+1755758164;Vaca Escobar;1176;Vaca Escobar;María Paz;EGB1;m;merino_daniel1@hotmail.com;991943124
+1757082159;Vejar Salazar;1177;Vejar Salazar;Xavier Sebastián;EGB1;m;sunrisecaterincorp@yahoo.com;991943124
+1755211552;Villavicencio Almeida;1178;Villavicencio Almeida;Renata;EGB1;m;d.merino@corpsunrise.com;991943124
+1753982196;Calles Borja;1179;Calles Borja;Paula Sofía;EGB2;m;ealban@corpsunrise.com;991943124
+1727879668;Cevallos Alprecht;1180;Cevallos Alprecht;Isaac;EGB2;m;daniel.merino@katulatam.com;991943124
+1754979316;Cortázar Salas;1181;Cortázar Salas;José Luis;EGB2;m;merino_daniel1@hotmail.com;991943124
+1753368826;Cortez Ruales;1182;Cortez Ruales;Sofía Eduarda;EGB2;m;sunrisecaterincorp@yahoo.com;991943124
+1753161197;Game Pallares;1183;Game Pallares;Lucas Alberto;EGB2;m;d.merino@corpsunrise.com;991943124
+1753984374;Guerra Tufiño;1184;Guerra Tufiño;Luciana Sofía;EGB2;m;ealban@corpsunrise.com;991943124
+1728230135;Jácome Maldonado;1185;Jácome Maldonado;Olivia;EGB2;m;daniel.merino@katulatam.com;991943124
+1728188341;Marcillo Yamunaqué;1186;Marcillo Yamunaqué;Paula Sofía;EGB2;m;merino_daniel1@hotmail.com;991943124
+1752936227;Miranda Bucheli;1187;Miranda Bucheli;Joaquín Emilio;EGB2;m;sunrisecaterincorp@yahoo.com;991943124
+1754666053;Moya Villacreses;1188;Moya Villacreses;Ignacio José;EGB2;m;d.merino@corpsunrise.com;991943124
+1754135232;Parra Flores;1189;Parra Flores;Victoria Sofía;EGB2;m;ealban@corpsunrise.com;991943124
+1754041752;Pazmiño de Vries;1190;Pazmiño de Vries;Matilda Isabela;EGB2;m;daniel.merino@katulatam.com;991943124
+1754586871;Porras Chiriboga;1191;Porras Chiriboga;Tomás Emilio;EGB2;m;merino_daniel1@hotmail.com;991943124
+1728103258;Portilla Lafargue;1192;Portilla Lafargue;Elías Sebastián;EGB2;m;sunrisecaterincorp@yahoo.com;991943124
+1728232271;Prado Dávalos;1193;Prado Dávalos;Samantha;EGB2;m;d.merino@corpsunrise.com;991943124
+1753328333;Ramírez Suárez;1194;Ramírez Suárez;Christina Karolina;EGB2;m;ealban@corpsunrise.com;991943124
+1753228962;Rosero Recalde;1195;Rosero Recalde;Manuela;EGB2;m;daniel.merino@katulatam.com;991943124
+1728187921;Sempértegui Landázuri;1196;Sempértegui Landázuri;Amalia;EGB2;m;merino_daniel1@hotmail.com;991943124
+1728112366;Vela Brito;1197;Vela Brito;Bruno Emilio;EGB2;m;sunrisecaterincorp@yahoo.com;991943124
+1754183554;Videla Pérez;1198;Videla Pérez;Thiago Gael;EGB2;m;d.merino@corpsunrise.com;991943124
+1753685484;Aguirre Cuesta;1199;Aguirre Cuesta;Mikela Luciana;EGB2;m;ealban@corpsunrise.com;991943124
+3050125610;Beltrán Dávalos;1200;Beltrán Dávalos;Luciana Alegría;EGB2;m;daniel.merino@katulatam.com;991943124
+1728058700;Caicedo Monsalve;1201;Caicedo Monsalve;Jeremías;EGB2;m;merino_daniel1@hotmail.com;991943124
+1728287812;Caicedo Recalde;1202;Caicedo Recalde;Analía;EGB2;m;sunrisecaterincorp@yahoo.com;991943124
+1754081238;Cárdenas Jara;1203;Cárdenas Jara;Amelia Victoria;EGB2;m;d.merino@corpsunrise.com;991943124
+1728096965;Cerezo Sandoval;1204;Cerezo Sandoval;Ana Victoria;EGB2;m;ealban@corpsunrise.com;991943124
+1756073894;Cevallos Muñoz;1205;Cevallos Muñoz;María Fabiana;EGB2;m;daniel.merino@katulatam.com;991943124
+1754041513;De la Torre del Hierro;1206;De la Torre del Hierro;Isabella;EGB2;m;merino_daniel1@hotmail.com;991943124
+1728188838;Del Castillo Hidalgo;1207;Del Castillo Hidalgo;Emma María;EGB2;m;sunrisecaterincorp@yahoo.com;991943124
+1753180957;López Contreras;1208;López Contreras;Tomás Andrés;EGB2;m;d.merino@corpsunrise.com;991943124
+1754417507;Moreno Piedra;1209;Moreno Piedra;Emilio Alejandro;EGB2;m;ealban@corpsunrise.com;991943124
+1754520516;Núñez Núñez;1210;Núñez Núñez;Giulianna Isabella;EGB2;m;daniel.merino@katulatam.com;991943124
+1754164802;Páez Salgado;1211;Páez Salgado;María Paula;EGB2;m;merino_daniel1@hotmail.com;991943124
+1728019934;Rodas Marroquín;1212;Rodas Marroquín;Leonardo Alberto;EGB2;m;sunrisecaterincorp@yahoo.com;991943124
+1753869393;Romero Salvatierra;1213;Romero Salvatierra;Javier Nicolás;EGB2;m;d.merino@corpsunrise.com;991943124
+1753843166;Santander Armas;1214;Santander Armas;Juan Ignacio;EGB2;m;ealban@corpsunrise.com;991943124
+1753399540;Torres Buenaño;1215;Torres Buenaño;Ricardo;EGB2;m;daniel.merino@katulatam.com;991943124
+YB0075401;Vassallo Rodríguez;1216;Vassallo Rodríguez;Leonardo;EGB2;m;merino_daniel1@hotmail.com;991943124
+1755918602;Yépez Vicuña;1217;Yépez Vicuña;Juan Elías;EGB2;m;sunrisecaterincorp@yahoo.com;991943124
+1754999454;Yin Lin;1218;Yin Lin;Franklin Ryan;EGB2;m;d.merino@corpsunrise.com;991943124
+1753576519;Carrero González;1219;Carrero González;Ignacio José;EGB2;m;ealban@corpsunrise.com;991943124
+1753613080;Chiriboga Zambrano;1220;Chiriboga Zambrano;José Xavier;EGB2;m;daniel.merino@katulatam.com;991943124
+1753209665;de Yeregui Nacud;1221;de Yeregui Nacud;Julen Andrés;EGB2;m;merino_daniel1@hotmail.com;991943124
+1754544979;Ferri Moncayo;1222;Ferri Moncayo;Samuel Antonio;EGB2;m;sunrisecaterincorp@yahoo.com;991943124
+1753770310;Garzón Dominichini;1223;Garzón Dominichini;Nicolás;EGB2;m;d.merino@corpsunrise.com;991943124
+1753421377;Izurieta Mera;1224;Izurieta Mera;Emilio;EGB2;m;ealban@corpsunrise.com;991943124
+1728248830;Martinez Vera;1225;Martinez Vera;Nicole Jacqueline;EGB2;m;daniel.merino@katulatam.com;991943124
+1753421336;Montufar Cevallos;1226;Montufar Cevallos;Lucía;EGB2;m;merino_daniel1@hotmail.com;991943124
+549991483;Power Falbo;1227;Power Falbo;Ezra Martín;EGB2;m;sunrisecaterincorp@yahoo.com;991943124
+20708.2019;Ramos Welz;1228;Ramos Welz;Alexandra;EGB2;m;d.merino@corpsunrise.com;991943124
+1754608543;Recalde Reascos;1229;Recalde Reascos;Mae;EGB2;m;ealban@corpsunrise.com;991943124
+1728019942;Rodas Marroquín;1230;Rodas Marroquín;Dana Micaela;EGB2;m;daniel.merino@katulatam.com;991943124
+1753316973;Rojas Montalvo;1231;Rojas Montalvo;Rafaella;EGB2;m;merino_daniel1@hotmail.com;991943124
+1754404711;Romo Villafuerte;1232;Romo Villafuerte;Luciana Emilia;EGB2;m;sunrisecaterincorp@yahoo.com;991943124
+1753360096;Soria Pardo;1233;Soria Pardo;Adrián Nicolás;EGB2;m;d.merino@corpsunrise.com;991943124
+1754356796;Sosa López;1234;Sosa López;Ignacio José;EGB2;m;ealban@corpsunrise.com;991943124
+1753403052;Torres López;1235;Torres López;Andrés Sebastián;EGB2;m;daniel.merino@katulatam.com;991943124
+1727997700;Torres Rodríguez;1236;Torres Rodríguez;Hugo Nicolás;EGB2;m;merino_daniel1@hotmail.com;991943124
+1754340907;Vega Ávila;1237;Vega Ávila;Fiorella;EGB2;m;sunrisecaterincorp@yahoo.com;991943124
+1753514072;Zapata González;1238;Zapata González;Camila Salomé;EGB2;m;d.merino@corpsunrise.com;991943124
+1757250087;Aguilar Calaña;1239;Aguilar Calaña;Lía;EGB3;m;ealban@corpsunrise.com;991943124
+1752059426;Aguinaga Rodríguez;1240;Aguinaga Rodríguez;José Julián;EGB3;m;daniel.merino@katulatam.com;991943124
+1752638955;Bahamonde Molina;1241;Bahamonde Molina;Romina Daniela;EGB3;m;merino_daniel1@hotmail.com;991943124
+1751960871;Carrion Chérrez;1242;Carrion Chérrez;Jorge Emilio;EGB3;m;sunrisecaterincorp@yahoo.com;991943124
+3050156540;Cruz La Motta;1243;Cruz La Motta;Savannah;EGB3;m;d.merino@corpsunrise.com;991943124
+1728817923;Espín Guerra;1244;Espín Guerra;Tomás;EGB3;m;ealban@corpsunrise.com;991943124
+1753072634;Fonseca Dávila;1245;Fonseca Dávila;Amelia;EGB3;m;daniel.merino@katulatam.com;991943124
+1752755601;Meza Vicuña;1246;Meza Vicuña;Juan David;EGB3;m;merino_daniel1@hotmail.com;991943124
+1728008432;Mosquera Silva;1247;Mosquera Silva;Isaac Andrés;EGB3;m;sunrisecaterincorp@yahoo.com;991943124
+1728628809;Moya Carvajal;1248;Moya Carvajal;Pablo Joaquín;EGB3;m;d.merino@corpsunrise.com;991943124
+1753037926;Moya Ramírez;1249;Moya Ramírez;Agustina Alejandra;EGB3;m;ealban@corpsunrise.com;991943124
+1753240652;Pino Jurado;1250;Pino Jurado;Sophia Valentina;EGB3;m;daniel.merino@katulatam.com;991943124
+1752269371;Proaño Robles;1251;Proaño Robles;Camilo José;EGB3;m;merino_daniel1@hotmail.com;991943124
+1727840488;Robelly Miranda;1252;Robelly Miranda;Mia Sofía;EGB3;m;sunrisecaterincorp@yahoo.com;991943124
+1727998351;Rosas Arroyo;1253;Rosas Arroyo;Nina Ivonne;EGB3;m;d.merino@corpsunrise.com;991943124
+1752989796;Santoro Cevallos;1254;Santoro Cevallos;Amelia;EGB3;m;ealban@corpsunrise.com;991943124
+1752575769;Terán Gómez;1255;Terán Gómez;Agustín;EGB3;m;daniel.merino@katulatam.com;991943124
+1752887875;Vaca Escobar;1256;Vaca Escobar;Miguel Angel;EGB3;m;merino_daniel1@hotmail.com;991943124
+1727914119;Vega Rekalde;1257;Vega Rekalde;Sebastián;EGB3;m;sunrisecaterincorp@yahoo.com;991943124
+1753055654;Wagner Robalino;1258;Wagner Robalino;Joaquín Andrés;EGB3;m;d.merino@corpsunrise.com;991943124
+0932266471;Arcos Villacís;1259;Arcos Villacís;Rafaela;EGB3;m;ealban@corpsunrise.com;991943124
+1727998435;Bowen Salazar;1260;Bowen Salazar;Giuliana Daniela;EGB3;m;daniel.merino@katulatam.com;991943124
+1728058213;Cobo Valdez;1261;Cobo Valdez;Casiana;EGB3;m;merino_daniel1@hotmail.com;991943124
+1751992130;Gil Estrella;1262;Gil Estrella;Diego Felipe;EGB3;m;sunrisecaterincorp@yahoo.com;991943124
+1751962091;Guzmán Rivadeneira;1263;Guzmán Rivadeneira;Agustín Eduardo;EGB3;m;d.merino@corpsunrise.com;991943124
+1727997213;Hidalgo Cárdenas;1264;Hidalgo Cárdenas;Mateo Nicolás;EGB3;m;ealban@corpsunrise.com;991943124
+1727890145;Hidalgo Guerra;1265;Hidalgo Guerra;Luis Antonio;EGB3;m;daniel.merino@katulatam.com;991943124
+1752385409;Ivanov Endara;1266;Ivanov Endara;Sofía Slavcheva;EGB3;m;merino_daniel1@hotmail.com;991943124
+1752535284;Peñafiel Changuín;1267;Peñafiel Changuín;Amelia Daniela;EGB3;m;sunrisecaterincorp@yahoo.com;991943124
+1752176550;Raza Cuadros;1268;Raza Cuadros;Juan Diego;EGB3;m;d.merino@corpsunrise.com;991943124
+1751697127;Salvador Jaramillo;1269;Salvador Jaramillo;Valentina Andrea;EGB3;m;ealban@corpsunrise.com;991943124
+1753147550;Valencia Placencia;1270;Valencia Placencia;Javier Rafael;EGB3;m;daniel.merino@katulatam.com;991943124
+1752697886;Vallejo Sánchez;1271;Vallejo Sánchez;Matías;EGB3;m;merino_daniel1@hotmail.com;991943124
+1727913012;Vásquez Pino;1272;Vásquez Pino;Juan Martín;EGB3;m;sunrisecaterincorp@yahoo.com;991943124
+1727914101;Vega Rekalde;1273;Vega Rekalde;Amanda;EGB3;m;d.merino@corpsunrise.com;991943124
+1752077774;Vela Rodríguez;1274;Vela Rodríguez;Natalia Valentina;EGB3;m;ealban@corpsunrise.com;991943124
+1752902054;Vivar Carrillo;1275;Vivar Carrillo;Joaquín Gabriel;EGB3;m;daniel.merino@katulatam.com;991943124
+1752688554;Buendía Jara;1276;Buendía Jara;Nicolás Alberto;EGB3;m;merino_daniel1@hotmail.com;991943124
+1751978303;Gálvez Solórzano;1277;Gálvez Solórzano;Martín Esteban;EGB3;m;sunrisecaterincorp@yahoo.com;991943124
+1752475283;Granja Sosa;1278;Granja Sosa;Francisco Javier;EGB3;m;d.merino@corpsunrise.com;991943124
+1752932598;Heredia Vargas;1279;Heredia Vargas;Elisa Rebeca;EGB3;m;ealban@corpsunrise.com;991943124
+1751960988;Lombeida Manjarrez;1280;Lombeida Manjarrez;María Fiorella;EGB3;m;daniel.merino@katulatam.com;991943124
+1753065125;Mancheno Jurado;1281;Mancheno Jurado;María Clara;EGB3;m;merino_daniel1@hotmail.com;991943124
+1727840330;Naranjo Llerena;1282;Naranjo Llerena;Julieta;EGB3;m;sunrisecaterincorp@yahoo.com;991943124
+1752739928;Palacio Luján;1283;Palacio Luján;Juan Diego;EGB3;m;d.merino@corpsunrise.com;991943124
+1351088727;Pinto Benavides;1284;Pinto Benavides;Sebastián Antonio;EGB3;m;ealban@corpsunrise.com;991943124
+1752567154;Ruiz Pazmiño;1285;Ruiz Pazmiño;Macarena;EGB3;m;daniel.merino@katulatam.com;991943124
+1753300548;Suárez Jarrín;1286;Suárez Jarrín;Alejandro;EGB3;m;merino_daniel1@hotmail.com;991943124
+1752842326;Teca Suárez;1287;Teca Suárez;Isabella Dominique;EGB3;m;sunrisecaterincorp@yahoo.com;991943124
+1754819330;Torres Reyes;1288;Torres Reyes;José Miguel;EGB3;m;d.merino@corpsunrise.com;991943124
+1752808020;Valencia Sancho;1289;Valencia Sancho;Sofía Alejandra;EGB3;m;ealban@corpsunrise.com;991943124
+1752697811;Vallejo Sánchez;1290;Vallejo Sánchez;Sara;EGB3;m;daniel.merino@katulatam.com;991943124
+1752350965;Vasco Calle;1291;Vasco Calle;Jemima Daniela;EGB3;m;merino_daniel1@hotmail.com;991943124
+1727913020;Vásquez Pino;1292;Vásquez Pino;Pedro José;EGB3;m;sunrisecaterincorp@yahoo.com;991943124
+1754052445;Vázquez Mora;1293;Vázquez Mora;Fernando Joaquín;EGB3;m;d.merino@corpsunrise.com;991943124
+1751654961;Andrade Hidalgo;1294;Andrade Hidalgo;Emiliano;EGB4;m;ealban@corpsunrise.com;991943124
+1753537180;Barahona Duque;1295;Barahona Duque;María Alejandra;EGB4;m;daniel.merino@katulatam.com;991943124
+1750784967;Bastidas Cando;1296;Bastidas Cando;Samantha Emilia;EGB4;m;merino_daniel1@hotmail.com;991943124
+1751098508;Cabrera Espinoza;1297;Cabrera Espinoza;Mía Fiorela;EGB4;m;sunrisecaterincorp@yahoo.com;991943124
+1751256486;Canelos Crespo;1298;Canelos Crespo;Juan Martín;EGB4;m;d.merino@corpsunrise.com;991943124
+1751919984;Donoso Carvajal;1299;Donoso Carvajal;Belén Sofía;EGB4;m;ealban@corpsunrise.com;991943124
+0931657290;Dunn Peña;1300;Dunn Peña;Daniel Eduardo;EGB4;m;daniel.merino@katulatam.com;991943124
+1751369800;Guzmán Ochsner;1301;Guzmán Ochsner;Amelié Aline;EGB4;m;merino_daniel1@hotmail.com;991943124
+1751274281;Herrera Carrillo;1302;Herrera Carrillo;Agustín Andrés;EGB4;m;sunrisecaterincorp@yahoo.com;991943124
+1751079060;Katz Pontón;1303;Katz Pontón;Itzhak;EGB4;m;d.merino@corpsunrise.com;991943124
+1751345685;Larco Ramos;1304;Larco Ramos;Isabella;EGB4;m;ealban@corpsunrise.com;991943124
+1750956417;Luzuriaga Castro;1305;Luzuriaga Castro;Alejandro;EGB4;m;daniel.merino@katulatam.com;991943124
+1728744598;Merlo Puyol;1306;Merlo Puyol;Micaela Valentina;EGB4;m;merino_daniel1@hotmail.com;991943124
+1750711770;Mujica Belalcázar;1307;Mujica Belalcázar;Emilio Josué;EGB4;m;sunrisecaterincorp@yahoo.com;991943124
+1753189719;Rueda Urresta;1308;Rueda Urresta;Tiana Mikaela;EGB4;m;d.merino@corpsunrise.com;991943124
+1750822288;Sáenz Maldonado;1309;Sáenz Maldonado;Juliana;EGB4;m;ealban@corpsunrise.com;991943124
+1752081339;Sáenz Zevallos;1310;Sáenz Zevallos;Julia;EGB4;m;daniel.merino@katulatam.com;991943124
+0150049740;Segovia Maldonado;1311;Segovia Maldonado;Nicolás Alejandro;EGB4;m;merino_daniel1@hotmail.com;991943124
+1751837301;Tobar Ayala;1312;Tobar Ayala;José Martín;EGB4;m;sunrisecaterincorp@yahoo.com;991943124
+1750756858;Troya Donoso;1313;Troya Donoso;Julián;EGB4;m;d.merino@corpsunrise.com;991943124
+1751029628;Valarezo Romo;1314;Valarezo Romo;Miranda Gabriela;EGB4;m;ealban@corpsunrise.com;991943124
+1750978791;Varhola Caballero;1315;Varhola Caballero;Anahí;EGB4;m;daniel.merino@katulatam.com;991943124
+1751078823;Andrade Calderón;1316;Andrade Calderón;Melissa;EGB4;m;merino_daniel1@hotmail.com;991943124
+1757873201;Arcia Valecillos;1317;Arcia Valecillos;Aymara Victoria;EGB4;m;sunrisecaterincorp@yahoo.com;991943124
+1750681569;Burneo Cordero;1318;Burneo Cordero;Joaquín;EGB4;m;d.merino@corpsunrise.com;991943124
+1750848101;Chamorro Regalado;1319;Chamorro Regalado;Samuel Alejandro;EGB4;m;ealban@corpsunrise.com;991943124
+1753993987;Del Salto Guerra;1320;Del Salto Guerra;Rodrigo;EGB4;m;daniel.merino@katulatam.com;991943124
+1750853382;Isch Pereira;1321;Isch Pereira;Fabián Estéfano;EGB4;m;merino_daniel1@hotmail.com;991943124
+1751345743;Larco Ramos;1322;Larco Ramos;Sarah;EGB4;m;sunrisecaterincorp@yahoo.com;991943124
+3050232218;Meythaler Chávez;1323;Meythaler Chávez;Kate Isabella;EGB4;m;d.merino@corpsunrise.com;991943124
+1751375856;Naranjo Ramia;1324;Naranjo Ramia;María Sofía;EGB4;m;ealban@corpsunrise.com;991943124
+1750708446;Orellana Muñoz;1325;Orellana Muñoz;Juan Diego;EGB4;m;daniel.merino@katulatam.com;991943124
+1750766972;Páez Salazar;1326;Páez Salazar;Samuel;EGB4;m;merino_daniel1@hotmail.com;991943124
+1750681791;Pástor Córdova;1327;Pástor Córdova;Rafaela;EGB4;m;sunrisecaterincorp@yahoo.com;991943124
+1750819821;Ramírez Ramón;1328;Ramírez Ramón;Mario Alejandro;EGB4;m;d.merino@corpsunrise.com;991943124
+1751347558;Romo Saá;1329;Romo Saá;Isabela;EGB4;m;ealban@corpsunrise.com;991943124
+1750094441;Rubio Ulloa;1330;Rubio Ulloa;Juan Pedro;EGB4;m;daniel.merino@katulatam.com;991943124
+1752177582;Sandoval Aldeán;1331;Sandoval Aldeán;José Ignacio;EGB4;m;merino_daniel1@hotmail.com;991943124
+1751105915;Suárez Salazar;1332;Suárez Salazar;Juan Ignacio;EGB4;m;sunrisecaterincorp@yahoo.com;991943124
+1751257856;Torres López;1333;Torres López;Christian Santiago;EGB4;m;d.merino@corpsunrise.com;991943124
+1750766071;Torres Sánchez;1334;Torres Sánchez;Victoria Dana;EGB4;m;ealban@corpsunrise.com;991943124
+1755442769;Vásconez Pachano;1335;Vásconez Pachano;Victoria María;EGB4;m;daniel.merino@katulatam.com;991943124
+134190334;Vásquez Martínez;1336;Vásquez Martínez;Víctor Manuel;EGB4;m;merino_daniel1@hotmail.com;991943124
+1752193001;Aguinaga Burbano de Lara;1337;Aguinaga Burbano de Lara;Antonia;EGB4;m;sunrisecaterincorp@yahoo.com;991943124
+1751953785;Álvarez Monge;1338;Álvarez Monge;Julia Renata;EGB4;m;d.merino@corpsunrise.com;991943124
+1751139245;Andino Cepeda;1339;Andino Cepeda;Paula Antonella;EGB4;m;ealban@corpsunrise.com;991943124
+1751915412;Beltrán Dávalos;1340;Beltrán Dávalos;Arielle Elisa;EGB4;m;daniel.merino@katulatam.com;991943124
+1751317130;Carrero González;1341;Carrero González;Joaquín Felipe;EGB4;m;merino_daniel1@hotmail.com;991943124
+1750844837;Espín Torres;1342;Espín Torres;Ariana Rafaela;EGB4;m;sunrisecaterincorp@yahoo.com;991943124
+1752893295;Flores Játiva;1343;Flores Játiva;Lucía Alejandra;EGB4;m;d.merino@corpsunrise.com;991943124
+1751595248;Fontaine Calderón;1344;Fontaine Calderón;Nathan René;EGB4;m;ealban@corpsunrise.com;991943124
+1751323120;Guerra Soria;1345;Guerra Soria;Sofía Sara;EGB4;m;daniel.merino@katulatam.com;991943124
+1750797951;Guerra Tufiño;1346;Guerra Tufiño;Samantha Francesca;EGB4;m;merino_daniel1@hotmail.com;991943124
+1751806728;Herrera López;1347;Herrera López;Elena Marié;EGB4;m;sunrisecaterincorp@yahoo.com;991943124
+1750997601;Intriago Peña;1348;Intriago Peña;Christian Alberto;EGB4;m;d.merino@corpsunrise.com;991943124
+1752059756;León Larrea;1349;León Larrea;María Victoria;EGB4;m;ealban@corpsunrise.com;991943124
+1751112069;Moreno Andrade;1350;Moreno Andrade;Juan José;EGB4;m;daniel.merino@katulatam.com;991943124
+1751947506;Ochoa Guerra;1351;Ochoa Guerra;Susana Martina;EGB4;m;merino_daniel1@hotmail.com;991943124
+1751038686;Paladines Cordero;1352;Paladines Cordero;Pedro José;EGB4;m;sunrisecaterincorp@yahoo.com;991943124
+1750550319;Salem Dávalos;1353;Salem Dávalos;Thomas Guillermo;EGB4;m;d.merino@corpsunrise.com;991943124
+1750830729;Saltos Salazar;1354;Saltos Salazar;Adrián Santiago;EGB4;m;ealban@corpsunrise.com;991943124
+1751690825;Valdivieso Díaz;1355;Valdivieso Díaz;José Andrés;EGB4;m;daniel.merino@katulatam.com;991943124
+1750965293;Villavicencio González;1356;Villavicencio González;Juan Pablo;EGB4;m;merino_daniel1@hotmail.com;991943124
+1727124545;Almeida Lombeyda;1357;Almeida Lombeyda;Esteban Martín;EGB5;m;sunrisecaterincorp@yahoo.com;991943124
+1750040626;Alvarado Guzmán;1358;Alvarado Guzmán;Luciana;EGB5;m;d.merino@corpsunrise.com;991943124
+1752133064;Burbano Osorio;1359;Burbano Osorio;María Elissa;EGB5;m;ealban@corpsunrise.com;991943124
+1750543900;Campana Espinoza;1360;Campana Espinoza;Agustín Alejandro;EGB5;m;daniel.merino@katulatam.com;991943124
+1753222726;Erazo Sandoval;1361;Erazo Sandoval;Valeska Anai;EGB5;m;merino_daniel1@hotmail.com;991943124
+1750371310;González Yánez;1362;González Yánez;Claudia Emiliana;EGB5;m;sunrisecaterincorp@yahoo.com;991943124
+1728818871;Herrera Aguilar;1363;Herrera Aguilar;Gabriel;EGB5;m;d.merino@corpsunrise.com;991943124
+1750742577;Ivanov Endara;1364;Ivanov Endara;Julián Slavchev;EGB5;m;ealban@corpsunrise.com;991943124
+1750074252;Londoño Núñez;1365;Londoño Núñez;Pedro Andrés;EGB5;m;daniel.merino@katulatam.com;991943124
+1750858654;Mancheno Jurado;1366;Mancheno Jurado;Khaled Martín;EGB5;m;merino_daniel1@hotmail.com;991943124
+1751362318;Marcos Tapia;1367;Marcos Tapia;José Oriol;EGB5;m;sunrisecaterincorp@yahoo.com;991943124
+1750008599;Muñoz Gallardo;1368;Muñoz Gallardo;Juan Sebastián;EGB5;m;d.merino@corpsunrise.com;991943124
+1752827707;Osorio Cisneros;1369;Osorio Cisneros;Sofía;EGB5;m;ealban@corpsunrise.com;991943124
+1751286178;Romero Salvatierra;1370;Romero Salvatierra;Matías Alejandro;EGB5;m;daniel.merino@katulatam.com;991943124
+1750426189;Sánchez Barragán;1371;Sánchez Barragán;Hugo Xavier;EGB5;m;merino_daniel1@hotmail.com;991943124
+1750734269;Toledo Ramón;1372;Toledo Ramón;Sara María;EGB5;m;sunrisecaterincorp@yahoo.com;991943124
+1750210641;Urresta Gallegos;1373;Urresta Gallegos;Carolina;EGB5;m;d.merino@corpsunrise.com;991943124
+1755237722;Vásconez Petruska;1374;Vásconez Petruska;Andrés Felipe;EGB5;m;ealban@corpsunrise.com;991943124
+1751897925;Velasco Serrano;1375;Velasco Serrano;Daniela Cristina;EGB5;m;daniel.merino@katulatam.com;991943124
+1750648691;Andrade Salazar;1376;Andrade Salazar;Sofia;EGB5;m;merino_daniel1@hotmail.com;991943124
+1750188474;Arteaga Ortega;1377;Arteaga Ortega;Valeria Alejandra;EGB5;m;sunrisecaterincorp@yahoo.com;991943124
+1750546655;Barriga Cathcart;1378;Barriga Cathcart;Florencia;EGB5;m;d.merino@corpsunrise.com;991943124
+1751186055;Bastidas Viteri;1379;Bastidas Viteri;Stefano Alejandro;EGB5;m;ealban@corpsunrise.com;991943124
+1751915396;Bolaños Barros;1380;Bolaños Barros;Fátima;EGB5;m;daniel.merino@katulatam.com;991943124
+1750505370;Cevallos Berrazueta;1381;Cevallos Berrazueta;Isabella;EGB5;m;merino_daniel1@hotmail.com;991943124
+1750044487;Dávila Aguirre;1382;Dávila Aguirre;Ariana Saraí;EGB5;m;sunrisecaterincorp@yahoo.com;991943124
+1727131524;Gavilanes Valdez;1383;Gavilanes Valdez;Andrea Mabel;EGB5;m;d.merino@corpsunrise.com;991943124
+1753384328;Medina Albán;1384;Medina Albán;Daniel;EGB5;m;ealban@corpsunrise.com;991943124
+1750457812;Montúfar Murgueytio;1385;Montúfar Murgueytio;Gabriel Francisco;EGB5;m;daniel.merino@katulatam.com;991943124
+1750274282;Paredes Marín;1386;Paredes Marín;Paulo Martín;EGB5;m;merino_daniel1@hotmail.com;991943124
+1750358358;Parra Andrade;1387;Parra Andrade;Martín Bladimir;EGB5;m;sunrisecaterincorp@yahoo.com;991943124
+1750765511;Parra Espinosa;1388;Parra Espinosa;Estefanía Alejandra;EGB5;m;d.merino@corpsunrise.com;991943124
+1751111491;RUEDA MOLINA;1389;RUEDA MOLINA;JUAN IGNACIO;EGB5;m;ealban@corpsunrise.com;991943124
+1754865796;Villacís Tobar;1390;Villacís Tobar;Joaquín;EGB5;m;daniel.merino@katulatam.com;991943124
+1751007939;Zurita Donoso;1391;Zurita Donoso;Sara Patricia;EGB5;m;merino_daniel1@hotmail.com;991943124
+0605944818;Abdo Valdiviezo;1392;Abdo Valdiviezo;Emilio Alfonso;EGB5;m;sunrisecaterincorp@yahoo.com;991943124
+1751855378;Arroyo Cuesta;1393;Arroyo Cuesta;Demian Patricio;EGB5;m;d.merino@corpsunrise.com;991943124
+1750559849;Barba Albornoz;1394;Barba Albornoz;Bianca;EGB5;m;ealban@corpsunrise.com;991943124
+1750294892;Beltrán Cifuentes;1395;Beltrán Cifuentes;Mila Cristina;EGB5;m;daniel.merino@katulatam.com;991943124
+1752391613;Bucheli Castelo;1396;Bucheli Castelo;María Paz;EGB5;m;merino_daniel1@hotmail.com;991943124
+1752132959;Burbano Osorio;1397;Burbano Osorio;María Paula;EGB5;m;sunrisecaterincorp@yahoo.com;991943124
+1726263765;Cajiao Vásquez;1398;Cajiao Vásquez;Juan Daniel;EGB5;m;d.merino@corpsunrise.com;991943124
+1750470054;Del Pozo Noboa;1399;Del Pozo Noboa;Luciana Antonia;EGB5;m;ealban@corpsunrise.com;991943124
+1750602185;Guzmán Armendaris;1400;Guzmán Armendaris;Lucas;EGB5;m;daniel.merino@katulatam.com;991943124
+1727173807;Monge Pástor;1401;Monge Pástor;Bruno;EGB5;m;merino_daniel1@hotmail.com;991943124
+1751915404;Pasquel Ordóñez;1402;Pasquel Ordóñez;Emilio José;EGB5;m;sunrisecaterincorp@yahoo.com;991943124
+1751111574;RUEDA MOLINA;1403;RUEDA MOLINA;JUAN SEBASTIAN;EGB5;m;d.merino@corpsunrise.com;991943124
+1750074559;Salvador Alvarado;1404;Salvador Alvarado;Alejandro Joaquín;EGB5;m;ealban@corpsunrise.com;991943124
+1750705111;Sánchez Rodríguez;1405;Sánchez Rodríguez;Isabela;EGB5;m;daniel.merino@katulatam.com;991943124
+1750123992;Sosa López;1406;Sosa López;Victoria;EGB5;m;merino_daniel1@hotmail.com;991943124
+1755993530;Torres Tapia;1407;Torres Tapia;Camila Lee Kaleikaumaka;EGB5;m;sunrisecaterincorp@yahoo.com;991943124
+1750037507;Torres Vaca;1408;Torres Vaca;Emily Valentina;EGB5;m;d.merino@corpsunrise.com;991943124
+1750768200;Vega Rekalde;1409;Vega Rekalde;Samuel;EGB5;m;ealban@corpsunrise.com;991943124
+1726696394;Aroutiounian Harutyunyan;1410;Aroutiounian Harutyunyan;Henzel;EGB6;m;daniel.merino@katulatam.com;991943124
+1752745404;Bahamonde Molina;1411;Bahamonde Molina;María Victoria;EGB6;m;merino_daniel1@hotmail.com;991943124
+1727278812;Brito Álvarez;1412;Brito Álvarez;Julián Luciano;EGB6;m;sunrisecaterincorp@yahoo.com;991943124
+1727156166;Caicedo Recalde;1413;Caicedo Recalde;Juan Francisco;EGB6;m;d.merino@corpsunrise.com;991943124
+1750011577;Couch Boada;1414;Couch Boada;Nicolás Patricio;EGB6;m;ealban@corpsunrise.com;991943124
+1727241588;Estupiñán Galindo;1415;Estupiñán Galindo;Isabella;EGB6;m;daniel.merino@katulatam.com;991943124
+1728737311;Garcés López;1416;Garcés López;María Paz;EGB6;m;merino_daniel1@hotmail.com;991943124
+1727098285;González Garrido;1417;González Garrido;Juliana María;EGB6;m;sunrisecaterincorp@yahoo.com;991943124
+1726337619;Guerra Coral;1418;Guerra Coral;Ana Paula;EGB6;m;d.merino@corpsunrise.com;991943124
+1726296948;Jáuregui Barba;1419;Jáuregui Barba;Bernardo;EGB6;m;ealban@corpsunrise.com;991943124
+1726645656;León Pazos;1420;León Pazos;Bárbara;EGB6;m;daniel.merino@katulatam.com;991943124
+1750222679;Moreno Donoso;1421;Moreno Donoso;Victoria;EGB6;m;merino_daniel1@hotmail.com;991943124
+1726865809;Ordóñez Salazar;1422;Ordóñez Salazar;Martina Gabriela;EGB6;m;sunrisecaterincorp@yahoo.com;991943124
+1750510230;Ricaurte Mc Coll;1423;Ricaurte Mc Coll;Thomás;EGB6;m;d.merino@corpsunrise.com;991943124
+1726157942;Sosa Marín;1424;Sosa Marín;Tomás Agustín;EGB6;m;ealban@corpsunrise.com;991943124
+1750703165;Sosa Rodríguez;1425;Sosa Rodríguez;Emilio David;EGB6;m;daniel.merino@katulatam.com;991943124
+0927725572;Tamayo Zea;1426;Tamayo Zea;José Luis;EGB6;m;merino_daniel1@hotmail.com;991943124
+1751837269;Tobar Ayala;1427;Tobar Ayala;Isabella Valentina;EGB6;m;sunrisecaterincorp@yahoo.com;991943124
+1751462647;Betancourt Velarde;1428;Betancourt Velarde;Juan Manuel;EGB6;m;d.merino@corpsunrise.com;991943124
+1752391738;Bucheli Castelo;1429;Bucheli Castelo;Andrés Felipe;EGB6;m;ealban@corpsunrise.com;991943124
+1751386242;Castagnoli Gordón;1430;Castagnoli Gordón;Antonella Belén;EGB6;m;daniel.merino@katulatam.com;991943124
+1758680316;Cena Armendáriz;1431;Cena Armendáriz;Pedro;EGB6;m;merino_daniel1@hotmail.com;991943124
+1751919976;Donoso Carvajal;1432;Donoso Carvajal;Martina;EGB6;m;sunrisecaterincorp@yahoo.com;991943124
+1750155499;Galarza Cornejo;1433;Galarza Cornejo;Isabella Amada;EGB6;m;d.merino@corpsunrise.com;991943124
+1727275677;González Salgado;1434;González Salgado;Sebastián;EGB6;m;ealban@corpsunrise.com;991943124
+1752781011;León Larrea;1435;León Larrea;Pedro José;EGB6;m;daniel.merino@katulatam.com;991943124
+1751915552;Mujica Belalcázar;1436;Mujica Belalcázar;Victoria Manuela;EGB6;m;merino_daniel1@hotmail.com;991943124
+1751464551;Núñez Terán;1437;Núñez Terán;Juan Diego;EGB6;m;sunrisecaterincorp@yahoo.com;991943124
+1727055285;Paredes Arellano;1438;Paredes Arellano;Juan Esteban;EGB6;m;d.merino@corpsunrise.com;991943124
+1727097378;Pasquel Ordóñez;1439;Pasquel Ordóñez;Juan Sebastián;EGB6;m;ealban@corpsunrise.com;991943124
+1750260026;Pazmiño Angulo;1440;Pazmiño Angulo;Isabella Montserrat;EGB6;m;daniel.merino@katulatam.com;991943124
+1725668097;Peñaloza Barros;1441;Peñaloza Barros;Ignacio;EGB6;m;merino_daniel1@hotmail.com;991943124
+1727446195;Perrone Charvet;1442;Perrone Charvet;José Sebastián;EGB6;m;sunrisecaterincorp@yahoo.com;991943124
+1727034314;Sempértegui Landázuri;1443;Sempértegui Landázuri;Abigail;EGB6;m;d.merino@corpsunrise.com;991943124
+1727332387;Vivanco Landázuri;1444;Vivanco Landázuri;Julián;EGB6;m;ealban@corpsunrise.com;991943124
+1750008367;Cervantes Silva;1445;Cervantes Silva;Benjamín Salvador;EGB6;m;daniel.merino@katulatam.com;991943124
+1751709971;Charpentier García;1446;Charpentier García;José Andrés;EGB6;m;merino_daniel1@hotmail.com;991943124
+1726021791;Fierro Borja;1447;Fierro Borja;Eva Jael;EGB6;m;sunrisecaterincorp@yahoo.com;991943124
+1752893089;Flores Játiva;1448;Flores Játiva;Joaquín Ignacio;EGB6;m;d.merino@corpsunrise.com;991943124
+1727147678;Gavilanes Olmedo;1449;Gavilanes Olmedo;María Pía;EGB6;m;ealban@corpsunrise.com;991943124
+1751915511;Landázuri Baquero;1450;Landázuri Baquero;Mateo Sebastián;EGB6;m;daniel.merino@katulatam.com;991943124
+1725697153;Larrea Mendoza;1451;Larrea Mendoza;Ángela Manuela;EGB6;m;merino_daniel1@hotmail.com;991943124
+1726204918;Mañay Luna;1452;Mañay Luna;Andrés Francisco;EGB6;m;sunrisecaterincorp@yahoo.com;991943124
+1726945569;Montúfar Cevallos;1453;Montúfar Cevallos;Sara;EGB6;m;d.merino@corpsunrise.com;991943124
+1751037191;Morales Santamaría;1454;Morales Santamaría;Benjamín;EGB6;m;ealban@corpsunrise.com;991943124
+1750228841;Mosquera Oquendo;1455;Mosquera Oquendo;Daniel Sebastián;EGB6;m;daniel.merino@katulatam.com;991943124
+1750432906;Naranjo Ramia;1456;Naranjo Ramia;María Del Cielo;EGB6;m;merino_daniel1@hotmail.com;991943124
+1726151077;Ottati Riofrío;1457;Ottati Riofrío;Valentina Isabel;EGB6;m;sunrisecaterincorp@yahoo.com;991943124
+1726714478;Pesántez Castillo;1458;Pesántez Castillo;Matías;EGB6;m;d.merino@corpsunrise.com;991943124
+1725693699;Rosanía Naranjo;1459;Rosanía Naranjo;Macarena;EGB6;m;ealban@corpsunrise.com;991943124
+1754321840;Terán Villamar;1460;Terán Villamar;David Sebastián;EGB6;m;daniel.merino@katulatam.com;991943124
+1726275090;Varhola Dahik;1461;Varhola Dahik;Ana Sara;EGB6;m;merino_daniel1@hotmail.com;991943124
+1726982174;Vega Ávila;1462;Vega Ávila;Doménica Sofía;EGB6;m;sunrisecaterincorp@yahoo.com;991943124
+1727034660;Zapater Cappelletti;1463;Zapater Cappelletti;Bianca;EGB6;m;d.merino@corpsunrise.com;991943124
+1725251621;Armendáriz Espinoza;1464;Armendáriz Espinoza;José Alejandro;EGB7;m;ealban@corpsunrise.com;991943124
+1750429399;Bowen Salazar;1465;Bowen Salazar;Samantha Rafaella;EGB7;m;daniel.merino@katulatam.com;991943124
+0605976570;Bravo Guerra;1466;Bravo Guerra;Antonio René;EGB7;m;merino_daniel1@hotmail.com;991943124
+1725991424;Chamorro Regalado;1467;Chamorro Regalado;Martina Anahí;EGB7;m;sunrisecaterincorp@yahoo.com;991943124
+1726735234;Coello Donoso;1468;Coello Donoso;Martín Santiago;EGB7;m;d.merino@corpsunrise.com;991943124
+1725704439;Espinosa Gregori;1469;Espinosa Gregori;Antonia;EGB7;m;ealban@corpsunrise.com;991943124
+1725033292;Gavilanes Valdez;1470;Gavilanes Valdez;Daniela Sarai;EGB7;m;daniel.merino@katulatam.com;991943124
+1726157926;Granja Sosa;1471;Granja Sosa;José Antonio;EGB7;m;merino_daniel1@hotmail.com;991943124
+1723875546;Guzmán Vinueza;1472;Guzmán Vinueza;Isabela;EGB7;m;sunrisecaterincorp@yahoo.com;991943124
+1750793711;Izurieta Mera;1473;Izurieta Mera;Matías;EGB7;m;d.merino@corpsunrise.com;991943124
+1751915446;Laso González;1474;Laso González;Bernarda;EGB7;m;ealban@corpsunrise.com;991943124
+1725790446;Maldonado Michilena;1475;Maldonado Michilena;Camari Paula;EGB7;m;daniel.merino@katulatam.com;991943124
+1725790263;Morales Arroyo;1476;Morales Arroyo;Ignacio;EGB7;m;merino_daniel1@hotmail.com;991943124
+1726642448;Paredes Mosquera;1477;Paredes Mosquera;Ignacio José;EGB7;m;sunrisecaterincorp@yahoo.com;991943124
+1725883845;Pineda Sánchez;1478;Pineda Sánchez;María Clara;EGB7;m;d.merino@corpsunrise.com;991943124
+1725699019;Romero Brito;1479;Romero Brito;Doménica Fabiana;EGB7;m;ealban@corpsunrise.com;991943124
+1751111145;RUEDA MOLINA;1480;RUEDA MOLINA;ARIANA ISABELLA;EGB7;m;daniel.merino@katulatam.com;991943124
+1725933343;Villamarín Peralta;1481;Villamarín Peralta;Alejandra Isabel;EGB7;m;merino_daniel1@hotmail.com;991943124
+1727333336;Vivanco Landázuri;1482;Vivanco Landázuri;Joaquín;EGB7;m;sunrisecaterincorp@yahoo.com;991943124
+1726832759;Arellano Ramos;1483;Arellano Ramos;José Ignacio;EGB7;m;d.merino@corpsunrise.com;991943124
+1725696056;Caicedo Monsalve;1484;Caicedo Monsalve;Luciana;EGB7;m;ealban@corpsunrise.com;991943124
+1750321752;Canelos Crespo;1485;Canelos Crespo;Juan Sebastián;EGB7;m;daniel.merino@katulatam.com;991943124
+1752529675;De La Torre Falconí;1486;De La Torre Falconí;Emilia Alfonsina;EGB7;m;merino_daniel1@hotmail.com;991943124
+1725753501;Del Salto Guerra;1487;Del Salto Guerra;Luciana;EGB7;m;sunrisecaterincorp@yahoo.com;991943124
+1725799652;Espín Cepeda;1488;Espín Cepeda;Eduardo Francisco;EGB7;m;d.merino@corpsunrise.com;991943124
+1750367573;Espinosa López;1489;Espinosa López;Juan Sebastián;EGB7;m;ealban@corpsunrise.com;991943124
+1725699944;Flores Tapia;1490;Flores Tapia;Aylin Minnet;EGB7;m;daniel.merino@katulatam.com;991943124
+1727271700;Garzón Campaña;1491;Garzón Campaña;Bernardo Xavier;EGB7;m;merino_daniel1@hotmail.com;991943124
+1726383746;Herrera López;1492;Herrera López;Isabella Valentina;EGB7;m;sunrisecaterincorp@yahoo.com;991943124
+1726970559;Landázuri Benítez;1493;Landázuri Benítez;José Eduardo;EGB7;m;d.merino@corpsunrise.com;991943124
+1727248708;Landázuri Salgado;1494;Landázuri Salgado;Diana Sofía;EGB7;m;ealban@corpsunrise.com;991943124
+1750517946;Muñoz Endara;1495;Muñoz Endara;Juan Esteban;EGB7;m;daniel.merino@katulatam.com;991943124
+1726642455;Paredes Mosquera;1496;Paredes Mosquera;Juan Javier;EGB7;m;merino_daniel1@hotmail.com;991943124
+1726966045;Peñafiel Changuín;1497;Peñafiel Changuín;Ana Isabel;EGB7;m;sunrisecaterincorp@yahoo.com;991943124
+1725995441;Pérez Bustamante;1498;Pérez Bustamante;Martín;EGB7;m;d.merino@corpsunrise.com;991943124
+1751665819;Rodríguez Gavela;1499;Rodríguez Gavela;Amelia Isabel;EGB7;m;ealban@corpsunrise.com;991943124
+1750471326;Rodríguez Torres;1500;Rodríguez Torres;Xavier Adrián;EGB7;m;daniel.merino@katulatam.com;991943124
+1725667123;Arteaga Ortega;1501;Arteaga Ortega;Julián Esteban;EGB7;m;merino_daniel1@hotmail.com;991943124
+0930956958;Barahona Duque;1502;Barahona Duque;María Paz;EGB7;m;sunrisecaterincorp@yahoo.com;991943124
+1750375436;Campaña Jara;1503;Campaña Jara;Tomás Alejandro;EGB7;m;d.merino@corpsunrise.com;991943124
+1750214999;Durán Hurtado;1504;Durán Hurtado;Isabel;EGB7;m;ealban@corpsunrise.com;991943124
+1750977306;Durán Vinueza;1505;Durán Vinueza;Sebastián Andrés;EGB7;m;daniel.merino@katulatam.com;991943124
+1725056962;Flor Estupiñán;1506;Flor Estupiñán;Javiera Tamara;EGB7;m;merino_daniel1@hotmail.com;991943124
+1750846105;Guerrero Mora;1507;Guerrero Mora;Benjamín Ignacio;EGB7;m;sunrisecaterincorp@yahoo.com;991943124
+1751915370;Mancheno Bohórquez;1508;Mancheno Bohórquez;Macarena Isabel;EGB7;m;d.merino@corpsunrise.com;991943124
+1726988239;Mora Correa;1509;Mora Correa;José Elías;EGB7;m;ealban@corpsunrise.com;991943124
+1750177139;Morales Salguero;1510;Morales Salguero;Francisco Martín;EGB7;m;daniel.merino@katulatam.com;991943124
+1726384413;Moreano Cevallos;1511;Moreano Cevallos;Antonella Isabela;EGB7;m;merino_daniel1@hotmail.com;991943124
+1750432872;Naranjo Ramia;1512;Naranjo Ramia;María Rebeca;EGB7;m;sunrisecaterincorp@yahoo.com;991943124
+1751915495;Páez Salazar;1513;Páez Salazar;Sebastián;EGB7;m;d.merino@corpsunrise.com;991943124
+1725863342;Prado Dávalos;1514;Prado Dávalos;Antonella;EGB7;m;ealban@corpsunrise.com;991943124
+1750676619;Rojas Montalvo;1515;Rojas Montalvo;Juan Carlos;EGB7;m;daniel.merino@katulatam.com;991943124
+1750355776;Salazar Guillén;1516;Salazar Guillén;Abigail Valentina;EGB7;m;merino_daniel1@hotmail.com;991943124
+0930457221;Torres Saona;1517;Torres Saona;Juan Martín;EGB7;m;sunrisecaterincorp@yahoo.com;991943124
+1751055656;Urresta Gallegos;1518;Urresta Gallegos;Martina;EGB7;m;d.merino@corpsunrise.com;991943124
+1726050774;Utreras Lafebre;1519;Utreras Lafebre;Martín Gabriel;EGB7;m;ealban@corpsunrise.com;991943124
+1750303008;Vela Aguinaga;1520;Vela Aguinaga;Pablo Julián;EGB7;m;daniel.merino@katulatam.com;991943124
+1724762198;Alvarado Céspedes;1521;Alvarado Céspedes;Valentina;EGB8;m;merino_daniel1@hotmail.com;991943124
+1725667271;Andino Cepeda;1522;Andino Cepeda;Ariana Valentina;EGB8;m;sunrisecaterincorp@yahoo.com;991943124
+1757873219;Arcia Valecillos;1523;Arcia Valecillos;Andrea Sofía;EGB8;m;d.merino@corpsunrise.com;991943124
+1750889097;Atiencia Vinueza;1524;Atiencia Vinueza;Ariel Renato;EGB8;m;ealban@corpsunrise.com;991943124
+1750346270;Bueno Zavala;1525;Bueno Zavala;Matías José;EGB8;m;daniel.merino@katulatam.com;991943124
+1724622236;Burbano Osorio;1526;Burbano Osorio;Isabela Mariel;EGB8;m;merino_daniel1@hotmail.com;991943124
+1729431831;Bustos Ordóñez;1527;Bustos Ordóñez;Danaella Francisca;EGB8;m;sunrisecaterincorp@yahoo.com;991943124
+1727205237;Castro Larrea;1528;Castro Larrea;Joaquín Alfonso;EGB8;m;d.merino@corpsunrise.com;991943124
+1725655326;Célleri Nicolalde;1529;Célleri Nicolalde;Vanessa Carolina;EGB8;m;ealban@corpsunrise.com;991943124
+1725317935;Cerezo Sandoval;1530;Cerezo Sandoval;Avelina;EGB8;m;daniel.merino@katulatam.com;991943124
+1750160796;Cervantes Silva;1531;Cervantes Silva;Analía Macarena;EGB8;m;merino_daniel1@hotmail.com;991943124
+1724765449;Cosíos Artieda;1532;Cosíos Artieda;Valentina;EGB8;m;sunrisecaterincorp@yahoo.com;991943124
+1726338328;Ganchala Vallejo;1533;Ganchala Vallejo;Ariana Valentina;EGB8;m;d.merino@corpsunrise.com;991943124
+1750523027;García Endara;1534;García Endara;Benjamín Gael;EGB8;m;ealban@corpsunrise.com;991943124
+1727275685;González Salgado;1535;González Salgado;Alejandra;EGB8;m;daniel.merino@katulatam.com;991943124
+1751178367;Guzmán Letort;1536;Guzmán Letort;Juan Martín;EGB8;m;merino_daniel1@hotmail.com;991943124
+1750394247;Hidalgo Guerra;1537;Hidalgo Guerra;Romina Alejandra;EGB8;m;sunrisecaterincorp@yahoo.com;991943124
+1726648809;Jaramillo Trepte;1538;Jaramillo Trepte;José María;EGB8;m;d.merino@corpsunrise.com;991943124
+1726617937;Molina Cuñas;1539;Molina Cuñas;Emma Antonia;EGB8;m;ealban@corpsunrise.com;991943124
+2000082798;Muñoz Pacheco;1540;Muñoz Pacheco;Eva María;EGB8;m;daniel.merino@katulatam.com;991943124
+1724726029;Naranjo Díaz;1541;Naranjo Díaz;Renata;EGB8;m;merino_daniel1@hotmail.com;991943124
+1727097386;Pazmiño de Vries;1542;Pazmiño de Vries;Joaquín Sebastián;EGB8;m;sunrisecaterincorp@yahoo.com;991943124
+1726966953;Porras Chiriboga;1543;Porras Chiriboga;Rafaella Valentina;EGB8;m;d.merino@corpsunrise.com;991943124
+1750437780;Tamayo Posso;1544;Tamayo Posso;Ana Laura;EGB8;m;ealban@corpsunrise.com;991943124
+1723764773;Vela Brito;1545;Vela Brito;Estéfano;EGB8;m;daniel.merino@katulatam.com;991943124
+1724145741;Vélez León;1546;Vélez León;Matías;EGB8;m;merino_daniel1@hotmail.com;991943124
+1726562059;Villacís Tobar;1547;Villacís Tobar;Juan José;EGB8;m;sunrisecaterincorp@yahoo.com;991943124
+1725933335;Villamarín Peralta;1548;Villamarín Peralta;Andrés Sebastián;EGB8;m;d.merino@corpsunrise.com;991943124
+0605124551;Abdo Valdiviezo;1549;Abdo Valdiviezo;Agustina Irene;EGB8;m;ealban@corpsunrise.com;991943124
+1725668113;Aguinaga Burbano de Lara;1550;Aguinaga Burbano de Lara;Jorge Ignacio;EGB8;m;daniel.merino@katulatam.com;991943124
+1725888349;Álvarez Monge;1551;Álvarez Monge;Amelie Rafaela;EGB8;m;merino_daniel1@hotmail.com;991943124
+1724018971;Bravo Sevilla;1552;Bravo Sevilla;Sara Martina;EGB8;m;sunrisecaterincorp@yahoo.com;991943124
+1725075608;Calderón Monteverde;1553;Calderón Monteverde;Amelia;EGB8;m;d.merino@corpsunrise.com;991943124
+1725399966;Castillo Puente;1554;Castillo Puente;José Ignacio;EGB8;m;ealban@corpsunrise.com;991943124
+1723822043;Chen Lin;1555;Chen Lin;Luis Iván;EGB8;m;daniel.merino@katulatam.com;991943124
+1726299553;Cumba Gómez;1556;Cumba Gómez;José Mateo;EGB8;m;merino_daniel1@hotmail.com;991943124
+1750068858;Del Castillo Hidalgo;1557;Del Castillo Hidalgo;Karla Valentina;EGB8;m;sunrisecaterincorp@yahoo.com;991943124
+0930086103;Dunn Peña;1558;Dunn Peña;Alejandro Joaquín;EGB8;m;d.merino@corpsunrise.com;991943124
+1750214841;Durán Hurtado;1559;Durán Hurtado;Juan Diego;EGB8;m;ealban@corpsunrise.com;991943124
+1750325365;Guerra Soria;1560;Guerra Soria;Samanta Isabela;EGB8;m;daniel.merino@katulatam.com;991943124
+1724396773;Landázuri Terán;1561;Landázuri Terán;Sebastián Ariel;EGB8;m;merino_daniel1@hotmail.com;991943124
+1105846909;León Campoverde;1562;León Campoverde;Emilio José;EGB8;m;sunrisecaterincorp@yahoo.com;991943124
+1750316844;León Garzón;1563;León Garzón;Ariana Antonela;EGB8;m;d.merino@corpsunrise.com;991943124
+1750851691;López Araujo;1564;López Araujo;Isabela Sofía;EGB8;m;ealban@corpsunrise.com;991943124
+1727121723;Miño Plaza;1565;Miño Plaza;Jorge Patricio;EGB8;m;daniel.merino@katulatam.com;991943124
+1726714445;Moreno Marín;1566;Moreno Marín;Estefanía Alexandra;EGB8;m;merino_daniel1@hotmail.com;991943124
+1750228791;Mosquera Oquendo;1567;Mosquera Oquendo;Martina Emilia;EGB8;m;sunrisecaterincorp@yahoo.com;991943124
+2000082806;Muñoz Pacheco;1568;Muñoz Pacheco;Martín Rigoberto;EGB8;m;d.merino@corpsunrise.com;991943124
+1725255200;Parra Espinosa;1569;Parra Espinosa;Esteban Javier;EGB8;m;ealban@corpsunrise.com;991943124
+1724155849;Paz Y Miño Piñeiros;1570;Paz Y Miño Piñeiros;Ariana Alegría;EGB8;m;daniel.merino@katulatam.com;991943124
+1724239882;Peralta Espinoza;1571;Peralta Espinoza;Fabiana Valentina;EGB8;m;merino_daniel1@hotmail.com;991943124
+1105716821;Sánchez Palacio;1572;Sánchez Palacio;Gabriel Nicolás;EGB8;m;sunrisecaterincorp@yahoo.com;991943124
+1751120013;Sánchez Rodríguez;1573;Sánchez Rodríguez;Emilio;EGB8;m;d.merino@corpsunrise.com;991943124
+1726712860;Tapia Castañeda;1574;Tapia Castañeda;David Hernán;EGB8;m;ealban@corpsunrise.com;991943124
+1751134949;Torres Vaca;1575;Torres Vaca;Sophía Nicolle;EGB8;m;daniel.merino@katulatam.com;991943124
+1751915529;Unger Cueva;1576;Unger Cueva;Shany Fergy;EGB8;m;merino_daniel1@hotmail.com;991943124
+1725627713;Villavicencio Almeida;1577;Villavicencio Almeida;Julia Emilia;EGB8;m;sunrisecaterincorp@yahoo.com;991943124
+1750260778;Zapater Peñaherrera;1578;Zapater Peñaherrera;Felipe Alejandro;EGB8;m;d.merino@corpsunrise.com;991943124
+1723255111;Andrade Villacís;1579;Andrade Villacís;Martina Raquel;EGB9;m;ealban@corpsunrise.com;991943124
+1724372535;Arellano Osorio;1580;Arellano Osorio;Jorge David;EGB9;m;daniel.merino@katulatam.com;991943124
+1723128169;Ávila Castro;1581;Ávila Castro;Nina Francisca;EGB9;m;merino_daniel1@hotmail.com;991943124
+1724344054;Benavides Díaz;1582;Benavides Díaz;Juan Manuel;EGB9;m;sunrisecaterincorp@yahoo.com;991943124
+1751318781;Betancourt Velarde;1583;Betancourt Velarde;Ana Paula;EGB9;m;d.merino@corpsunrise.com;991943124
+1723901870;Buendía Jara;1584;Buendía Jara;Ricardo Adrián;EGB9;m;ealban@corpsunrise.com;991943124
+1758680241;Cena Armendáriz;1585;Cena Armendáriz;Matías;EGB9;m;daniel.merino@katulatam.com;991943124
+1724072242;Coba Verdesoto;1586;Coba Verdesoto;Martín Antonio;EGB9;m;merino_daniel1@hotmail.com;991943124
+1751183938;Coronel Oquendo;1587;Coronel Oquendo;Benjamín;EGB9;m;sunrisecaterincorp@yahoo.com;991943124
+1724763162;Donoso Pizarro;1588;Donoso Pizarro;José Antonio;EGB9;m;d.merino@corpsunrise.com;991943124
+1725251571;Flores Játiva;1589;Flores Játiva;Pedro Jose;EGB9;m;ealban@corpsunrise.com;991943124
+1723356406;Flores Tapia;1590;Flores Tapia;Santiago José;EGB9;m;daniel.merino@katulatam.com;991943124
+1722954557;García Endara;1591;García Endara;Amelia;EGB9;m;merino_daniel1@hotmail.com;991943124
+1726644162;Guerra Ruales;1592;Guerra Ruales;Tomás;EGB9;m;sunrisecaterincorp@yahoo.com;991943124
+1725673618;Jácome Larco;1593;Jácome Larco;Karla Giuliana;EGB9;m;d.merino@corpsunrise.com;991943124
+1724238124;León Pazos;1594;León Pazos;Raffaella;EGB9;m;ealban@corpsunrise.com;991943124
+3050232168;Meythaler Chávez;1595;Meythaler Chávez;Leah Giselle;EGB9;m;daniel.merino@katulatam.com;991943124
+1722958293;Moral Bernal;1596;Moral Bernal;Diego Emilio;EGB9;m;merino_daniel1@hotmail.com;991943124
+1750222711;Moreno Donoso;1597;Moreno Donoso;Alegría;EGB9;m;sunrisecaterincorp@yahoo.com;991943124
+1726835372;Núñez Terán;1598;Núñez Terán;María Antonia;EGB9;m;d.merino@corpsunrise.com;991943124
+1724766231;Paredes Arellano;1599;Paredes Arellano;Isabella;EGB9;m;ealban@corpsunrise.com;991943124
+1725621229;Paredes Ortiz;1600;Paredes Ortiz;Martina;EGB9;m;daniel.merino@katulatam.com;991943124
+1726616152;Paredes Terán;1601;Paredes Terán;Ariel Gustavo;EGB9;m;merino_daniel1@hotmail.com;991943124
+1726905829;Perrone Charvet;1602;Perrone Charvet;Juan Mateo;EGB9;m;sunrisecaterincorp@yahoo.com;991943124
+1725432460;Ponce Vallejo;1603;Ponce Vallejo;Julián Esteban;EGB9;m;d.merino@corpsunrise.com;991943124
+1726972274;Rueda Rivera;1604;Rueda Rivera;Rafaella;EGB9;m;ealban@corpsunrise.com;991943124
+1726510389;Vallejo Pérez;1605;Vallejo Pérez;Sara;EGB9;m;daniel.merino@katulatam.com;991943124
+1724722127;Vallejo Tobar;1606;Vallejo Tobar;Amalia Elisa;EGB9;m;merino_daniel1@hotmail.com;991943124
+1724156938;Ayala Dávila;1607;Ayala Dávila;Emilia Victoria;EGB9;m;sunrisecaterincorp@yahoo.com;991943124
+1752451821;Coello Zubiría;1608;Coello Zubiría;Ariela Fernanda;EGB9;m;d.merino@corpsunrise.com;991943124
+1724017320;Espinosa García;1609;Espinosa García;Andrea Micaela;EGB9;m;ealban@corpsunrise.com;991943124
+1724140312;Espinosa Salgado;1610;Espinosa Salgado;Isabella;EGB9;m;daniel.merino@katulatam.com;991943124
+1724261324;Estupiñán Galindo;1611;Estupiñán Galindo;José Martín;EGB9;m;merino_daniel1@hotmail.com;991943124
+1726586504;Feijóo Espinosa;1612;Feijóo Espinosa;Emilio Alessandro;EGB9;m;sunrisecaterincorp@yahoo.com;991943124
+1723069678;Flores Heredia;1613;Flores Heredia;Andrea Rafaela;EGB9;m;d.merino@corpsunrise.com;991943124
+1725376907;Herdoíza Repetto;1614;Herdoíza Repetto;Carla Daniela;EGB9;m;ealban@corpsunrise.com;991943124
+1726206350;Hinojosa Chacón;1615;Hinojosa Chacón;Bernardo Daniel;EGB9;m;daniel.merino@katulatam.com;991943124
+1723222301;Jarrín Arteaga;1616;Jarrín Arteaga;Joaquín Rodrigo;EGB9;m;merino_daniel1@hotmail.com;991943124
+1724260797;Medina Albán;1617;Medina Albán;Emilia;EGB9;m;sunrisecaterincorp@yahoo.com;991943124
+1726714437;Moreno Marín;1618;Moreno Marín;Emilia Julianna;EGB9;m;d.merino@corpsunrise.com;991943124
+1724760986;Ospina Pabón;1619;Ospina Pabón;Rebeca;EGB9;m;ealban@corpsunrise.com;991943124
+1726678830;Palacio Luján;1620;Palacio Luján;María Paula;EGB9;m;daniel.merino@katulatam.com;991943124
+1725659476;Peña Alvarado;1621;Peña Alvarado;Krushenka Silvia;EGB9;m;merino_daniel1@hotmail.com;991943124
+1723475180;Peralta Pepinosa;1622;Peralta Pepinosa;Jorge Andrés;EGB9;m;sunrisecaterincorp@yahoo.com;991943124
+1723737407;Pineda Sánchez;1623;Pineda Sánchez;Juan Ignacio;EGB9;m;d.merino@corpsunrise.com;991943124
+1724979511;Ponce Arias;1624;Ponce Arias;Isabela;EGB9;m;ealban@corpsunrise.com;991943124
+1751915388;Quiroz Vela;1625;Quiroz Vela;Julia;EGB9;m;daniel.merino@katulatam.com;991943124
+1750905745;Rodríguez Vera;1626;Rodríguez Vera;Alejandro Enrique;EGB9;m;merino_daniel1@hotmail.com;991943124
+1724596687;Ruilova Ochoa;1627;Ruilova Ochoa;Mateo Josué;EGB9;m;sunrisecaterincorp@yahoo.com;991943124
+1724019953;Sotomayor Cedeño;1628;Sotomayor Cedeño;Antonia;EGB9;m;d.merino@corpsunrise.com;991943124
+1726978438;Tapia;1629;Tapia;Sofi Gabriela;EGB9;m;ealban@corpsunrise.com;991943124
+1723475172;Torrealba Sequera;1630;Torrealba Sequera;Santiago Enrique;EGB9;m;daniel.merino@katulatam.com;991943124
+1724722135;Vallejo Tobar;1631;Vallejo Tobar;Luciana Antonia;EGB9;m;merino_daniel1@hotmail.com;991943124
+1723006985;Vásconez Molina;1632;Vásconez Molina;Doménica Belén;EGB9;m;sunrisecaterincorp@yahoo.com;991943124
+1723602718;Vela Aguinaga;1633;Vela Aguinaga;Florencia Isabel;EGB9;m;d.merino@corpsunrise.com;991943124
+1750372599;Vicuña García;1634;Vicuña García;Rebeca;EGB9;m;ealban@corpsunrise.com;991943124
+1724153497;Bilbao Cabezas;1635;Bilbao Cabezas;Mateo;EGB10;m;daniel.merino@katulatam.com;991943124
+1725945289;Cajiao Carvajal;1636;Cajiao Carvajal;Manuela Emilia;EGB10;m;merino_daniel1@hotmail.com;991943124
+1722696778;Capito Villacrés;1637;Capito Villacrés;Esteban Alberto;EGB10;m;sunrisecaterincorp@yahoo.com;991943124
+1726306739;Cárdenas Bohórquez;1638;Cárdenas Bohórquez;María Rafaela;EGB10;m;d.merino@corpsunrise.com;991943124
+1726888561;Castagnoli Gordón;1639;Castagnoli Gordón;Emilio José;EGB10;m;ealban@corpsunrise.com;991943124
+1727034561;Cueva Noroña;1640;Cueva Noroña;Valentina Salomé;EGB10;m;daniel.merino@katulatam.com;991943124
+1722940978;Espinosa Gregori;1641;Espinosa Gregori;Luciana;EGB10;m;merino_daniel1@hotmail.com;991943124
+1722169040;Flores Torres;1642;Flores Torres;Felipe Andrés;EGB10;m;sunrisecaterincorp@yahoo.com;991943124
+1725864514;Gavilanes Olmedo;1643;Gavilanes Olmedo;Juan José;EGB10;m;d.merino@corpsunrise.com;991943124
+1726157934;Granja Sosa;1644;Granja Sosa;Juan Sebastián;EGB10;m;ealban@corpsunrise.com;991943124
+1726903105;Guzmán Bahamonde;1645;Guzmán Bahamonde;Valentina;EGB10;m;daniel.merino@katulatam.com;991943124
+1724874993;Guzmán Caballero;1646;Guzmán Caballero;Rafael Alejandro;EGB10;m;merino_daniel1@hotmail.com;991943124
+1750394197;Hidalgo Guerra;1647;Hidalgo Guerra;Fiorella Estefanía;EGB10;m;sunrisecaterincorp@yahoo.com;991943124
+1725861031;Jaramillo Trepte;1648;Jaramillo Trepte;María Paz;EGB10;m;d.merino@corpsunrise.com;991943124
+1104959984;León Campoverde;1649;León Campoverde;Ariana Sofía;EGB10;m;ealban@corpsunrise.com;991943124
+1722481155;Madriñán Cevallos;1650;Madriñán Cevallos;Tomás;EGB10;m;daniel.merino@katulatam.com;991943124
+1725090722;Montúfar Cevallos;1651;Montúfar Cevallos;Alegría;EGB10;m;merino_daniel1@hotmail.com;991943124
+1724404320;Moreno Andrade;1652;Moreno Andrade;Pedro José;EGB10;m;sunrisecaterincorp@yahoo.com;991943124
+1726152927;Ochoa Guerra;1653;Ochoa Guerra;Karla Valentina;EGB10;m;d.merino@corpsunrise.com;991943124
+1726690249;Orellana Muñoz;1654;Orellana Muñoz;Álvaro José;EGB10;m;ealban@corpsunrise.com;991943124
+1726714486;Pesántez Castillo;1655;Pesántez Castillo;Joaquín;EGB10;m;daniel.merino@katulatam.com;991943124
+1723193742;Restrepo Henao;1656;Restrepo Henao;Andrea;EGB10;m;merino_daniel1@hotmail.com;991943124
+1722681184;Reyes Flores;1657;Reyes Flores;Tana Samanta;EGB10;m;sunrisecaterincorp@yahoo.com;991943124
+1723422802;Rosanía Naranjo;1658;Rosanía Naranjo;Lorenzo;EGB10;m;d.merino@corpsunrise.com;991943124
+1724646078;Terán Almeida;1659;Terán Almeida;Alegría Isabel;EGB10;m;ealban@corpsunrise.com;991943124
+1723736615;Unger Cueva;1660;Unger Cueva;Jared Joachim;EGB10;m;daniel.merino@katulatam.com;991943124
+1726647942;Vásconez Mejía;1661;Vásconez Mejía;Mateo David;EGB10;m;merino_daniel1@hotmail.com;991943124
+1722547328;Adam Arroyo;1662;Adam Arroyo;Sarah Elisa;EGB10;m;sunrisecaterincorp@yahoo.com;991943124
+1726646035;Campana Espinoza;1663;Campana Espinoza;Juan Manuel;EGB10;m;d.merino@corpsunrise.com;991943124
+1750911156;Campuzano Ruilova;1664;Campuzano Ruilova;Marisol;EGB10;m;ealban@corpsunrise.com;991943124
+1727319285;Cárdenas Calvopiña;1665;Cárdenas Calvopiña;Katya Isabel;EGB10;m;daniel.merino@katulatam.com;991943124
+1722942321;Charpentier García;1666;Charpentier García;Juan Carlos;EGB10;m;merino_daniel1@hotmail.com;991943124
+1725669061;Díaz Samaniego;1667;Díaz Samaniego;María Emilia;EGB10;m;sunrisecaterincorp@yahoo.com;991943124
+1723066724;Flores Vélez;1668;Flores Vélez;Fabiana;EGB10;m;d.merino@corpsunrise.com;991943124
+1726589649;Guerra Ontaneda;1669;Guerra Ontaneda;Luciana Martina;EGB10;m;ealban@corpsunrise.com;991943124
+1726269606;Herrera Aguilar;1670;Herrera Aguilar;José Antonio;EGB10;m;daniel.merino@katulatam.com;991943124
+1723025381;Landázuri Terán;1671;Landázuri Terán;José Antonio;EGB10;m;merino_daniel1@hotmail.com;991943124
+1722811062;Merizalde Parra;1672;Merizalde Parra;Juan José;EGB10;m;sunrisecaterincorp@yahoo.com;991943124
+1726617945;Molina Cuñas;1673;Molina Cuñas;Eduardo Nicolás;EGB10;m;d.merino@corpsunrise.com;991943124
+1724237944;Morales Santamaría;1674;Morales Santamaría;Diego Martín;EGB10;m;ealban@corpsunrise.com;991943124
+1724404338;Moreno Andrade;1675;Moreno Andrade;José Ignacio;EGB10;m;daniel.merino@katulatam.com;991943124
+1724350093;Moya Villacreses;1676;Moya Villacreses;Juan Martín;EGB10;m;merino_daniel1@hotmail.com;991943124
+1723470835;Muñoz Pacheco;1677;Muñoz Pacheco;Sarah Pamela;EGB10;m;sunrisecaterincorp@yahoo.com;991943124
+1723259709;Páez Cuesta;1678;Páez Cuesta;Nicolás Daniel;EGB10;m;d.merino@corpsunrise.com;991943124
+1751153766;Reyes Sánchez;1679;Reyes Sánchez;Julián;EGB10;m;ealban@corpsunrise.com;991943124
+1726029075;Romo López;1680;Romo López;Javier Emilio;EGB10;m;daniel.merino@katulatam.com;991943124
+1722827589;Sánchez Cáceres;1681;Sánchez Cáceres;Sophía Natalia;EGB10;m;merino_daniel1@hotmail.com;991943124
+1722250493;Sánchez Rodríguez;1682;Sánchez Rodríguez;Martín;EGB10;m;sunrisecaterincorp@yahoo.com;991943124
+1722379953;Vega Calero;1683;Vega Calero;Martina Alegría;EGB10;m;d.merino@corpsunrise.com;991943124
+1105676926;Vivanco Benavides;1684;Vivanco Benavides;José Fernando;EGB10;m;ealban@corpsunrise.com;991943124
+1724762149;Vivar Carrillo;1685;Vivar Carrillo;André Salvador;EGB10;m;daniel.merino@katulatam.com;991943124
+1722906128;Zambrano Crespo;1686;Zambrano Crespo;Alegría Del Mar;EGB10;m;merino_daniel1@hotmail.com;991943124
+1725505158;Argotti Palacios;1687;Argotti Palacios;Bernardo Sebastián;BAC1;m;sunrisecaterincorp@yahoo.com;991943124
+1725434060;Baldus Rodríguez;1688;Baldus Rodríguez;Isabella;BAC1;m;d.merino@corpsunrise.com;991943124
+1725959223;Bolaños Barros;1689;Bolaños Barros;Samuel;BAC1;m;ealban@corpsunrise.com;991943124
+1726838350;Cervantes Silva;1690;Cervantes Silva;Eduardo Josué;BAC1;m;daniel.merino@katulatam.com;991943124
+1724599848;Dávila Cevallos;1691;Dávila Cevallos;Camila Andrea;BAC1;m;merino_daniel1@hotmail.com;991943124
+1725669053;Díaz Samaniego;1692;Díaz Samaniego;Ana Paula;BAC1;m;sunrisecaterincorp@yahoo.com;991943124
+1724017338;Espinosa García;1693;Espinosa García;Diana Carolina;BAC1;m;d.merino@corpsunrise.com;991943124
+1722433685;Espinosa Haro;1694;Espinosa Haro;Juan José;BAC1;m;ealban@corpsunrise.com;991943124
+1722217260;García Paz Y Miño;1695;García Paz Y Miño;Oswaldo Andrés;BAC1;m;daniel.merino@katulatam.com;991943124
+1722121272;Gómez Rovayo;1696;Gómez Rovayo;Nicolás;BAC1;m;merino_daniel1@hotmail.com;991943124
+1754627774;Herrera Larrea;1697;Herrera Larrea;Tomás;BAC1;m;sunrisecaterincorp@yahoo.com;991943124
+1722107388;Jurado Palma;1698;Jurado Palma;María Daniela;BAC1;m;d.merino@corpsunrise.com;991943124
+1726888421;Maldonado Romero;1699;Maldonado Romero;Fiorella Estephania;BAC1;m;ealban@corpsunrise.com;991943124
+1725507014;Moral Moreno;1700;Moral Moreno;Emilio José;BAC1;m;daniel.merino@katulatam.com;991943124
+1724873656;Moya Ramírez;1701;Moya Ramírez;Paula Daniela;BAC1;m;merino_daniel1@hotmail.com;991943124
+1726943887;Naranjo Batallas;1702;Naranjo Batallas;Martina Sofía;BAC1;m;sunrisecaterincorp@yahoo.com;991943124
+1721615308;Oliveros Cadena;1703;Oliveros Cadena;José Ignacio;BAC1;m;d.merino@corpsunrise.com;991943124
+1726966961;Porras Chiriboga;1704;Porras Chiriboga;Paula Cristina;BAC1;m;ealban@corpsunrise.com;991943124
+1723425656;Rodríguez Gavela;1705;Rodríguez Gavela;Felipe José;BAC1;m;daniel.merino@katulatam.com;991943124
+1725792848;Romero Jarrín;1706;Romero Jarrín;José Miguel;BAC1;m;merino_daniel1@hotmail.com;991943124
+1725299547;Rubio Zapata;1707;Rubio Zapata;Isabela;BAC1;m;sunrisecaterincorp@yahoo.com;991943124
+1104762420;Sandoval Aldeán;1708;Sandoval Aldeán;Juan Ignacio;BAC1;m;d.merino@corpsunrise.com;991943124
+1725499451;Terán Molina;1709;Terán Molina;Ariana;BAC1;m;ealban@corpsunrise.com;991943124
+1722132634;Torrealba Sequera;1710;Torrealba Sequera;Samuel Enrique;BAC1;m;daniel.merino@katulatam.com;991943124
+1727365858;Vivanco Benavides;1711;Vivanco Benavides;María Eduarda;BAC1;m;merino_daniel1@hotmail.com;991943124
+1726946831;Almeida Gavilanes;1712;Almeida Gavilanes;Rafaela;BAC1;m;sunrisecaterincorp@yahoo.com;991943124
+1724768773;Canseco Caiza;1713;Canseco Caiza;Carlos Felipe;BAC1;m;d.merino@corpsunrise.com;991943124
+1751436369;Cevallos Terán;1714;Cevallos Terán;Ana Laura;BAC1;m;ealban@corpsunrise.com;991943124
+1723730006;Coronel Molina;1715;Coronel Molina;Camila Alejandra;BAC1;m;daniel.merino@katulatam.com;991943124
+1751183920;Coronel Oquendo;1716;Coronel Oquendo;María Emilia;BAC1;m;merino_daniel1@hotmail.com;991943124
+1726692641;Gallardo Barriga;1717;Gallardo Barriga;Emily Valentina;BAC1;m;sunrisecaterincorp@yahoo.com;991943124
+1722121280;Gómez Rovayo;1718;Gómez Rovayo;Manuela;BAC1;m;d.merino@corpsunrise.com;991943124
+1722217310;Hidalgo García;1719;Hidalgo García;José Alejandro;BAC1;m;ealban@corpsunrise.com;991943124
+1721601001;Iturralde Jáuregui;1720;Iturralde Jáuregui;Rafael Alberto;BAC1;m;daniel.merino@katulatam.com;991943124
+1721357778;Jarrín Arteaga;1721;Jarrín Arteaga;Eduardo José;BAC1;m;merino_daniel1@hotmail.com;991943124
+1721747929;Jáuregui Barba;1722;Jáuregui Barba;Juan José;BAC1;m;sunrisecaterincorp@yahoo.com;991943124
+1753551850;Jiménez Villacís;1723;Jiménez Villacís;Daniel Alejandro;BAC1;m;d.merino@corpsunrise.com;991943124
+1724621444;Luzuriaga Castro;1724;Luzuriaga Castro;José Ignacio;BAC1;m;ealban@corpsunrise.com;991943124
+1721714010;Merizalde Parra;1725;Merizalde Parra;María Francisca;BAC1;m;daniel.merino@katulatam.com;991943124
+1752768877;Monge Baquero;1726;Monge Baquero;Nicolás;BAC1;m;merino_daniel1@hotmail.com;991943124
+1722044300;Muñoz Garzón;1727;Muñoz Garzón;Matías Gabriel;BAC1;m;sunrisecaterincorp@yahoo.com;991943124
+1721672127;Ordóñez Salazar;1728;Ordóñez Salazar;Ana María;BAC1;m;d.merino@corpsunrise.com;991943124
+1754010021;Palacios Chicango;1729;Palacios Chicango;Francisca Javiera;BAC1;m;ealban@corpsunrise.com;991943124
+1722125018;Ponce De León Aldana;1730;Ponce De León Aldana;Juan Martín;BAC1;m;daniel.merino@katulatam.com;991943124
+1725432742;Ponce Vallejo;1731;Ponce Vallejo;Josué Daniel;BAC1;m;merino_daniel1@hotmail.com;991943124
+1105662389;Puertas Riofrío;1732;Puertas Riofrío;Daniel Vicente;BAC1;m;sunrisecaterincorp@yahoo.com;991943124
+1721745964;Sáenz Cevallos;1733;Sáenz Cevallos;Rafaella Camila;BAC1;m;d.merino@corpsunrise.com;991943124
+1721471736;Szabo Carrera;1734;Szabo Carrera;Roxana Victoria;BAC1;m;ealban@corpsunrise.com;991943124
+1723222517;Velasco Serrano;1735;Velasco Serrano;Ana María;BAC1;m;daniel.merino@katulatam.com;991943124
+1724263098;Almeida Andrade;1736;Almeida Andrade;Juan José;BAC2;m;merino_daniel1@hotmail.com;991943124
+1722707369;Aparicio Padilla;1737;Aparicio Padilla;Juan Pablo;BAC2;m;sunrisecaterincorp@yahoo.com;991943124
+1724156946;Ayala Dávila;1738;Ayala Dávila;Mateo Sebastián;BAC2;m;d.merino@corpsunrise.com;991943124
+1727319293;Cárdenas Calvopiña;1739;Cárdenas Calvopiña;Pablo Andrés;BAC2;m;ealban@corpsunrise.com;991943124
+1721649109;Castillo Puente;1740;Castillo Puente;Esteban David;BAC2;m;daniel.merino@katulatam.com;991943124
+1720746872;Cattani Estrella;1741;Cattani Estrella;Romina Andrea;BAC2;m;merino_daniel1@hotmail.com;991943124
+1725879256;Cevallos Aguirre;1742;Cevallos Aguirre;José Antonio;BAC2;m;sunrisecaterincorp@yahoo.com;991943124
+1725564718;Chávez Arcos;1743;Chávez Arcos;Doménica;BAC2;m;d.merino@corpsunrise.com;991943124
+1721672143;Coba Verdesoto;1744;Coba Verdesoto;Aymee Natalia;BAC2;m;ealban@corpsunrise.com;991943124
+1722200118;Díaz Debrouwere;1745;Díaz Debrouwere;Illa Amelie;BAC2;m;daniel.merino@katulatam.com;991943124
+1722164421;Dirani Benítez;1746;Dirani Benítez;Francesca;BAC2;m;merino_daniel1@hotmail.com;991943124
+1720850849;Enríquez Falcó;1747;Enríquez Falcó;José Gabriel;BAC2;m;sunrisecaterincorp@yahoo.com;991943124
+1720996089;Febres Guzmán;1748;Febres Guzmán;Martina;BAC2;m;d.merino@corpsunrise.com;991943124
+1721291977;Hinojosa Chacón;1749;Hinojosa Chacón;Jorge Santiago;BAC2;m;ealban@corpsunrise.com;991943124
+1722825492;Idrobo Iturralde;1750;Idrobo Iturralde;Camilo Ricardo;BAC2;m;daniel.merino@katulatam.com;991943124
+1722555057;Leiva Ponce;1751;Leiva Ponce;Paula Cristina;BAC2;m;merino_daniel1@hotmail.com;991943124
+1720993631;Loaiza Rueda;1752;Loaiza Rueda;Isaac Zair;BAC2;m;sunrisecaterincorp@yahoo.com;991943124
+1722448337;Mesías Vela;1753;Mesías Vela;María Alejandra;BAC2;m;d.merino@corpsunrise.com;991943124
+1724471972;Pavón Coronel;1754;Pavón Coronel;Emilia Gabriela;BAC2;m;ealban@corpsunrise.com;991943124
+1726382359;Puertas Riofrío;1755;Puertas Riofrío;Gabriela Estefanía;BAC2;m;daniel.merino@katulatam.com;991943124
+1724071483;Recalde Polo;1756;Recalde Polo;María Emilia;BAC2;m;merino_daniel1@hotmail.com;991943124
+1720996931;Reyes Sánchez;1757;Reyes Sánchez;Nicolás;BAC2;m;sunrisecaterincorp@yahoo.com;991943124
+1724596679;Ruilova Ochoa;1758;Ruilova Ochoa;Pablo Daniel;BAC2;m;d.merino@corpsunrise.com;991943124
+1723225874;Vallejo Pérez;1759;Vallejo Pérez;Ana Carla;BAC2;m;ealban@corpsunrise.com;991943124
+1721641346;Vega Calero;1760;Vega Calero;Roberto José;BAC2;m;daniel.merino@katulatam.com;991943124
+1724762156;Vivar Carrillo;1761;Vivar Carrillo;Micaela Ariana;BAC2;m;merino_daniel1@hotmail.com;991943124
+1722254412;Zavala Galindo;1762;Zavala Galindo;Mateo Rafael;BAC2;m;sunrisecaterincorp@yahoo.com;991943124
+1723871396;Aguirre Galefski;1763;Aguirre Galefski;Melissa Nicole;BAC2;m;d.merino@corpsunrise.com;991943124
+1720991791;Arias Betancourt;1764;Arias Betancourt;María Victoria;BAC2;m;ealban@corpsunrise.com;991943124
+1722558739;Arroyo Ahmed;1765;Arroyo Ahmed;Alejandra;BAC2;m;daniel.merino@katulatam.com;991943124
+1723128177;Ávila Castro;1766;Ávila Castro;Manuela;BAC2;m;merino_daniel1@hotmail.com;991943124
+1720505492;Bravo Sevilla;1767;Bravo Sevilla;Anna Victoria;BAC2;m;sunrisecaterincorp@yahoo.com;991943124
+1725699449;Cueva Noroña;1768;Cueva Noroña;Mateo José;BAC2;m;d.merino@corpsunrise.com;991943124
+1723791396;Dueñas Crespo;1769;Dueñas Crespo;Pierre Nicolás;BAC2;m;ealban@corpsunrise.com;991943124
+1724342223;Foti Rojas;1770;Foti Rojas;Leonardo Gianfranco;BAC2;m;daniel.merino@katulatam.com;991943124
+1722590633;Franco Cruz;1771;Franco Cruz;Camila Lizeth;BAC2;m;merino_daniel1@hotmail.com;991943124
+1722909684;Franco Silva;1772;Franco Silva;María Elisa;BAC2;m;sunrisecaterincorp@yahoo.com;991943124
+1725418410;Garzón Campaña;1773;Garzón Campaña;Isabella;BAC2;m;d.merino@corpsunrise.com;991943124
+1722314927;González Bustamante;1774;González Bustamante;Paula;BAC2;m;ealban@corpsunrise.com;991943124
+1722169024;Grijalva Narváez;1775;Grijalva Narváez;David Francisco;BAC2;m;daniel.merino@katulatam.com;991943124
+1722489000;Guarderas Córdova;1776;Guarderas Córdova;Nicolás Mateo;BAC2;m;merino_daniel1@hotmail.com;991943124
+1726903097;Guzmán Bahamonde;1777;Guzmán Bahamonde;Martín Ignacio;BAC2;m;sunrisecaterincorp@yahoo.com;991943124
+1723120943;Medina Pombo;1778;Medina Pombo;Gabriela;BAC2;m;d.merino@corpsunrise.com;991943124
+1723424931;Merizalde Burbano;1779;Merizalde Burbano;Martina Daniela;BAC2;m;ealban@corpsunrise.com;991943124
+1720289402;Ottati Riofrío;1780;Ottati Riofrío;Martín Sebastián;BAC2;m;daniel.merino@katulatam.com;991943124
+1722212808;Proaño Cabrera;1781;Proaño Cabrera;María Emilia;BAC2;m;merino_daniel1@hotmail.com;991943124
+1723128128;Rodríguez Játiva;1782;Rodríguez Játiva;David Esteban;BAC2;m;sunrisecaterincorp@yahoo.com;991943124
+1751633643;Tenesaca Duy;1783;Tenesaca Duy;Salomé Soraya;BAC2;m;d.merino@corpsunrise.com;991943124
+1720691201;Torres Sánchez;1784;Torres Sánchez;Valentina Isabela;BAC2;m;ealban@corpsunrise.com;991943124
+1723523641;Villavicencio Anda;1785;Villavicencio Anda;Valentina;BAC2;m;daniel.merino@katulatam.com;991943124
+1724425283;Yépez Donoso;1786;Yépez Donoso;Mateo Adrián;BAC2;m;merino_daniel1@hotmail.com;991943124
+1724061088;Andrade Laspina;1787;Andrade Laspina;Ana Sofía;BAC3;m;sunrisecaterincorp@yahoo.com;991943124
+1724150857;Benítez Terán;1788;Benítez Terán;Macarena;BAC3;m;d.merino@corpsunrise.com;991943124
+1719500926;Castillo Heredia;1789;Castillo Heredia;Danna Aylén;BAC3;m;ealban@corpsunrise.com;991943124
+1721833984;Corral Chang Huang;1790;Corral Chang Huang;Jacobo Ismael;BAC3;m;daniel.merino@katulatam.com;991943124
+1724599798;Dávila Cevallos;1791;Dávila Cevallos;Rafaela Sofía;BAC3;m;merino_daniel1@hotmail.com;991943124
+1317004131;Espinoza Eraso;1792;Espinoza Eraso;Evelyn Nicole;BAC3;m;sunrisecaterincorp@yahoo.com;991943124
+1721155743;Granizo Calero;1793;Granizo Calero;Belén;BAC3;m;d.merino@corpsunrise.com;991943124
+1724341738;Guarderas Larco;1794;Guarderas Larco;Camila;BAC3;m;ealban@corpsunrise.com;991943124
+1722974548;Gudiño González;1795;Gudiño González;Nicolás Sebastián;BAC3;m;daniel.merino@katulatam.com;991943124
+1724260490;Herrera Carrión;1796;Herrera Carrión;Adrián Mateo;BAC3;m;merino_daniel1@hotmail.com;991943124
+1750722934;Larrea Suárez;1797;Larrea Suárez;Emilia;BAC3;m;sunrisecaterincorp@yahoo.com;991943124
+1720023082;León Pinheiro;1798;León Pinheiro;Ignacio Javier;BAC3;m;d.merino@corpsunrise.com;991943124
+0706273430;Lozano Rivadeneyra;1799;Lozano Rivadeneyra;Pamela Natalia;BAC3;m;ealban@corpsunrise.com;991943124
+1722558630;Naranjo Díaz;1800;Naranjo Díaz;Emilia;BAC3;m;daniel.merino@katulatam.com;991943124
+1722770490;Pinto Peñaherrera;1801;Pinto Peñaherrera;Juan Diego;BAC3;m;merino_daniel1@hotmail.com;991943124
+1720802782;Sacoto Ullauri;1802;Sacoto Ullauri;Sara Emilia;BAC3;m;sunrisecaterincorp@yahoo.com;991943124
+1725375115;Sebastián Fierro;1803;Sebastián Fierro;Tomás Alejandro;BAC3;m;d.merino@corpsunrise.com;991943124
+1724309909;Vera Luna;1804;Vera Luna;Diego Sebastián;BAC3;m;ealban@corpsunrise.com;991943124
+1720576303;Zapater Peñaherrera;1805;Zapater Peñaherrera;Martina Alejandra;BAC3;m;daniel.merino@katulatam.com;991943124
+1757873185;Arcia Valecillos;1806;Arcia Valecillos;Alberto Rafael;BAC3;m;merino_daniel1@hotmail.com;991943124
+1725505166;Argotti Palacios;1807;Argotti Palacios;Romina Antonella;BAC3;m;sunrisecaterincorp@yahoo.com;991943124
+1720732450;Aroutiounian Harutyunyan;1808;Aroutiounian Harutyunyan;Anahit;BAC3;m;d.merino@corpsunrise.com;991943124
+1720805850;Arteaga Carattini;1809;Arteaga Carattini;Victoria Monique;BAC3;m;ealban@corpsunrise.com;991943124
+1720073319;Ayala Sánchez;1810;Ayala Sánchez;Martín Alejandro;BAC3;m;daniel.merino@katulatam.com;991943124
+1726056870;Carrillo Ruiz;1811;Carrillo Ruiz;Santiago Xavier;BAC3;m;merino_daniel1@hotmail.com;991943124
+1720303021;Echeverría Naranjo;1812;Echeverría Naranjo;José David;BAC3;m;sunrisecaterincorp@yahoo.com;991943124
+1725496697;García Cevallos;1813;García Cevallos;Micaela;BAC3;m;d.merino@corpsunrise.com;991943124
+1720369113;Herrera López;1814;Herrera López;Anahí Carolina;BAC3;m;ealban@corpsunrise.com;991943124
+1719762591;Jáuregui Barba;1815;Jáuregui Barba;Isabela;BAC3;m;daniel.merino@katulatam.com;991943124
+1720361540;Moral Bernal;1816;Moral Bernal;Santiago Manuel;BAC3;m;merino_daniel1@hotmail.com;991943124
+1720447760;Muñoz Arteaga;1817;Muñoz Arteaga;Javiera Alejandra;BAC3;m;sunrisecaterincorp@yahoo.com;991943124
+1724165343;Prieto Andrade;1818;Prieto Andrade;María Emilia;BAC3;m;d.merino@corpsunrise.com;991943124
+1720482544;Repetto Paredes;1819;Repetto Paredes;María José;BAC3;m;ealban@corpsunrise.com;991943124
+1723255194;Tamayo Bolaños;1820;Tamayo Bolaños;Rafaella;BAC3;m;daniel.merino@katulatam.com;991943124
+1725499469;Terán Molina;1821;Terán Molina;Pablo Martín;BAC3;m;merino_daniel1@hotmail.com;991943124
+1725093049;Vásquez Coronel;1822;Vásquez Coronel;José Ignacio;BAC3;m;sunrisecaterincorp@yahoo.com;991943124
+1722636667;Vásquez Jaime;1823;Vásquez Jaime;Rodrigo Adrián;BAC3;m;d.merino@corpsunrise.com;991943124
+1722773858;Zambrano Estupiñán;1824;Zambrano Estupiñán;Rafaela;BAC3;m;ealban@corpsunrise.com;991943124
+1721004123;Racines Lanas;1825;Racines Lanas;María Paz;TEC2;m;daniel.merino@katulatam.com;991943124
+1720307212;Carrera Herrera;1826;Carrera Herrera;David;TEC2;m;merino_daniel1@hotmail.com;991943124
+1719757740;Guzmán Wiedenluebbert;1827;Guzmán Wiedenluebbert;Samuel;TEC2;m;sunrisecaterincorp@yahoo.com;991943124
+1718565987;Oxman Sabogal;1828;Oxman Sabogal;Andrés;TEC3;m;d.merino@corpsunrise.com;991943124
