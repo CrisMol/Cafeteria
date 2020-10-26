@@ -1,4 +1,10 @@
+<?php
 
+//require_once 'include/redireccion.php';
+require_once 'include/helpers.php';
+require_once 'include/conexion.php';
+
+?>
 
 <!DOCTYPE html>
 <!--
@@ -566,24 +572,32 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
               </div>
               <div class="panel-container show">
                   <div class="panel-content">
+<?php
+    $profesor = conseguir_profesores_por_codigo($db, $_GET['idProfesor']);
+    if(!empty($profesor) && mysqli_num_rows($profesor) >= 1):
+        $profesor = mysqli_fetch_assoc($profesor);
+?>
                       <form>
                           <div class="form-group">
                               <label class="form-label" for="simpleinput">Codigo</label>
-                              <input type="text" id="simpleinput" value="1714764230" class="form-control" disabled>
+                              <input type="text" id="simpleinput" value="<?=$profesor['CODIGO_PROFESOR']?>" class="form-control" disabled>
                           </div>
 
                           <div class="form-group">
                               <label class="form-label" for="simpleinput">Apellidos</label>
-                              <input type="text" id="simpleinput" value="Arias Moreno" class="form-control" disabled>
+                              <input type="text" id="simpleinput" value="<?=$profesor['APELLIDOS_PROFESOR']?>" class="form-control" disabled>
                           </div>
 
                           <div class="form-group">
                               <label class="form-label" for="simpleinput">Nombre</label>
-                              <input type="text" id="simpleinput" value="Pablo Andres" class="form-control" disabled>
+                              <input type="text" id="simpleinput" value="<?=$profesor['NOMBRE_PROFESOR']?>" class="form-control" disabled>
                           </div>
 
                       </div>
                       </form>
+<?php
+    endif;
+?>
                   </div>
               </div>
           </div>
@@ -621,6 +635,28 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
                               </tr>
                           </thead>
                           <tbody>
+<?php
+    $contador = 0;
+    $pagos_creditos = conseguir_pagos_credito($db, $_GET['idProfesor']);
+    if(!empty($pagos_creditos) && mysqli_num_rows($pagos_creditos) >= 1):
+        while ($pago_credito = mysqli_fetch_assoc($pagos_creditos)) :
+            $contador++;
+?>
+    <tr>
+            <td><?=$contador?></td>
+            <td><?=$pago_credito['FECHA']?></td>
+            <td><?=$pago_credito['HORA']?></td>
+            <td>Pago Credito</td>
+            <td>1</td>
+            <td><?=$pago_credito['DEBITO']?></td>
+            <td><?=$pago_credito['CREDITO']?></td>
+            <td>&nbsp;</td>
+    </tr>
+<?php
+        endwhile;
+    endif;
+?>
+                           </tbody>
                                                       </tfoot>
                       </table>
                       <!-- datatable end -->

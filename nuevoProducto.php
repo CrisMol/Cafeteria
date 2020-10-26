@@ -1,4 +1,10 @@
+<?php
 
+//require_once 'include/redireccion.php';
+require_once 'include/helpers.php';
+require_once 'include/conexion.php';
+
+?>
 
 <!DOCTYPE html>
 <!--
@@ -36,8 +42,8 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
         <!-- DOC: script to save and load page settings -->
         <script>
             /**
-             *	This script should be placed right after the body tag for fast execution
-             *	Note: the script is written in pure javascript and does not depend on thirdparty library
+             *  This script should be placed right after the body tag for fast execution
+             *  Note: the script is written in pure javascript and does not depend on thirdparty library
              **/
             'use strict';
 
@@ -533,7 +539,8 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
                     </header>
                     <!-- END Page Header -->
                     <!-- BEGIN Page Content -->
-                    <main id="js-page-content" role="main" class="page-content">
+                    
+<main id="js-page-content" role="main" class="page-content">
     <ol class="breadcrumb page-breadcrumb">
         <li class="breadcrumb-item"><a href="javascript:void(0);">CAFETERISA</a></li>
         <li class="breadcrumb-item">Productos</li>
@@ -541,48 +548,126 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
     </ol>
     <div class="subheader">
         <h1 class="subheader-title">
-            <i class='subheader-icon fal fa-home'></i> Nuevo Producto <span class='fw-300'>Dashboard</span>
+            <i class='subheader-icon fal fa-home'></i> Nuevo Producto<span class='fw-300'> Dashboard</span>
         </h1>
   </div>
+ <div class="row">
+     <div class="col-xl-6">
+         <div id="panel-1" class="panel">
+             <div class="panel-hdr">
+                 <h2>
+                     Tipo Preparado<span class="fw-300"><i>Producto</i></span>
+                 </h2>
+                 <div class="panel-toolbar">
+                   <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Minimizar"></button>
+                   <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Pantalla Completa"></button>
+                   <button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Cerrar"></button>                  </div>
+             </div>
+             <div class="panel-container show">
+                 <div class="panel-content">
+                   <div class="panel-tag">
+                       .
+                   </div>
+                 <form method="POST" action="guardarNuevoProductoCodigoBarras.php">
 
-  <div class="row">
-      <div class="col-xl-6">
-          <div id="panel-1" class="panel">
-              <div class="panel-hdr">
-                  <h2>
-                      Tipo <span class="fw-300"><i>Producto</i></span>
-                  </h2>
-                  <div class="panel-toolbar">
-                    <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Minimizar"></button>
-                    <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Pantalla Completa"></button>
-                    <button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Cerrar"></button>                  </div>
-              </div>
-              <div class="panel-container show">
-                  <div class="panel-content">
-                  <form method="get" action="formNuevoProducto.php">
-                      <div class="form-group">
-                          <label class="form-label" for="single-default">
-                              Tipo Producto
-                          </label>
-                          <select class="select2 form-control w-100" name="tipo" id="single-default" required>
-                          <option value="">Digite o seleccione tipo producto</option>
-                          <option value="2">Producto Codigo Barras</option>
-                          <option value="1">Preparado Propio</option>
-                          <option value="3">Papeleria / Otro Tipo</option>
+                   <div class="form-group">
+                       <label class="form-label" for="example-select">Categoria Producto</label>
+                       <select class="form-control" name="idCategoria" id="example-select" required>
+<?php
+    $categorias_productos = conseguir_categoria_producto($db);
+    if(!empty($categorias_productos) && mysqli_num_rows($categorias_productos) >= 1):
+        while ($categoria_producto = mysqli_fetch_assoc($categorias_productos)) :
+?>
+<option value="<?=$categoria_producto['CODIGO_CATEGORIA']?>"><?=$categoria_producto['NOMBRE_CATEGORIA']?></option>       
+<?php  
+        endwhile;
+    endif;
+?>          
+                        </select>
+                   </div>
 
+                   <div class="form-group">
+                       <label class="form-label" for="addon-wrapping-left">Codigo Barras</label>
+                       <div class="input-group flex-nowrap">
+                           <div class="input-group-prepend">
+                               <span class="input-group-text"><i class="fal fa-barcode-alt fs-xl"></i></span>
+                           </div>
+                           <input id="addon-wrapping-left" type="text" class="form-control" name="codigoBarras" placeholder="Digite codigo barras" aria-label="Username" aria-describedby="addon-wrapping-left" autocomplete="off" required>
+                       </div>
+                   </div>
 
-                          </select>
-                      </div>
+                   <?php echo isset($_SESSION['errores']) ? mostrar_error($_SESSION['errores'], 'codigo_barra') : ''; ?> 
 
-                      <div class="modal-footer">
-                      <button type="submit" class="btn btn-info btn-primary">Siguiente</button>
-                      </form>
-                    </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+                   <div class="form-group">
+                       <label class="form-label" for="addon-wrapping-left">Descripcion Producto</label>
+                       <div class="input-group flex-nowrap">
+                           <div class="input-group-prepend">
+                               <span class="input-group-text"><i class="fal fa-utensils fs-xl"></i></span>
+                           </div>
+                           <input id="addon-wrapping-left" type="text" class="form-control" name="nombreProducto" placeholder="Digite descripcion producto" maxlength="30" aria-label="Username" aria-describedby="addon-wrapping-left" autocomplete="off" required>
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       <label class="form-label" for="addon-wrapping-left">Costo</label>
+                       <div class="input-group flex-nowrap">
+                           <div class="input-group-prepend">
+                               <span class="input-group-text"><i class="fal fa-usd-circle fs-xl"></i></span>
+                           </div>
+                           <input id="addon-wrapping-left" type="text" class="form-control" name="costoProducto" placeholder="Digite costo producto" aria-label="Username" aria-describedby="addon-wrapping-left" autocomplete="off" required>
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       <label class="form-label" for="addon-wrapping-left">Precio Venta</label>
+                       <div class="input-group flex-nowrap">
+                           <div class="input-group-prepend">
+                               <span class="input-group-text"><i class="fal fa-usd-circle fs-xl"></i></span>
+                           </div>
+                           <input id="addon-wrapping-left" type="text" class="form-control" name="ventaProducto" placeholder="Digite cprecio venta producto" aria-label="Username" aria-describedby="addon-wrapping-left" autocomplete="off" required>
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       <label class="form-label" for="addon-wrapping-left">Cantidad</label>
+                       <div class="input-group flex-nowrap">
+                           <div class="input-group-prepend">
+                               <span class="input-group-text"><i class="fal fa-inventory fs-xl"></i></span>
+                           </div>
+                           <input id="addon-wrapping-left" type="number" class="form-control" name="cantidadProducto" value="0" aria-label="Username" aria-describedby="addon-wrapping-left" autocomplete="off" required>
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       <label class="form-label" for="example-select">Ver Inventario</label>
+                       <select class="form-control" name="verInventario" id="example-select" required>
+                           <option value="">Seleccione</option>
+                           <option value="1">Si</option>
+                           <option value="0">No</option>
+                       </select>
+                   </div>
+
+                   <div class="form-group">
+                       <label class="form-label" for="example-select">Disponible Kiosko / Pre Compras</label>
+                       <select class="form-control" name="kiosko" id="example-select" required>
+                           <option value="">Seleccione</option>
+                           <option value="1">Si</option>
+                           <option value="0">No</option>
+                       </select>
+                   </div>                   
+
+                     <div class="modal-footer">
+                     <input name="tipoProducto" type="hidden" id="tipoProducto" value="2" />
+                     <button type="submit" class="btn btn-info btn-primary">Guardar Producto</button>
+                     </form>
+                     <?php borrar_error();?>
+                   </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+
 
 
 </main>
@@ -707,140 +792,19 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
 
         <!-- END Page Settings -->
         <!-- base vendor bundle:
-			 DOC: if you remove pace.js from core please note on Internet Explorer some CSS animations may execute before a page is fully loaded, resulting 'jump' animations
-						+ pace.js (recommended)
-						+ jquery.js (core)
-						+ jquery-ui-cust.js (core)
-						+ popper.js (core)
-						+ bootstrap.js (core)
-						+ slimscroll.js (extension)
-						+ app.navigation.js (core)
-						+ ba-throttle-debounce.js (core)
-						+ waves.js (extension)
-						+ smartpanels.js (extension)
-						+ src/../jquery-snippets.js (core) -->
+             DOC: if you remove pace.js from core please note on Internet Explorer some CSS animations may execute before a page is fully loaded, resulting 'jump' animations
+                        + pace.js (recommended)
+                        + jquery.js (core)
+                        + jquery-ui-cust.js (core)
+                        + popper.js (core)
+                        + bootstrap.js (core)
+                        + slimscroll.js (extension)
+                        + app.navigation.js (core)
+                        + ba-throttle-debounce.js (core)
+                        + waves.js (extension)
+                        + smartpanels.js (extension)
+                        + src/../jquery-snippets.js (core) -->
             <script src="js/vendors.bundle.js"></script>
             <script src="js/app.bundle.js"></script>
-            <script src="js/formplugins/select2/select2.bundle.js"></script>
-            <script>
-                $(document).ready(function()
-                {
-                    $(function()
-                    {
-                        $('.select2').select2();
-
-                        $(".select2-placeholder-multiple").select2(
-                        {
-                            placeholder: "Select State"
-                        });
-                        $(".js-hide-search").select2(
-                        {
-                            minimumResultsForSearch: 1 / 0
-                        });
-                        $(".js-max-length").select2(
-                        {
-                            maximumSelectionLength: 2,
-                            placeholder: "Select maximum 2 items"
-                        });
-                        $(".select2-placeholder").select2(
-                        {
-                            placeholder: "Select a state",
-                            allowClear: true
-                        });
-
-                        $(".js-select2-icons").select2(
-                        {
-                            minimumResultsForSearch: 1 / 0,
-                            templateResult: icon,
-                            templateSelection: icon,
-                            escapeMarkup: function(elm)
-                            {
-                                return elm
-                            }
-                        });
-
-                        function icon(elm)
-                        {
-                            elm.element;
-                            return elm.id ? "<i class='" + $(elm.element).data("icon") + " mr-2'></i>" + elm.text : elm.text
-                        }
-
-                        $(".js-data-example-ajax").select2(
-                        {
-                            ajax:
-                            {
-                                url: "https://api.github.com/search/repositories",
-                                dataType: 'json',
-                                delay: 250,
-                                data: function(params)
-                                {
-                                    return {
-                                        q: params.term, // search term
-                                        page: params.page
-                                    };
-                                },
-                                processResults: function(data, params)
-                                {
-                                    // parse the results into the format expected by Select2
-                                    // since we are using custom formatting functions we do not need to
-                                    // alter the remote JSON data, except to indicate that infinite
-                                    // scrolling can be used
-                                    params.page = params.page || 1;
-
-                                    return {
-                                        results: data.items,
-                                        pagination:
-                                        {
-                                            more: (params.page * 30) < data.total_count
-                                        }
-                                    };
-                                },
-                                cache: true
-                            },
-                            placeholder: 'Search for a repository',
-                            escapeMarkup: function(markup)
-                            {
-                                return markup;
-                            }, // let our custom formatter work
-                            minimumInputLength: 1,
-                            templateResult: formatRepo,
-                            templateSelection: formatRepoSelection
-                        });
-
-                        function formatRepo(repo)
-                        {
-                            if (repo.loading)
-                            {
-                                return repo.text;
-                            }
-
-                            var markup = "<div class='select2-result-repository clearfix d-flex'>" +
-                                "<div class='select2-result-repository__avatar mr-2'><img src='" + repo.owner.avatar_url + "' class='width-2 height-2 mt-1 rounded' /></div>" +
-                                "<div class='select2-result-repository__meta'>" +
-                                "<div class='select2-result-repository__title fs-lg fw-500'>" + repo.full_name + "</div>";
-
-                            if (repo.description)
-                            {
-                                markup += "<div class='select2-result-repository__description fs-xs opacity-80 mb-1'>" + repo.description + "</div>";
-                            }
-
-                            markup += "<div class='select2-result-repository__statistics d-flex fs-sm'>" +
-                                "<div class='select2-result-repository__forks mr-2'><i class='fal fa-lightbulb'></i> " + repo.forks_count + " Forks</div>" +
-                                "<div class='select2-result-repository__stargazers mr-2'><i class='fal fa-star'></i> " + repo.stargazers_count + " Stars</div>" +
-                                "<div class='select2-result-repository__watchers mr-2'><i class='fal fa-eye'></i> " + repo.watchers_count + " Watchers</div>" +
-                                "</div>" +
-                                "</div></div>";
-
-                            return markup;
-                        }
-
-                        function formatRepoSelection(repo)
-                        {
-                            return repo.full_name || repo.text;
-                        }
-                    });
-                });
-
-            </script>
     </body>
 </html>

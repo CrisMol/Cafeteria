@@ -1,4 +1,10 @@
+<?php
 
+//require_once 'include/redireccion.php';
+require_once 'include/helpers.php';
+require_once 'include/conexion.php';
+
+?>
 
 <!DOCTYPE html>
 <!--
@@ -566,24 +572,33 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
               </div>
               <div class="panel-container show">
                   <div class="panel-content">
+<?php
+    $profesor =conseguir_profesores_por_codigo($db, $_GET['idProfesor']);
+    if(!empty($profesor) && mysqli_num_rows($profesor) >= 1):
+        $profesor = mysqli_fetch_assoc($profesor);
+?>
                       <form>
                           <div class="form-group">
                               <label class="form-label" for="simpleinput">Codigo</label>
-                              <input type="text" id="simpleinput" value="1714764230" class="form-control" disabled>
+                              <input type="text" id="simpleinput" value="<?=$profesor['CODIGO_PROFESOR']?>" class="form-control" disabled>
                           </div>
 
                           <div class="form-group">
                               <label class="form-label" for="simpleinput">Apellidos</label>
-                              <input type="text" id="simpleinput" value="Arias Moreno" class="form-control" disabled>
+                              <input type="text" id="simpleinput" value="<?=$profesor['APELLIDOS_PROFESOR']?>" class="form-control" disabled>
                           </div>
 
                           <div class="form-group">
                               <label class="form-label" for="simpleinput">Nombre</label>
-                              <input type="text" id="simpleinput" value="Pablo Andres" class="form-control" disabled>
+                              <input type="text" id="simpleinput" value="<?=$profesor['NOMBRE_PROFESOR']?>" class="form-control" disabled>
                           </div>
 
                       </div>
                       </form>
+
+<?php
+    endif;
+?>
                   </div>
               </div>
           </div>

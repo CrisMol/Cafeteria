@@ -1,4 +1,10 @@
+<?php
 
+//require_once 'include/redireccion.php';
+require_once 'include/helpers.php';
+require_once 'include/conexion.php';
+
+?>
 
 <!DOCTYPE html>
 <!--
@@ -566,7 +572,17 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
                           </label>
                           <select class="select2 form-control w-100" name="idProfesor" id="single-default" required>
                           <option value="">Digite o seleccione profesor</option>
-<option value="2">Arias Moreno Pablo Andres - Codigo 1714764230</option><option value="1">Moreno Prieto Juan Francisco - Codigo 1714764221</option>                          </select>
+<?php
+    $profesores =conseguir_profesores($db);
+    if(!empty($profesores) && mysqli_num_rows($profesores) >= 1):
+        while ($profesor = mysqli_fetch_assoc($profesores)) :
+?>
+<option value="<?=$profesor['CODIGO_PROFESOR']?>"><?=$profesor['APELLIDOS_PROFESOR']?> <?=$profesor['NOMBRE_PROFESOR']?> - Codigo <?=$profesor['CODIGO_PROFESOR']?></option> 
+<?php
+        endwhile;
+    endif;
+?>                    
+                         </select>
                       </div>
 
                       <div class="modal-footer">
@@ -712,6 +728,7 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
             <script src="js/app.bundle.js"></script>
             <script src="js/formplugins/select2/select2.bundle.js"></script>
             <script>
+                /*
                 $(document).ready(function()
                 {
                     $(function()

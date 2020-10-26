@@ -1,4 +1,10 @@
+<?php
 
+//require_once 'include/redireccion.php';
+require_once 'include/helpers.php';
+require_once 'include/conexion.php';
+
+?>
 
 <!DOCTYPE html>
 <!--
@@ -575,30 +581,46 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
                               </tr>
                           </thead>
                           <tbody>
+<?php
+    $contador = 0;
+    $estudiantes =conseguir_estudiantes($db);
+    if(!empty($estudiantes) && mysqli_num_rows($estudiantes) >= 1):
+        while ($estudiante = mysqli_fetch_assoc($estudiantes)) :
+            $contador++;
+?>
 <tr>
-                                  <td>1</td>
-                                  <td>1004</td>
-                                  <td>Alban Laines</td>
-                                  <td>Darla</td>
-                                  <td>Egb2</td>
-                                  <td>No Registra</td>
-                                  <td>No Registra</td>
-                                  <td align="center"><button type="button" class="btn btn-sm btn-outline-info" data-toggle="modal" data-target="#formRfid4">Seleccionar</button></td>
+                                  <td><?=$contador?></td>
+                                  <td><?=$estudiante['CODIGO']?></td>
+                                  <td><?=$estudiante['APELLIDO']?></td>
+                                  <td><?=$estudiante['NOMBRE']?></td>
+                                  <td><?=$estudiante['GRADO']?></td>
+                                  <?php 
+                                    $estudiante_con_rfid = conseguir_rfid($db, $estudiante['CODIGO']);
+                                    if(!empty($estudiante_con_rfid) && mysqli_num_rows($estudiante_con_rfid) >= 1):
+                                        $rfid = mysqli_fetch_assoc($estudiante_con_rfid);
+                                  ?>
+                                    <td><?=$rfid['RFID']?></td>
+                                    <td><?=$rfid['ESTADO_REFID']?></td>
+                                  <?php else: ?>
+                                     <td>No Registra</td>
+                                     <td>No Registra</td>
+                                  <?php endif; ?>
+                                  <td align="center"><button type="button" class="btn btn-sm btn-outline-info" data-toggle="modal" data-target="#formRfid<?=$estudiante['CODIGO']?>">Seleccionar</button></td>
                               </tr>
 <!-- Modal -->
-<div class="modal fade" id="formRfid4" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="formRfid<?=$estudiante['CODIGO']?>" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">
-                    Registrar RFID Estudiante Codigo1004                    <small>Alban Laines Darla</small>
+                    Registrar RFID Estudiante Codigo <?=$estudiante['CODIGO']?>                  <small><?=$estudiante['APELLIDO']?> <?=$estudiante['NOMBRE']?></small>
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true"><i class="fal fa-times"></i></span>
                 </button>
             </div>
             <div class="modal-body">
-              <form method="get" action="guardarRFID.php">
+              <form method="POST" action="guardarRFID.php">
 
                   <div class="form-group">
                       <label class="form-label" for="simpleinput">#RFID</label>
@@ -607,7 +629,7 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
 
             </div>
             <div class="modal-footer">
-               <input name="idEstudiante" type="hidden" id="idEstudiante" value="4" />
+               <input name="idEstudiante" type="hidden" id="idEstudiante" value="<?=$estudiante['CODIGO']?>" />
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 <button type="submit" class="btn btn-info btn-primary">Registrar</button>
             </div>
@@ -615,6 +637,10 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
         </div>
     </div>
 </div>
+<?php
+        endwhile;
+    endif;
+?>
                           </tbody>
                           <tfoot>
                               <tr>

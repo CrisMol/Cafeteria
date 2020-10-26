@@ -1,4 +1,10 @@
+<?php
 
+//require_once 'include/redireccion.php';
+require_once 'include/helpers.php';
+require_once 'include/conexion.php';
+
+?>
 
 <!DOCTYPE html>
 <!--
@@ -579,56 +585,63 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
                               </tr>
                           </thead>
                           <tbody>
+<?php
+    $contador = 0;
+    $profesores =conseguir_profesores($db);
+    if(!empty($profesores) && mysqli_num_rows($profesores) >= 1):
+        while ($profesor = mysqli_fetch_assoc($profesores)) :
+            $contador++;
+?>
 <tr>
-                                  <td>1</td>
-                                  <td>1714764230</td>
-                                  <td>Arias Moreno</td>
-                                  <td>Pablo Andres</td>
-                                  <td align="right">30.00</td>
-                                  <td>merino_daniel1@hotmail.com</td>
-                                  <td align="center"><button type="button" class="btn btn-sm btn-outline-info" data-toggle="modal" data-target="#modalEditar2">Editar</button></td>
+                                  <td><?=$contador?></td>
+                                  <td><?=$profesor['CODIGO_PROFESOR']?></td>
+                                  <td><?=$profesor['APELLIDOS_PROFESOR']?></td>
+                                  <td><?=$profesor['NOMBRE_PROFESOR']?></td>
+                                  <td align="right"><?=$profesor['CREDITO']?></td>
+                                  <td><?=$profesor['EMAIL']?></td>
+                                  <td align="center"><button type="button" class="btn btn-sm btn-outline-info" data-toggle="modal" data-target="#modalEditar<?=$profesor['CODIGO_PROFESOR']?>">Editar</button></td>
                               </tr><!-- Modal -->
-<div class="modal fade" id="modalEditar2" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="modalEditar<?=$profesor['CODIGO_PROFESOR']?>" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">
-                    Editar Profesor Codigo1714764230                </h4>
+                    Editar Profesor Codigo <?=$profesor['CODIGO_PROFESOR']?>               </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true"><i class="fal fa-times"></i></span>
                 </button>
             </div>
             <div class="modal-body">
-              <form method="get" action="guardarCambiosProfesor.php">
+              <form method="POST" action="guardarCambiosProfesor.php">
 
                   <div class="form-group">
                       <label class="form-label" for="simpleinput">Apellidos</label>
-                      <input type="text" id="simpleinput" name="apellidosProfesor" value="Arias Moreno" class="form-control" autocomplete="off" required>
+                      <input type="text" id="simpleinput" name="apellidosProfesor" value="<?=$profesor['APELLIDOS_PROFESOR']?>" class="form-control" autocomplete="off" required>
                   </div>
 
                   <div class="form-group">
                       <label class="form-label" for="simpleinput">Nombre</label>
-                      <input type="text" id="simpleinput" name="nombreProfesor" value="Pablo Andres" class="form-control" autocomplete="off" required>
+                      <input type="text" id="simpleinput" name="nombreProfesor" value="<?=$profesor['NOMBRE_PROFESOR']?>" class="form-control" autocomplete="off" required>
                   </div>
 
                   <div class="form-group">
                       <label class="form-label" for="simpleinput">Cupo Credito</label>
-                      <input type="text" id="simpleinput" name="cupoCredito" value="30.00" class="form-control" autocomplete="off" required>
+                      <input type="text" id="simpleinput" name="cupoCredito" value="<?=$profesor['CREDITO']?>" class="form-control" autocomplete="off" required>
                   </div>
 
                   <div class="form-group">
                       <label class="form-label" for="simpleinput">E-mail</label>
-                      <input type="email" id="simpleinput" name="email" value="merino_daniel1@hotmail.com" class="form-control" autocomplete="off" required>
+                      <input type="email" id="simpleinput" name="email" value="<?=$profesor['EMAIL']?>" class="form-control" autocomplete="off" required>
                   </div>
 
                   <div class="form-group">
                       <label class="form-label" for="simpleinput">Celular</label>
-                      <input type="text" id="simpleinput" name="celular" value="0991943124" class="form-control" autocomplete="off" required>
+                      <input type="text" id="simpleinput" name="celular" value="<?=$profesor['CELULAR']?>" class="form-control" autocomplete="off" required>
                   </div>
 
             </div>
             <div class="modal-footer">
-               <input name="idProfesor" type="hidden" id="idProfesor" value="2" />
+               <input name="idProfesor" type="hidden" id="idProfesor" value="<?=$profesor['CODIGO_PROFESOR']?>" />
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 <button type="submit" class="btn btn-info btn-primary">Guardar Cambios</button>
             </div>
@@ -636,6 +649,10 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
         </div>
     </div>
 </div>
+<?php
+        endwhile;
+    endif;
+?>
                           </tbody>
                           <tfoot>
                               <tr>
@@ -668,7 +685,7 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
                   </button>
               </div>
               <div class="modal-body">
-                <form method="get" action="guardarNuevoProfesor.php">
+                <form method="POST" action="guardarNuevoProfesor.php">
 
                   <div class="form-group">
                       <label class="form-label" for="simpleinput">Codigo</label>

@@ -26,8 +26,9 @@ if(isset($_POST)){
 			}
 
 			//Almacenar credito
-            $sql_movimiento = "INSERT INTO pago_credito (ID_PROF, FECHA_PAG_CRED, HORA_PAG_CRED, VALOR_CRED) ".
-                              "VALUES('$idProfesor', 'CURDATE()', CURTIME(), $valorPago);";
+            $sql_movimiento = "INSERT INTO pago_credito (ID_PROF, FECHA_PAG_CRED, HORA_PAG_CRED, VALOR_CRED, VALOR_DEB) ".
+                              "VALUES('$idProfesor', CURDATE(), CURTIME(), $saldo_credito, $valorPago);";
+
             $guardar = mysqli_query($db, $sql);
             $registrar_recarga = mysqli_query($db, $sql_movimiento);
 			$almacenar = mysqli_query($db, $registrar_recarga);

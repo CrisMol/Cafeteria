@@ -593,10 +593,10 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
                                 <td><?=$profesor['APELLIDOS_PROFESOR']?></td>
                                 <td><?=$profesor['NOMBRE_PROFESOR']?></td>
                                 <td align="right"><?=$profesor['CREDITO']?></td>
-                                <td align="center"><button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal1">Pago Cr&eacute;dito</button></td>
+                                <td align="center"><button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal<?=$profesor['CODIGO_PROFESOR']?>">Pago Cr&eacute;dito</button></td>
 
                             </tr><!-- Modal -->
-<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="modal<?=$profesor['CODIGO_PROFESOR']?>" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
