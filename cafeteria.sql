@@ -1,20 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
--- http://www.phpmyadmin.net
+-- version 4.9.2
+-- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 25-10-2020 a las 16:36:57
--- Versión del servidor: 5.5.24-log
--- Versión de PHP: 5.4.3
+-- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 26-10-2020 a las 00:18:10
+-- Versión del servidor: 10.4.10-MariaDB
+-- Versión de PHP: 7.3.12
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `cafeteria`
@@ -26,6 +28,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `cajero`
 --
 
+DROP TABLE IF EXISTS `cajero`;
 CREATE TABLE IF NOT EXISTS `cajero` (
   `COD_CAJERO` int(11) NOT NULL,
   `COD_PTOVENTA` int(11) DEFAULT NULL,
@@ -42,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `cajero` (
 -- Estructura de tabla para la tabla `catego_prod`
 --
 
+DROP TABLE IF EXISTS `catego_prod`;
 CREATE TABLE IF NOT EXISTS `catego_prod` (
   `ID_CATEPROD` int(11) NOT NULL,
   `NOM_CATEPROD` varchar(20) NOT NULL,
@@ -64,6 +68,7 @@ INSERT INTO `catego_prod` (`ID_CATEPROD`, `NOM_CATEPROD`) VALUES
 -- Estructura de tabla para la tabla `estudiante`
 --
 
+DROP TABLE IF EXISTS `estudiante`;
 CREATE TABLE IF NOT EXISTS `estudiante` (
   `ID_ESTU` varchar(4) NOT NULL,
   `ID_FAM` varchar(10) DEFAULT NULL,
@@ -91,6 +96,7 @@ INSERT INTO `estudiante` (`ID_ESTU`, `ID_FAM`, `ID_GRADO`, `APELLIDO_ESTU`, `NOM
 -- Estructura de tabla para la tabla `estudiante_compra_productos`
 --
 
+DROP TABLE IF EXISTS `estudiante_compra_productos`;
 CREATE TABLE IF NOT EXISTS `estudiante_compra_productos` (
   `ID_PRODUCTO` int(11) NOT NULL,
   `ID_ESTU` varchar(4) NOT NULL,
@@ -111,6 +117,7 @@ CREATE TABLE IF NOT EXISTS `estudiante_compra_productos` (
 -- Estructura de tabla para la tabla `familia`
 --
 
+DROP TABLE IF EXISTS `familia`;
 CREATE TABLE IF NOT EXISTS `familia` (
   `ID_FAM` varchar(10) NOT NULL,
   `NOM_FAM` varchar(250) NOT NULL,
@@ -127,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `familia` (
 INSERT INTO `familia` (`ID_FAM`, `NOM_FAM`, `MAIL_FAM`, `CEL_FAM`, `SALDO_FAM`) VALUES
 ('1714764220', 'Merino Moreno', 'merino_daniel18@hotmail.com', '96358777', 22),
 ('1722468235', 'Monyalvo', 'montalvo_@gmail.com', '96365555', 12),
-('1722468236', 'Molina Cabeza', 'molinacuario97@hotmail.com', '963639720', 0);
+('1722468236', 'Molina Cabeza', 'molinacuario97@hotmail.com', '963639720', 16);
 
 -- --------------------------------------------------------
 
@@ -135,11 +142,12 @@ INSERT INTO `familia` (`ID_FAM`, `NOM_FAM`, `MAIL_FAM`, `CEL_FAM`, `SALDO_FAM`) 
 -- Estructura de tabla para la tabla `grado`
 --
 
+DROP TABLE IF EXISTS `grado`;
 CREATE TABLE IF NOT EXISTS `grado` (
   `ID_GRADO` int(11) NOT NULL AUTO_INCREMENT,
   `NOM_GRADO` varchar(20) NOT NULL,
   PRIMARY KEY (`ID_GRADO`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf32 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf32;
 
 --
 -- Volcado de datos para la tabla `grado`
@@ -157,6 +165,7 @@ INSERT INTO `grado` (`ID_GRADO`, `NOM_GRADO`) VALUES
 -- Estructura de tabla para la tabla `menu`
 --
 
+DROP TABLE IF EXISTS `menu`;
 CREATE TABLE IF NOT EXISTS `menu` (
   `ID_MENU` int(11) NOT NULL,
   `ID_USUARIO` varchar(15) DEFAULT NULL,
@@ -172,27 +181,25 @@ CREATE TABLE IF NOT EXISTS `menu` (
 -- Estructura de tabla para la tabla `pago_credito`
 --
 
+DROP TABLE IF EXISTS `pago_credito`;
 CREATE TABLE IF NOT EXISTS `pago_credito` (
   `ID_PAG_CRED` int(11) NOT NULL AUTO_INCREMENT,
   `ID_PROF` varchar(10) DEFAULT NULL,
   `FECHA_PAG_CRED` date NOT NULL,
   `HORA_PAG_CRED` time NOT NULL,
   `VALOR_CRED` float DEFAULT NULL,
+  `VALOR_DEB` float DEFAULT NULL,
   PRIMARY KEY (`ID_PAG_CRED`),
   KEY `FK_PAGO_PROFESOR_CREDITO` (`ID_PROF`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf32 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf32;
 
 --
 -- Volcado de datos para la tabla `pago_credito`
 --
 
-INSERT INTO `pago_credito` (`ID_PAG_CRED`, `ID_PROF`, `FECHA_PAG_CRED`, `HORA_PAG_CRED`, `VALOR_CRED`) VALUES
-(1, '1722468236', '0000-00-00', '23:00:36', 10),
-(2, '1722468236', '0000-00-00', '23:01:54', 10),
-(3, '1722468236', '0000-00-00', '23:03:01', 10),
-(4, '1722468236', '0000-00-00', '23:03:21', 1),
-(5, '1722468235', '0000-00-00', '23:21:54', 10),
-(6, '1722468235', '0000-00-00', '23:22:06', 1);
+INSERT INTO `pago_credito` (`ID_PAG_CRED`, `ID_PROF`, `FECHA_PAG_CRED`, `HORA_PAG_CRED`, `VALOR_CRED`, `VALOR_DEB`) VALUES
+(9, '1722453689', '2020-10-25', '17:59:40', 5, 1),
+(10, '1722453689', '2020-10-25', '18:00:50', 4, 2);
 
 -- --------------------------------------------------------
 
@@ -200,6 +207,7 @@ INSERT INTO `pago_credito` (`ID_PAG_CRED`, `ID_PROF`, `FECHA_PAG_CRED`, `HORA_PA
 -- Estructura de tabla para la tabla `privilegio`
 --
 
+DROP TABLE IF EXISTS `privilegio`;
 CREATE TABLE IF NOT EXISTS `privilegio` (
   `ID_PRIVILEGIO` int(11) NOT NULL,
   `ID_USUARIO` varchar(15) DEFAULT NULL,
@@ -274,6 +282,7 @@ CREATE TABLE IF NOT EXISTS `privilegio` (
 -- Estructura de tabla para la tabla `producto`
 --
 
+DROP TABLE IF EXISTS `producto`;
 CREATE TABLE IF NOT EXISTS `producto` (
   `ID_PRODUCTO` int(11) NOT NULL,
   `ID_CATEPROD` int(11) DEFAULT NULL,
@@ -288,6 +297,7 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `ESTADO_PRECO` int(11) NOT NULL,
   `TITULO_PROD` varchar(100) DEFAULT NULL,
   `FOTO_PROD` varchar(255) DEFAULT NULL,
+  `DESC_ADIC` text DEFAULT NULL,
   PRIMARY KEY (`ID_PRODUCTO`),
   KEY `FK_ALMACENA` (`COD_PTOVENTA`),
   KEY `FK_PRODUCTO_CATEGORIAPROD` (`ID_CATEPROD`),
@@ -298,9 +308,9 @@ CREATE TABLE IF NOT EXISTS `producto` (
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`ID_PRODUCTO`, `ID_CATEPROD`, `COD_PTOVENTA`, `ID_TIPO_PROD`, `COD_BARRA`, `DESC_PROD`, `COSTO_PROD`, `PRECIO_VENTA`, `CANTIDAD_PROD`, `ESTADO_INVE`, `ESTADO_PRECO`, `TITULO_PROD`, `FOTO_PROD`) VALUES
-(0, 0, NULL, 1, '1234678', 'Pan', 0.25, 0.5, 10, 1, 0, NULL, NULL),
-(15365, 0, NULL, 1, '12345', 'Arroz con Pollo', 12, 13, 1, 0, 1, NULL, NULL);
+INSERT INTO `producto` (`ID_PRODUCTO`, `ID_CATEPROD`, `COD_PTOVENTA`, `ID_TIPO_PROD`, `COD_BARRA`, `DESC_PROD`, `COSTO_PROD`, `PRECIO_VENTA`, `CANTIDAD_PROD`, `ESTADO_INVE`, `ESTADO_PRECO`, `TITULO_PROD`, `FOTO_PROD`, `DESC_ADIC`) VALUES
+(0, 0, NULL, 1, '1234678', 'Pan', 0.25, 0.5, 10, 1, 0, NULL, NULL, NULL),
+(15365, 0, NULL, 1, '12345', 'Arroz con Pollo', 12, 13, 1, 0, 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -308,6 +318,7 @@ INSERT INTO `producto` (`ID_PRODUCTO`, `ID_CATEPROD`, `COD_PTOVENTA`, `ID_TIPO_P
 -- Estructura de tabla para la tabla `profesor`
 --
 
+DROP TABLE IF EXISTS `profesor`;
 CREATE TABLE IF NOT EXISTS `profesor` (
   `ID_PROF` varchar(10) NOT NULL,
   `APELLIDO_PROF` varchar(15) NOT NULL,
@@ -324,8 +335,9 @@ CREATE TABLE IF NOT EXISTS `profesor` (
 --
 
 INSERT INTO `profesor` (`ID_PROF`, `APELLIDO_PROF`, `NOM_PROF`, `MAIL_PROF`, `CEL_PROF`, `SALDO_PROF`, `CREDI_PROF`) VALUES
-('1722468235', 'Saenz', 'Jean', 'aasd@gmail.com', '09654522', 0.25, 0),
-('1722468236', 'Molina', 'Alexander', 'molinacuario_97@hotmail.com', '0963637218', 0.25, 0);
+('1722453689', 'Lopez Man', 'Mariano Sanchez', 'molinacuario_97@yahoo.com', '096553632', 15, 2),
+('1722468235', 'Saenz', 'Jean', 'aserekmolina@gmail.com', '0959154391', 3, 8),
+('1722468236', 'Molina', 'Alexander', 'molinacuario_97@hotmail.com', '0963637219', 0.25, 0);
 
 -- --------------------------------------------------------
 
@@ -333,6 +345,7 @@ INSERT INTO `profesor` (`ID_PROF`, `APELLIDO_PROF`, `NOM_PROF`, `MAIL_PROF`, `CE
 -- Estructura de tabla para la tabla `profesor_compra_productos`
 --
 
+DROP TABLE IF EXISTS `profesor_compra_productos`;
 CREATE TABLE IF NOT EXISTS `profesor_compra_productos` (
   `ID_PRODUCTO` int(11) NOT NULL,
   `ID_PROF` varchar(10) NOT NULL,
@@ -353,6 +366,7 @@ CREATE TABLE IF NOT EXISTS `profesor_compra_productos` (
 -- Estructura de tabla para la tabla `punto_venta`
 --
 
+DROP TABLE IF EXISTS `punto_venta`;
 CREATE TABLE IF NOT EXISTS `punto_venta` (
   `COD_PTOVENTA` int(11) NOT NULL,
   `NOM_PTOVENTA` varchar(50) NOT NULL,
@@ -365,8 +379,9 @@ CREATE TABLE IF NOT EXISTS `punto_venta` (
 -- Estructura de tabla para la tabla `recarga_efectivo`
 --
 
+DROP TABLE IF EXISTS `recarga_efectivo`;
 CREATE TABLE IF NOT EXISTS `recarga_efectivo` (
-  `ID_REC_EFEC` int(11) NOT NULL,
+  `ID_REC_EFEC` int(11) NOT NULL AUTO_INCREMENT,
   `ID_PROF` varchar(10) DEFAULT NULL,
   `ID_FAM` varchar(10) DEFAULT NULL,
   `FECHA_REC_EFEC` date NOT NULL,
@@ -375,7 +390,18 @@ CREATE TABLE IF NOT EXISTS `recarga_efectivo` (
   PRIMARY KEY (`ID_REC_EFEC`),
   KEY `FK_PROFESOR_RECARGA_EFECTIVO` (`ID_PROF`),
   KEY `FK_RECARGA_FAMILIA_EFECTIVO` (`ID_FAM`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf32;
+
+--
+-- Volcado de datos para la tabla `recarga_efectivo`
+--
+
+INSERT INTO `recarga_efectivo` (`ID_REC_EFEC`, `ID_PROF`, `ID_FAM`, `FECHA_REC_EFEC`, `HORA_REC_EFEC`, `VALOR_REC_EFEC`) VALUES
+(2, NULL, '1722468236', '2020-10-25', '17:07:06', 1),
+(3, '1722468235', NULL, '2020-10-25', '17:07:20', 1),
+(4, '1722468235', NULL, '2020-10-25', '17:07:47', 2),
+(5, '1722453689', NULL, '2020-10-25', '17:07:58', 15),
+(6, NULL, '1722468236', '2020-10-25', '17:08:14', 10);
 
 -- --------------------------------------------------------
 
@@ -383,6 +409,7 @@ CREATE TABLE IF NOT EXISTS `recarga_efectivo` (
 -- Estructura de tabla para la tabla `rfid`
 --
 
+DROP TABLE IF EXISTS `rfid`;
 CREATE TABLE IF NOT EXISTS `rfid` (
   `ID_RFID` varchar(100) NOT NULL,
   `ID_ESTU` varchar(4) DEFAULT NULL,
@@ -391,12 +418,45 @@ CREATE TABLE IF NOT EXISTS `rfid` (
   KEY `FK_ESTUDIANTE_RFID` (`ID_ESTU`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
+--
+-- Volcado de datos para la tabla `rfid`
+--
+
+INSERT INTO `rfid` (`ID_RFID`, `ID_ESTU`, `ESTADO_RFID`) VALUES
+('1234', '1013', 'Si Registra'),
+('8963', '1010', 'Si Registra'),
+('986899', '1025', 'Si Registra');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `rfid_profesor`
+--
+
+DROP TABLE IF EXISTS `rfid_profesor`;
+CREATE TABLE IF NOT EXISTS `rfid_profesor` (
+  `ID_RFID` varchar(255) NOT NULL,
+  `ID_PROF` varchar(10) NOT NULL,
+  `ESTADO_RFID` varchar(255) NOT NULL,
+  PRIMARY KEY (`ID_RFID`),
+  KEY `fk_rfid_profesor` (`ID_PROF`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `rfid_profesor`
+--
+
+INSERT INTO `rfid_profesor` (`ID_RFID`, `ID_PROF`, `ESTADO_RFID`) VALUES
+('2478', '1722453689', 'Si Registra'),
+('124580', '1722468235', 'Si Registra');
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `tipo_compra`
 --
 
+DROP TABLE IF EXISTS `tipo_compra`;
 CREATE TABLE IF NOT EXISTS `tipo_compra` (
   `ID_TIPO_COMPRA` int(11) NOT NULL,
   `NOMBRE_TIPO__COMPRA` varchar(255) NOT NULL,
@@ -409,6 +469,7 @@ CREATE TABLE IF NOT EXISTS `tipo_compra` (
 -- Estructura de tabla para la tabla `tipo_prod`
 --
 
+DROP TABLE IF EXISTS `tipo_prod`;
 CREATE TABLE IF NOT EXISTS `tipo_prod` (
   `ID_TIPO_PROD` int(11) NOT NULL,
   `NOM_PROD` varchar(30) NOT NULL,
@@ -428,6 +489,7 @@ INSERT INTO `tipo_prod` (`ID_TIPO_PROD`, `NOM_PROD`) VALUES
 -- Estructura de tabla para la tabla `tipo_usuario`
 --
 
+DROP TABLE IF EXISTS `tipo_usuario`;
 CREATE TABLE IF NOT EXISTS `tipo_usuario` (
   `ID_TIPO_USUARIO` int(11) NOT NULL,
   `NOM_TIPO_USUARIO` varchar(255) NOT NULL,
@@ -440,6 +502,7 @@ CREATE TABLE IF NOT EXISTS `tipo_usuario` (
 -- Estructura de tabla para la tabla `usuario`
 --
 
+DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE IF NOT EXISTS `usuario` (
   `ID_USUARIO` varchar(15) NOT NULL,
   `ID_TIPO_USUARIO` int(11) DEFAULT NULL,
@@ -530,6 +593,7 @@ ALTER TABLE `rfid`
 --
 ALTER TABLE `usuario`
   ADD CONSTRAINT `FK_TIPO_USUARIO` FOREIGN KEY (`ID_TIPO_USUARIO`) REFERENCES `tipo_usuario` (`ID_TIPO_USUARIO`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
