@@ -7,7 +7,15 @@ if(isset($_POST)){
 
     $idProducto = isset($_POST['idProducto']) ? mysqli_real_escape_string($db, $_POST['idProducto']) : false;
 
-        //validacion
+    //Conseguir valores de movimiento
+    $producto =conseguir_movimientos_productos($db, $idProducto);
+    $producto_id = mysqli_fetch_assoc($producto);
+    if ($producto_id['CODIGO_PRODUCTO'] == $idProducto) {
+    	$errores['error_borrar'] = 'No se puede eliminar el producto porque existe registros de movimientos';
+    	$_SESSION['errores'] = $errores;
+    	header("Location: listaProductos.php");
+    }else{
+    	//validacion
         $errores = array();
 
         if (empty($idProducto)) {
@@ -26,6 +34,7 @@ if(isset($_POST)){
                 header("Location: listaProductos.php");
             }
         }
+    }
 }
 
 ?>

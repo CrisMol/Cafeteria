@@ -1,22 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
--- https://www.phpmyadmin.net/
+-- version 3.5.1
+-- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 26-10-2020 a las 00:18:10
--- Versión del servidor: 10.4.10-MariaDB
--- Versión de PHP: 7.3.12
+-- Servidor: localhost
+-- Tiempo de generación: 27-10-2020 a las 03:14:44
+-- Versión del servidor: 5.5.24-log
+-- Versión de PHP: 5.4.3
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de datos: `cafeteria`
@@ -28,7 +26,6 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `cajero`
 --
 
-DROP TABLE IF EXISTS `cajero`;
 CREATE TABLE IF NOT EXISTS `cajero` (
   `COD_CAJERO` int(11) NOT NULL,
   `COD_PTOVENTA` int(11) DEFAULT NULL,
@@ -45,7 +42,6 @@ CREATE TABLE IF NOT EXISTS `cajero` (
 -- Estructura de tabla para la tabla `catego_prod`
 --
 
-DROP TABLE IF EXISTS `catego_prod`;
 CREATE TABLE IF NOT EXISTS `catego_prod` (
   `ID_CATEPROD` int(11) NOT NULL,
   `NOM_CATEPROD` varchar(20) NOT NULL,
@@ -68,7 +64,6 @@ INSERT INTO `catego_prod` (`ID_CATEPROD`, `NOM_CATEPROD`) VALUES
 -- Estructura de tabla para la tabla `estudiante`
 --
 
-DROP TABLE IF EXISTS `estudiante`;
 CREATE TABLE IF NOT EXISTS `estudiante` (
   `ID_ESTU` varchar(4) NOT NULL,
   `ID_FAM` varchar(10) DEFAULT NULL,
@@ -96,7 +91,6 @@ INSERT INTO `estudiante` (`ID_ESTU`, `ID_FAM`, `ID_GRADO`, `APELLIDO_ESTU`, `NOM
 -- Estructura de tabla para la tabla `estudiante_compra_productos`
 --
 
-DROP TABLE IF EXISTS `estudiante_compra_productos`;
 CREATE TABLE IF NOT EXISTS `estudiante_compra_productos` (
   `ID_PRODUCTO` int(11) NOT NULL,
   `ID_ESTU` varchar(4) NOT NULL,
@@ -117,7 +111,6 @@ CREATE TABLE IF NOT EXISTS `estudiante_compra_productos` (
 -- Estructura de tabla para la tabla `familia`
 --
 
-DROP TABLE IF EXISTS `familia`;
 CREATE TABLE IF NOT EXISTS `familia` (
   `ID_FAM` varchar(10) NOT NULL,
   `NOM_FAM` varchar(250) NOT NULL,
@@ -142,12 +135,11 @@ INSERT INTO `familia` (`ID_FAM`, `NOM_FAM`, `MAIL_FAM`, `CEL_FAM`, `SALDO_FAM`) 
 -- Estructura de tabla para la tabla `grado`
 --
 
-DROP TABLE IF EXISTS `grado`;
 CREATE TABLE IF NOT EXISTS `grado` (
   `ID_GRADO` int(11) NOT NULL AUTO_INCREMENT,
   `NOM_GRADO` varchar(20) NOT NULL,
   PRIMARY KEY (`ID_GRADO`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf32;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf32 AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `grado`
@@ -165,7 +157,6 @@ INSERT INTO `grado` (`ID_GRADO`, `NOM_GRADO`) VALUES
 -- Estructura de tabla para la tabla `menu`
 --
 
-DROP TABLE IF EXISTS `menu`;
 CREATE TABLE IF NOT EXISTS `menu` (
   `ID_MENU` int(11) NOT NULL,
   `ID_USUARIO` varchar(15) DEFAULT NULL,
@@ -178,10 +169,39 @@ CREATE TABLE IF NOT EXISTS `menu` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `movimiento_producto`
+--
+
+CREATE TABLE IF NOT EXISTS `movimiento_producto` (
+  `ID_MOV_PROD` int(255) NOT NULL AUTO_INCREMENT,
+  `ID_PRODUCTO` int(11) DEFAULT NULL,
+  `FECHA_MOV_PROD` date NOT NULL,
+  `HORA_MOV_PROD` time NOT NULL,
+  `DESC_MOV_PROD` varchar(255) NOT NULL,
+  `ENTRADA_MOV_PROD` int(255) DEFAULT NULL,
+  `SALIDA_MOV_PROD` int(255) DEFAULT NULL,
+  `SALDO_MOVI` int(255) DEFAULT NULL,
+  PRIMARY KEY (`ID_MOV_PROD`),
+  KEY `fk_movimiento_producto` (`ID_PRODUCTO`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+--
+-- Volcado de datos para la tabla `movimiento_producto`
+--
+
+INSERT INTO `movimiento_producto` (`ID_MOV_PROD`, `ID_PRODUCTO`, `FECHA_MOV_PROD`, `HORA_MOV_PROD`, `DESC_MOV_PROD`, `ENTRADA_MOV_PROD`, `SALIDA_MOV_PROD`, `SALDO_MOVI`) VALUES
+(3, 15365, '2020-10-26', '22:08:35', 'Cambio de Inventario', 5, 0, 30),
+(4, 15365, '2020-10-26', '22:08:56', 'Cambio de Inventario', 0, 5, 25),
+(5, 15365, '2020-10-26', '22:09:12', 'Cambio de Inventario', 0, 25, 0),
+(6, 15365, '2020-10-26', '22:09:27', 'Cambio de Inventario', 0, 5, -5),
+(7, 15365, '2020-10-26', '22:09:43', 'Cambio de Inventario', 100, 0, 95);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `pago_credito`
 --
 
-DROP TABLE IF EXISTS `pago_credito`;
 CREATE TABLE IF NOT EXISTS `pago_credito` (
   `ID_PAG_CRED` int(11) NOT NULL AUTO_INCREMENT,
   `ID_PROF` varchar(10) DEFAULT NULL,
@@ -191,7 +211,7 @@ CREATE TABLE IF NOT EXISTS `pago_credito` (
   `VALOR_DEB` float DEFAULT NULL,
   PRIMARY KEY (`ID_PAG_CRED`),
   KEY `FK_PAGO_PROFESOR_CREDITO` (`ID_PROF`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf32;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf32 AUTO_INCREMENT=11 ;
 
 --
 -- Volcado de datos para la tabla `pago_credito`
@@ -207,7 +227,6 @@ INSERT INTO `pago_credito` (`ID_PAG_CRED`, `ID_PROF`, `FECHA_PAG_CRED`, `HORA_PA
 -- Estructura de tabla para la tabla `privilegio`
 --
 
-DROP TABLE IF EXISTS `privilegio`;
 CREATE TABLE IF NOT EXISTS `privilegio` (
   `ID_PRIVILEGIO` int(11) NOT NULL,
   `ID_USUARIO` varchar(15) DEFAULT NULL,
@@ -282,7 +301,6 @@ CREATE TABLE IF NOT EXISTS `privilegio` (
 -- Estructura de tabla para la tabla `producto`
 --
 
-DROP TABLE IF EXISTS `producto`;
 CREATE TABLE IF NOT EXISTS `producto` (
   `ID_PRODUCTO` int(11) NOT NULL,
   `ID_CATEPROD` int(11) DEFAULT NULL,
@@ -297,7 +315,8 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `ESTADO_PRECO` int(11) NOT NULL,
   `TITULO_PROD` varchar(100) DEFAULT NULL,
   `FOTO_PROD` varchar(255) DEFAULT NULL,
-  `DESC_ADIC` text DEFAULT NULL,
+  `DESC_ADIC` text,
+  `CLAVE_AUTORIZACION_PROD` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`ID_PRODUCTO`),
   KEY `FK_ALMACENA` (`COD_PTOVENTA`),
   KEY `FK_PRODUCTO_CATEGORIAPROD` (`ID_CATEPROD`),
@@ -308,9 +327,8 @@ CREATE TABLE IF NOT EXISTS `producto` (
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`ID_PRODUCTO`, `ID_CATEPROD`, `COD_PTOVENTA`, `ID_TIPO_PROD`, `COD_BARRA`, `DESC_PROD`, `COSTO_PROD`, `PRECIO_VENTA`, `CANTIDAD_PROD`, `ESTADO_INVE`, `ESTADO_PRECO`, `TITULO_PROD`, `FOTO_PROD`, `DESC_ADIC`) VALUES
-(0, 0, NULL, 1, '1234678', 'Pan', 0.25, 0.5, 10, 1, 0, NULL, NULL, NULL),
-(15365, 0, NULL, 1, '12345', 'Arroz con Pollo', 12, 13, 1, 0, 1, NULL, NULL, NULL);
+INSERT INTO `producto` (`ID_PRODUCTO`, `ID_CATEPROD`, `COD_PTOVENTA`, `ID_TIPO_PROD`, `COD_BARRA`, `DESC_PROD`, `COSTO_PROD`, `PRECIO_VENTA`, `CANTIDAD_PROD`, `ESTADO_INVE`, `ESTADO_PRECO`, `TITULO_PROD`, `FOTO_PROD`, `DESC_ADIC`, `CLAVE_AUTORIZACION_PROD`) VALUES
+(15365, 0, NULL, 1, '12345', 'Arroz con Pollo', 9, 15, 95, 0, 1, NULL, NULL, 'hy', '12345678');
 
 -- --------------------------------------------------------
 
@@ -318,7 +336,6 @@ INSERT INTO `producto` (`ID_PRODUCTO`, `ID_CATEPROD`, `COD_PTOVENTA`, `ID_TIPO_P
 -- Estructura de tabla para la tabla `profesor`
 --
 
-DROP TABLE IF EXISTS `profesor`;
 CREATE TABLE IF NOT EXISTS `profesor` (
   `ID_PROF` varchar(10) NOT NULL,
   `APELLIDO_PROF` varchar(15) NOT NULL,
@@ -345,7 +362,6 @@ INSERT INTO `profesor` (`ID_PROF`, `APELLIDO_PROF`, `NOM_PROF`, `MAIL_PROF`, `CE
 -- Estructura de tabla para la tabla `profesor_compra_productos`
 --
 
-DROP TABLE IF EXISTS `profesor_compra_productos`;
 CREATE TABLE IF NOT EXISTS `profesor_compra_productos` (
   `ID_PRODUCTO` int(11) NOT NULL,
   `ID_PROF` varchar(10) NOT NULL,
@@ -366,7 +382,6 @@ CREATE TABLE IF NOT EXISTS `profesor_compra_productos` (
 -- Estructura de tabla para la tabla `punto_venta`
 --
 
-DROP TABLE IF EXISTS `punto_venta`;
 CREATE TABLE IF NOT EXISTS `punto_venta` (
   `COD_PTOVENTA` int(11) NOT NULL,
   `NOM_PTOVENTA` varchar(50) NOT NULL,
@@ -379,7 +394,6 @@ CREATE TABLE IF NOT EXISTS `punto_venta` (
 -- Estructura de tabla para la tabla `recarga_efectivo`
 --
 
-DROP TABLE IF EXISTS `recarga_efectivo`;
 CREATE TABLE IF NOT EXISTS `recarga_efectivo` (
   `ID_REC_EFEC` int(11) NOT NULL AUTO_INCREMENT,
   `ID_PROF` varchar(10) DEFAULT NULL,
@@ -390,7 +404,7 @@ CREATE TABLE IF NOT EXISTS `recarga_efectivo` (
   PRIMARY KEY (`ID_REC_EFEC`),
   KEY `FK_PROFESOR_RECARGA_EFECTIVO` (`ID_PROF`),
   KEY `FK_RECARGA_FAMILIA_EFECTIVO` (`ID_FAM`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf32;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf32 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `recarga_efectivo`
@@ -409,7 +423,6 @@ INSERT INTO `recarga_efectivo` (`ID_REC_EFEC`, `ID_PROF`, `ID_FAM`, `FECHA_REC_E
 -- Estructura de tabla para la tabla `rfid`
 --
 
-DROP TABLE IF EXISTS `rfid`;
 CREATE TABLE IF NOT EXISTS `rfid` (
   `ID_RFID` varchar(100) NOT NULL,
   `ID_ESTU` varchar(4) DEFAULT NULL,
@@ -433,7 +446,6 @@ INSERT INTO `rfid` (`ID_RFID`, `ID_ESTU`, `ESTADO_RFID`) VALUES
 -- Estructura de tabla para la tabla `rfid_profesor`
 --
 
-DROP TABLE IF EXISTS `rfid_profesor`;
 CREATE TABLE IF NOT EXISTS `rfid_profesor` (
   `ID_RFID` varchar(255) NOT NULL,
   `ID_PROF` varchar(10) NOT NULL,
@@ -456,7 +468,6 @@ INSERT INTO `rfid_profesor` (`ID_RFID`, `ID_PROF`, `ESTADO_RFID`) VALUES
 -- Estructura de tabla para la tabla `tipo_compra`
 --
 
-DROP TABLE IF EXISTS `tipo_compra`;
 CREATE TABLE IF NOT EXISTS `tipo_compra` (
   `ID_TIPO_COMPRA` int(11) NOT NULL,
   `NOMBRE_TIPO__COMPRA` varchar(255) NOT NULL,
@@ -469,7 +480,6 @@ CREATE TABLE IF NOT EXISTS `tipo_compra` (
 -- Estructura de tabla para la tabla `tipo_prod`
 --
 
-DROP TABLE IF EXISTS `tipo_prod`;
 CREATE TABLE IF NOT EXISTS `tipo_prod` (
   `ID_TIPO_PROD` int(11) NOT NULL,
   `NOM_PROD` varchar(30) NOT NULL,
@@ -489,7 +499,6 @@ INSERT INTO `tipo_prod` (`ID_TIPO_PROD`, `NOM_PROD`) VALUES
 -- Estructura de tabla para la tabla `tipo_usuario`
 --
 
-DROP TABLE IF EXISTS `tipo_usuario`;
 CREATE TABLE IF NOT EXISTS `tipo_usuario` (
   `ID_TIPO_USUARIO` int(11) NOT NULL,
   `NOM_TIPO_USUARIO` varchar(255) NOT NULL,
@@ -502,7 +511,6 @@ CREATE TABLE IF NOT EXISTS `tipo_usuario` (
 -- Estructura de tabla para la tabla `usuario`
 --
 
-DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE IF NOT EXISTS `usuario` (
   `ID_USUARIO` varchar(15) NOT NULL,
   `ID_TIPO_USUARIO` int(11) DEFAULT NULL,
@@ -545,6 +553,12 @@ ALTER TABLE `estudiante_compra_productos`
 --
 ALTER TABLE `menu`
   ADD CONSTRAINT `FK_USUARIO_MENU` FOREIGN KEY (`ID_USUARIO`) REFERENCES `usuario` (`ID_USUARIO`);
+
+--
+-- Filtros para la tabla `movimiento_producto`
+--
+ALTER TABLE `movimiento_producto`
+  ADD CONSTRAINT `fk_movimiento_producto` FOREIGN KEY (`ID_PRODUCTO`) REFERENCES `producto` (`ID_PRODUCTO`);
 
 --
 -- Filtros para la tabla `pago_credito`
@@ -593,7 +607,6 @@ ALTER TABLE `rfid`
 --
 ALTER TABLE `usuario`
   ADD CONSTRAINT `FK_TIPO_USUARIO` FOREIGN KEY (`ID_TIPO_USUARIO`) REFERENCES `tipo_usuario` (`ID_TIPO_USUARIO`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -26,7 +26,7 @@ if(isset($_POST)){
         //validacion
         $errores = array();
 
-        if ($idCategoria!=0 && $idCategoria!=1) {
+        if (empty($idCategoria)) { //Debes cambiar en la base para que empiece desde 1
             $errores['idCategoria'] = 'La categoria no es válida';
         }
 
@@ -57,8 +57,7 @@ if(isset($_POST)){
         if ($kiosko!=0 && $kiosko!=1) {
             $errores['kiosko'] = 'La precompra no es válida';
         }
-
-
+        
         if (count($errores) == 0) {
             $sql = "INSERT INTO `producto`(`ID_CATEPROD`, `COD_PTOVENTA`, `ID_TIPO_PROD`, `COD_BARRA`, " .
                    "`DESC_PROD`, `COSTO_PROD`, `PRECIO_VENTA`, `CANTIDAD_PROD`, `ESTADO_INVE`, `ESTADO_PRECO`, `TITULO_PROD`,".

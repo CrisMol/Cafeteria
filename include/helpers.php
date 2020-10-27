@@ -203,7 +203,7 @@
 	//Conseguir Productos
 	function conseguir_productos($conexion, $codigoProducto = null){
 		if ($codigoProducto != null) {
-			$sql = "SELECT CLAVE_AUTORIZACION_PROD AS CLAVE_AUTORIZACION, CANTIDAD_PROD AS CANTIDAD_PRODUCTO FROM producto WHERE ".
+			$sql = "SELECT ID_PRODUCTO AS CODIGO_PRODUCTO, CLAVE_AUTORIZACION_PROD AS CLAVE_AUTORIZACION, CANTIDAD_PROD AS CANTIDAD_PRODUCTO FROM producto WHERE ".
 				   "ID_PRODUCTO = '$codigoProducto'";
 		}else{
 			$sql = "SELECT p.ID_PRODUCTO AS CODIGO_PRODUCTO, c.NOM_CATEPROD AS CATEGORIA_PRODUCTO, COD_PTOVENTA AS CODIGO_PUNTO, ".
@@ -217,6 +217,19 @@
 		$result = array();
 		if ($productos && mysqli_num_rows($productos) >=1) {
 			$result = $productos;
+		}
+
+		return $result;
+	}
+
+	//Conseguir Movimientos Productos
+	function conseguir_movimientos_productos($conexion, $codigoProducto){
+		$sql = "SELECT ID_PRODUCTO AS CODIGO_PRODUCTO FROM movimiento_producto WHERE ID_PRODUCTO = $codigoProducto";
+		$movimientos = mysqli_query($conexion, $sql);
+
+		$result = array();
+		if ($movimientos && mysqli_num_rows($movimientos) >=1) {
+			$result = $movimientos;
 		}
 
 		return $result;

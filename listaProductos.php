@@ -177,7 +177,9 @@ require_once 'include/conexion.php';
                           </tfoot>
                       </table>
                       <!-- datatable end -->
+<?php echo isset($_SESSION['errores']) ? mostrar_error($_SESSION['errores'], 'error_borrar') : ''; ?>
                   </div>
+<?php borrar_error();?>
               </div>
           </div>
       </div>
