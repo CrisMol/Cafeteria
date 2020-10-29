@@ -23,7 +23,7 @@ if(isset($_POST)){
         }
 
         if (count($errores) == 0) {
-            $sql = "INSERT INTO grado(NOM_GRADO) VALUES ('$nombreGrado');";
+            $sql = "INSERT INTO grados(nombre_grado) VALUES ('$nombreGrado');";
             $guardar = mysqli_query($db, $sql);
             header("Location: grados.php");
         }else{

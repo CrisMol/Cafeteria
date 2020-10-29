@@ -35,7 +35,7 @@ if(isset($_POST)){
         }
 
         if (count($errores) == 0) {
-            $sql = "INSERT INTO `profesor`(ID_PROF, APELLIDO_PROF, NOM_PROF, MAIL_PROF, CEL_PROF, SALDO_PROF, CREDI_PROF) VALUES ('$codigoProfesor','$apellidosProfesor','$nombreProfesor','$email','$celular',0,$cupoCredito);";
+        	$sql = "INSERT INTO profesores(id_profesor, apellidos_profesor, nombres_profesor, email_profesor, credito_profesor, debito_profesor, contrasena_profesor, saldo_profesor, celular_profesor) VALUES ('$codigoProfesor','$apellidosProfesor','$nombreProfesor','$email',$cupoCredito,0,'1234',0,'$celular')";
             $guardar = mysqli_query($db, $sql);
             header("Location: nuevoProfesor.php");
         }else{

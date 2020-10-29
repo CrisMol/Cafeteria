@@ -18,10 +18,10 @@ if(isset($_POST)){
         }
 
         if (count($errores) == 0) {
-            $sql = "UPDATE profesor SET SALDO_PROF = $total WHERE ID_PROF = '$idProfesor';";
+            $sql = "UPDATE profesores SET saldo_profesor = $total WHERE id_profesor = '$idProfesor';";
             //Almacenar movimiento
-            $sql_movimiento = "INSERT INTO recarga_efectivo (ID_PROF, ID_FAM, FECHA_REC_EFEC, HORA_REC_EFEC, VALOR_REC_EFEC) ".
-                              "VALUES('$idProfesor', null, CURDATE(), CURTIME(), $valorRecarga);";
+            $sql_movimiento = "INSERT INTO movimientos_profesores (id_profesor, descripcion_mov_profesor, fecha_mov_profesor, hora_mov_profesor, debito_mov_profesor, cantidad_mov_profesor, credito_mov_profesor) ".
+                              "VALUES('$idProfesor', 'Recarga Efectivo', CURDATE(), CURTIME(), 0, 1, $valorRecarga);";
             $guardar = mysqli_query($db, $sql);
             $registrar_recarga = mysqli_query($db, $sql_movimiento);
             header("Location: recargaEfectivoProfesor.php");

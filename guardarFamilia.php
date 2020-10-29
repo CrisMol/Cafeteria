@@ -27,12 +27,11 @@ if(isset($_POST)){
 	if (count($errores) == 0) {
 		if (isset($_GET['editar'])) {
 			$codigo_familia= $_GET['editar'];
+			$sql = "UPDATE familias SET email_familia='$emailNotificaciones',celular_familia='$celularNotificaciones' WHERE id_familia = '$codigo_familia'";
 			//$usuario_id = $_SESSION['usuario']['id'];
-			$sql = "UPDATE familia SET MAIL_FAM = '$emailNotificaciones', CEL_FAM = $celularNotificaciones ".
-					"where ID_FAM = $codigo_familia";
 		}else{
 			//guardar en la base
-			$sql = "INSERT INTO familia VALUES('$codigoFamilia','$nombreFamilia', '$emailNotificaciones', '$celularNotificaciones', 0);";
+			$sql = "INSERT INTO familias(id_familia, nombre_familia, email_familia, celular_familia, saldo_familia, contrasena_familia) VALUES ('$codigoFamilia','$nombreFamilia','$emailNotificaciones','$celularNotificaciones',0,'1234')";
 		}
 		$guardar = mysqli_query($db, $sql);
 		header("Location: nuevaFamilia.php");

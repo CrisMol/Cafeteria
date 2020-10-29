@@ -31,9 +31,7 @@ if(isset($_POST)){
         }
 
         if (count($errores) == 0) {
-            $sql = "UPDATE profesor SET APELLIDO_PROF = '$apellidosProfesor', NOM_PROF = '$nombreProfesor', ".
-                   "MAIL_PROF = '$email', CEL_PROF = '$celular', CREDI_PROF = $cupoCredito".
-                   " WHERE ID_PROF = '$idProfesor'";
+        	$sql = "UPDATE profesores SET apellidos_profesor='$apellidosProfesor',nombres_profesor='$nombreProfesor',email_profesor='$email',credito_profesor=$cupoCredito,celular_profesor='$celular' WHERE id_profesor = '$idProfesor'";
             $guardar = mysqli_query($db, $sql);
             header("Location: nuevoProfesor.php");
         }else{

@@ -31,7 +31,7 @@
 
 	//Conseguir las familias
 	function conseguir_familias($conexion){
-		$sql = "SELECT ID_FAM AS CODIGO, NOM_FAM AS NOMBRE, MAIL_FAM AS EMAIL, CEL_FAM AS CELULAR, SALDO_FAM AS SALDO FROM familia ORDER BY ID_FAM ASC;";
+		$sql = "SELECT id_familia AS CODIGO, nombre_familia AS NOMBRE, email_familia AS EMAIL, celular_familia AS CELULAR, saldo_familia AS SALDO, contrasena_familia AS CONRASENA FROM familias ORDER BY id_familia ASC";
 		$familias = mysqli_query($conexion, $sql);
 
 		$result = array();
@@ -44,9 +44,7 @@
 
 	//Conseguir los estudianes
 	function conseguir_estudiantes($conexion){
-		$sql = "SELECT e.ID_ESTU AS CODIGO, e.APELLIDO_ESTU AS APELLIDO, e.NOM_ESTU AS NOMBRE, ".
-				"e.ID_FAM AS CODIGO_FAMILIA, g.NOM_GRADO AS GRADO FROM estudiante e ".
-				"INNER JOIN grado g ON e.ID_GRADO = g.ID_GRADO;";
+		$sql = "SELECT e.id_estudiante AS CODIGO, g.nombre_grado AS GRADO, e.id_familia AS CODIGO_FAMILIA, e.apellidos_estudiante AS APELLIDO, e.nombres_estudiante AS NOMBRE, sexo_estudiante, maximo_compras FROM estudiantes e INNER JOIN grados g ON e.id_grado = g.id_grado";
 		$estudiantes = mysqli_query($conexion, $sql);
 
 		$result = array();
@@ -57,9 +55,22 @@
 		return $result;
 	}
 
+	//Conseguir familias y estudiantes
+	function conseguir_miembros($conexion, $codigoFamilia){
+		$sql = "SELECT nombres_estudiante AS NOMBRE_ESTUDIANTE, apellidos_estudiante AS APPELIDO_ESTUDIANTE, id_estudiante AS CODIGO_ESTUDIANTE FROM estudiantes WHERE id_familia = '$codigoFamilia'";
+		$miembros = mysqli_query($conexion, $sql);
+
+		$result = array();
+		if ($miembros && mysqli_num_rows($miembros) >=1) {
+			$result = $miembros;
+		}
+
+		return $result;
+	}
+
 	//Conseguir RFID de estudiantes
 	function conseguir_rfid($conexion, $codigoEstudiante){
-		$sql = "SELECT ID_RFID AS RFID, ID_ESTU, ESTADO_RFID AS ESTADO_REFID FROM rfid WHERE ID_ESTU = $codigoEstudiante";
+		$sql = "SELECT id_rfid_estudiante AS RFID, id_estudiante, estado_rfid_estudiante AS ESTADO_REFID FROM rfid_estudiantes WHERE id_estudiante = '$codigoEstudiante'";
 		$estudiantes_rfid = mysqli_query($conexion, $sql);
 		$result = array();
 		if ($estudiantes_rfid && mysqli_num_rows($estudiantes_rfid) >=1) {
@@ -71,7 +82,7 @@
 
 	//Conseguir Codigos Familias
 	function conseguir_codigos_familias($conexion){
-		$sql = "SELECT ID_FAM AS CODIGO_FAMILIA FROM familia ORDER BY ID_FAM ASC;";
+		$sql = "SELECT id_familia AS CODIGO_FAMILIA FROM familias ORDER BY id_familia ASC;";
 		$codigos_familia = mysqli_query($conexion, $sql);
 
 		$result = array();
@@ -84,7 +95,7 @@
 
 	//Conseguir Grados
 	function conseguir_grados($conexion){
-		$sql = "SELECT ID_GRADO AS CODIGO_GRADO, NOM_GRADO AS NOMBRE_GRADO FROM `grado` ORDER BY NOM_GRADO ASC;";
+		$sql = "SELECT id_grado AS CODIGO_GRADO, nombre_grado AS NOMBRE_GRADO FROM grados ORDER BY id_grado ASC;";
 		$grados = mysqli_query($conexion, $sql);
 
 		$result = array();
@@ -116,25 +127,9 @@
 		return $count = mysqli_num_rows($existe);
 	}
 
-	//Conseguir familias y estudiantes
-	function conseguir_miembros($conexion, $codigoFamilia){
-		$sql = "SELECT NOM_ESTU AS NOMBRE_ESTUDIANTE, APELLIDO_ESTU AS APPELIDO_ESTUDIANTE, ID_ESTU AS ". 
-			   "CODIGO_ESTUDIANTE FROM estudiante WHERE ID_FAM = '$codigoFamilia'";
-		$miembros = mysqli_query($conexion, $sql);
-
-		$result = array();
-		if ($miembros && mysqli_num_rows($miembros) >=1) {
-			$result = $miembros;
-		}
-
-		return $result;
-	}
-
 	//Conseguir Profesores
 	function conseguir_profesores($conexion){
-		$sql = "SELECT ID_PROF AS CODIGO_PROFESOR, APELLIDO_PROF AS APELLIDOS_PROFESOR, NOM_PROF AS NOMBRE_PROFESOR, CEL_PROF AS CELULAR, ".
-			   "SALDO_PROF AS SALDO_PROFESOR, CREDI_PROF AS CREDITO, MAIL_PROF AS EMAIL FROM profesor ".
-			   "ORDER BY ID_PROF ASC;";
+		$sql = "SELECT id_profesor AS CODIGO_PROFESOR, apellidos_profesor AS APELLIDOS_PROFESOR, nombres_profesor AS NOMBRE_PROFESOR, email_profesor AS EMAIL_PROFESOR, credito_profesor AS CREDITO, debito_profesor, contrasena_profesor, saldo_profesor AS SALDO_PROFESOR, celular_profesor AS CELULAR FROM profesores ORDER BY id_profesor ASC";
 		$profesores = mysqli_query($conexion, $sql);
 
 		$result = array();
@@ -145,28 +140,27 @@
 		return $result;
 	}
 
-	//Conseguir RFID de profesores
-	function conseguir_rfid_profesor($conexion, $codigoProfesor){
-		$sql = "SELECT ID_RFID AS RFID, ID_PROF, ESTADO_RFID AS ESTADO_REFID FROM rfid_profesor WHERE ID_PROF = $codigoProfesor";
-		$profesores_rfid = mysqli_query($conexion, $sql);
-		$result = array();
-		if ($profesores_rfid && mysqli_num_rows($profesores_rfid) >=1) {
-			$result = $profesores_rfid;
-		}
-
-		return $result;
-	}
-
 	//Conseguir Profesores por código
 	function conseguir_profesores_por_codigo($conexion, $codigo){
-		$sql = "SELECT ID_PROF AS CODIGO_PROFESOR, APELLIDO_PROF AS APELLIDOS_PROFESOR, NOM_PROF AS NOMBRE_PROFESOR, CEL_PROF AS CELULAR, ".
-			   "SALDO_PROF AS SALDO_PROFESOR, CREDI_PROF AS CREDITO, MAIL_PROF AS EMAIL FROM profesor ".
-			   "WHERE ID_PROF = '$codigo'";
+		$sql = "SELECT id_profesor AS CODIGO_PROFESOR, apellidos_profesor AS APELLIDOS_PROFESOR, nombres_profesor AS NOMBRE_PROFESOR, celular_profesor AS CELULAR, saldo_profesor AS SALDO_PROFESOR, credito_profesor AS CREDITO, email_profesor AS EMAIL FROM profesores ".
+			   "WHERE id_profesor = '$codigo'";
 		$profesor = mysqli_query($conexion, $sql);
 
 		$result = array();
 		if ($profesor && mysqli_num_rows($profesor) >=1) {
 			$result = $profesor;
+		}
+
+		return $result;
+	}
+
+	//Conseguir RFID de profesores
+	function conseguir_rfid_profesor($conexion, $codigoProfesor){
+		$sql = "SELECT id_rfid_profesor AS RFID, id_profesor, estado_rfid_profesor AS ESTADO_RFID FROM rfid_profesores WHERE id_profesor = '$codigoProfesor'";
+		$profesores_rfid = mysqli_query($conexion, $sql);
+		$result = array();
+		if ($profesores_rfid && mysqli_num_rows($profesores_rfid) >=1) {
+			$result = $profesores_rfid;
 		}
 
 		return $result;
@@ -182,6 +176,19 @@
 		$result = array();
 		if ($pago_credito && mysqli_num_rows($pago_credito) >=1) {
 			$result = $pago_credito;
+		}
+
+		return $result;
+	}
+
+	//Conseguir movimientos profesor
+	function conseguir_movimientos_profesor($conexion, $codigoProfesor){
+		$sql = "SELECT id_mov_profesor AS CODIGO_MOVIMIENTO, id_profesor AS CODIGO_PROFESOR, descripcion_mov_profesor AS DESCRIPCION_MOVIMIENTO, fecha_mov_profesor AS FECHA_MOVIMIENTO, hora_mov_profesor AS HORA_MOVIMIENTO, credito_mov_profesor AS CREDITO_MOVIMIENTO, debito_mov_profesor AS DEBITO_MOVIMIENTO, cantidad_mov_profesor AS CANTIDAD_MOVIMIENTO FROM movimientos_profesores WHERE id_profesor = '$codigoProfesor'";
+		$movimientos = mysqli_query($conexion, $sql);
+
+		$result = array();
+		if ($movimientos && mysqli_num_rows($movimientos) >=1) {
+			$result = $movimientos;
 		}
 
 		return $result;

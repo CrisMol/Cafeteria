@@ -18,13 +18,8 @@ if(isset($_POST)){
 		}
 
 		if (count($errores) == 0) {
-			$sql = "UPDATE familia SET SALDO_FAM = $total WHERE ID_FAM = '$codigoFamilia';";
-			//Almacenar movimiento
-            $sql_movimiento = "INSERT INTO recarga_efectivo (ID_PROF, ID_FAM, FECHA_REC_EFEC, HORA_REC_EFEC, VALOR_REC_EFEC) ".
-                              "VALUES(null, '$codigoFamilia', CURDATE(), CURTIME(), $valorRecarga);";
-            $guardar = mysqli_query($db, $sql);
-            $registrar_recarga = mysqli_query($db, $sql_movimiento);
-			$almacenar = mysqli_query($db, $registrar_recarga);
+			$sql = "UPDATE familias SET saldo_familia = $total WHERE id_familia = '$codigoFamilia'";
+            $registrar_recarga = mysqli_query($db, $sql);
 			header("Location: recargaEfectivo.php");
 		}else{
 			$_SESSION['errores'] = $errores;

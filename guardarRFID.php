@@ -23,10 +23,9 @@ if(isset($_POST)){
 
         if (count($errores) == 0) {
             if (!empty($saber_si_tiene_rfid) && mysqli_num_rows($saber_si_tiene_rfid) >= 1) {
-                       $sql = "UPDATE rfid SET ID_RFID = '$rfid' WHERE ID_ESTU = '$idEstudiante';";
+            	$sql = "UPDATE rfid_estudiantes SET id_rfid_estudiante='$rfid' WHERE id_estudiante = '$idEstudiante'";
             }else{
-                 $sql = "INSERT INTO rfid(ID_RFID, ID_ESTU, ESTADO_RFID) ".
-                       "VALUES('$rfid', '$idEstudiante', 'Si Registra');";
+            	$sql = "INSERT INTO rfid_estudiantes(id_rfid_estudiante, id_estudiante, estado_rfid_estudiante) VALUES ('$rfid','$idEstudiante','Si Registra')";
             }
             $guardar = mysqli_query($db, $sql);
             header("Location: asignarRfidEstudiante.php");
