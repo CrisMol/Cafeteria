@@ -8,10 +8,12 @@ if(isset($_POST)){
     $idCategoria = isset($_POST['idCategoria']) ? (int) $_POST['idCategoria'] : false;
     $codigoBarras = isset($_POST['codigoBarras']) ? mysqli_real_escape_string($db, $_POST['codigoBarras']) : false;
     $nombreProducto = isset($_POST['nombreProducto']) ? mysqli_real_escape_string($db, $_POST['nombreProducto']) : false;
+    $descripcionProducto = isset($_POST['descripcionProducto']) ? mysqli_real_escape_string($db, $_POST['descripcionProducto']) : false;
     $costoProducto = isset($_POST['costoProducto']) ? (float) $_POST['costoProducto'] : false;
     $ventaProducto = isset($_POST['ventaProducto']) ? (float) $_POST['ventaProducto'] : false;
     $cantidadProducto = isset($_POST['cantidadProducto']) ? (int) $_POST['cantidadProducto'] : false;
     $verInventario = isset($_POST['verInventario']) ? (int) $_POST['verInventario'] : false;
+    
 
     $kiosko = isset($_POST['kiosko']) ? (int)$_POST['kiosko'] : false;
 
@@ -38,8 +40,8 @@ if(isset($_POST)){
             $errores['nombreProducto'] = 'El nombre del producto no es valido';
         }
 
-        if (empty($costoProducto)) {
-            $errores['costoProducto'] = 'El costo del producto no es válido';
+        if (empty($descripcionProducto)) {
+            $errores['descripcionProducto'] = 'La Descripcion del producto no es valido';
         }
 
         if (empty($ventaProducto)) {
@@ -59,9 +61,7 @@ if(isset($_POST)){
         }
         
         if (count($errores) == 0) {
-            $sql = "INSERT INTO `producto`(`ID_CATEPROD`, `COD_PTOVENTA`, `ID_TIPO_PROD`, `COD_BARRA`, " .
-                   "`DESC_PROD`, `COSTO_PROD`, `PRECIO_VENTA`, `CANTIDAD_PROD`, `ESTADO_INVE`, `ESTADO_PRECO`, `TITULO_PROD`,".
-                   "`FOTO_PROD`) VALUES ($idCategoria,null,1,'$codigoBarras','$nombreProducto',$costoProducto,$ventaProducto,$cantidadProducto,$verInventario,$kiosko,null,null);";
+        	$sql = "INSERT INTO productos(id_categoria, codigo_barras_producto, titulo_producto, descripcion_producto, costo_producto, precio_venta_producto, cantidad_producto, disponibilidad_inventario, disponibilidad_precompra, id_clave_autorizacion) VALUES ($idCategoria,'$codigoBarras','$nombreProducto','$descripcionProducto',$costoProducto,$ventaProducto,$cantidadProducto,$verInventario,$kiosko, 1)";
             $guardar = mysqli_query($db, $sql);
             header("Location: nuevoProducto.php");
         }else{

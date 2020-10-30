@@ -21,14 +21,6 @@ if(isset($_POST)){
         }
 
 
-        if (empty($costoProducto)) {
-            $errores['costoProducto'] = 'El costo del producto no es válido';
-        }
-
-        if (empty($precioVenta)) {
-            $errores['precioVenta'] = 'El precio de venta del producto no es válido';
-        }
-
         if ($verInventario!=0 && $verInventario!=1) {
             $errores['verInventario'] = 'El inventario no es válido';
         }
@@ -38,7 +30,7 @@ if(isset($_POST)){
         }
 
         if (count($errores) == 0) {
-            $sql = "UPDATE producto SET COSTO_PROD=$costoProducto,PRECIO_VENTA=$precioVenta,ESTADO_INVE=$verInventario,ESTADO_PRECO=$kiosko,DESC_ADIC='$infoAdicional' WHERE ID_PRODUCTO=$idProducto";
+            $sql = "UPDATE productos SET costo_producto=$costoProducto,precio_venta_producto=$precioVenta,disponibilidad_inventario=$verInventario,disponibilidad_precompra=$kiosko,descripcion_producto='$infoAdicional' WHERE id_producto=$idProducto";
             $guardar = mysqli_query($db, $sql);
             header("Location: listaProductos.php");
         }else{

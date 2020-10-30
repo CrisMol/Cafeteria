@@ -43,8 +43,12 @@
 	}
 
 	//Conseguir los estudianes
-	function conseguir_estudiantes($conexion){
+	function conseguir_estudiantes($conexion, $codigoEstudiante = null){
 		$sql = "SELECT e.id_estudiante AS CODIGO, g.nombre_grado AS GRADO, e.id_familia AS CODIGO_FAMILIA, e.apellidos_estudiante AS APELLIDO, e.nombres_estudiante AS NOMBRE, sexo_estudiante, maximo_compras FROM estudiantes e INNER JOIN grados g ON e.id_grado = g.id_grado";
+		if ($codigoEstudiante != null) {
+			$sql .= " WHERE e.id_estudiante = '$codigoEstudiante'";
+		}
+
 		$estudiantes = mysqli_query($conexion, $sql);
 
 		$result = array();
@@ -54,6 +58,20 @@
 
 		return $result;
 	}
+
+	//Conseguir movimientos estudiante
+	function conseguir_movimientos_estudiante($conexion, $codigoEstudiante){
+		$sql = "SELECT id_mov_estudiante AS CODIGO_MOVIMIENTO, id_estudiante AS CODIGO_ESTUDIANTE, descripcion_mov_estudiante AS DESCRIPCION_MOVIMIENTO, fecha_mov_estudiante AS FECHA_MOVIMIENTO, hora_mov_estudiante AS HORA_MOVIMIENTO, credito_mov_estudiante AS CREDITO_MOVIMIENTO, debito_mov_estudiante AS DEBITO_MOVIMIENTO, cantidad_mov_estudiante AS CANTIDAD_MOVIMIENTO FROM movimientos_estudiantes WHERE id_estudiante = '$codigoEstudiante'";
+		$movimientos = mysqli_query($conexion, $sql);
+
+		$result = array();
+		if ($movimientos && mysqli_num_rows($movimientos) >=1) {
+			$result = $movimientos;
+		}
+
+		return $result;
+	}
+
 
 	//Conseguir familias y estudiantes
 	function conseguir_miembros($conexion, $codigoFamilia){
@@ -115,7 +133,7 @@
 
 	//Saber si existe codigo de barras
 	function saber_si_existe_codigo_barras($conexion, $codigo){
-		$sql = "SELECT COD_BARRA FROM producto WHERE COD_BARRA = '$codigo'";
+		$sql = "SELECT codigo_barras_producto FROM productos WHERE codigo_barras_producto = '$codigo'";
 		$existe = mysqli_query($conexion, $sql);
 		return $count = mysqli_num_rows($existe);
 	}
@@ -129,7 +147,7 @@
 
 	//Conseguir Profesores
 	function conseguir_profesores($conexion){
-		$sql = "SELECT id_profesor AS CODIGO_PROFESOR, apellidos_profesor AS APELLIDOS_PROFESOR, nombres_profesor AS NOMBRE_PROFESOR, email_profesor AS EMAIL_PROFESOR, credito_profesor AS CREDITO, debito_profesor, contrasena_profesor, saldo_profesor AS SALDO_PROFESOR, celular_profesor AS CELULAR FROM profesores ORDER BY id_profesor ASC";
+		$sql = "SELECT id_profesor AS CODIGO_PROFESOR, apellidos_profesor AS APELLIDOS_PROFESOR, nombres_profesor AS NOMBRE_PROFESOR, email_profesor AS EMAIL_PROFESOR, credito_profesor AS CREDITO, debito_profesor, contrasena_profesor, saldo_profesor AS SALDO_PROFESOR, celular_profesor AS CELULAR, saldo_credito_profesor AS SALDO_CREDITO FROM profesores ORDER BY id_profesor ASC";
 		$profesores = mysqli_query($conexion, $sql);
 
 		$result = array();
@@ -166,21 +184,6 @@
 		return $result;
 	}
 
-	//Conseguir Movimientos Pagos de Credito
-	function conseguir_pagos_credito($conexion, $codigo){
-		$sql = "SELECT ID_PAG_CRED AS CODIGO, FECHA_PAG_CRED AS FECHA, HORA_PAG_CRED AS HORA, ".
-			   "VALOR_CRED AS CREDITO, VALOR_DEB AS DEBITO FROM pago_credito ".
-			   "WHERE ID_PROF = $codigo";
-		$pago_credito = mysqli_query($conexion, $sql);
-
-		$result = array();
-		if ($pago_credito && mysqli_num_rows($pago_credito) >=1) {
-			$result = $pago_credito;
-		}
-
-		return $result;
-	}
-
 	//Conseguir movimientos profesor
 	function conseguir_movimientos_profesor($conexion, $codigoProfesor){
 		$sql = "SELECT id_mov_profesor AS CODIGO_MOVIMIENTO, id_profesor AS CODIGO_PROFESOR, descripcion_mov_profesor AS DESCRIPCION_MOVIMIENTO, fecha_mov_profesor AS FECHA_MOVIMIENTO, hora_mov_profesor AS HORA_MOVIMIENTO, credito_mov_profesor AS CREDITO_MOVIMIENTO, debito_mov_profesor AS DEBITO_MOVIMIENTO, cantidad_mov_profesor AS CANTIDAD_MOVIMIENTO FROM movimientos_profesores WHERE id_profesor = '$codigoProfesor'";
@@ -196,7 +199,7 @@
 
 	//Conseguir Categorías Productos
 	function conseguir_categoria_producto($conexion){
-		$sql = "SELECT ID_CATEPROD AS CODIGO_CATEGORIA, NOM_CATEPROD AS NOMBRE_CATEGORIA FROM catego_prod ORDER BY ID_CATEPROD ASC;";
+		$sql = "SELECT id_categoria AS CODIGO_CATEGORIA, nombre_categoria AS NOMBRE_CATEGORIA FROM categorias_producto ORDER BY nombre_categoria ASC";
 		$categorias = mysqli_query($conexion, $sql);
 
 		$result = array();
@@ -208,15 +211,15 @@
 	}
 
 	//Conseguir Productos
-	function conseguir_productos($conexion, $codigoProducto = null){
+	function conseguir_productos($conexion, $codigoProducto = null, $codigoCategoria = null){
 		if ($codigoProducto != null) {
-			$sql = "SELECT ID_PRODUCTO AS CODIGO_PRODUCTO, CLAVE_AUTORIZACION_PROD AS CLAVE_AUTORIZACION, CANTIDAD_PROD AS CANTIDAD_PRODUCTO FROM producto WHERE ".
-				   "ID_PRODUCTO = '$codigoProducto'";
+			$sql = "SELECT id_producto AS CODIGO_PRODUCTO, c.codigo_clave_autorizacion AS CLAVE_AUTORIZACION, cantidad_producto AS CANTIDAD_PRODUCTO FROM productos p INNER JOIN claves_autorizacion c ON p.id_clave_autorizacion = c.id_clave_autorizacion WHERE id_producto = '$codigoProducto'";
 		}else{
-			$sql = "SELECT p.ID_PRODUCTO AS CODIGO_PRODUCTO, c.NOM_CATEPROD AS CATEGORIA_PRODUCTO, COD_PTOVENTA AS CODIGO_PUNTO, ".
-				"ID_TIPO_PROD AS TIPO_PRODUCTO, COD_BARRA AS CODIGO_BARRA, DESC_PROD AS DESCRIPCION, COSTO_PROD AS COSTO, ".
-				"PRECIO_VENTA AS PRECIO, ESTADO_INVE AS ESTADO_INVENTARIO, ESTADO_PRECO AS ESTADO_PRECOMPRA, DESC_ADIC AS DESCRIPCION_ADICIONAL, CANTIDAD_PROD AS CANTIDAD_PRODUCTO FROM ".
-				"producto p INNER JOIN catego_prod c ON c.ID_CATEPROD = p.ID_CATEPROD ";
+			if ($codigoCategoria != null) {
+				$sql = "SELECT id_producto AS CODIGO_PRODUCTO, descripcion_producto AS DESCRIPCION_PRODUCTO FROM productos WHERE id_categoria = $codigoCategoria ORDER BY id_producto ASC";
+			}else{
+				$sql = "SELECT p.id_producto AS CODIGO_PRODUCTO, c.codigo_clave_autorizacion AS CLAVE_AUTORIZACION, ca.nombre_categoria AS CATEGORIA_PRODUCTO, p.codigo_barras_producto CODIGO_BARRA, p.titulo_producto DESCRIPCION, p.descripcion_producto DESCRIPCION_ADICIONAL, p.costo_producto AS COSTO, p.precio_venta_producto AS PRECIO, p.cantidad_producto AS CANTIDAD_PRODUCTO, p.disponibilidad_inventario AS ESTADO_INVENTARIO, p.disponibilidad_precompra AS ESTADO_PRECOMPRA FROM productos p INNER JOIN claves_autorizacion c ON p.id_clave_autorizacion = c.id_clave_autorizacion INNER JOIN categorias_producto ca ON p.id_categoria = ca.id_categoria";
+			}
 		}
 		
 		$productos = mysqli_query($conexion, $sql);
@@ -242,19 +245,23 @@
 		return $result;
 	}
 
-	//Conseguir productos por categoria
-	function conseguir_productos_por_categoria($conexion, $categoria){
-		$sql = "SELECT ID_PRODUCTO AS CODIGO_PRODUCTO, DESC_PROD AS DESCRIPCION_PRODUCTO FROM `producto` WHERE ID_CATEPROD = $categoria";
-		$productos = mysqli_query($conexion, $sql);
+	//Conseguir proveedores
+	function conseguir_proveedores($conexion, $codigoProveedor = null){
+		if ($codigoProveedor != null) {
+			# code...
+		}else{
+			$sql = "SELECT id_proveedor AS CODIGO_PROVEEDOR, nombre_proveedor AS NOMBRE, vendedor_proveedor AS VENDEDOR, telefono_proveedor AS TELEFONO, email_proveedor AS EMAIL, codigo_proveedor AS CODIGO FROM proveedores";
+		}
+
+		$proveedores = mysqli_query($conexion, $sql);
 
 		$result = array();
-		if ($productos && mysqli_num_rows($productos) >=1) {
-			$result = $productos;
+		if ($proveedores && mysqli_num_rows($proveedores) >=1) {
+			$result = $proveedores;
 		}
 
 		return $result;
 	}
-
 	//Conseguir las ultimas entradas
 	function conseguir_entradas($conexion, $limit = null, $categoria = null, $busqueda = null){
 		$sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e ".

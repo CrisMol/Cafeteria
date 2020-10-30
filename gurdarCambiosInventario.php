@@ -31,17 +31,18 @@ if(isset($_POST)){
         $errores = array();
 
         if (empty($codigoAutorizaicon)) {
-            $errores['infoAdicional'] = 'La clave de autorización no es correcta';
+            $errores['codigoAutorizaicon'] = 'La clave de autorización no es correcta';
         }
 
         if (empty($idProducto)) {
             $errores['idProducto'] = 'El código del producto es incorrecto';
         }
 
+
         if (count($errores) == 0) {
-            $sql = "UPDATE producto SET CANTIDAD_PROD=$inventario WHERE ID_PRODUCTO=$idProducto;";
+            $sql = "UPDATE productos SET cantidad_producto=$inventario WHERE id_producto=$idProducto;";
             //Ingresar en el movimiento
-            $sql_movimiento = "INSERT INTO movimiento_producto(ID_PRODUCTO, FECHA_MOV_PROD, HORA_MOV_PROD, DESC_MOV_PROD, ENTRADA_MOV_PROD, SALIDA_MOV_PROD, SALDO_MOVI) VALUES ('$idProducto',CURDATE(),CURTIME(),'Cambio de Inventario', $entrada, $salida, $saldo)";
+            $sql_movimiento = "INSERT INTO movimientos_productos(id_producto, descripcion_mov_producto, fecha_mov_producto, hora_mov_producto, entrada_mov_producto, salida_mov_producto, saldo_mov_producto) VALUES ($idProducto,'Cambio de Inventario',CURDATE(), CURTIME(),$entrada,$salida,$saldo)";
             $guardar = mysqli_query($db, $sql);
             $guardar_movimiento = mysqli_query($db, $sql_movimiento);
             header("Location: verInventario.php");

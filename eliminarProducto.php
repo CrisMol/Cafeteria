@@ -23,7 +23,7 @@ if(isset($_POST)){
         }
 
         if (count($errores) == 0) {
-            $sql = "DELETE FROM producto WHERE ID_PRODUCTO=$idProducto";
+            $sql = "DELETE FROM productoS WHERE id_producto=$idProducto";
             $guardar = mysqli_query($db, $sql);
             header("Location: listaProductos.php");
         }else{

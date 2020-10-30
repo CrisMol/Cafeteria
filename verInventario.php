@@ -52,6 +52,7 @@ require_once 'include/conexion.php';
     $productos =conseguir_productos($db);
     if(!empty($productos) && mysqli_num_rows($productos) >= 1):
         while ($producto = mysqli_fetch_assoc($productos)) :
+        	if($producto['ESTADO_INVENTARIO'] == 1):
             $contador++;
 ?>
                             <tr>
@@ -113,7 +114,7 @@ require_once 'include/conexion.php';
                 </button>
             </div>
             <div class="modal-body">
-              <form method="GET" action="guardarBajaInventario.php">
+              <form method="POST" action="guardarBajaInventario.php">
 
                     <div class="form-group">
                       <label class="form-label" for="simpleinput">Cantidad Baja</label>
@@ -129,7 +130,7 @@ require_once 'include/conexion.php';
               </div>
             <div class="modal-footer">
               <input name="proceso" type="hidden" id="proceso" value="1602826475" />
-              <input name="idProducto" type="hidden" id="idProducto" value="19" />
+              <input name="idProducto" type="hidden" id="idProducto" value="<?=$producto['CODIGO_PRODUCTO']?>" />
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 <button type="submit" class="btn btn-info btn-primary">Guardar Baja</button>
             </div>
@@ -139,6 +140,7 @@ require_once 'include/conexion.php';
 </div>
 
 <?php
+			endif;
 		endwhile;
 	endif;
 ?>
@@ -146,6 +148,8 @@ require_once 'include/conexion.php';
                       </table>
                       <!-- datatable end -->
 <?php echo isset($_SESSION['errores']) ? mostrar_error($_SESSION['errores'], 'infoAdicional') : ''; ?>
+<?php echo isset($_SESSION['errores']) ? mostrar_error($_SESSION['errores'], 'motivo') : ''; ?>
+<?php echo isset($_SESSION['errores']) ? mostrar_error($_SESSION['errores'], 'baja') : ''; ?>
                   </div>
 <?php borrar_error();?>
               </div>

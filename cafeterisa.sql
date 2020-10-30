@@ -111,9 +111,16 @@ CREATE TABLE categorias_producto (
 	CONSTRAINT pk_categorias_productos PRIMARY KEY(id_categoria)
 )ENGINE=InnoDB;
 
+CREATE TABLE claves_autorizacion (
+	id_clave_autorizacion 			int(255) auto_increment not null,
+	codigo_clave_autorizacion 				varchar(100) not null,
+	CONSTRAINT pk_claves_autorizacion PRIMARY KEY(id_clave_autorizacion)
+)ENGINE=InnoDB;
+
 CREATE TABLE productos (
 	id_producto   		int(255) auto_increment not null,
 	id_categoria		int(255) not null,
+	id_clave_autorizacion int(255) not null,
 	codigo_barras_producto		varchar(100),
 	titulo_producto	  	varchar(100) not null,
 	descripcion_producto	text,
@@ -147,6 +154,7 @@ CREATE TABLE ventas (
 
 CREATE TABLE proveedores (
 	id_proveedor		int(255) auto_increment not null,
+	codigo_proveedor 	varchar(100) not null,
 	nombre_proveedor	varchar(100) not null,
 	vendedor_proveedor	varchar(100),
 	telefono_proveedor	varchar(100),
@@ -174,6 +182,7 @@ CREATE TABLE profesores (
 	contrasena_profesor			varchar(100) not null,
 	saldo_profesor				float(200,2) not null,
 	celular_profesor			varchar(10),
+	saldo_credito_profesor		float(200,2) not null,
 	CONSTRAINT pk_profesores PRIMARY KEY(id_profesor)
 )ENGINE=InnoDB;
 
@@ -197,3 +206,28 @@ CREATE TABLE movimientos_profesores (
 	CONSTRAINT pk_movimientos_profesores PRIMARY KEY(id_mov_profesor),
 	CONSTRAINT fk_movimiento_profesor FOREIGN KEY(id_profesor) REFERENCES profesores(id_profesor)
 )ENGINE=InnoDB;
+
+
+CREATE TABLE bajas_producto (
+	id_baja_producto  	int(255) auto_increment not null,
+	id_producto			int(255) not null,
+	cantidad_baja_producto  	int(255) not null,
+	motivo_baja_producto		varchar(255) not null,
+	CONSTRAINT pk_bajas_producto PRIMARY KEY(id_baja_producto),
+	CONSTRAINT fk_baja_producto FOREIGN KEY(id_producto) REFERENCES productos(id_producto)
+)ENGINE=InnoDB;
+
+CREATE TABLE movimientos_productos (
+	id_mov_producto		  		int(255) auto_increment not null,
+	id_producto					int(255) not null,
+	descripcion_mov_producto	text,
+	fecha_mov_producto			date not null,
+	hora_mov_producto			time not null,
+	entrada_mov_producto		int(255) not null,
+	salida_mov_producto			int(255) not null,
+	saldo_mov_producto			int(255) not null,
+	CONSTRAINT pk_movimientos_productos PRIMARY KEY(id_mov_producto),
+	CONSTRAINT fk_movimiento_producto FOREIGN KEY(id_producto) REFERENCES productos(id_producto)
+)ENGINE=InnoDB;
+
+ALTER TABLE productos AUTO_INCREMENT = 100;
