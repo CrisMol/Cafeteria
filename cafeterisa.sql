@@ -169,6 +169,7 @@ CREATE TABLE compras_proveedor (
 	precio_compra  		float(200,2) not null,
 	cantidad_compra		int(255) not null,
 	fecha_compra		date not null,
+	hora_compra			time not null,
 	CONSTRAINT pk_compras_proveedor PRIMARY KEY(id_compra_proveedor),
 	CONSTRAINT fk_compra_producto FOREIGN KEY(id_producto) REFERENCES productos(id_producto),
 	CONSTRAINT fk_compra_proveedor FOREIGN KEY(id_proveedor) REFERENCES proveedores(id_proveedor)

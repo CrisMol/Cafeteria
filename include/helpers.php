@@ -278,8 +278,26 @@
 
 	//Conseguir compras_proveedor
 	function conseguir_compras_proveedor($conexion, $codigoProveedor = null){
-		$sql = "SELECT id_compra_proveedor AS CODIGO, cp.id_proveedor, precio_compra AS COSTO, cantidad_compra AS CANTIDAD, fecha_compra, p.titulo_producto AS DESCRIPCION_PRODUCTO FROM compras_proveedor cp INNER JOIN productos p ON cp.id_producto = p.id_producto INNER JOIN proveedores pr ON cp.id_proveedor = pr.id_proveedor WHERE cp.id_proveedor = $codigoProveedor";
 
+		$sql = "SELECT id_compra_proveedor AS CODIGO, cp.id_proveedor AS ID_PROVEEDOR, pr.codigo_proveedor AS IDENTIFICACION, pr.nombre_proveedor AS NOMBRE_PROVEEDOR, precio_compra AS COSTO, cantidad_compra AS CANTIDAD, fecha_compra AS FECHA, hora_compra AS HORA, p.titulo_producto AS DESCRIPCION_PRODUCTO FROM compras_proveedor cp INNER JOIN productos p ON cp.id_producto = p.id_producto INNER JOIN proveedores pr ON cp.id_proveedor = pr.id_proveedor ";
+
+		if ($codigoProveedor != null) {
+			$sql .= "WHERE cp.id_proveedor = $codigoProveedor";
+		}
+
+		$compras_proveedor = mysqli_query($conexion, $sql);
+
+		$result = array();
+		if ($compras_proveedor && mysqli_num_rows($compras_proveedor) >=1) {
+			$result = $compras_proveedor;
+		}
+
+		return $result;
+	}
+
+	//Conaguir productos_compras_proveedor
+	function conseguir_productos_compra_proveedor($conexion, $codigoProveedor, $fechaCompra){
+		$sql = "SELECT id_compra_proveedor AS CODIGO, id_proveedor, precio_compra AS COSTO, cantidad_compra AS CANTIDAD, p.titulo_producto AS DESCRIPCION_PRODUCTO, p.id_producto AS CODIGO_PRODUCTO, precio_compra AS COSTO, cantidad_compra AS CANTIDAD FROM compras_proveedor cp INNER JOIN productos p ON cp.id_producto = p.id_producto WHERE cp.id_proveedor = $codigoProveedor AND fecha_compra = '$fechaCompra'";
 		$compras_proveedor = mysqli_query($conexion, $sql);
 
 		$result = array();

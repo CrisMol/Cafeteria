@@ -83,6 +83,7 @@ $contador = 0;
                         <td><?=$compra_proveedor['COSTO']?></td>
                         <td>&nbsp;</td>
 </tr>
+
 <?php
 		endwhile;
 	endif;
