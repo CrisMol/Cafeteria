@@ -42,7 +42,7 @@ if(isset($_POST)){
         if (count($errores) == 0) {
             $sql = "UPDATE productos SET cantidad_producto=$inventario WHERE id_producto=$idProducto;";
             //Ingresar en el movimiento
-            $sql_movimiento = "INSERT INTO movimientos_productos(id_producto, descripcion_mov_producto, fecha_mov_producto, hora_mov_producto, entrada_mov_producto, salida_mov_producto, saldo_mov_producto) VALUES ($idProducto,'Cambio de Inventario',CURDATE(), CURTIME(),$entrada,$salida,$saldo)";
+            $sql_movimiento = "INSERT INTO movimientos_productos(id_producto, id_usuario, descripcion_mov_producto, fecha_mov_producto, hora_mov_producto, entrada_mov_producto, salida_mov_producto, saldo_mov_producto) VALUES ($idProducto, 1, 'Cambio de Inventario',CURDATE(), CURTIME(),$entrada,$salida,$saldo)";
             $guardar = mysqli_query($db, $sql);
             $guardar_movimiento = mysqli_query($db, $sql_movimiento);
             header("Location: verInventario.php");

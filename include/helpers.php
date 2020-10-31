@@ -234,7 +234,7 @@
 
 	//Conseguir Movimientos Productos
 	function conseguir_movimientos_productos($conexion, $codigoProducto){
-		$sql = "SELECT ID_PRODUCTO AS CODIGO_PRODUCTO FROM movimiento_producto WHERE ID_PRODUCTO = $codigoProducto";
+		$sql = "SELECT id_mov_producto AS CODIGO_MOVIMIENTO, id_producto AS CODIGO_PRODUCTO, descripcion_mov_producto 	AS DESCRIPCION, fecha_mov_producto AS FECHA, hora_mov_producto AS HORA, entrada_mov_producto AS ENTRADA, salida_mov_producto AS SALIDA, saldo_mov_producto AS SALDO, u.alias_usuario AS USUARIO FROM movimientos_productos mp INNER JOIN usuarios u ON mp.id_usuario = u.id_usuario WHERE id_producto = $codigoProducto";
 		$movimientos = mysqli_query($conexion, $sql);
 
 		$result = array();
@@ -248,7 +248,7 @@
 	//Conseguir proveedores
 	function conseguir_proveedores($conexion, $codigoProveedor = null){
 		if ($codigoProveedor != null) {
-			# code...
+			$sql = "SELECT id_proveedor AS CODIGO_PROVEEDOR, nombre_proveedor AS NOMBRE, vendedor_proveedor AS VENDEDOR, telefono_proveedor AS TELEFONO, email_proveedor AS EMAIL, codigo_proveedor AS CODIGO FROM proveedores WHERE $id_proveedor = $codigoProveedor";
 		}else{
 			$sql = "SELECT id_proveedor AS CODIGO_PROVEEDOR, nombre_proveedor AS NOMBRE, vendedor_proveedor AS VENDEDOR, telefono_proveedor AS TELEFONO, email_proveedor AS EMAIL, codigo_proveedor AS CODIGO FROM proveedores";
 		}
@@ -262,6 +262,34 @@
 
 		return $result;
 	}
+
+	//Conseguir pagos proveedores
+	function conseguir_pagos_proveedor($conexion, $idProveedor){
+		$sql = "SELECT id_pago_proveedor, id_usuario, id_proveedor, valor_pago FROM pagos_proveedor WHERE id_proveedor = $idProveedor";
+		$movimientos = mysqli_query($conexion, $sql);
+
+		$result = array();
+		if ($movimientos && mysqli_num_rows($movimientos) >=1) {
+			$result = $movimientos;
+		}
+
+		return $result;
+	}
+
+	//Conseguir compras_proveedor
+	function conseguir_compras_proveedor($conexion, $codigoProveedor = null){
+		$sql = "SELECT id_compra_proveedor AS CODIGO, cp.id_proveedor, precio_compra AS COSTO, cantidad_compra AS CANTIDAD, fecha_compra, p.titulo_producto AS DESCRIPCION_PRODUCTO FROM compras_proveedor cp INNER JOIN productos p ON cp.id_producto = p.id_producto INNER JOIN proveedores pr ON cp.id_proveedor = pr.id_proveedor WHERE cp.id_proveedor = $codigoProveedor";
+
+		$compras_proveedor = mysqli_query($conexion, $sql);
+
+		$result = array();
+		if ($compras_proveedor && mysqli_num_rows($compras_proveedor) >=1) {
+			$result = $compras_proveedor;
+		}
+
+		return $result;
+	}
+
 	//Conseguir las ultimas entradas
 	function conseguir_entradas($conexion, $limit = null, $categoria = null, $busqueda = null){
 		$sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e ".

@@ -155,7 +155,7 @@ CREATE TABLE ventas (
 CREATE TABLE proveedores (
 	id_proveedor		int(255) auto_increment not null,
 	codigo_proveedor 	varchar(100) not null,
-	nombre_proveedor	varchar(100) not null,
+	nombre_proveedor	varchar(100),
 	vendedor_proveedor	varchar(100),
 	telefono_proveedor	varchar(100),
 	email_proveedor		varchar(255),
@@ -165,10 +165,12 @@ CREATE TABLE proveedores (
 CREATE TABLE compras_proveedor (
 	id_compra_proveedor   			int(255) auto_increment not null,
 	id_proveedor  		int(255) not null,
+	id_producto 		int(255) not null,
 	precio_compra  		float(200,2) not null,
 	cantidad_compra		int(255) not null,
 	fecha_compra		date not null,
 	CONSTRAINT pk_compras_proveedor PRIMARY KEY(id_compra_proveedor),
+	CONSTRAINT fk_compra_producto FOREIGN KEY(id_producto) REFERENCES productos(id_producto),
 	CONSTRAINT fk_compra_proveedor FOREIGN KEY(id_proveedor) REFERENCES proveedores(id_proveedor)
 )ENGINE=InnoDB;
 
@@ -219,6 +221,7 @@ CREATE TABLE bajas_producto (
 
 CREATE TABLE movimientos_productos (
 	id_mov_producto		  		int(255) auto_increment not null,
+	id_usuario  				int(255) not null,
 	id_producto					int(255) not null,
 	descripcion_mov_producto	text,
 	fecha_mov_producto			date not null,
@@ -227,7 +230,19 @@ CREATE TABLE movimientos_productos (
 	salida_mov_producto			int(255) not null,
 	saldo_mov_producto			int(255) not null,
 	CONSTRAINT pk_movimientos_productos PRIMARY KEY(id_mov_producto),
+	CONSTRAINT fk_movimiento_usuario FOREIGN KEY(id_usuario) REFERENCES usuarios(id_usuario),
 	CONSTRAINT fk_movimiento_producto FOREIGN KEY(id_producto) REFERENCES productos(id_producto)
 )ENGINE=InnoDB;
 
+CREATE TABLE pagos_proveedor (
+	id_pago_proveedor		  		int(255) auto_increment not null,
+	id_usuario  				int(255) not null,
+	id_proveedor				int(255) not null,
+	valor_pago					float(200,2),
+	CONSTRAINT pk_pagos_proveedor PRIMARY KEY(id_pago_proveedor),
+	CONSTRAINT fk_pago_usuario FOREIGN KEY(id_usuario) REFERENCES usuarios(id_usuario),
+	CONSTRAINT fk_pago_proveedor FOREIGN KEY(id_proveedor) REFERENCES proveedores(id_proveedor)
+)ENGINE=InnoDB;
+
 ALTER TABLE productos AUTO_INCREMENT = 100;
+ALTER TABLE compras_proveedor AUTO_INCREMENT = 100;
