@@ -29,6 +29,19 @@
 		return $borrado;
 	}
 
+	//Conseguir cajeros
+	function conseguir_cajeros($conexion){
+		$sql = "SELECT c.id_usuario AS CODIGO_USUARIO, u.nombre_usuario AS USUARIO FROM cajeros c INNER JOIN usuarios u ON c.id_usuario = u.id_usuario GROUP BY c.id_usuario ORDER BY u.nombre_usuario ASC";
+		$cajeros = mysqli_query($conexion, $sql);
+
+		$result = array();
+		if ($cajeros && mysqli_num_rows($cajeros) >=1) {
+			$result = $cajeros;
+		}
+
+		return $result;
+	}
+
 	//Conseguir las familias
 	function conseguir_familias($conexion){
 		$sql = "SELECT id_familia AS CODIGO, nombre_familia AS NOMBRE, email_familia AS EMAIL, celular_familia AS CELULAR, saldo_familia AS SALDO, contrasena_familia AS CONRASENA FROM familias ORDER BY id_familia ASC";
@@ -276,10 +289,23 @@
 		return $result;
 	}
 
+	//Conseguir pagos a proveedores por usuario
+	function conseguir_pagos_proveedor_por_usuario($conexion, $idUsuario, $fechaInforme){
+		$sql = "SELECT id_pago_proveedor, id_usuario AS USUARIO, id_proveedor AS PROVEEDOR, SUM(valor_pago) AS VALOR FROM pagos_proveedor WHERE id_usuario = $idUsuario AND fecha_pago = '$fechaInforme' GROUP BY id_usuario";
+		$pagos_por_usuario = mysqli_query($conexion, $sql);
+
+		$result = array();
+		if ($pagos_por_usuario && mysqli_num_rows($pagos_por_usuario) >=1) {
+			$result = $pagos_por_usuario;
+		}
+
+		return $result;
+	}
+
 	//Conseguir compras_proveedor
 	function conseguir_compras_proveedor($conexion, $codigoProveedor = null){
 
-		$sql = "SELECT id_compra_proveedor AS CODIGO, cp.id_proveedor AS ID_PROVEEDOR, pr.codigo_proveedor AS IDENTIFICACION, pr.nombre_proveedor AS NOMBRE_PROVEEDOR, precio_compra AS COSTO, cantidad_compra AS CANTIDAD, fecha_compra AS FECHA, hora_compra AS HORA, p.titulo_producto AS DESCRIPCION_PRODUCTO FROM compras_proveedor cp INNER JOIN productos p ON cp.id_producto = p.id_producto INNER JOIN proveedores pr ON cp.id_proveedor = pr.id_proveedor ";
+		$sql = "SELECT id_compra_proveedor AS CODIGO, cp.id_proveedor AS ID_PROVEEDOR, pr.codigo_proveedor AS IDENTIFICACION, pr.nombre_proveedor AS NOMBRE_PROVEEDOR, precio_compra AS COSTO, cantidad_compra AS CANTIDAD, fecha_compra AS FECHA, hora_compra AS HORA, p.titulo_producto AS DESCRIPCION_PRODUCTO FROM compras_proveedor cp INNER JOIN productos p ON cp.id_producto = p.id_producto INNER JOIN proveedores pr ON cp.id_proveedor = pr.id_proveedor ORDER BY fecha_compra DESC";
 
 		if ($codigoProveedor != null) {
 			$sql .= "WHERE cp.id_proveedor = $codigoProveedor";
@@ -303,6 +329,84 @@
 		$result = array();
 		if ($compras_proveedor && mysqli_num_rows($compras_proveedor) >=1) {
 			$result = $compras_proveedor;
+		}
+
+		return $result;
+	}
+
+	//Conseguir puntos de venta
+	function conseguir_puntos_venta($conexion){
+		$sql = "SELECT id_punto_venta AS CODIGO, nombre_punto_venta AS NOMBRE_PUNTO FROM puntos_venta ORDER BY nombre_punto_venta ASC";
+		$puntos_venta = mysqli_query($conexion, $sql);
+
+		$result = array();
+		if ($puntos_venta && mysqli_num_rows($puntos_venta) >=1) {
+			$result = $puntos_venta;
+		}
+
+		return $result;
+	}
+
+	//Conseguir ventas por punto de vente
+	function ventas_por_punto($conexion, $idPuntoVenta, $fechaVenta, $tipoVenta){
+		$sql = "SELECT SUM(total_venta) AS TOTAL_VENTA FROM ventas v INNER JOIN cajeros c ON v.id_cajero = c.id_cajero INNER JOIN tipos_venta tv ON v.id_tipo_venta = tv.id_tipo_venta WHERE c.id_punto_venta = $idPuntoVenta AND fecha_venta = '$fechaVenta' AND tv.nombre_tipo_venta = '$tipoVenta';";
+		$ventas_punto = mysqli_query($conexion, $sql);
+		$result = array();
+		if ($ventas_punto && mysqli_num_rows($ventas_punto) >=1) {
+			$result = $ventas_punto;
+		}
+
+		return $result;
+	}
+
+	//Conseguir productos por venta
+	function conseguir_productos_por_venta($conexion, $idPuntoVenta, $fechaVenta, $tipoVenta = null){
+		$sql = "SELECT p.id_producto AS CODIGO_PRODUCTO, p.titulo_producto, SUM(v.cantidad_venta) AS CANTIDAD, SUM(v.total_venta) AS TOTAL FROM ventas v INNER JOIN productos p ON v.id_producto = p.id_producto INNER JOIN cajeros c ON v.id_cajero = c.id_cajero WHERE fecha_venta = '$fechaVenta' AND c.id_punto_venta = $idPuntoVenta AND v.id_tipo_venta != 2 GROUP BY v.id_producto";
+		if ($tipoVenta != null) {
+			$sql = "SELECT p.id_producto AS CODIGO_PRODUCTO, p.titulo_producto, SUM(v.cantidad_venta) AS CANTIDAD, SUM(v.total_venta) AS TOTAL FROM ventas v INNER JOIN productos p ON v.id_producto = p.id_producto INNER JOIN cajeros c ON v.id_cajero = c.id_cajero WHERE fecha_venta = '$fechaVenta' AND v.id_tipo_venta = $tipoVenta GROUP BY v.id_producto";
+			/*$sql = "SELECT p.id_producto AS CODIGO_PRODUCTO, p.titulo_producto, v.cantidad_venta AS CANTIDAD, v.total_venta AS TOTAL FROM ventas v INNER JOIN productos p ON v.id_producto = p.id_producto INNER JOIN cajeros c ON v.id_cajero = c.id_cajero WHERE v.id_tipo_venta = $tipoVenta";*/
+		}
+		$productos_venta = mysqli_query($conexion, $sql);
+		$result = array();
+		if ($productos_venta && mysqli_num_rows($productos_venta) >=1) {
+			$result = $productos_venta;
+		}
+
+		return $result;
+	}
+
+	//Conseguir ventas de caja por efectivo
+	function conseguir_ventas_efectivo_por_caja($conexion, $fechaVenta){
+		$sql = "SELECT pv.nombre_punto_venta AS PUNTO_VENTA, u.alias_usuario AS USUARIO, c.nombre_cajero AS CAJERO, COUNT(*) AS TRANSACCIONES, SUM(v.total_venta) AS TOTAL FROM ventas v INNER JOIN cajeros c ON v.id_cajero = c.id_cajero INNER JOIN puntos_venta pv ON c.id_punto_venta = pv.id_punto_venta INNER JOIN usuarios u ON c.id_usuario = u.id_usuario WHERE v.id_tipo_venta = 1 AND v.fecha_venta = '$fechaVenta' GROUP BY(v.id_cajero)";
+		$ventas_efectivo_por_cajas = mysqli_query($conexion, $sql);
+		$result = array();
+		if ($ventas_efectivo_por_cajas && mysqli_num_rows($ventas_efectivo_por_cajas) >=1) {
+			$result = $ventas_efectivo_por_cajas;
+		}
+
+		return $result;
+	}
+
+	//Conseguir pagos a proveedores por cajas
+	function conseguir_pagos_proveedor_por_caja($conexion, $fechaPago){
+		$sql = "SELECT p.nombre_punto_venta AS PUNTO_VENTA, u.alias_usuario AS ALIAS_USUARIO, c.nombre_cajero AS CAJERO, COUNT(*)AS TRANSACCIONES, SUM(valor_pago) AS TOTAL FROM pagos_proveedor pv INNER JOIN usuarios u ON pv.id_usuario = u.id_usuario INNER JOIN cajeros c ON pv.id_usuario = c.id_usuario INNER JOIN puntos_venta p ON c.id_punto_venta = p.id_punto_venta WHERE pv.fecha_pago = '$fechaPago' GROUP BY(pv.id_usuario)";
+		$pagos_proveedor_por_cajas = mysqli_query($conexion, $sql);
+		$result = array();
+		if ($pagos_proveedor_por_cajas && mysqli_num_rows($pagos_proveedor_por_cajas) >=1) {
+			$result = $pagos_proveedor_por_cajas;
+		}
+
+		return $result;
+	}
+
+	//Conseguir ventas efectivo por cajero y fecha
+	function conseguir_ventas_efectivo_por_cajero($conexion, $idCajero, $fechaVenta){
+		$sql = "SELECT SUM(v.total_venta) AS VENTAS FROM cajeros c INNER JOIN ventas v ON c.id_cajero = v.id_cajero WHERE id_usuario = $idCajero AND id_tipo_venta = 1 AND fecha_venta = '$fechaVenta'";
+		//$sql = "SELECT SUM(total_venta) AS VENTAS FROM ventas WHERE id_cajero = $idCajero AND id_tipo_venta = 1 AND fecha_venta = '$fechaVenta'";
+		$ventas_efectivo_por_cajero = mysqli_query($conexion, $sql);
+		$result = array();
+		if ($ventas_efectivo_por_cajero && mysqli_num_rows($ventas_efectivo_por_cajero) >=1) {
+			$result = $ventas_efectivo_por_cajero;
 		}
 
 		return $result;

@@ -95,14 +95,41 @@ CREATE TABLE puntos_venta (
 	CONSTRAINT pk_puntos_venta PRIMARY KEY(id_punto_venta)
 )ENGINE=InnoDB;
 
+CREATE TABLE estados_caja (
+	id_estado_caja		int(255) auto_increment not null,
+	nombre_estado_venta	varchar(100) not null,
+	CONSTRAINT pk_estados_caja PRIMARY KEY(id_estado_caja)
+)ENGINE=InnoDB;
+
 CREATE TABLE cajeros (
 	id_cajero   		int(255) auto_increment not null,
 	id_punto_venta		int(255) not null,
+	id_estado_caja		int(255) not null,
 	id_usuario  		int(255) not null,
 	nombre_cajero	  	varchar(100) not null,
 	CONSTRAINT pk_cajeros PRIMARY KEY(id_cajero),
 	CONSTRAINT fk_cajero_punto_venta FOREIGN KEY(id_punto_venta) REFERENCES puntos_venta(id_punto_venta),
+	CONSTRAINT fk_cajero_estado_caja FOREIGN KEY(id_estado_caja) REFERENCES estados_caja(id_estado_caja),
 	CONSTRAINT fk_cajero_usuario FOREIGN KEY(id_usuario) REFERENCES usuarios(id_usuario)
+)ENGINE=InnoDB;
+
+CREATE TABLE tipos_movimiento_cajero (
+	id_tipo_mov_cajero		int(255) auto_increment not null,
+	nombre_tipo_mov_cajero	varchar(100) not null,
+	CONSTRAINT pk_tipos_movimientos_cajero PRIMARY KEY(id_tipo_mov_cajero)
+)ENGINE=InnoDB;
+
+CREATE TABLE movimientos_cajeros (
+	id__mov_cajero   		int(255) auto_increment not null,
+	id_cajero		int(255) not null,
+	id_tipo_mov_cajero	int(255) not null,
+	fecha_mov_cajero	date not null,
+	hora_mov_cajero		time not null,
+	valor_mov_cajero	float(200,2) not null,
+	descripcion_mov_caja text not null,
+	CONSTRAINT pk_movimientos_cajeros PRIMARY KEY(id__mov_cajero),
+	CONSTRAINT fk_movimiento_cajero FOREIGN KEY(id_cajero) REFERENCES cajeros(id_cajero),
+	CONSTRAINT fk_movimiento_tipo_cajero FOREIGN KEY(id_tipo_mov_cajero) REFERENCES tipos_movimiento_cajero(id_tipo_mov_cajero)
 )ENGINE=InnoDB;
 
 CREATE TABLE categorias_producto (
@@ -240,6 +267,7 @@ CREATE TABLE pagos_proveedor (
 	id_usuario  				int(255) not null,
 	id_proveedor				int(255) not null,
 	valor_pago					float(200,2),
+	fecha_pago 					date not null,
 	CONSTRAINT pk_pagos_proveedor PRIMARY KEY(id_pago_proveedor),
 	CONSTRAINT fk_pago_usuario FOREIGN KEY(id_usuario) REFERENCES usuarios(id_usuario),
 	CONSTRAINT fk_pago_proveedor FOREIGN KEY(id_proveedor) REFERENCES proveedores(id_proveedor)

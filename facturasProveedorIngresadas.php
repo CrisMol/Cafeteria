@@ -63,8 +63,8 @@ $contador = 0;
                                   <td><?=$compra_proveedor['IDENTIFICACION']?></td>
                                   <td><?=$compra_proveedor['NOMBRE_PROVEEDOR']?></td>
                                   <td><?=$compra_proveedor['FECHA']?></td>
-                                  <td><?=$compra_proveedor['COSTO']?></td>
-                                  <td align="right"><?=$compra_proveedor['HORA']?></td>
+                                  <td><?=$compra_proveedor['HORA']?></td>
+                                  <td align="right"><?=$compra_proveedor['COSTO']?></td>
                                   <td align="center"><button type="button" class="btn btn-xs btn-info" data-toggle="modal" data-target="#modalProductos<?=$compra_proveedor['CODIGO']?>">Ver Productos</button></td>
                               </tr>
 <?php
