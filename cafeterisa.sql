@@ -97,7 +97,7 @@ CREATE TABLE puntos_venta (
 
 CREATE TABLE estados_caja (
 	id_estado_caja		int(255) auto_increment not null,
-	nombre_estado_venta	varchar(100) not null,
+	nombre_estado_caja	varchar(100) not null,
 	CONSTRAINT pk_estados_caja PRIMARY KEY(id_estado_caja)
 )ENGINE=InnoDB;
 
@@ -120,7 +120,7 @@ CREATE TABLE tipos_movimiento_cajero (
 )ENGINE=InnoDB;
 
 CREATE TABLE movimientos_cajeros (
-	id__mov_cajero   		int(255) auto_increment not null,
+	id_mov_cajero   		int(255) auto_increment not null,
 	id_cajero		int(255) not null,
 	id_tipo_mov_cajero	int(255) not null,
 	fecha_mov_cajero	date not null,
@@ -168,6 +168,7 @@ CREATE TABLE ventas (
 	id_tipo_cliente 	int(255) not null,
 	id_tipo_venta		int(255) not null,
 	id_cliente   		varchar(100) not null,
+	numero_pedido		int(255) not null,
 	cantidad_venta		int(255) not null,
 	total_venta			float(200,2),
 	fecha_venta			date not null,

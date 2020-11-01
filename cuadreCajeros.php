@@ -112,7 +112,25 @@ require_once 'include/conexion.php';
                                       <td><?=$venta_efectivo_por_caja['PUNTO_VENTA']?></td>
                                       <td><?=$venta_efectivo_por_caja['USUARIO']?></td>
                                       <td><?=$venta_efectivo_por_caja['CAJERO']?></td>
-                                      <td><?=$venta_efectivo_por_caja['TRANSACCIONES']?></td>
+                                      <?php
+        $Transacciones = conseguir_transacciones_por_caja($db, $fechaInforme, $venta_efectivo_por_caja['CODIGO_CAJERO']);
+        if(!empty($Transacciones) && mysqli_num_rows($Transacciones) >= 1):
+            $Transaccion = mysqli_fetch_assoc($Transacciones);
+            if($Transaccion['TRANSACCIONES'] != null):
+    ?>
+           	<td align="right"><?=$Transaccion['TRANSACCIONES']?></td>
+    <?php
+            else:
+    ?>
+            <td align="right">0</td>
+    <?php
+            endif;
+        else:
+    ?>
+    	<td align="right">0</td>
+    <?php
+        endif;
+    ?>
                                       <td align="right"><?=$venta_efectivo_por_caja['TOTAL']?></td>
                                   </tr> 
 <?php
@@ -166,9 +184,27 @@ require_once 'include/conexion.php';
 ?>
 <tr>
                                       <th scope="row"><?=$contador?></th>
-                                      <td><?=$pago_proveedor_por_caja['PUNTO_VENTA']?></td>
-                                      <td><?=$pago_proveedor_por_caja['ALIAS_USUARIO']?></td>
-                                      <td><?=$pago_proveedor_por_caja['CAJERO']?></td>
+                                      <?php
+        $punto_venta = conseguir_puntos_por_cajero($db, $pago_proveedor_por_caja['CODIGO_USUARIO']);
+        if(!empty($punto_venta) && mysqli_num_rows($punto_venta) >= 1):
+            $punto_venta = mysqli_fetch_assoc($punto_venta);
+            if($punto_venta['NOMBRE'] != null):
+    ?>
+           	<td><?=$punto_venta['NOMBRE']?></td>
+    <?php
+            else:
+    ?>
+            <td></td>
+    <?php
+            endif;
+        else:
+    ?>
+    	<td></td>
+    <?php
+        endif;
+    ?>
+                                      <td><?=$pago_proveedor_por_caja['ALIAS']?></td>
+                                      <td><?=$pago_proveedor_por_caja['USUARIO']?></td>
                                       <td><?=$pago_proveedor_por_caja['TRANSACCIONES']?></td>
                                       <td align="right"><?=$pago_proveedor_por_caja['TOTAL']?></td>
                                   </tr>
@@ -266,10 +302,64 @@ require_once 'include/conexion.php';
                                   	  	endif;
                                   	  ?>
                                       <td align="right">0.00</td>
-                                      <td align="right">0.00</td>
-                                      <td align="right">0.00</td>
-                                      <td align="right">0.00</td>
-                                      <td align="center">Caja Abierta</td>
+                                      <?php
+                                      	$movimientos_caja = conseguir_movimientos_caja($db, $cajero['CODIGO_USUARIO'], $fechaInforme);
+                                      	if(!empty($movimientos_caja) && mysqli_num_rows($movimientos_caja) >= 1):
+                                      		$movimiento_caja = mysqli_fetch_assoc($movimientos_caja);
+                                      			if($movimiento_caja['VALOR'] != null):
+                                      ?>
+                                  				<td align="right"><?=$movimiento_caja['VALOR']?></td>
+                                  	  <?php
+                                  	  			else:
+                                  	  ?>
+                                  	  		<td align="right">0.00</td>
+                                  	  <?php
+                                  	  			endif;
+                                  	  	else:
+                                  	  ?>
+                                  	  		<td align="right">0.00</td>
+                                  	  <?php
+                                  	  	endif;
+                                  	  ?>
+                                  	  <td align="right">0.00</td>
+                                      <?php
+                                      	$estado_caja = conseguir_estado_caja($db, $cajero['CODIGO_USUARIO'], $fechaInforme);
+                                      	if(!empty($estado_caja) && mysqli_num_rows($estado_caja) >= 1):
+                                      		$estado_caja = mysqli_fetch_assoc($estado_caja);
+                                      			if($estado_caja['ESTADO'] != null):
+                                      ?>
+                                  				<td align="right"><?=$estado_caja['ESTADO']?></td>
+                                  	  <?php
+                                  	  			else:
+                                  	  ?>
+                                  	  		<td align="right">0.00</td>
+                                  	  <?php
+                                  	  			endif;
+                                  	  	else:
+                                  	  ?>
+                                  	  		<td align="right">0.00</td>
+                                  	  <?php
+                                  	  	endif;
+                                  	  ?>
+                                      <?php
+                                      	$movimientos_caja = conseguir_movimientos_caja($db, $cajero['CODIGO_USUARIO'], $fechaInforme);
+                                      	if(!empty($movimientos_caja) && mysqli_num_rows($movimientos_caja) >= 1):
+                                      		$movimiento_caja = mysqli_fetch_assoc($movimientos_caja);
+                                      			if($movimiento_caja['HORA'] != null):
+                                      ?>
+                                  				<td align="right"><?=$movimiento_caja['HORA']?></td>
+                                  	  <?php
+                                  	  			else:
+                                  	  ?>
+                                  	  		<td align="right">0.00</td>
+                                  	  <?php
+                                  	  			endif;
+                                  	  	else:
+                                  	  ?>
+                                  	  		<td align="right">0.00</td>
+                                  	  <?php
+                                  	  	endif;
+                                  	  ?>
                                       <td></td>
                                   </tr>    
 <?php

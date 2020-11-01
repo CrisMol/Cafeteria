@@ -15,4 +15,9 @@ var filas=document.querySelectorAll("#tabla_cuadre tbody tr");
         columnas[3].textContent=(ventasEfectivo - pagoProveedores).toFixed(2);
  
         //total+=cantidad*importe;
+
+        var TotalEfectivo=parseFloat(columnas[4].textContent);
+        var EfectivoReportado=parseFloat(columnas[3].textContent);
+
+        columnas[5].textContent=(TotalEfectivo - EfectivoReportado).toFixed(2);
     });
