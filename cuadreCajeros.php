@@ -7,6 +7,7 @@ require_once 'include/conexion.php';
 
 ?>
 <?php
+	date_default_timezone_set('America/Lima');
     $fechaInforme = date("Y") . "-" . date("m") . "-" . date("d");
  
    	$fechaInformeConvertidor = "Hoy";

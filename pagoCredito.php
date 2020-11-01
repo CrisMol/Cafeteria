@@ -89,7 +89,8 @@ require_once 'include/conexion.php';
             <div class="modal-footer">
                <input name="idProfesor" type="hidden" id="idProfesor" value="<?=$profesor['CODIGO_PROFESOR']?>" />
                <input name="proceso" type="hidden" id="proceso" value="21602823426" />
-               <input name="saldo_credito" type="hidden" id="saldo_credito" value="<?=$profesor['CREDITO']?>" />
+               <input name="saldo" type="hidden" id="saldo_credito" value="<?=$profesor['SALDO_PROFESOR']?>" />
+               <input name="saldo_credito" type="hidden" id="saldo_credito" value="<?=$profesor['SALDO_CREDITO']?>" />
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 <button type="submit" class="btn btn-info btn-primary">Procesar Pago</button>
             </div>

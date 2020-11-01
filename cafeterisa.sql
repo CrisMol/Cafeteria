@@ -274,5 +274,34 @@ CREATE TABLE pagos_proveedor (
 	CONSTRAINT fk_pago_proveedor FOREIGN KEY(id_proveedor) REFERENCES proveedores(id_proveedor)
 )ENGINE=InnoDB;
 
+CREATE TABLE tipos_recarga (
+	id_tipo_recarga		int(255) auto_increment not null,
+	nombre_tipo_recarga	varchar(100) not null,
+	CONSTRAINT pk_tipos_recarga PRIMARY KEY(id_tipo_recarga)
+)ENGINE=InnoDB;
+
+CREATE TABLE formas_pago (
+	id_forma_pago		int(255) auto_increment not null,
+	nombre_forma_pago	varchar(100) not null,
+	CONSTRAINT pk_formas_pago PRIMARY KEY(id_forma_pago)
+)ENGINE=InnoDB;
+
+CREATE TABLE recargas (
+	id_recarga		  		int(255) auto_increment not null,
+	id_usuario 				int(255) not null,
+	id_forma_pago  				int(255) not null,
+	id_tipo_recarga				int(255) not null,
+	codigo_cliente_recarga		varchar(100) not null,
+	nombre_cliente_recarga		varchar(100) not null,
+	valor_recarga					float(200,2),
+	fecha_recarga 					date not null,
+	hora_recarga 					time not null,
+	CONSTRAINT pk_recargas PRIMARY KEY(id_recarga),
+	CONSTRAINT fk_recarga_usuario FOREIGN KEY(id_usuario) REFERENCES usuarios(id_usuario),
+	CONSTRAINT fk_recarga_tipo_recarga FOREIGN KEY(id_tipo_recarga) REFERENCES tipos_recarga(id_tipo_recarga),
+	CONSTRAINT fk_recarga_forma_pago FOREIGN KEY(id_forma_pago) REFERENCES formas_pago(id_forma_pago)
+)ENGINE=InnoDB;
+
+ALTER TABLE recargas AUTO_INCREMENT = 100;
 ALTER TABLE productos AUTO_INCREMENT = 100;
 ALTER TABLE compras_proveedor AUTO_INCREMENT = 100;

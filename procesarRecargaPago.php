@@ -6,6 +6,7 @@ if(isset($_POST)){
 
 	$valorPago = isset($_POST['valorPago']) ? (float) $_POST['valorPago'] : false;
 	$idProfesor = isset($_POST['idProfesor']) ? mysqli_real_escape_string($db, $_POST['idProfesor']) : false;
+	$saldo = isset($_POST['saldo']) ? (float) $_POST['saldo'] : false;
 	$saldo_credito = isset($_POST['saldo_credito']) ? (float) $_POST['saldo_credito'] : false;
 
 		//validacion
@@ -16,18 +17,12 @@ if(isset($_POST)){
 		}
 
 		if (count($errores) == 0) {
+				$total = $valorPago + $saldo;
+				$totalCredito = $saldo_credito - $valorPago;
+				$sql = "UPDATE profesores SET saldo_profesor = $total, saldo_credito_profesor = $totalCredito WHERE id_profesor = '$idProfesor';";
 
-			if ($valorPago > $saldo_credito) {
-				$total = $valorPago - $saldo_credito;
-				$sql = "UPDATE profesor SET SALDO_PROF = $total, CREDI_PROF = 0 WHERE ID_PROF = '$idProfesor';";
-			}else{
-				$total = $saldo_credito - $valorPago;
-				$sql = "UPDATE profesor SET CREDI_PROF = $total WHERE ID_PROF = '$idProfesor';";
-			}
-
-			//Almacenar credito
-            $sql_movimiento = "INSERT INTO pago_credito (ID_PROF, FECHA_PAG_CRED, HORA_PAG_CRED, VALOR_CRED, VALOR_DEB) ".
-                              "VALUES('$idProfesor', CURDATE(), CURTIME(), $saldo_credito, $valorPago);";
+			//Almacenar movimiento
+			$sql_movimiento = "INSERT INTO movimientos_profesores(id_profesor, descripcion_mov_profesor, fecha_mov_profesor, hora_mov_profesor, cantidad_mov_profesor, debito_mov_profesor, credito_mov_profesor) VALUES ('$idProfesor','Pago Credito',CURDATE(),CURTIME(),$valorPago,0,$valorPago)";
 
             $guardar = mysqli_query($db, $sql);
             $registrar_recarga = mysqli_query($db, $sql_movimiento);

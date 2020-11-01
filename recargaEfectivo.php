@@ -104,6 +104,7 @@ require_once 'include/conexion.php';
                                       </div>
                                       <div class="modal-footer">
                                          <input name="codigoFamilia" type="hidden" id="codigoFamilia" value="<?=$familia['CODIGO']?>" />
+                                         <input name="nombreFamilia" type="hidden" id="nombreFamilia" value="<?=$familia['NOMBRE']?>" />
                                          <input name="proceso" type="hidden" id="proceso" value="21602821008" />
                                          <input name="saldo" type="hidden" id="proceso" value="<?=$familia['SALDO']?>" />
                                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

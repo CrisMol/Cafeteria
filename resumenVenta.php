@@ -8,6 +8,7 @@ require_once 'include/conexion.php';
 ?>
 
 <?php
+	date_default_timezone_set('America/Lima');
     $fechaInicio = date("Y") . "-" . date("m") . "-" . date("d");
     $fechaFin = date("Y") . "-" . date("m") . "-" . date("d");
  

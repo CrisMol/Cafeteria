@@ -89,6 +89,7 @@ require_once 'include/conexion.php';
                <input name="idProfesor" type="hidden" id="idProfesor" value="<?=$profesor['CODIGO_PROFESOR']?>" />
                <input name="proceso" type="hidden" id="proceso" value="21602822978" />
                <input name="saldo" type="hidden" id="proceso" value="<?=$profesor['SALDO_PROFESOR']?>" />
+               <input name="nombreProfesor" type="hidden" id="nombreProfesor" value="<?=$profesor['NOMBRE_PROFESOR']?>" />
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 <button type="submit" class="btn btn-info btn-primary">Procesar Recarga</button>
             </div>

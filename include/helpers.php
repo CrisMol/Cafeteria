@@ -411,6 +411,38 @@
 		return $result;
 	}
 
+	//Conseguir ventas del dìa por Clientes
+	function conseguir_ventas_efectivo_por_cliente($conexion, $fechaVenta, $idCliente = null, $tipoVenta = null){
+		if ($idCliente != null) {
+			$sql = "SELECT SUM(total_venta) AS TOTAL FROM ventas WHERE id_tipo_cliente = $idCliente AND fecha_venta = '$fechaVenta' AND id_tipo_venta != 2";
+		}else{
+			if ($tipoVenta != null) {
+				$sql = "SELECT SUM(total_venta) AS TOTAL FROM ventas WHERE id_tipo_venta = $tipoVenta AND fecha_venta = '$fechaVenta'";
+			}else{
+				$sql = "SELECT SUM(total_venta) AS TOTAL FROM ventas WHERE fecha_venta = '$fechaVenta' AND id_tipo_venta != 2";
+			}
+		}
+		$ventas_efectivo_por_clientes = mysqli_query($conexion, $sql);
+		$result = array();
+		if ($ventas_efectivo_por_clientes && mysqli_num_rows($ventas_efectivo_por_clientes) >=1) {
+			$result = $ventas_efectivo_por_clientes;
+		}
+
+		return $result;
+	}
+
+	//Conseguir datos de las ventas realizadas por dia
+	function ventas_por_dia($conexion, $fechaVenta){
+		$sql = "SELECT v.hora_venta AS HORA, v.numero_pedido AS PEDIDO, pv.nombre_punto_venta AS PUNTO_VENTA, c.nombre_cajero AS CAJERO, tp.nombre_tipo_venta AS TIPO_VENTA, SUM(v.total_venta) AS VALOR FROM ventas v INNER JOIN tipos_venta tp ON v.id_tipo_venta = tp.id_tipo_venta INNER JOIN cajeros c ON v.id_cajero = c.id_cajero INNER JOIN puntos_venta pv ON c.id_punto_venta = pv.id_punto_venta WHERE fecha_venta = '$fechaVenta' AND v.id_tipo_venta != 2 GROUP BY numero_pedido";
+		$ventas_por_dia = mysqli_query($conexion, $sql);
+		$result = array();
+		if ($ventas_por_dia && mysqli_num_rows($ventas_por_dia) >=1) {
+			$result = $ventas_por_dia;
+		}
+
+		return $result;
+	}
+
 	//Conseguir transacciones por caja
 	function conseguir_transacciones_por_caja($conexion, $fechaVenta, $idCajero){
 		$sql = "SELECT COUNT(Total) AS TRANSACCIONES FROM(SELECT numero_pedido, COUNT(*) Total FROM ventas WHERE id_cajero = $idCajero AND id_tipo_venta = 1 AND fecha_venta = '$fechaVenta' GROUP BY numero_pedido) AS SUB";
@@ -487,6 +519,17 @@
 		return $result;
 	}
 
+	//Conseguir recargas
+	function conseguir_recargas($conexion, $fechaInforme){
+		$sql = "SELECT r.id_recarga AS CODIGO_RECARGA, u.nombre_usuario AS USUARIO, fp.nombre_forma_pago AS FORMA_PAGO, tr.nombre_tipo_recarga AS TIPO_RECARGA, codigo_cliente_recarga AS CODIGO_CLIENTE, nombre_cliente_recarga AS NOMBRE_CLIENTE, valor_recarga AS VALOR, fecha_recarga AS FECHA, hora_recarga AS HORA FROM recargas r INNER JOIN usuarios u ON r.id_usuario = u.id_usuario INNER JOIN formas_pago fp ON r.id_forma_pago = fp.id_forma_pago INNER JOIN tipos_recarga tr ON r.id_tipo_recarga = tr.id_tipo_recarga WHERE r.fecha_recarga = '$fechaInforme'";
+		$estado_caja = mysqli_query($conexion, $sql);
+		$result = array();
+		if ($estado_caja && mysqli_num_rows($estado_caja) >=1) {
+			$result = $estado_caja;
+		}
+
+		return $result;
+	}
 
 	//Conseguir las ultimas entradas
 	function conseguir_entradas($conexion, $limit = null, $categoria = null, $busqueda = null){
