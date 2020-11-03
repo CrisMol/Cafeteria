@@ -173,7 +173,7 @@
 
 	//Conseguir Profesores por código
 	function conseguir_profesores_por_codigo($conexion, $codigo){
-		$sql = "SELECT id_profesor AS CODIGO_PROFESOR, apellidos_profesor AS APELLIDOS_PROFESOR, nombres_profesor AS NOMBRE_PROFESOR, celular_profesor AS CELULAR, saldo_profesor AS SALDO_PROFESOR, credito_profesor AS CREDITO, email_profesor AS EMAIL FROM profesores ".
+		$sql = "SELECT id_profesor AS CODIGO_PROFESOR, apellidos_profesor AS APELLIDOS_PROFESOR, nombres_profesor AS NOMBRE_PROFESOR, celular_profesor AS CELULAR, saldo_profesor AS SALDO_PROFESOR, saldo_credito_profesor AS CREDITO, email_profesor AS EMAIL FROM profesores ".
 			   "WHERE id_profesor = '$codigo'";
 		$profesor = mysqli_query($conexion, $sql);
 
@@ -199,7 +199,8 @@
 
 	//Conseguir movimientos profesor
 	function conseguir_movimientos_profesor($conexion, $codigoProfesor){
-		$sql = "SELECT id_mov_profesor AS CODIGO_MOVIMIENTO, id_profesor AS CODIGO_PROFESOR, descripcion_mov_profesor AS DESCRIPCION_MOVIMIENTO, fecha_mov_profesor AS FECHA_MOVIMIENTO, hora_mov_profesor AS HORA_MOVIMIENTO, credito_mov_profesor AS CREDITO_MOVIMIENTO, debito_mov_profesor AS DEBITO_MOVIMIENTO, cantidad_mov_profesor AS CANTIDAD_MOVIMIENTO FROM movimientos_profesores WHERE id_profesor = '$codigoProfesor'";
+		$sql = "SELECT id_mov_profesor AS CODIGO_MOVIMIENTO, id_profesor AS CODIGO_PROFESOR, descripcion_mov_profesor AS DESCRIPCION_MOVIMIENTO, fecha_mov_profesor AS FECHA_MOVIMIENTO, hora_mov_profesor AS HORA_MOVIMIENTO, credito_mov_profesor AS CREDITO_MOVIMIENTO, debito_mov_profesor AS DEBITO_MOVIMIENTO, cantidad_mov_profesor AS CANTIDAD_MOVIMIENTO, saldo_credito_profesor AS SALDO_CREDITO FROM movimientos_profesores WHERE id_profesor = '$codigoProfesor'";
+		var_dump($sql);
 		$movimientos = mysqli_query($conexion, $sql);
 
 		$result = array();

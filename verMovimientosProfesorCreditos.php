@@ -6,6 +6,14 @@ require_once 'include/helpers.php';
 require_once 'include/conexion.php';
 
 ?>
+
+<?php
+    if (isset($_GET['idProfesor'])) {
+        $codigoProfesor = $_GET['idProfesor'];
+    }else{
+        $codigoProfesor = null;
+    }
+?>
                     <!-- BEGIN Page Content -->
 
 <main id="js-page-content" role="main" class="page-content">
@@ -36,7 +44,7 @@ require_once 'include/conexion.php';
               <div class="panel-container show">
                   <div class="panel-content">
 <?php
-    $profesor = conseguir_profesores_por_codigo($db, $_GET['idProfesor']);
+    $profesor = conseguir_profesores_por_codigo($db, $codigoProfesor);
     if(!empty($profesor) && mysqli_num_rows($profesor) >= 1):
         $profesor = mysqli_fetch_assoc($profesor);
 ?>
@@ -100,10 +108,10 @@ require_once 'include/conexion.php';
                           <tbody>
 <?php
     $contador = 0;
-    $movimientos_profesor = conseguir_movimientos_profesor($db, $_GET['idProfesor']);
+    $movimientos_profesor = conseguir_movimientos_profesor($db, $codigoProfesor);
     if(!empty($movimientos_profesor) && mysqli_num_rows($movimientos_profesor) >= 1):
         while ($movimiento_profesor = mysqli_fetch_assoc($movimientos_profesor)) :
-        	if($movimiento_profesor['DEBITO_MOVIMIENTO'] != 0):
+        	if($movimiento_profesor['SALDO_CREDITO'] != 0):
             $contador++;
 ?>
     <tr>
