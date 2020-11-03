@@ -22,11 +22,10 @@ if(isset($_POST)){
 				$sql = "UPDATE profesores SET saldo_profesor = $total, saldo_credito_profesor = $totalCredito WHERE id_profesor = '$idProfesor';";
 
 			//Almacenar movimiento
-			$sql_movimiento = "INSERT INTO movimientos_profesores(id_profesor, descripcion_mov_profesor, fecha_mov_profesor, hora_mov_profesor, cantidad_mov_profesor, debito_mov_profesor, credito_mov_profesor) VALUES ('$idProfesor','Pago Credito',CURDATE(),CURTIME(),$valorPago,0,$valorPago)";
+			$sql_movimiento = "INSERT INTO movimientos_profesores(id_profesor, descripcion_mov_profesor, fecha_mov_profesor, hora_mov_profesor, cantidad_mov_profesor, debito_mov_profesor, credito_mov_profesor, id_tipo_mov_profesor) VALUES ('$idProfesor','Pago Credito',CURDATE(),CURTIME(),1,0,$valorPago, 1)";
 
             $guardar = mysqli_query($db, $sql);
             $registrar_recarga = mysqli_query($db, $sql_movimiento);
-			$almacenar = mysqli_query($db, $registrar_recarga);
 			header("Location: pagoCredito.php");
 		}else{
 			$_SESSION['errores'] = $errores;

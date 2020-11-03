@@ -198,9 +198,11 @@
 	}
 
 	//Conseguir movimientos profesor
-	function conseguir_movimientos_profesor($conexion, $codigoProfesor){
-		$sql = "SELECT id_mov_profesor AS CODIGO_MOVIMIENTO, id_profesor AS CODIGO_PROFESOR, descripcion_mov_profesor AS DESCRIPCION_MOVIMIENTO, fecha_mov_profesor AS FECHA_MOVIMIENTO, hora_mov_profesor AS HORA_MOVIMIENTO, credito_mov_profesor AS CREDITO_MOVIMIENTO, debito_mov_profesor AS DEBITO_MOVIMIENTO, cantidad_mov_profesor AS CANTIDAD_MOVIMIENTO, saldo_credito_profesor AS SALDO_CREDITO FROM movimientos_profesores WHERE id_profesor = '$codigoProfesor'";
-		var_dump($sql);
+	function conseguir_movimientos_profesor($conexion, $codigoProfesor, $tipoMovimiento = null){
+		$sql = "SELECT id_mov_profesor AS CODIGO_MOVIMIENTO, id_profesor AS CODIGO_PROFESOR, descripcion_mov_profesor AS DESCRIPCION_MOVIMIENTO, fecha_mov_profesor AS FECHA_MOVIMIENTO, hora_mov_profesor AS HORA_MOVIMIENTO, credito_mov_profesor AS CREDITO_MOVIMIENTO, debito_mov_profesor AS DEBITO_MOVIMIENTO, cantidad_mov_profesor AS CANTIDAD_MOVIMIENTO FROM movimientos_profesores WHERE id_profesor = '$codigoProfesor'";
+		if ($tipoMovimiento != null) {
+			$sql .= " AND id_tipo_mov_profesor = $tipoMovimiento";
+		}
 		$movimientos = mysqli_query($conexion, $sql);
 
 		$result = array();

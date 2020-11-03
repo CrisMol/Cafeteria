@@ -1,613 +1,295 @@
--- phpMyAdmin SQL Dump
--- version 3.5.1
--- http://www.phpmyadmin.net
---
--- Servidor: localhost
--- Tiempo de generación: 27-10-2020 a las 03:14:44
--- Versión del servidor: 5.5.24-log
--- Versión de PHP: 5.4.3
-
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
---
--- Base de datos: `cafeteria`
---
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `cajero`
---
-
-CREATE TABLE IF NOT EXISTS `cajero` (
-  `COD_CAJERO` int(11) NOT NULL,
-  `COD_PTOVENTA` int(11) DEFAULT NULL,
-  `USUA_CAJERO` varchar(30) NOT NULL,
-  `NOM_CAJERO` varchar(20) NOT NULL,
-  `PASSWORD` varchar(15) NOT NULL,
-  PRIMARY KEY (`COD_CAJERO`),
-  KEY `FK_CAJERO_PUNTOVENTA` (`COD_PTOVENTA`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `catego_prod`
---
-
-CREATE TABLE IF NOT EXISTS `catego_prod` (
-  `ID_CATEPROD` int(11) NOT NULL,
-  `NOM_CATEPROD` varchar(20) NOT NULL,
-  PRIMARY KEY (`ID_CATEPROD`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Volcado de datos para la tabla `catego_prod`
---
-
-INSERT INTO `catego_prod` (`ID_CATEPROD`, `NOM_CATEPROD`) VALUES
-(0, 'Almuerzo'),
-(1, 'Desayuno'),
-(2, 'Bebida'),
-(3, 'Preparado');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `estudiante`
---
-
-CREATE TABLE IF NOT EXISTS `estudiante` (
-  `ID_ESTU` varchar(4) NOT NULL,
-  `ID_FAM` varchar(10) DEFAULT NULL,
-  `ID_GRADO` int(11) DEFAULT NULL,
-  `APELLIDO_ESTU` varchar(15) NOT NULL,
-  `NOM_ESTU` varchar(15) NOT NULL,
-  `SEXO_ESTU` varchar(10) NOT NULL,
-  PRIMARY KEY (`ID_ESTU`),
-  KEY `FK_FAMILIA_ESTUDIANTE` (`ID_FAM`),
-  KEY `FK_GRADO_ESTUDIANTE` (`ID_GRADO`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Volcado de datos para la tabla `estudiante`
---
-
-INSERT INTO `estudiante` (`ID_ESTU`, `ID_FAM`, `ID_GRADO`, `APELLIDO_ESTU`, `NOM_ESTU`, `SEXO_ESTU`) VALUES
-('1010', '1722468236', 1, 'Molina', 'Angela', 'Mujer'),
-('1013', '1714764220', 1, 'Lopez', 'Maria Augusto', 'Masculino'),
-('1025', '1714764220', 2, 'Alexander', 'Leona', 'Femenino');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `estudiante_compra_productos`
---
-
-CREATE TABLE IF NOT EXISTS `estudiante_compra_productos` (
-  `ID_PRODUCTO` int(11) NOT NULL,
-  `ID_ESTU` varchar(4) NOT NULL,
-  `ID_TIPO_COMPRA` int(11) DEFAULT NULL,
-  `COD_CAJERO` int(11) DEFAULT NULL,
-  `HORA_EST_COMPRA` time NOT NULL,
-  `VALOR_EST_COMPRA` float NOT NULL,
-  `CANTIDAD_EST_COMPRA` int(11) NOT NULL,
-  PRIMARY KEY (`ID_PRODUCTO`),
-  KEY `FK_PRODUTO_VENTA_ESTUDIANTE2` (`ID_ESTU`),
-  KEY `FK_RELATIONSHIP_19` (`ID_TIPO_COMPRA`),
-  KEY `FK_RELATIONSHIP_21` (`COD_CAJERO`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `familia`
---
-
-CREATE TABLE IF NOT EXISTS `familia` (
-  `ID_FAM` varchar(10) NOT NULL,
-  `NOM_FAM` varchar(250) NOT NULL,
-  `MAIL_FAM` varchar(150) NOT NULL,
-  `CEL_FAM` varchar(15) NOT NULL,
-  `SALDO_FAM` float NOT NULL,
-  PRIMARY KEY (`ID_FAM`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Volcado de datos para la tabla `familia`
---
-
-INSERT INTO `familia` (`ID_FAM`, `NOM_FAM`, `MAIL_FAM`, `CEL_FAM`, `SALDO_FAM`) VALUES
-('1714764220', 'Merino Moreno', 'merino_daniel18@hotmail.com', '96358777', 22),
-('1722468235', 'Monyalvo', 'montalvo_@gmail.com', '96365555', 12),
-('1722468236', 'Molina Cabeza', 'molinacuario97@hotmail.com', '963639720', 16);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `grado`
---
-
-CREATE TABLE IF NOT EXISTS `grado` (
-  `ID_GRADO` int(11) NOT NULL AUTO_INCREMENT,
-  `NOM_GRADO` varchar(20) NOT NULL,
-  PRIMARY KEY (`ID_GRADO`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf32 AUTO_INCREMENT=6 ;
-
---
--- Volcado de datos para la tabla `grado`
---
-
-INSERT INTO `grado` (`ID_GRADO`, `NOM_GRADO`) VALUES
-(1, 'EGB2'),
-(2, 'EGB6'),
-(3, 'EGB7'),
-(5, 'EGB10');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `menu`
---
-
-CREATE TABLE IF NOT EXISTS `menu` (
-  `ID_MENU` int(11) NOT NULL,
-  `ID_USUARIO` varchar(15) DEFAULT NULL,
-  `FECHA_MENU` date NOT NULL,
-  `FOTO_MENU` varchar(255) NOT NULL,
-  PRIMARY KEY (`ID_MENU`),
-  KEY `FK_USUARIO_MENU` (`ID_USUARIO`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `movimiento_producto`
---
-
-CREATE TABLE IF NOT EXISTS `movimiento_producto` (
-  `ID_MOV_PROD` int(255) NOT NULL AUTO_INCREMENT,
-  `ID_PRODUCTO` int(11) DEFAULT NULL,
-  `FECHA_MOV_PROD` date NOT NULL,
-  `HORA_MOV_PROD` time NOT NULL,
-  `DESC_MOV_PROD` varchar(255) NOT NULL,
-  `ENTRADA_MOV_PROD` int(255) DEFAULT NULL,
-  `SALIDA_MOV_PROD` int(255) DEFAULT NULL,
-  `SALDO_MOVI` int(255) DEFAULT NULL,
-  PRIMARY KEY (`ID_MOV_PROD`),
-  KEY `fk_movimiento_producto` (`ID_PRODUCTO`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
-
---
--- Volcado de datos para la tabla `movimiento_producto`
---
-
-INSERT INTO `movimiento_producto` (`ID_MOV_PROD`, `ID_PRODUCTO`, `FECHA_MOV_PROD`, `HORA_MOV_PROD`, `DESC_MOV_PROD`, `ENTRADA_MOV_PROD`, `SALIDA_MOV_PROD`, `SALDO_MOVI`) VALUES
-(3, 15365, '2020-10-26', '22:08:35', 'Cambio de Inventario', 5, 0, 30),
-(4, 15365, '2020-10-26', '22:08:56', 'Cambio de Inventario', 0, 5, 25),
-(5, 15365, '2020-10-26', '22:09:12', 'Cambio de Inventario', 0, 25, 0),
-(6, 15365, '2020-10-26', '22:09:27', 'Cambio de Inventario', 0, 5, -5),
-(7, 15365, '2020-10-26', '22:09:43', 'Cambio de Inventario', 100, 0, 95);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pago_credito`
---
-
-CREATE TABLE IF NOT EXISTS `pago_credito` (
-  `ID_PAG_CRED` int(11) NOT NULL AUTO_INCREMENT,
-  `ID_PROF` varchar(10) DEFAULT NULL,
-  `FECHA_PAG_CRED` date NOT NULL,
-  `HORA_PAG_CRED` time NOT NULL,
-  `VALOR_CRED` float DEFAULT NULL,
-  `VALOR_DEB` float DEFAULT NULL,
-  PRIMARY KEY (`ID_PAG_CRED`),
-  KEY `FK_PAGO_PROFESOR_CREDITO` (`ID_PROF`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf32 AUTO_INCREMENT=11 ;
-
---
--- Volcado de datos para la tabla `pago_credito`
---
-
-INSERT INTO `pago_credito` (`ID_PAG_CRED`, `ID_PROF`, `FECHA_PAG_CRED`, `HORA_PAG_CRED`, `VALOR_CRED`, `VALOR_DEB`) VALUES
-(9, '1722453689', '2020-10-25', '17:59:40', 5, 1),
-(10, '1722453689', '2020-10-25', '18:00:50', 4, 2);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `privilegio`
---
-
-CREATE TABLE IF NOT EXISTS `privilegio` (
-  `ID_PRIVILEGIO` int(11) NOT NULL,
-  `ID_USUARIO` varchar(15) DEFAULT NULL,
-  `ESTA_ESTU_EFE` tinyint(1) NOT NULL,
-  `ESTA_PROF_EFE` tinyint(1) NOT NULL,
-  `ESTA_MF_NUE` tinyint(1) NOT NULL,
-  `ESTA_MF_RESTCONT` tinyint(1) NOT NULL,
-  `ESTA_ME_NUE` tinyint(1) NOT NULL,
-  `ESTA_ME_MOV` tinyint(1) NOT NULL,
-  `ESTA_ME_RFID` tinyint(1) NOT NULL,
-  `ESTA_ME_GRAD` tinyint(1) NOT NULL,
-  `ESTA_MPROF_NUE` tinyint(1) NOT NULL,
-  `ESTA_MPROF_MOV` tinyint(1) NOT NULL,
-  `ESTA_MPROF_RFID` tinyint(1) NOT NULL,
-  `ESTA_MPROF_CRED` tinyint(1) NOT NULL,
-  `ESTA_MPROD_SEL` tinyint(1) NOT NULL,
-  `ESTA_MPROD_NUE` tinyint(1) NOT NULL,
-  `ESTA_MPROD_LIST` tinyint(1) NOT NULL,
-  `ESTA_MPROD_FOTPROD` tinyint(1) NOT NULL,
-  `ESTA_MINV_VER` tinyint(1) NOT NULL,
-  `ESTA_MINV_MOVPROD` tinyint(1) NOT NULL,
-  `ESTA_MINV_INGFAC` tinyint(1) NOT NULL,
-  `ESTA_MPROV_NUE` tinyint(1) NOT NULL,
-  `ESTA_MPROV_PAGPROV` tinyint(1) NOT NULL,
-  `ESTA_MPROV_FAC` tinyint(1) NOT NULL,
-  `ESTA_MENU_CARG` tinyint(1) NOT NULL,
-  `ESTA_MINFOR_CUACAJ` tinyint(1) NOT NULL,
-  `ESTA_MINFO_CUADM` tinyint(1) NOT NULL,
-  `ESTA_MINFO_RESVEN` tinyint(1) NOT NULL,
-  `ESTA_MINFO_VENPUNT` tinyint(1) NOT NULL,
-  `ESTA_MINFO_REC` tinyint(1) NOT NULL,
-  `ESTA_MINFO_CREPROF` tinyint(1) NOT NULL,
-  `ESTA_MINFO_CUEXCOB` tinyint(1) NOT NULL,
-  `ESTA_MINFO_VENMEN` tinyint(1) NOT NULL,
-  `ESTA_MINFO_PRODVEN` tinyint(1) NOT NULL,
-  `ESTA_MINFO_PRECOMEST` tinyint(1) NOT NULL,
-  `ESTA_MINFO_PRECOMPROF` tinyint(1) NOT NULL,
-  `ESTA_MINFO_SALFAM` tinyint(1) NOT NULL,
-  `ESTA_MREVE_VENEFE` tinyint(1) NOT NULL,
-  `ESTA_MREVE_RECFAM` tinyint(1) NOT NULL,
-  `ESTA_MREVE_RECPROF` tinyint(1) NOT NULL,
-  `ESTA_MREVE_CORCRE` tinyint(1) NOT NULL,
-  `ESTA_MREVE_CIECAJ` tinyint(1) NOT NULL,
-  `ESTA_MREVE_PAGCRE` tinyint(1) NOT NULL,
-  `ESTA_MCUEVIR_SAL` tinyint(1) NOT NULL,
-  `ESTA_MCUEVIR_BAN` tinyint(1) NOT NULL,
-  `ESTA_MCUEVIR_PAGTER` tinyint(1) NOT NULL,
-  `ESTA_MCUEVIR_TER` tinyint(1) NOT NULL,
-  `ESTA_MIMPO_ESTU` tinyint(1) NOT NULL,
-  `ESTA_MIMPO_PROF` tinyint(1) NOT NULL,
-  `ESTA_MCONF_PTOVEN` tinyint(1) NOT NULL,
-  `ESTA_MCONF_CATPRO` tinyint(1) NOT NULL,
-  `ESTA_MCONF_CAJ` tinyint(1) NOT NULL,
-  `ESTA_MCONF_USU` tinyint(1) NOT NULL,
-  `ESTA_MCONF_PARAM` tinyint(1) NOT NULL,
-  `ESTA_MCONF_KIO` tinyint(1) NOT NULL,
-  `ESTA_MCONF_SUBFOT` tinyint(1) NOT NULL,
-  `ESTA_MPAG_PAG` tinyint(1) NOT NULL,
-  `ESTA_MPAG_COMBOLSMS` tinyint(1) NOT NULL,
-  `ESTA_MPAG_COMBOLREC` tinyint(1) NOT NULL,
-  `ESTA_MPALI_REG` tinyint(1) NOT NULL,
-  `ESTA_MPALI_EST` tinyint(1) NOT NULL,
-  `ESTA_MPALI_ENTRE` tinyint(1) NOT NULL,
-  `ESTA_MPALI_CONF` tinyint(1) NOT NULL,
-  PRIMARY KEY (`ID_PRIVILEGIO`),
-  KEY `FK_TIENE` (`ID_USUARIO`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `producto`
---
-
-CREATE TABLE IF NOT EXISTS `producto` (
-  `ID_PRODUCTO` int(11) NOT NULL,
-  `ID_CATEPROD` int(11) DEFAULT NULL,
-  `COD_PTOVENTA` int(11) DEFAULT NULL,
-  `ID_TIPO_PROD` int(11) DEFAULT NULL,
-  `COD_BARRA` varchar(100) DEFAULT NULL,
-  `DESC_PROD` text NOT NULL,
-  `COSTO_PROD` float NOT NULL,
-  `PRECIO_VENTA` float NOT NULL,
-  `CANTIDAD_PROD` int(11) NOT NULL,
-  `ESTADO_INVE` int(11) NOT NULL,
-  `ESTADO_PRECO` int(11) NOT NULL,
-  `TITULO_PROD` varchar(100) DEFAULT NULL,
-  `FOTO_PROD` varchar(255) DEFAULT NULL,
-  `DESC_ADIC` text,
-  `CLAVE_AUTORIZACION_PROD` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`ID_PRODUCTO`),
-  KEY `FK_ALMACENA` (`COD_PTOVENTA`),
-  KEY `FK_PRODUCTO_CATEGORIAPROD` (`ID_CATEPROD`),
-  KEY `FK_RELATIONSHIP_23` (`ID_TIPO_PROD`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Volcado de datos para la tabla `producto`
---
-
-INSERT INTO `producto` (`ID_PRODUCTO`, `ID_CATEPROD`, `COD_PTOVENTA`, `ID_TIPO_PROD`, `COD_BARRA`, `DESC_PROD`, `COSTO_PROD`, `PRECIO_VENTA`, `CANTIDAD_PROD`, `ESTADO_INVE`, `ESTADO_PRECO`, `TITULO_PROD`, `FOTO_PROD`, `DESC_ADIC`, `CLAVE_AUTORIZACION_PROD`) VALUES
-(15365, 0, NULL, 1, '12345', 'Arroz con Pollo', 9, 15, 95, 0, 1, NULL, NULL, 'hy', '12345678');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `profesor`
---
-
-CREATE TABLE IF NOT EXISTS `profesor` (
-  `ID_PROF` varchar(10) NOT NULL,
-  `APELLIDO_PROF` varchar(15) NOT NULL,
-  `NOM_PROF` varchar(15) NOT NULL,
-  `MAIL_PROF` varchar(150) NOT NULL,
-  `CEL_PROF` varchar(15) NOT NULL,
-  `SALDO_PROF` float NOT NULL,
-  `CREDI_PROF` float NOT NULL,
-  PRIMARY KEY (`ID_PROF`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Volcado de datos para la tabla `profesor`
---
-
-INSERT INTO `profesor` (`ID_PROF`, `APELLIDO_PROF`, `NOM_PROF`, `MAIL_PROF`, `CEL_PROF`, `SALDO_PROF`, `CREDI_PROF`) VALUES
-('1722453689', 'Lopez Man', 'Mariano Sanchez', 'molinacuario_97@yahoo.com', '096553632', 15, 2),
-('1722468235', 'Saenz', 'Jean', 'aserekmolina@gmail.com', '0959154391', 3, 8),
-('1722468236', 'Molina', 'Alexander', 'molinacuario_97@hotmail.com', '0963637219', 0.25, 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `profesor_compra_productos`
---
-
-CREATE TABLE IF NOT EXISTS `profesor_compra_productos` (
-  `ID_PRODUCTO` int(11) NOT NULL,
-  `ID_PROF` varchar(10) NOT NULL,
-  `ID_TIPO_COMPRA` int(11) DEFAULT NULL,
-  `COD_CAJERO` int(11) DEFAULT NULL,
-  `HORA_PROF_COMPRA` time NOT NULL,
-  `VALOR_PROF_COMPRA` float NOT NULL,
-  `CANTIDAD_PROF_COMPRA` int(11) NOT NULL,
-  PRIMARY KEY (`ID_PRODUCTO`),
-  KEY `FK_PRODUCTO_VENTA_PROFESOR2` (`ID_PROF`),
-  KEY `FK_RELATIONSHIP_20` (`ID_TIPO_COMPRA`),
-  KEY `FK_RELATIONSHIP_22` (`COD_CAJERO`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `punto_venta`
---
-
-CREATE TABLE IF NOT EXISTS `punto_venta` (
-  `COD_PTOVENTA` int(11) NOT NULL,
-  `NOM_PTOVENTA` varchar(50) NOT NULL,
-  PRIMARY KEY (`COD_PTOVENTA`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `recarga_efectivo`
---
-
-CREATE TABLE IF NOT EXISTS `recarga_efectivo` (
-  `ID_REC_EFEC` int(11) NOT NULL AUTO_INCREMENT,
-  `ID_PROF` varchar(10) DEFAULT NULL,
-  `ID_FAM` varchar(10) DEFAULT NULL,
-  `FECHA_REC_EFEC` date NOT NULL,
-  `HORA_REC_EFEC` time NOT NULL,
-  `VALOR_REC_EFEC` float NOT NULL,
-  PRIMARY KEY (`ID_REC_EFEC`),
-  KEY `FK_PROFESOR_RECARGA_EFECTIVO` (`ID_PROF`),
-  KEY `FK_RECARGA_FAMILIA_EFECTIVO` (`ID_FAM`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf32 AUTO_INCREMENT=7 ;
-
---
--- Volcado de datos para la tabla `recarga_efectivo`
---
-
-INSERT INTO `recarga_efectivo` (`ID_REC_EFEC`, `ID_PROF`, `ID_FAM`, `FECHA_REC_EFEC`, `HORA_REC_EFEC`, `VALOR_REC_EFEC`) VALUES
-(2, NULL, '1722468236', '2020-10-25', '17:07:06', 1),
-(3, '1722468235', NULL, '2020-10-25', '17:07:20', 1),
-(4, '1722468235', NULL, '2020-10-25', '17:07:47', 2),
-(5, '1722453689', NULL, '2020-10-25', '17:07:58', 15),
-(6, NULL, '1722468236', '2020-10-25', '17:08:14', 10);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `rfid`
---
-
-CREATE TABLE IF NOT EXISTS `rfid` (
-  `ID_RFID` varchar(100) NOT NULL,
-  `ID_ESTU` varchar(4) DEFAULT NULL,
-  `ESTADO_RFID` varchar(25) NOT NULL,
-  PRIMARY KEY (`ID_RFID`),
-  KEY `FK_ESTUDIANTE_RFID` (`ID_ESTU`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Volcado de datos para la tabla `rfid`
---
-
-INSERT INTO `rfid` (`ID_RFID`, `ID_ESTU`, `ESTADO_RFID`) VALUES
-('1234', '1013', 'Si Registra'),
-('8963', '1010', 'Si Registra'),
-('986899', '1025', 'Si Registra');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `rfid_profesor`
---
-
-CREATE TABLE IF NOT EXISTS `rfid_profesor` (
-  `ID_RFID` varchar(255) NOT NULL,
-  `ID_PROF` varchar(10) NOT NULL,
-  `ESTADO_RFID` varchar(255) NOT NULL,
-  PRIMARY KEY (`ID_RFID`),
-  KEY `fk_rfid_profesor` (`ID_PROF`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `rfid_profesor`
---
-
-INSERT INTO `rfid_profesor` (`ID_RFID`, `ID_PROF`, `ESTADO_RFID`) VALUES
-('2478', '1722453689', 'Si Registra'),
-('124580', '1722468235', 'Si Registra');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tipo_compra`
---
-
-CREATE TABLE IF NOT EXISTS `tipo_compra` (
-  `ID_TIPO_COMPRA` int(11) NOT NULL,
-  `NOMBRE_TIPO__COMPRA` varchar(255) NOT NULL,
-  PRIMARY KEY (`ID_TIPO_COMPRA`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tipo_prod`
---
-
-CREATE TABLE IF NOT EXISTS `tipo_prod` (
-  `ID_TIPO_PROD` int(11) NOT NULL,
-  `NOM_PROD` varchar(30) NOT NULL,
-  PRIMARY KEY (`ID_TIPO_PROD`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Volcado de datos para la tabla `tipo_prod`
---
-
-INSERT INTO `tipo_prod` (`ID_TIPO_PROD`, `NOM_PROD`) VALUES
-(1, 'Preparado');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tipo_usuario`
---
-
-CREATE TABLE IF NOT EXISTS `tipo_usuario` (
-  `ID_TIPO_USUARIO` int(11) NOT NULL,
-  `NOM_TIPO_USUARIO` varchar(255) NOT NULL,
-  PRIMARY KEY (`ID_TIPO_USUARIO`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuario`
---
-
-CREATE TABLE IF NOT EXISTS `usuario` (
-  `ID_USUARIO` varchar(15) NOT NULL,
-  `ID_TIPO_USUARIO` int(11) DEFAULT NULL,
-  `NOM_USUARIO` varchar(20) NOT NULL,
-  `MAIL_USUARIO` varchar(150) DEFAULT NULL,
-  `ALIAS_USUARIO` varchar(255) NOT NULL,
-  PRIMARY KEY (`ID_USUARIO`),
-  UNIQUE KEY `uq_nom_usuario` (`NOM_USUARIO`),
-  KEY `FK_TIPO_USUARIO` (`ID_TIPO_USUARIO`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `cajero`
---
-ALTER TABLE `cajero`
-  ADD CONSTRAINT `FK_CAJERO_PUNTOVENTA` FOREIGN KEY (`COD_PTOVENTA`) REFERENCES `punto_venta` (`COD_PTOVENTA`);
-
---
--- Filtros para la tabla `estudiante`
---
-ALTER TABLE `estudiante`
-  ADD CONSTRAINT `FK_FAMILIA_ESTUDIANTE` FOREIGN KEY (`ID_FAM`) REFERENCES `familia` (`ID_FAM`),
-  ADD CONSTRAINT `FK_GRADO_ESTUDIANTE` FOREIGN KEY (`ID_GRADO`) REFERENCES `grado` (`ID_GRADO`);
-
---
--- Filtros para la tabla `estudiante_compra_productos`
---
-ALTER TABLE `estudiante_compra_productos`
-  ADD CONSTRAINT `FK_PRODUTO_VENTA_ESTUDIANTE` FOREIGN KEY (`ID_PRODUCTO`) REFERENCES `producto` (`ID_PRODUCTO`),
-  ADD CONSTRAINT `FK_PRODUTO_VENTA_ESTUDIANTE2` FOREIGN KEY (`ID_ESTU`) REFERENCES `estudiante` (`ID_ESTU`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_19` FOREIGN KEY (`ID_TIPO_COMPRA`) REFERENCES `tipo_compra` (`ID_TIPO_COMPRA`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_21` FOREIGN KEY (`COD_CAJERO`) REFERENCES `cajero` (`COD_CAJERO`);
-
---
--- Filtros para la tabla `menu`
---
-ALTER TABLE `menu`
-  ADD CONSTRAINT `FK_USUARIO_MENU` FOREIGN KEY (`ID_USUARIO`) REFERENCES `usuario` (`ID_USUARIO`);
-
---
--- Filtros para la tabla `movimiento_producto`
---
-ALTER TABLE `movimiento_producto`
-  ADD CONSTRAINT `fk_movimiento_producto` FOREIGN KEY (`ID_PRODUCTO`) REFERENCES `producto` (`ID_PRODUCTO`);
-
---
--- Filtros para la tabla `pago_credito`
---
-ALTER TABLE `pago_credito`
-  ADD CONSTRAINT `FK_PAGO_PROFESOR_CREDITO` FOREIGN KEY (`ID_PROF`) REFERENCES `profesor` (`ID_PROF`);
-
---
--- Filtros para la tabla `privilegio`
---
-ALTER TABLE `privilegio`
-  ADD CONSTRAINT `FK_TIENE` FOREIGN KEY (`ID_USUARIO`) REFERENCES `usuario` (`ID_USUARIO`);
-
---
--- Filtros para la tabla `producto`
---
-ALTER TABLE `producto`
-  ADD CONSTRAINT `FK_ALMACENA` FOREIGN KEY (`COD_PTOVENTA`) REFERENCES `punto_venta` (`COD_PTOVENTA`),
-  ADD CONSTRAINT `FK_PRODUCTO_CATEGORIAPROD` FOREIGN KEY (`ID_CATEPROD`) REFERENCES `catego_prod` (`ID_CATEPROD`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_23` FOREIGN KEY (`ID_TIPO_PROD`) REFERENCES `tipo_prod` (`ID_TIPO_PROD`);
-
---
--- Filtros para la tabla `profesor_compra_productos`
---
-ALTER TABLE `profesor_compra_productos`
-  ADD CONSTRAINT `FK_PRODUCTO_VENTA_PROFESOR` FOREIGN KEY (`ID_PRODUCTO`) REFERENCES `producto` (`ID_PRODUCTO`),
-  ADD CONSTRAINT `FK_PRODUCTO_VENTA_PROFESOR2` FOREIGN KEY (`ID_PROF`) REFERENCES `profesor` (`ID_PROF`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_20` FOREIGN KEY (`ID_TIPO_COMPRA`) REFERENCES `tipo_compra` (`ID_TIPO_COMPRA`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_22` FOREIGN KEY (`COD_CAJERO`) REFERENCES `cajero` (`COD_CAJERO`);
-
---
--- Filtros para la tabla `recarga_efectivo`
---
-ALTER TABLE `recarga_efectivo`
-  ADD CONSTRAINT `FK_PROFESOR_RECARGA_EFECTIVO` FOREIGN KEY (`ID_PROF`) REFERENCES `profesor` (`ID_PROF`),
-  ADD CONSTRAINT `FK_RECARGA_FAMILIA_EFECTIVO` FOREIGN KEY (`ID_FAM`) REFERENCES `familia` (`ID_FAM`);
-
---
--- Filtros para la tabla `rfid`
---
-ALTER TABLE `rfid`
-  ADD CONSTRAINT `FK_ESTUDIANTE_RFID` FOREIGN KEY (`ID_ESTU`) REFERENCES `estudiante` (`ID_ESTU`);
-
---
--- Filtros para la tabla `usuario`
---
-ALTER TABLE `usuario`
-  ADD CONSTRAINT `FK_TIPO_USUARIO` FOREIGN KEY (`ID_TIPO_USUARIO`) REFERENCES `tipo_usuario` (`ID_TIPO_USUARIO`);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+CREATE DATABASE cafeterisa;
+USE cafeterisa;
+
+CREATE TABLE grados (
+	id_grado  		int(255) auto_increment not null,
+	nombre_grado  	varchar(100) not null,
+	CONSTRAINT pk_grados PRIMARY KEY(id_grado)
+)ENGINE=InnoDB;
+
+CREATE TABLE familias (
+	id_familia  				varchar(10) not null,
+	nombre_familia				varchar(100) not null,
+	email_familia			  	varchar(255) not null,
+	celular_familia				varchar(10) not null,
+	saldo_familia				float(200,2),
+	contraseNa_familia 			varchar(100) not null,
+	CONSTRAINT pk_familias PRIMARY KEY(id_familia)
+)ENGINE=InnoDB;
+
+
+CREATE TABLE tipos_movimiento_estudiante (
+	id_tipo_mov_estudiante		int(255) auto_increment not null,
+	nombre_tipo_mov_estudiante	varchar(100) not null,
+	CONSTRAINT pk_id_tipos_mov_estudiante PRIMARY KEY(id_tipo_mov_estudiante)
+)ENGINE=InnoDB;
+
+
+CREATE TABLE estudiantes (
+	id_estudiante  				varchar(100) not null,
+	id_grado					int(255) not null,
+	id_familia					varchar(10) not null,
+	apellidos_estudiante		varchar(100) not null,
+	nombres_estudiante			varchar(100) not null,
+	sexo_estudiante				varchar(100) not null,
+	maximo_compras				varchar(100) not null,
+	CONSTRAINT pk_estudiantes PRIMARY KEY(id_estudiante),
+	CONSTRAINT fk_estudiante_grado FOREIGN KEY(id_grado) REFERENCES grados(id_grado),
+	CONSTRAINT fk_estudiante_familia FOREIGN KEY(id_familia) REFERENCES familias(id_familia)
+)ENGINE=InnoDB;
+
+CREATE TABLE rfid_estudiantes (
+	id_rfid_estudiante  		int(255) auto_increment not null,
+	id_estudiante 				varchar(10) not null,
+	estado_rfid_estudiante  	varchar(100) not null,
+	CONSTRAINT pk_rfid_estudiantes PRIMARY KEY(id_rfid_estudiante),
+	CONSTRAINT fk_rfid_estudiante FOREIGN KEY(id_estudiante) REFERENCES estudiantes(id_estudiante)
+)ENGINE=InnoDB;
+
+CREATE TABLE movimientos_estudiantes (
+	id_mov_estudiante  	int(255) auto_increment not null,
+	id_tipo_mov_estudiante  	int(255) not null,
+	id_estudiante 				varchar(100) not null,
+	descripcion_mov_estudiante	text,
+	fecha_mov_estudiante		date not null,
+	hora_mov_estudiante			time not null,
+	cantidad_mov_estudiante		int(255),
+	debito_mov_estudiante		float(100,2),
+	credito_mov_estudiante		float(100,2),
+	CONSTRAINT pk_movimientos_estudiantes PRIMARY KEY(id_mov_estudiante),
+	CONSTRAINT fk_tipo_movimiento_estudiante FOREIGN KEY(id_tipo_mov_estudiante) REFERENCES tipos_movimiento_estudiante(id_tipo_mov_estudiante),
+	CONSTRAINT fk_movimiento_estudiante FOREIGN KEY(id_estudiante) REFERENCES estudiantes(id_estudiante)
+)ENGINE=InnoDB;
+
+CREATE TABLE tipos_venta (
+	id_tipo_venta		int(255) auto_increment not null,
+	nombre_tipo_venta	varchar(100) not null,
+	CONSTRAINT pk_tipos_venta PRIMARY KEY(id_tipo_venta)
+)ENGINE=InnoDB;
+
+CREATE TABLE tipos_cliente (
+	id_tipo_cliente		int(255) auto_increment not null,
+	nombre_tipo_cliente	varchar(100) not null,
+	CONSTRAINT pk_tipos_cliente PRIMARY KEY(id_tipo_cliente)
+)ENGINE=InnoDB;
+
+CREATE TABLE tipos_usuario (
+	id_tipo_usuario		int(255) auto_increment not null,
+	nombre_tipo_usuario	varchar(100) not null,
+	CONSTRAINT pk_tipos_usuario PRIMARY KEY(id_tipo_usuario)
+)ENGINE=InnoDB;
+
+CREATE TABLE usuarios (
+	id_usuario  		int(255) auto_increment not null,
+	id_tipo_usuario		int(255) not null,
+	nombre_usuario  	varchar(100) not null,
+	email_usuario		varchar(255) not null,
+	contraseña_usuario	varchar(255) not null,
+	alias_usuario		varchar(255) not null,
+	CONSTRAINT pk_usuarios PRIMARY KEY(id_usuario),
+	CONSTRAINT uq_email UNIQUE(email_usuario),
+	CONSTRAINT fk_usuario_tipo_usuario FOREIGN KEY(id_tipo_usuario) REFERENCES tipos_usuario(id_tipo_usuario)
+)ENGINE=InnoDB;
+
+CREATE TABLE privilegios (
+	id_privilegio		int(255) auto_increment not null,
+	id_usuario 			int(255) not null,
+	nombre_privilegio	varchar(100) not null,
+	CONSTRAINT pk_privilegios PRIMARY KEY(id_privilegio)
+)ENGINE=InnoDB;
+
+CREATE TABLE puntos_venta (
+	id_punto_venta		int(255) auto_increment not null,
+	nombre_punto_venta	varchar(100) not null,
+	CONSTRAINT pk_puntos_venta PRIMARY KEY(id_punto_venta)
+)ENGINE=InnoDB;
+
+CREATE TABLE estados_caja (
+	id_estado_caja		int(255) auto_increment not null,
+	nombre_estado_caja	varchar(100) not null,
+	CONSTRAINT pk_estados_caja PRIMARY KEY(id_estado_caja)
+)ENGINE=InnoDB;
+
+CREATE TABLE cajeros (
+	id_cajero   		int(255) auto_increment not null,
+	id_punto_venta		int(255) not null,
+	id_estado_caja		int(255) not null,
+	id_usuario  		int(255) not null,
+	nombre_cajero	  	varchar(100) not null,
+	CONSTRAINT pk_cajeros PRIMARY KEY(id_cajero),
+	CONSTRAINT fk_cajero_punto_venta FOREIGN KEY(id_punto_venta) REFERENCES puntos_venta(id_punto_venta),
+	CONSTRAINT fk_cajero_estado_caja FOREIGN KEY(id_estado_caja) REFERENCES estados_caja(id_estado_caja),
+	CONSTRAINT fk_cajero_usuario FOREIGN KEY(id_usuario) REFERENCES usuarios(id_usuario)
+)ENGINE=InnoDB;
+
+CREATE TABLE tipos_movimiento_cajero (
+	id_tipo_mov_cajero		int(255) auto_increment not null,
+	nombre_tipo_mov_cajero	varchar(100) not null,
+	CONSTRAINT pk_tipos_movimientos_cajero PRIMARY KEY(id_tipo_mov_cajero)
+)ENGINE=InnoDB;
+
+CREATE TABLE movimientos_cajeros (
+	id_mov_cajero   		int(255) auto_increment not null,
+	id_cajero		int(255) not null,
+	id_tipo_mov_cajero	int(255) not null,
+	fecha_mov_cajero	date not null,
+	hora_mov_cajero		time not null,
+	valor_mov_cajero	float(200,2) not null,
+	descripcion_mov_caja text not null,
+	CONSTRAINT pk_movimientos_cajeros PRIMARY KEY(id__mov_cajero),
+	CONSTRAINT fk_movimiento_cajero FOREIGN KEY(id_cajero) REFERENCES cajeros(id_cajero),
+	CONSTRAINT fk_movimiento_tipo_cajero FOREIGN KEY(id_tipo_mov_cajero) REFERENCES tipos_movimiento_cajero(id_tipo_mov_cajero)
+)ENGINE=InnoDB;
+
+CREATE TABLE categorias_producto (
+	id_categoria		int(255) auto_increment not null,
+	nombre_categoria	varchar(100) not null,
+	CONSTRAINT pk_categorias_productos PRIMARY KEY(id_categoria)
+)ENGINE=InnoDB;
+
+CREATE TABLE claves_autorizacion (
+	id_clave_autorizacion 			int(255) auto_increment not null,
+	codigo_clave_autorizacion 				varchar(100) not null,
+	CONSTRAINT pk_claves_autorizacion PRIMARY KEY(id_clave_autorizacion)
+)ENGINE=InnoDB;
+
+CREATE TABLE productos (
+	id_producto   		int(255) auto_increment not null,
+	id_categoria		int(255) not null,
+	id_clave_autorizacion int(255) not null,
+	codigo_barras_producto		varchar(100),
+	titulo_producto	  	varchar(100) not null,
+	descripcion_producto	text,
+	costo_producto			float(200,2) not null,
+	precio_venta_producto	float(200,2) not null,
+	cantidad_producto		int(255) not null,
+	disponibilidad_inventario	char(1) not null,
+	disponibilidad_precompra	char(1) not null,
+	imagen_producto				varchar(255),
+	CONSTRAINT pk_productos PRIMARY KEY(id_producto),
+	CONSTRAINT fk_producto_categoria FOREIGN KEY(id_categoria) REFERENCES categorias_producto(id_categoria)
+)ENGINE=InnoDB, AUTO_INCREMENT=100;
+
+CREATE TABLE ventas (
+	id_venta   			int(255) auto_increment not null,
+	id_cajero   		int(255) not null,
+	id_producto   		int(255) not null,
+	id_tipo_cliente 	int(255) not null,
+	id_tipo_venta		int(255) not null,
+	id_cliente   		varchar(100) not null,
+	numero_pedido		int(255) not null,
+	cantidad_venta		int(255) not null,
+	total_venta			float(200,2),
+	fecha_venta			date not null,
+	hora_venta			time not null,
+	CONSTRAINT pk_ventas PRIMARY KEY(id_venta),
+	CONSTRAINT fk_venta_cajero FOREIGN KEY(id_cajero) REFERENCES cajeros(id_cajero),
+	CONSTRAINT fk_venta_producto FOREIGN KEY(id_producto) REFERENCES productos(id_producto),
+	CONSTRAINT fk_venta_tipo_cliente FOREIGN KEY(id_tipo_cliente) REFERENCES tipos_cliente(id_tipo_cliente),
+	CONSTRAINT fk_venta_tipo_venta FOREIGN KEY(id_tipo_venta) REFERENCES tipos_venta(id_tipo_venta)
+)ENGINE=InnoDB;
+
+CREATE TABLE proveedores (
+	id_proveedor		int(255) auto_increment not null,
+	codigo_proveedor 	varchar(100) not null,
+	nombre_proveedor	varchar(100),
+	vendedor_proveedor	varchar(100),
+	telefono_proveedor	varchar(100),
+	email_proveedor		varchar(255),
+	CONSTRAINT pk_proveedores PRIMARY KEY(id_proveedor)
+)ENGINE=InnoDB;
+
+CREATE TABLE compras_proveedor (
+	id_compra_proveedor   			int(255) auto_increment not null,
+	id_proveedor  		int(255) not null,
+	id_producto 		int(255) not null,
+	precio_compra  		float(200,2) not null,
+	cantidad_compra		int(255) not null,
+	fecha_compra		date not null,
+	hora_compra			time not null,
+	CONSTRAINT pk_compras_proveedor PRIMARY KEY(id_compra_proveedor),
+	CONSTRAINT fk_compra_producto FOREIGN KEY(id_producto) REFERENCES productos(id_producto),
+	CONSTRAINT fk_compra_proveedor FOREIGN KEY(id_proveedor) REFERENCES proveedores(id_proveedor)
+)ENGINE=InnoDB;
+
+CREATE TABLE tipos_movimiento_profesor (
+	id_tipo_mov_profesor		int(255) auto_increment not null,
+	nombre_tipo_mov_profesor	varchar(100) not null,
+	CONSTRAINT pk_tipos_movimientos_profesor PRIMARY KEY(id_tipo_mov_profesor)
+)ENGINE=InnoDB;
+
+CREATE TABLE profesores (
+	id_profesor  				varchar(100) not null,
+	apellidos_profesor			varchar(100) not null,
+	nombres_profesor			varchar(100) not null,
+	email_profesor				varchar(255) not null,
+	credito_profesor			float(200,2) not null,
+	debito_profesor				float(200,2) not null,
+	contrasena_profesor			varchar(100) not null,
+	saldo_profesor				float(200,2) not null,
+	celular_profesor			varchar(10),
+	saldo_credito_profesor		float(200,2) not null,
+	CONSTRAINT pk_profesores PRIMARY KEY(id_profesor)
+)ENGINE=InnoDB;
+
+CREATE TABLE rfid_profesores (
+	id_rfid_profesor  			int(255) auto_increment not null,
+	id_profesor 				varchar(10) not null,
+	estado_rfid_profesor  		varchar(100) not null,
+	CONSTRAINT pk_rfid_profesores PRIMARY KEY(id_rfid_profesor),
+	CONSTRAINT fk_rfid_profesor FOREIGN KEY(id_profesor) REFERENCES profesores(id_profesor)
+)ENGINE=InnoDB;
+
+CREATE TABLE movimientos_profesores (
+	id_mov_profesor		  		int(255) auto_increment not null,
+	id_tipo_mov_profesor		int(255) not null,
+	id_profesor					varchar(100) not null,
+	descripcion_mov_profesor	text,
+	fecha_mov_profesor			date not null,
+	hora_mov_profesor			time not null,
+	cantidad_mov_profesor		int(255),
+	debito_mov_profesor			float(100,2),
+	credito_mov_profesor		float(100,2),
+	CONSTRAINT pk_movimientos_profesores PRIMARY KEY(id_mov_profesor),
+	CONSTRAINT fk_tipo_movimiento_profesor FOREIGN KEY(id_tipo_mov_profesor) REFERENCES tipos_movimiento_profesor(id_tipo_mov_profesor),
+	CONSTRAINT fk_movimiento_profesor FOREIGN KEY(id_profesor) REFERENCES profesores(id_profesor)
+)ENGINE=InnoDB;
+
+
+CREATE TABLE bajas_producto (
+	id_baja_producto  	int(255) auto_increment not null,
+	id_producto			int(255) not null,
+	cantidad_baja_producto  	int(255) not null,
+	motivo_baja_producto		varchar(255) not null,
+	CONSTRAINT pk_bajas_producto PRIMARY KEY(id_baja_producto),
+	CONSTRAINT fk_baja_producto FOREIGN KEY(id_producto) REFERENCES productos(id_producto)
+)ENGINE=InnoDB;
+
+CREATE TABLE movimientos_productos (
+	id_mov_producto		  		int(255) auto_increment not null,
+	id_usuario  				int(255) not null,
+	id_producto					int(255) not null,
+	descripcion_mov_producto	text,
+	fecha_mov_producto			date not null,
+	hora_mov_producto			time not null,
+	entrada_mov_producto		int(255) not null,
+	salida_mov_producto			int(255) not null,
+	saldo_mov_producto			int(255) not null,
+	CONSTRAINT pk_movimientos_productos PRIMARY KEY(id_mov_producto),
+	CONSTRAINT fk_movimiento_usuario FOREIGN KEY(id_usuario) REFERENCES usuarios(id_usuario),
+	CONSTRAINT fk_movimiento_producto FOREIGN KEY(id_producto) REFERENCES productos(id_producto)
+)ENGINE=InnoDB;
+
+CREATE TABLE pagos_proveedor (
+	id_pago_proveedor		  		int(255) auto_increment not null,
+	id_usuario  				int(255) not null,
+	id_proveedor				int(255) not null,
+	valor_pago					float(200,2),
+	fecha_pago 					date not null,
+	CONSTRAINT pk_pagos_proveedor PRIMARY KEY(id_pago_proveedor),
+	CONSTRAINT fk_pago_usuario FOREIGN KEY(id_usuario) REFERENCES usuarios(id_usuario),
+	CONSTRAINT fk_pago_proveedor FOREIGN KEY(id_proveedor) REFERENCES proveedores(id_proveedor)
+)ENGINE=InnoDB;
+
+ALTER TABLE productos AUTO_INCREMENT = 100;
+ALTER TABLE compras_proveedor AUTO_INCREMENT = 100;

@@ -108,10 +108,9 @@ require_once 'include/conexion.php';
                           <tbody>
 <?php
     $contador = 0;
-    $movimientos_profesor = conseguir_movimientos_profesor($db, $codigoProfesor);
+    $movimientos_profesor = conseguir_movimientos_profesor($db, $codigoProfesor, 1);
     if(!empty($movimientos_profesor) && mysqli_num_rows($movimientos_profesor) >= 1):
         while ($movimiento_profesor = mysqli_fetch_assoc($movimientos_profesor)) :
-        	if($movimiento_profesor['SALDO_CREDITO'] != 0):
             $contador++;
 ?>
     <tr>
@@ -125,7 +124,6 @@ require_once 'include/conexion.php';
             <td>&nbsp;</td>
     </tr>
 <?php
-		 	endif;
         endwhile;
     endif;
 ?>

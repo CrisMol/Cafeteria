@@ -32,7 +32,7 @@ require_once 'include/conexion.php';
               </div>
               <div class="panel-container show">
                   <div class="panel-content">
-                    <form method="get" action="corteCreditos.php">
+                    <form method="GET" action="corteCreditos.php">
                       <div class="form-group row">
                           <label class="col-form-label col-12 col-lg-3 form-label text-lg-right">Fecha Corte</label>
                           <div class="col-12 col-lg-6">
@@ -119,7 +119,8 @@ require_once 'include/conexion.php';
       </div>
   </div>
 
-
+ <?php echo isset($_SESSION['errores']) ? mostrar_error($_SESSION['errores'], 'fechaCorte') : ''; ?>
+ <?php borrar_error();?>
 
 </main>
 <div class="page-content-overlay" data-action="toggle" data-class="mobile-nav-on"></div> <!-- END Page Content -->
