@@ -255,6 +255,15 @@ CREATE TABLE movimientos_profesores (
 	CONSTRAINT fk_movimiento_profesor FOREIGN KEY(id_profesor) REFERENCES profesores(id_profesor)
 )ENGINE=InnoDB;
 
+CREATE TABLE tipos_cliente_recarga (
+	id_tipo_cliente_recarga		int(255) auto_increment not null,
+	nombre_tipo_cliente_recarga	varchar(100) not null,
+	CONSTRAINT pk_tipos_cliente_recarga PRIMARY KEY(id_tipo_cliente_recarga)
+)ENGINE=InnoDB;
+
+--CREATE TABLE recargas(
+
+--)ENGINE=InnoDB;
 
 CREATE TABLE bajas_producto (
 	id_baja_producto  	int(255) auto_increment not null,

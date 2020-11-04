@@ -33,7 +33,7 @@ if(isset($_POST)){
             $sql = "DELETE FROM movimientos_profesores WHERE id_mov_profesor = $codigoMovimiento";
             //Regresar Valores
             if ($Descripcion == 'Recarga Efectivo') {
-            	$sql_actualizar = "UPDATE profesores SET saldo_profesor = $saldo_final";
+            	$sql_actualizar = "UPDATE profesores SET saldo_profesor = $saldo_final WHERE id_profesor = '$idProfesor'";
             	$atualizar = mysqli_query($db, $sql_actualizar);
             }
             $guardar = mysqli_query($db, $sql);

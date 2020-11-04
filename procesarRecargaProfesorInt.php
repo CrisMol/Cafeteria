@@ -24,7 +24,7 @@ if(isset($_POST)){
             $sql_movimiento = "INSERT INTO movimientos_profesores (id_profesor, descripcion_mov_profesor, fecha_mov_profesor, hora_mov_profesor, debito_mov_profesor, cantidad_mov_profesor, credito_mov_profesor) ".
                               "VALUES('$idProfesor', 'Recarga Efectivo', CURDATE(), CURTIME(), 0, 1, $valorRecarga);";
             //Insertar en la tabla recargas
-			$sql_recargas = "INSERT INTO recargas(id_usuario, id_forma_pago, id_tipo_recarga, codigo_cliente_recarga, nombre_cliente_recarga, valor_recarga, fecha_recarga, hora_recarga) VALUES(1, 1, 1, '$idProfesor', '$nombreProfesor', $valorRecarga, CURDATE(), CURTIME())";
+			$sql_recargas = "INSERT INTO recargas(id_usuario, id_forma_pago, id_tipo_recarga, codigo_cliente_recarga, nombre_cliente_recarga, valor_recarga, fecha_recarga, hora_recarga, id_tipo_cliente_recarga) VALUES(1, 1, 1, '$idProfesor', '$nombreProfesor', $valorRecarga, CURDATE(), CURTIME(), 2)";
             $guardar = mysqli_query($db, $sql);
             $registrar_recarga = mysqli_query($db, $sql_movimiento);
             $registrar_reporte_recarga = mysqli_query($db, $sql_recargas);

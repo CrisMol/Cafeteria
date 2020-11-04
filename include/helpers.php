@@ -7,6 +7,14 @@
 		return $alerta;
 	}
 
+	function mostrar_succesful($exito, $campo){
+		$alerta = "";
+		if (isset($exito[$campo]) && !empty($campo)) {
+			$alerta = "<div class='alert alert-success' role='alert'>".$exito[$campo]."</div>";
+		}
+		return $alerta;
+	}
+
 	//Borrar la sesión
 
 	function borrar_error(){
@@ -43,8 +51,12 @@
 	}
 
 	//Conseguir las familias
-	function conseguir_familias($conexion){
-		$sql = "SELECT id_familia AS CODIGO, nombre_familia AS NOMBRE, email_familia AS EMAIL, celular_familia AS CELULAR, saldo_familia AS SALDO, contrasena_familia AS CONRASENA FROM familias ORDER BY id_familia ASC";
+	function conseguir_familias($conexion, $codigoFamilia = null){
+		if ($codigoFamilia != null) {
+			$sql = "SELECT id_familia AS CODIGO, saldo_familia AS SALDO FROM familias WHERE id_familia = '$codigoFamilia'";
+		}else{
+			$sql = "SELECT id_familia AS CODIGO, nombre_familia AS NOMBRE, email_familia AS EMAIL, celular_familia AS CELULAR, saldo_familia AS SALDO, contrasena_familia AS CONRASENA FROM familias ORDER BY id_familia ASC";
+		}
 		$familias = mysqli_query($conexion, $sql);
 
 		$result = array();
@@ -404,7 +416,7 @@
 
 	//Conseguir ventas de caja por efectivo
 	function conseguir_ventas_efectivo_por_caja($conexion, $fechaVenta){
-		$sql = "SELECT pv.nombre_punto_venta AS PUNTO_VENTA, u.alias_usuario AS USUARIO, c.nombre_cajero AS CAJERO, SUM(v.total_venta) AS TOTAL, v.id_cajero AS CODIGO_CAJERO FROM ventas v INNER JOIN cajeros c ON v.id_cajero = c.id_cajero INNER JOIN puntos_venta pv ON c.id_punto_venta = pv.id_punto_venta INNER JOIN usuarios u ON c.id_usuario = u.id_usuario WHERE v.id_tipo_venta = 1 AND v.fecha_venta = '$fechaVenta' GROUP BY(v.id_cajero)";
+		$sql = "SELECT pv.nombre_punto_venta AS PUNTO_VENTA, u.alias_usuario AS USUARIO, c.nombre_cajero AS CAJERO, SUM(v.total_venta) AS TOTAL, v.id_cajero AS CODIGO_CAJERO, v.numero_pedido AS NUMERO_PEDIDO FROM ventas v INNER JOIN cajeros c ON v.id_cajero = c.id_cajero INNER JOIN puntos_venta pv ON c.id_punto_venta = pv.id_punto_venta INNER JOIN usuarios u ON c.id_usuario = u.id_usuario WHERE v.id_tipo_venta = 1 AND v.fecha_venta = '$fechaVenta' GROUP BY(v.id_cajero)";
 		$ventas_efectivo_por_cajas = mysqli_query($conexion, $sql);
 		$result = array();
 		if ($ventas_efectivo_por_cajas && mysqli_num_rows($ventas_efectivo_por_cajas) >=1) {
@@ -436,7 +448,7 @@
 
 	//Conseguir datos de las ventas realizadas por dia
 	function ventas_por_dia($conexion, $fechaVenta){
-		$sql = "SELECT v.hora_venta AS HORA, v.numero_pedido AS PEDIDO, pv.nombre_punto_venta AS PUNTO_VENTA, c.nombre_cajero AS CAJERO, tp.nombre_tipo_venta AS TIPO_VENTA, SUM(v.total_venta) AS VALOR FROM ventas v INNER JOIN tipos_venta tp ON v.id_tipo_venta = tp.id_tipo_venta INNER JOIN cajeros c ON v.id_cajero = c.id_cajero INNER JOIN puntos_venta pv ON c.id_punto_venta = pv.id_punto_venta WHERE fecha_venta = '$fechaVenta' AND v.id_tipo_venta != 2 GROUP BY numero_pedido";
+		$sql = "SELECT v.hora_venta AS HORA, v.numero_pedido AS PEDIDO, pv.nombre_punto_venta AS PUNTO_VENTA, c.nombre_cajero AS CAJERO, tp.nombre_tipo_venta AS TIPO_VENTA, SUM(v.total_venta) AS VALOR, SUM(v.cantidad_venta) AS CANTIDAD_VENTA FROM ventas v INNER JOIN tipos_venta tp ON v.id_tipo_venta = tp.id_tipo_venta INNER JOIN cajeros c ON v.id_cajero = c.id_cajero INNER JOIN puntos_venta pv ON c.id_punto_venta = pv.id_punto_venta WHERE fecha_venta = '$fechaVenta' AND v.id_tipo_venta != 2 GROUP BY numero_pedido";
 		$ventas_por_dia = mysqli_query($conexion, $sql);
 		$result = array();
 		if ($ventas_por_dia && mysqli_num_rows($ventas_por_dia) >=1) {
@@ -524,7 +536,7 @@
 
 	//Conseguir recargas
 	function conseguir_recargas($conexion, $fechaInforme){
-		$sql = "SELECT r.id_recarga AS CODIGO_RECARGA, u.nombre_usuario AS USUARIO, fp.nombre_forma_pago AS FORMA_PAGO, tr.nombre_tipo_recarga AS TIPO_RECARGA, codigo_cliente_recarga AS CODIGO_CLIENTE, nombre_cliente_recarga AS NOMBRE_CLIENTE, valor_recarga AS VALOR, fecha_recarga AS FECHA, hora_recarga AS HORA FROM recargas r INNER JOIN usuarios u ON r.id_usuario = u.id_usuario INNER JOIN formas_pago fp ON r.id_forma_pago = fp.id_forma_pago INNER JOIN tipos_recarga tr ON r.id_tipo_recarga = tr.id_tipo_recarga WHERE r.fecha_recarga = '$fechaInforme'";
+		$sql = "SELECT r.id_recarga AS CODIGO_RECARGA, u.nombre_usuario AS USUARIO, fp.nombre_forma_pago AS FORMA_PAGO, tr.nombre_tipo_recarga AS TIPO_RECARGA, codigo_cliente_recarga AS CODIGO_CLIENTE, nombre_cliente_recarga AS NOMBRE_CLIENTE, valor_recarga AS VALOR, fecha_recarga AS FECHA, hora_recarga AS HORA, id_tipo_cliente_recarga AS ID_TIPO_RECARGA FROM recargas r INNER JOIN usuarios u ON r.id_usuario = u.id_usuario INNER JOIN formas_pago fp ON r.id_forma_pago = fp.id_forma_pago INNER JOIN tipos_recarga tr ON r.id_tipo_recarga = tr.id_tipo_recarga WHERE r.fecha_recarga = '$fechaInforme'";
 		$estado_caja = mysqli_query($conexion, $sql);
 		$result = array();
 		if ($estado_caja && mysqli_num_rows($estado_caja) >=1) {
