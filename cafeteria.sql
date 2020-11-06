@@ -242,6 +242,7 @@ CREATE TABLE rfid_profesores (
 
 CREATE TABLE movimientos_profesores (
 	id_mov_profesor		  		int(255) auto_increment not null,
+	id_usuario 					int(255) not null,
 	id_tipo_mov_profesor		int(255) not null,
 	id_profesor					varchar(100) not null,
 	descripcion_mov_profesor	text,
@@ -252,6 +253,7 @@ CREATE TABLE movimientos_profesores (
 	credito_mov_profesor		float(100,2),
 	CONSTRAINT pk_movimientos_profesores PRIMARY KEY(id_mov_profesor),
 	CONSTRAINT fk_tipo_movimiento_profesor FOREIGN KEY(id_tipo_mov_profesor) REFERENCES tipos_movimiento_profesor(id_tipo_mov_profesor),
+	CONSTRAINT fk_movimiento_profesor_usuario FOREIGN KEY(id_usuario) REFERENCES usuarios(id_usuario),
 	CONSTRAINT fk_movimiento_profesor FOREIGN KEY(id_profesor) REFERENCES profesores(id_profesor)
 )ENGINE=InnoDB;
 

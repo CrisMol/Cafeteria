@@ -210,10 +210,16 @@
 	}
 
 	//Conseguir movimientos profesor
-	function conseguir_movimientos_profesor($conexion, $codigoProfesor, $tipoMovimiento = null){
-		$sql = "SELECT id_mov_profesor AS CODIGO_MOVIMIENTO, id_profesor AS CODIGO_PROFESOR, descripcion_mov_profesor AS DESCRIPCION_MOVIMIENTO, fecha_mov_profesor AS FECHA_MOVIMIENTO, hora_mov_profesor AS HORA_MOVIMIENTO, credito_mov_profesor AS CREDITO_MOVIMIENTO, debito_mov_profesor AS DEBITO_MOVIMIENTO, cantidad_mov_profesor AS CANTIDAD_MOVIMIENTO FROM movimientos_profesores WHERE id_profesor = '$codigoProfesor'";
+	function conseguir_movimientos_profesor($conexion, $codigoProfesor = null, $tipoMovimiento = null, $fechaInforme = null){
+		$sql = "SELECT m.id_mov_profesor AS CODIGO_MOVIMIENTO, m.id_profesor AS CODIGO_PROFESOR, p.nombres_profesor AS NOMBRE_PROFESOR, m.descripcion_mov_profesor AS DESCRIPCION_MOVIMIENTO, m.fecha_mov_profesor AS FECHA_MOVIMIENTO, m.hora_mov_profesor AS HORA_MOVIMIENTO, m.credito_mov_profesor AS CREDITO_MOVIMIENTO, m.debito_mov_profesor AS DEBITO_MOVIMIENTO, m.cantidad_mov_profesor AS CANTIDAD_MOVIMIENTO, u.nombre_usuario AS USUARIO FROM movimientos_profesores m INNER JOIN profesores p ON m.id_profesor = p.id_profesor INNER JOIN usuarios u ON m.id_usuario = u.id_usuario";
+		if ($codigoProfesor != null) {
+			$sql = " WHERE m.id_profesor = '$codigoProfesor'";
+		}
 		if ($tipoMovimiento != null) {
 			$sql .= " AND id_tipo_mov_profesor = $tipoMovimiento";
+		}
+		if ($fechaInforme != null) {
+			$sql .= " AND m.fecha_mov_profesor = '$fechaInforme'";
 		}
 		$movimientos = mysqli_query($conexion, $sql);
 
@@ -541,6 +547,18 @@
 		$result = array();
 		if ($estado_caja && mysqli_num_rows($estado_caja) >=1) {
 			$result = $estado_caja;
+		}
+
+		return $result;
+	}
+
+	//Conseguir Cierre de cajas
+	function conseguir_movimientos_caja_cierre($conexion, $fechaInforme, $tipoMovimiento){
+		$sql = "SELECT id_mov_cajero AS CODIGO_MOVIMIENTO, u.nombre_usuario AS USUARIO, c.id_cajero AS CODIGO_CAJERO, c.nombre_cajero AS CAJERO, p.nombre_punto_venta AS PUNTO_VENTA, hora_mov_cajero AS HORA FROM movimientos_cajeros m INNER JOIN cajeros c ON m.id_cajero = c.id_cajero INNER JOIN puntos_venta p ON c.id_punto_venta = p.id_punto_venta INNER JOIN usuarios u ON c.id_usuario = u.id_usuario where m.id_tipo_mov_cajero = $tipoMovimiento AND m.fecha_mov_cajero = '$fechaInforme'";
+		$movimientos_caja = mysqli_query($conexion, $sql);
+		$result = array();
+		if ($movimientos_caja && mysqli_num_rows($movimientos_caja) >=1) {
+			$result = $movimientos_caja;
 		}
 
 		return $result;
