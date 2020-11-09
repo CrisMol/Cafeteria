@@ -3,9 +3,9 @@
 /*$usuario = "Cristian";
 $_SESSION['usuario'] = $usuario;*/
 //require_once 'include/redireccion.php';
+require_once 'include/conexion.php';
 require_once 'include/cabecera.php';
 require_once 'include/helpers.php';
-require_once 'include/conexion.php';
 
 ?>
                     <!-- END Page Header -->
