@@ -302,5 +302,14 @@ CREATE TABLE pagos_proveedor (
 	CONSTRAINT fk_pago_proveedor FOREIGN KEY(id_proveedor) REFERENCES proveedores(id_proveedor)
 )ENGINE=InnoDB;
 
+CREATE TABLE puntos_categorias (
+	id_punto_categoria		  		int(255) auto_increment not null,
+	id_punto_venta  				int(255) not null,
+	id_categoria					int(255) not null,
+	CONSTRAINT pk_puntos_categorias PRIMARY KEY(id_punto_categoria),
+	CONSTRAINT fk_punto_venta FOREIGN KEY(id_punto_venta) REFERENCES puntos_venta(id_punto_venta),
+	CONSTRAINT fk_punto_categoria FOREIGN KEY(id_categoria) REFERENCES categorias_producto(id_categoria)
+)ENGINE=InnoDB;
+
 ALTER TABLE productos AUTO_INCREMENT = 100;
 ALTER TABLE compras_proveedor AUTO_INCREMENT = 100;

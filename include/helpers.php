@@ -368,6 +368,23 @@
 		return $result;
 	}
 
+	//Conseguir categorias de productos de puntos de venta
+	function conseguir_categorias_puntos($conexion, $idCategoria = null){
+		$sql = "SELECT id_punto_categoria AS CODIGO, pc.id_punto_venta AS CODIGO_PUNTO_VENTA, pv.nombre_punto_venta AS NOMBRE_PUNTO_VENTA,  id_categoria AS CODIGO_CATEGORIA FROM puntos_categorias pc INNER JOIN puntos_venta pv ON pc.id_punto_venta = pv.id_punto_venta";
+		if ($idCategoria != null) {
+			$sql .= " WHERE id_categoria = $idCategoria";
+		}
+
+		$categorias_puntos = mysqli_query($conexion, $sql);
+
+		$result = array();
+		if ($categorias_puntos && mysqli_num_rows($categorias_puntos) >=1) {
+			$result = $categorias_puntos;
+		}
+
+		return $result;
+	}
+
 	//Conseguir ventas por punto de vente
 	function ventas_por_punto($conexion, $idPuntoVenta, $fechaVenta, $tipoVenta){
 		$sql = "SELECT SUM(total_venta) AS TOTAL_VENTA FROM ventas v INNER JOIN cajeros c ON v.id_cajero = c.id_cajero INNER JOIN tipos_venta tv ON v.id_tipo_venta = tv.id_tipo_venta WHERE c.id_punto_venta = $idPuntoVenta AND fecha_venta = '$fechaVenta' AND tv.nombre_tipo_venta = '$tipoVenta';";

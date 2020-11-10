@@ -44,7 +44,7 @@ if(isset($_POST)){
 		}else{
 			$_SESSION['errores'] = $errores;
 			if(isset($_GET['numeroPedido'])){
-				header("Location: reversionPagoCredito.php?id=".$_GET['codigoMovimiento']);
+				header("Location: reversionPagoCredito.php?id=".$_POST['codigoMovimiento']);
 			}else{
 				header("Location: reversionPagoCredito.php");
 			}
