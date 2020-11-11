@@ -129,14 +129,18 @@ $contador = 0;
 
 <label>
 <?php
-    $puntos_venta = conseguir_puntos_venta($db);
+$arrPuntos[] = 0;
     $puntos_categoria = conseguir_categorias_puntos($db, $categoria_producto['CODIGO_CATEGORIA']);
+    if(!empty($puntos_categoria) && mysqli_num_rows($puntos_categoria) >= 1){
+    	while ($punto_categoria = mysqli_fetch_assoc($puntos_categoria)) {
+    		$arrPuntos[] = $punto_categoria['CODIGO_PUNTO_VENTA'];
+    	}
+    }
+
+    $puntos_venta = conseguir_puntos_venta($db);
     if(!empty($puntos_venta) && mysqli_num_rows($puntos_venta) >= 1):
-        while ($punto_categoria = mysqli_fetch_assoc($puntos_categoria)) :
-        	while ($punto_venta = mysqli_fetch_assoc($puntos_venta)) :
-        	var_dump($punto_categoria['CODIGO_PUNTO_VENTA']);
-        	var_dump($punto_venta['CODIGO']);
-        		if ($punto_venta['CODIGO'] == $punto_categoria['CODIGO_PUNTO_VENTA']) :
+        while ($punto_venta = mysqli_fetch_assoc($puntos_venta)) :
+        		if (in_array($punto_venta['CODIGO'], $arrPuntos)) :
 ?>
 <input type="checkbox" name="idPunto[]" value="<?=$punto_venta['CODIGO']?>" checked="checked">
 <i></i><?=$punto_venta['NOMBRE_PUNTO']?></label><br><label><br>
@@ -147,9 +151,9 @@ $contador = 0;
 <i></i><?=$punto_venta['NOMBRE_PUNTO']?></label><br><label><br>
 <?php  
 				endif;
-			endwhile;
         endwhile;
     endif;
+    unset($arrPuntos);
 ?>  
    <input name="idCategoria" type="hidden" id="idCategoria" value="<?=$categoria_producto['CODIGO_CATEGORIA']?>" />
   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
