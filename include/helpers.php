@@ -581,6 +581,41 @@
 		return $result;
 	}
 
+	//Conseguir Usuarios
+	function conseguir_usuarios($conexion, $codigoUsuario = null){
+		$sql = "SELECT id_usuario AS CODIGO, id_tipo_usuario AS TIPO, nombre_usuario AS NOMBRE, email_usuario AS EMAIL, contraseña_usuario as PASSWORD, alias_usuario AS ALIAS FROM usuarios";
+
+		if ($codigoUsuario != null) {
+			$sql .= " WHERE id_usuario = $codigoUsuario";
+		}
+
+		$sql .= " ORDER BY nombre_usuario ASC";
+		$usuarios = mysqli_query($conexion, $sql);
+		$result = array();
+		if ($usuarios && mysqli_num_rows($usuarios) >=1) {
+			$result = $usuarios;
+		}
+
+		return $result;
+	}
+
+	//Conseguir Usuarios Privilegios
+	function conseguir_usuarios_privilegios($conexion, $codigoUsuario = null){
+		$sql = "SELECT id_usuario_privilegio AS CODIGO, p.id_privilegio AS ID_PRIVILEGIO, p.id_modulo AS MODULO, p.nombre_previlegio AS NOMBRE_PRIVILEGIO, id_usuario AS USUARIO FROM usuarios_privilegios up INNER JOIN privilegios p ON up.id_privilegio = p.id_privilegio";
+
+		if ($codigoUsuario != null) {
+			$sql .= " WHERE id_usuario = $codigoUsuario";
+		}
+
+		$usuarios_privilegios = mysqli_query($conexion, $sql);
+		$result = array();
+		if ($usuarios_privilegios && mysqli_num_rows($usuarios_privilegios) >=1) {
+			$result = $usuarios_privilegios;
+		}
+
+		return $result;
+	}
+
 	//Conseguir las ultimas entradas
 	function conseguir_entradas($conexion, $limit = null, $categoria = null, $busqueda = null){
 		$sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e ".

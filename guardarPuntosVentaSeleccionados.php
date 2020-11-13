@@ -32,7 +32,6 @@ if(isset($_POST)){
 					}
 				}
 				//Eliminar cuando no se chekea
-    			var_dump($arrPuntosSQL);
     			foreach ($arrPuntosSQL as $valor) {
     				if (!in_array($valor, $arrPuntosPOST)) {
     					$sql_eliminar = "DELETE FROM puntos_categorias WHERE id_categoria = $idCategoria AND id_punto_venta = $valor";

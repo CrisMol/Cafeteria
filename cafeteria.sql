@@ -91,12 +91,6 @@ CREATE TABLE usuarios (
 	CONSTRAINT fk_usuario_tipo_usuario FOREIGN KEY(id_tipo_usuario) REFERENCES tipos_usuario(id_tipo_usuario)
 )ENGINE=InnoDB;
 
-CREATE TABLE privilegios (
-	id_privilegio		int(255) auto_increment not null,
-	id_usuario 			int(255) not null,
-	nombre_privilegio	varchar(100) not null,
-	CONSTRAINT pk_privilegios PRIMARY KEY(id_privilegio)
-)ENGINE=InnoDB;
 
 CREATE TABLE puntos_venta (
 	id_punto_venta		int(255) auto_increment not null,
@@ -311,5 +305,116 @@ CREATE TABLE puntos_categorias (
 	CONSTRAINT fk_punto_categoria FOREIGN KEY(id_categoria) REFERENCES categorias_producto(id_categoria)
 )ENGINE=InnoDB;
 
+CREATE TABLE modulos (
+	id_modulo		int(255) auto_increment not null,
+	nombre_modulo	varchar(100) not null,
+	CONSTRAINT pk_modulos PRIMARY KEY(id_modulo)
+)ENGINE=InnoDB;
+
+CREATE TABLE privilegios (
+	id_privilegio		int(255) auto_increment not null,
+	id_modulo			int(255) not null,
+	nombre_previlegio	varchar(100) not null,
+	CONSTRAINT pk_previlegios PRIMARY KEY(id_privilegio),
+	CONSTRAINT fk_privilegios_modulos FOREIGN KEY(id_modulo) REFERENCES modulos(id_modulo)
+)ENGINE=InnoDB;
+
+CREATE TABLE usuarios_privilegios (
+	id_usuario_privilegio		int(255) auto_increment not null,
+	id_privilegio 				int(255) not null,
+	id_usuario 					int(255) not null,
+	CONSTRAINT pk_usuarios_privilegios PRIMARY KEY(id_usuario_privilegio),
+	CONSTRAINT fk_usuario FOREIGN KEY(id_usuario) REFERENCES usuarios(id_usuario),
+	CONSTRAINT fk_usuario_privilegio FOREIGN KEY(id_privilegio) REFERENCES privilegios(id_privilegio)
+)ENGINE=InnoDB;
+
+
 ALTER TABLE productos AUTO_INCREMENT = 100;
 ALTER TABLE compras_proveedor AUTO_INCREMENT = 100;
+
+INSERT INTO modulos(nombre_modulo) VALUES('Menu Recargas / Pagos');
+INSERT INTO modulos(nombre_modulo) VALUES('Menu Familias');
+INSERT INTO modulos(nombre_modulo) VALUES('Menu Estudiantes');
+INSERT INTO modulos(nombre_modulo) VALUES('Menu Profesores');
+INSERT INTO modulos(nombre_modulo) VALUES('Menu Productos');
+INSERT INTO modulos(nombre_modulo) VALUES('Menu Inventario');
+INSERT INTO modulos(nombre_modulo) VALUES('Menu Proveedores');
+INSERT INTO modulos(nombre_modulo) VALUES('Menu Menu');
+INSERT INTO modulos(nombre_modulo) VALUES('Menu Informes');
+INSERT INTO modulos(nombre_modulo) VALUES('Menu Reversiones');
+INSERT INTO modulos(nombre_modulo) VALUES('Menu Importar');
+INSERT INTO modulos(nombre_modulo) VALUES('Menu Configuración');
+INSERT INTO modulos(nombre_modulo) VALUES('Menu Pagos / Bolsas');
+INSERT INTO modulos(nombre_modulo) VALUES('Menu Planes Alimentación');
+
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(1, 'Estudiante Efectivo');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(1, 'Profesor Efectivo');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(1, 'Pago Credito');
+
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(2, 'Nueva / Editar');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(2, 'Restablecer Contraseña');
+
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(3, 'Nueva / Editar');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(3, 'Movimientos');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(3, 'Registrar RFID');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(3, 'Grados');
+
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(4, 'Nueva / Editar');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(4, 'Movimientos');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(4, 'Registrar RFID');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(4, 'Movimientos Credito');
+
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(5, 'Seleccionar');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(5, 'Nuevo');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(5, 'Listado');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(5, 'Fotos Productos');
+
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(6, 'Ver Inventario');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(6, 'Movimiento Producto');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(6, 'Ingresar Factura');
+
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(7, 'Nuevo / Editar');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(7, 'Pagos Proveedor');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(7, 'Facturas');
+
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(8, 'Cargar Menu');
+
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(9, 'Cuadre Cajeros');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(9, 'Cuadre Admin');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(9, 'Resumen Ventas');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(9, 'Ventas Puntos');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(9, 'Recargas');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(9, 'Créditos Profesores');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(9, 'Cuentas Por Cobrar');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(9, 'Ventas Mensuales');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(9, 'Productos Vendidos');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(9, 'Pre Compras Estudiantes');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(9, 'Pre Compras Profesores');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(9, 'Saldos Familias');
+
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(10, 'Venta Efectivo');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(10, 'Recarga Familia');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(10, 'Recarga Profesor');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(10, 'Corte Créditos');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(10, 'Cierre Caja');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(10, 'Pago Credito');
+
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(11, 'Estudiantes');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(11, 'Profesores');
+
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(12, 'Puntos Venta');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(12, 'Categorias Productos');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(12, 'Cajeros');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(12, 'Usuarios');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(12, 'Parametrización');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(12, 'Kioskos');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(12, 'Subir Fotos');
+
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(13, 'Pagar');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(13, 'Compra Bolsa SMS');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(13, 'Compra Bolsa Recargas');
+
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(14, 'Registro');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(14, 'Estudiantes');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(14, 'Entregas');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(14, 'Configuración');
