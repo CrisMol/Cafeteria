@@ -583,7 +583,7 @@
 
 	//Conseguir Usuarios
 	function conseguir_usuarios($conexion, $codigoUsuario = null){
-		$sql = "SELECT id_usuario AS CODIGO, id_tipo_usuario AS TIPO, nombre_usuario AS NOMBRE, email_usuario AS EMAIL, contraseña_usuario as PASSWORD, alias_usuario AS ALIAS FROM usuarios";
+		$sql = "SELECT id_usuario AS CODIGO, id_tipo_usuario AS TIPO, nombre_usuario AS NOMBRE, email_usuario AS EMAIL, contrasena_usuario as PASSWORD, alias_usuario AS ALIAS FROM usuarios";
 
 		if ($codigoUsuario != null) {
 			$sql .= " WHERE id_usuario = $codigoUsuario";
@@ -600,11 +600,15 @@
 	}
 
 	//Conseguir Usuarios Privilegios
-	function conseguir_usuarios_privilegios($conexion, $codigoUsuario = null){
+	function conseguir_usuarios_privilegios($conexion, $codigoUsuario = null, $idPrivilegio = null){
 		$sql = "SELECT id_usuario_privilegio AS CODIGO, p.id_privilegio AS ID_PRIVILEGIO, p.id_modulo AS MODULO, p.nombre_previlegio AS NOMBRE_PRIVILEGIO, id_usuario AS USUARIO FROM usuarios_privilegios up INNER JOIN privilegios p ON up.id_privilegio = p.id_privilegio";
 
 		if ($codigoUsuario != null) {
 			$sql .= " WHERE id_usuario = $codigoUsuario";
+		}
+
+		if ($idPrivilegio != null) {
+			$sql .= " AND up.id_privilegio = $idPrivilegio";
 		}
 
 		$usuarios_privilegios = mysqli_query($conexion, $sql);

@@ -211,7 +211,7 @@ require_once 'include/helpers.php';
           <div class="modal-content">
               <div class="modal-header">
                   <h4 class="modal-title">
-                      Registro Nuevo Usuario Administrativo                  </h4>
+                      Registro Nuevo Usuario                  </h4>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true"><i class="fal fa-times"></i></span>
                   </button>

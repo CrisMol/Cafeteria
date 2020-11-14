@@ -84,7 +84,7 @@ CREATE TABLE usuarios (
 	id_tipo_usuario		int(255) not null,
 	nombre_usuario  	varchar(100) not null,
 	email_usuario		varchar(255) not null,
-	contraseña_usuario	varchar(255) not null,
+	contrasena_usuario	varchar(255) not null,
 	alias_usuario		varchar(255) not null,
 	CONSTRAINT pk_usuarios PRIMARY KEY(id_usuario),
 	CONSTRAINT uq_email UNIQUE(email_usuario),
@@ -130,7 +130,7 @@ CREATE TABLE movimientos_cajeros (
 	hora_mov_cajero		time not null,
 	valor_mov_cajero	float(200,2) not null,
 	descripcion_mov_caja text not null,
-	CONSTRAINT pk_movimientos_cajeros PRIMARY KEY(id__mov_cajero),
+	CONSTRAINT pk_movimientos_cajeros PRIMARY KEY(id_mov_cajero),
 	CONSTRAINT fk_movimiento_cajero FOREIGN KEY(id_cajero) REFERENCES cajeros(id_cajero),
 	CONSTRAINT fk_movimiento_tipo_cajero FOREIGN KEY(id_tipo_mov_cajero) REFERENCES tipos_movimiento_cajero(id_tipo_mov_cajero)
 )ENGINE=InnoDB;

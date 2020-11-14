@@ -62,76 +62,127 @@ else:
                       <div class="frame-wrap">
                           <div class="demo">
 <br>
+
+<?php
+
+  function llamar_input($nombrePrivilegio, $db, $modulo, $idPrivilegio){
+    $arrPuntos[] = 0;
+    if (isset($_GET['idUsuario'])) {
+      $usuarios_privilegios = conseguir_usuarios_privilegios($db, $_GET['idUsuario'], $idPrivilegio);
+      if (!empty($usuarios_privilegios) && mysqli_num_rows($usuarios_privilegios) >= 1) {
+        $usuario_privilegios = mysqli_fetch_assoc($usuarios_privilegios);
+        if ($usuario_privilegios['MODULO'] == $modulo && $usuario_privilegios['NOMBRE_PRIVILEGIO'] == $nombrePrivilegio) {
+          echo "<input type='checkbox' name='idOpcion[]'' value='".$usuario_privilegios['CODIGO']."'checked='checked'> <i></i>".$nombrePrivilegio."</label><br><label>";
+        }else{
+          echo "<input type='checkbox' name='idOpcion[]'' value='".$idPrivilegio."'> <i></i>".$nombrePrivilegio."</label><br><label>";
+        }
+      }else{
+        echo "<input type='checkbox' name='idOpcion[]'' value='".$idPrivilegio."'> <i></i>".$nombrePrivilegio."</label><br><label>";
+      }
+    }else{
+      echo "<input type='checkbox' name='idOpcion[]'' value='".$idPrivilegio."'> <i></i>".$nombrePrivilegio."</label><br><label>";
+    }
+  }
+?>
+
 <form id="form1" name="form1" method="POST" action="guardarPrivilegios.php">
 <h4>Menu Recargas / Pagos</h4><label>
-<?php
+<!--<?php
 $arrPuntos[] = 0;
- if (isset($_GET['idUsuario'])):
+ #if (isset($_GET['idUsuario'])):
     $usuarios_privilegios = conseguir_usuarios_privilegios($db, $_GET['idUsuario']);
-    if(!empty($usuarios_privilegios) && mysqli_num_rows($usuarios_privilegios) >= 1) :
+    #if(!empty($usuarios_privilegios) && mysqli_num_rows($usuarios_privilegios) >= 1) :
     	$usuario_privilegios = mysqli_fetch_assoc($usuarios_privilegios);
- 		if ($usuario_privilegios['MODULO'] == 1 && $usuario_privilegios['NOMBRE_PRIVILEGIO'] == 'Estudiante Efectivo') :
+ 		#if ($usuario_privilegios['MODULO'] == 1 && $usuario_privilegios['NOMBRE_PRIVILEGIO'] == 'Estudiante Efectivo') :
 ?>
                               <input type="checkbox" name="idOpcion[]" value="$usuario_privilegios['CODIGO']" checked="checked">
                               <i></i>Estudiante Efectivo</label><br><label>
 <?php
-		else :
+		#else :
 ?>
 							  <input type="checkbox" name="idOpcion[]" value="1">
 							  <i></i>Estudiante Efectivo</label><br><label>
 <?php  
-		endif;
-    else:
+		#endif;
+   # else:
 ?>
 				    		  <input type="checkbox" name="idOpcion[]" value="1">
 							  <i></i>Estudiante Efectivo</label><br><label>
 <?php
-	endif;
-  else:
+	#endif;
+  #else:
 ?>
 							  <input type="checkbox" name="idOpcion[]" value="1">
 							  <i></i>Estudiante Efectivo</label><br><label>
 <?php
-  endif;
+  #endif;
+?>-->
+<?php
+  llamar_input("Estudiante Efectivo", $db, 1, 1);
 ?>
-                              <input type="checkbox" name="idOpcion[]" value="2">
-                              <i></i>Profesor Efectivo</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="47">
-                              <i></i>Pago Credito</label><br><hr><h4>Menu Familias</h4><label>
-                              <input type="checkbox" name="idOpcion[]" value="3">
-                              <i></i>Nueva / Editar</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="4">
-                              <i></i>Restablecer Contraseña</label><br><hr><h4>Menu Estudiantes</h4><label>
-                              <input type="checkbox" name="idOpcion[]" value="5">
-                              <i></i>Nuevo / Editar</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="6">
-                              <i></i>Movimientos</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="7">
-                              <i></i>Registrar RFID</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="8">
-                              <i></i>Grados</label><br><hr><h4>Menu Profesores</h4><label>
-                              <input type="checkbox" name="idOpcion[]" value="9">
-                              <i></i>Nuevo / Editar</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="10">
-                              <i></i>Movimientos</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="11">
-                              <i></i>Registrar RFID</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="62">
-                              <i></i>Movimientos Credito</label><br><hr><h4>Menu Productos</h4><label>
-                              <input type="checkbox" name="idOpcion[]" value="12">
-                              <i></i>Seleccionar</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="13">
-                              <i></i>Nuevo</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="14">
-                              <i></i>Listado</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="55">
-                              <i></i>Fotos Productos</label><br><hr><h4>Menu Inventario</h4><label>
-                              <input type="checkbox" name="idOpcion[]" value="15">
-                              <i></i>Ver Inventario</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="16">
-                              <i></i>Movimiento Producto</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="17">
-                              <i></i>Ingresar Factura</label><br><hr><h4>Menu Proveedores</h4><label>
+<?php
+  llamar_input("Profesor Efectivo", $db, 1, 2);
+?>
+<?php
+  llamar_input("Pago Credito", $db, 1, 3);
+?>
+                             <br><h4>Menu Familias</h4><label>
+<?php
+  llamar_input("Nueva / Editar", $db, 2, 4);
+?>
+<?php
+  llamar_input("Restablecer Contraseña", $db, 2, 5);
+?>
+                              <br><hr><h4>Menu Estudiantes</h4><label>
+<?php
+  llamar_input("Nueva / Editar", $db, 3, 6);
+?>
+<?php
+  llamar_input("Movimientos", $db, 3, 7);
+?>
+<?php
+  llamar_input("Registrar RFID", $db, 3, 8);
+?>
+<?php
+  llamar_input("Grados", $db, 3, 9);
+?>
+                              <br><hr><h4>Menu Profesores</h4><label>
+<?php
+  llamar_input("Nueva / Editar", $db, 4, 10);
+?>
+<?php
+  llamar_input("Movimientos", $db, 4, 11);
+?>
+<?php
+  llamar_input("Registrar RFID", $db, 4, 12);
+?>
+<?php
+  llamar_input("Movimientos Credito", $db, 4, 13);
+?>
+                              <br><hr><h4>Menu Productos</h4><label>
+<?php
+  llamar_input("Seleccionar", $db, 5, 14);
+?>
+<?php
+  llamar_input("Nuevo", $db, 5, 15);
+?>
+<?php
+  llamar_input("Listado", $db, 5, 16);
+?>
+<?php
+  llamar_input("Fotos Productos", $db, 5, 17);
+?>
+                              <br><hr><h4>Menu Inventario</h4><label>
+<?php
+  llamar_input("Ver Inventario", $db, 6, 18);
+?>
+<?php
+  llamar_input("Movimiento Producto", $db, 6, 19);
+?>
+<?php
+  llamar_input("Ingresar Factura", $db, 6, 20);
+?>
+                              <br><hr><h4>Menu Proveedores</h4><label>
                               <input type="checkbox" name="idOpcion[]" value="18">
                               <i></i>Nuevo / Editar</label><br><label>
                               <input type="checkbox" name="idOpcion[]" value="19">

@@ -27,7 +27,7 @@ if(isset($_POST)){
 		$exito = array();
 
 		if (count($errores) == 0) {
-			$sql = "INSERT INTO usuarios(id_tipo_usuario, nombre_usuario, email_usuario, contraseña_usuario, alias_usuario) VALUES(1, '$nombreUsuario', '$emailUsuario', '1234', '$usuario')";
+			$sql = "INSERT INTO usuarios(id_tipo_usuario, nombre_usuario, email_usuario, contrasena_usuario, alias_usuario) VALUES(1, '$nombreUsuario', '$emailUsuario', '1234', '$usuario')";
 			$exito['exito'] = "Datos Ingresados Correctamente";
             $guardar = mysqli_query($db, $sql);
             $_SESSION['completado'] = $exito;
