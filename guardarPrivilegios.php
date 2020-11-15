@@ -14,10 +14,10 @@ if(isset($_POST)){
 		}
 
 		if (count($errores) == 0) {
-			$sql_usuarios_privilegios = "SELECT id_privilegio FROm usuarios_privilegios WHERE id_usuario = $idUsuario";
+			$sql_usuarios_privilegios = "SELECT id_privilegio FROM usuarios_privilegios WHERE id_usuario = $idUsuario";
 			$obtener_usuarios_privilegios = mysqli_query($db, $sql_usuarios_privilegios);
 			while ($usuarioPrivilegios = mysqli_fetch_assoc($obtener_usuarios_privilegios)) {
-    			$arrUsuariosPrivilegios[] = $usuarioPrivilegios['id_usuario_privilegio'];
+    			$arrUsuariosPrivilegios[] = $usuarioPrivilegios['id_privilegio'];
     		}
 
 			if (!empty($_POST['idOpcion'])) {
@@ -32,17 +32,16 @@ if(isset($_POST)){
 					}
 				}
 				//Eliminar cuando no se chekea
-    			/*foreach ($arrUsuariosPrivilegios as $valor) {
-    				if (!in_array($valor, $arrUsuariosPrivilegios)) {
-    					$sql_eliminar = "DELETE FROM puntos_categorias WHERE id_categoria = $idCategoria AND id_punto_venta = $valor";
-    					var_dump($sql_elimina);
+    			foreach ($arrUsuariosPrivilegios as $valor) {
+    				if (!in_array($valor, $arrPuntosPOST)) {
+    					$sql_eliminar = "DELETE FROM usuarios_privilegios WHERE id_usuario = $idUsuario AND id_privilegio = $valor";
     					$eliminar = mysqli_query($db, $sql_eliminar);
     				}
-    			}*/
+    			}
     			
 			}else{
-				if ($arrPuntosSQL != null) {
-					$sql_eliminar = "DELETE FROM puntos_categorias WHERE id_categoria = $idCategoria";
+				if ($arrUsuariosPrivilegios != null) {
+					$sql_eliminar = "DELETE FROM usuarios_privilegios WHERE id_usuario = $idUsuario";
 					$eliminar = mysqli_query($db, $sql_eliminar);
 				}
 			}

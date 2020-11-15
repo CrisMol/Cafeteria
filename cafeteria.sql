@@ -108,12 +108,10 @@ CREATE TABLE cajeros (
 	id_cajero   		int(255) auto_increment not null,
 	id_punto_venta		int(255) not null,
 	id_estado_caja		int(255) not null,
-	id_usuario  		int(255) not null,
 	nombre_cajero	  	varchar(100) not null,
 	CONSTRAINT pk_cajeros PRIMARY KEY(id_cajero),
 	CONSTRAINT fk_cajero_punto_venta FOREIGN KEY(id_punto_venta) REFERENCES puntos_venta(id_punto_venta),
-	CONSTRAINT fk_cajero_estado_caja FOREIGN KEY(id_estado_caja) REFERENCES estados_caja(id_estado_caja),
-	CONSTRAINT fk_cajero_usuario FOREIGN KEY(id_usuario) REFERENCES usuarios(id_usuario)
+	CONSTRAINT fk_cajero_estado_caja FOREIGN KEY(id_estado_caja) REFERENCES estados_caja(id_estado_caja)
 )ENGINE=InnoDB;
 
 CREATE TABLE tipos_movimiento_cajero (
@@ -328,6 +326,20 @@ CREATE TABLE usuarios_privilegios (
 	CONSTRAINT fk_usuario_privilegio FOREIGN KEY(id_privilegio) REFERENCES privilegios(id_privilegio)
 )ENGINE=InnoDB;
 
+CREATE TABLE parametrizaciones (
+	id_parametrizacion			int(255) auto_increment not null,
+	nombre_colegio 				varchar(255) not null,
+	nombre_responsable			varchar(255) not null,
+	email_notificaciones		varchar(255) not null,
+	email_precompras			varchar(255) not null,
+	hora_maxima_precompras		time,
+	entrega_precompras_sabado 	char(1) not null,
+	email_tienda_online			varchar(255) not null,
+	whatsapp_soporte			varchar(10) not null,
+	ventas_control_inventario	char(1) not null,
+	servicio_precompras			char(1) not null,
+	CONSTRAINT pk_paramtrizaciones PRIMARY KEY(id_parametrizacion)
+)ENGINE=InnoDB;
 
 ALTER TABLE productos AUTO_INCREMENT = 100;
 ALTER TABLE compras_proveedor AUTO_INCREMENT = 100;
@@ -406,7 +418,7 @@ INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(12, 'Puntos Venta')
 INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(12, 'Categorias Productos');
 INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(12, 'Cajeros');
 INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(12, 'Usuarios');
-INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(12, 'Parametrización');
+INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(12, 'id_parametrizaciontrización');
 INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(12, 'Kioskos');
 INSERT INTO privilegios(id_modulo, nombre_previlegio) VALUES(12, 'Subir Fotos');
 

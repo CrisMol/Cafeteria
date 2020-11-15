@@ -620,6 +620,51 @@
 		return $result;
 	}
 
+	//Conseguir privilegios
+	function conseguir_privilegios($conexion, $idModulo = null){
+		/*$sql = "SELECT p.id_privilegio AS CODIGO, p.id_modulo AS CODIGO_MODULO, m.nombre_modulo AS NOMBRE_MODULO, p.nombre_previlegio AS NOMBRE FROM privilegios p INNER JOIN modulos m ON p.id_modulo = m.id_modulo";*/
+
+		$sql = "SELECT id_privilegio AS CODIGO, id_modulo AS CODIGO_MODULO, nombre_previlegio AS NOMBRE FROM privilegios";
+
+		if ($idModulo != null) {
+			$sql .= " WHERE id_modulo = $idModulo";
+		}
+
+		$privilegios = mysqli_query($conexion, $sql);
+		$result = array();
+		if ($privilegios && mysqli_num_rows($privilegios) >=1) {
+			$result = $privilegios;
+		}
+
+		return $result;
+	}
+
+	//Conseguir modulos
+	function conseguir_modulos($conexion){
+		$sql = "SELECT id_modulo AS CODIGO, nombre_modulo AS NOMBRE FROM modulos";
+
+		$modulos = mysqli_query($conexion, $sql);
+		$result = array();
+		if ($modulos && mysqli_num_rows($modulos) >=1) {
+			$result = $modulos;
+		}
+
+		return $result;
+	}
+
+	//Conseguir Paramtrizacion
+	function conseguir_parametrizacion($conexion, $idParametrizacion){
+		$sql = "SELECT id_parametrizacion AS CODIGO, nombre_colegio AS COLEGIO, nombre_responsable AS RESPONSABLE, email_notificaciones AS EMAIL_NOTIFICACIONES, email_precompras AS EMAIL_COMPRAS, hora_maxima_precompras AS HORA_MAXIMA_PRECOMPRA, entrega_precompras_sabado AS ENTREGA_PRECOMPRA_SABADO, email_tienda_online AS EMAIL_TIENDA, whatsapp_soporte AS WHATSAPP, ventas_control_inventario AS CONTROL_INVENTARIO, servicio_precompras AS SERVICIO_PRECOMPRA, id_usuario FROM parametrizaciones WHERE id_parametrizacion = $idParametrizacion";
+
+		$parametrizaciones = mysqli_query($conexion, $sql);
+		$result = array();
+		if ($parametrizaciones && mysqli_num_rows($parametrizaciones) >=1) {
+			$result = $parametrizaciones;
+		}
+
+		return $result;
+	}
+
 	//Conseguir las ultimas entradas
 	function conseguir_entradas($conexion, $limit = null, $categoria = null, $busqueda = null){
 		$sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e ".

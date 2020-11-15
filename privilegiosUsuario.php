@@ -72,7 +72,7 @@ else:
       if (!empty($usuarios_privilegios) && mysqli_num_rows($usuarios_privilegios) >= 1) {
         $usuario_privilegios = mysqli_fetch_assoc($usuarios_privilegios);
         if ($usuario_privilegios['MODULO'] == $modulo && $usuario_privilegios['NOMBRE_PRIVILEGIO'] == $nombrePrivilegio) {
-          echo "<input type='checkbox' name='idOpcion[]'' value='".$usuario_privilegios['CODIGO']."'checked='checked'> <i></i>".$nombrePrivilegio."</label><br><label>";
+          echo "<input type='checkbox' name='idOpcion[]'' value='".$usuario_privilegios['ID_PRIVILEGIO']."'checked='checked'> <i></i>".$nombrePrivilegio."</label><br><label>";
         }else{
           echo "<input type='checkbox' name='idOpcion[]'' value='".$idPrivilegio."'> <i></i>".$nombrePrivilegio."</label><br><label>";
         }
@@ -86,179 +86,17 @@ else:
 ?>
 
 <form id="form1" name="form1" method="POST" action="guardarPrivilegios.php">
-<h4>Menu Recargas / Pagos</h4><label>
-<!--<?php
-$arrPuntos[] = 0;
- #if (isset($_GET['idUsuario'])):
-    $usuarios_privilegios = conseguir_usuarios_privilegios($db, $_GET['idUsuario']);
-    #if(!empty($usuarios_privilegios) && mysqli_num_rows($usuarios_privilegios) >= 1) :
-    	$usuario_privilegios = mysqli_fetch_assoc($usuarios_privilegios);
- 		#if ($usuario_privilegios['MODULO'] == 1 && $usuario_privilegios['NOMBRE_PRIVILEGIO'] == 'Estudiante Efectivo') :
-?>
-                              <input type="checkbox" name="idOpcion[]" value="$usuario_privilegios['CODIGO']" checked="checked">
-                              <i></i>Estudiante Efectivo</label><br><label>
 <?php
-		#else :
+//Conseguir privilegios
+$modulos = conseguir_modulos($db);
+while ($modulo = mysqli_fetch_assoc($modulos)) {
+	echo "<br><h4>". $modulo['NOMBRE'] ."</h4><label>";
+	$privilegios = conseguir_privilegios($db, $modulo['CODIGO']);
+	while($privilegio = mysqli_fetch_assoc($privilegios)){
+		llamar_input($privilegio['NOMBRE'], $db, $privilegio['CODIGO_MODULO'], $privilegio['CODIGO']);
+	}
+}
 ?>
-							  <input type="checkbox" name="idOpcion[]" value="1">
-							  <i></i>Estudiante Efectivo</label><br><label>
-<?php  
-		#endif;
-   # else:
-?>
-				    		  <input type="checkbox" name="idOpcion[]" value="1">
-							  <i></i>Estudiante Efectivo</label><br><label>
-<?php
-	#endif;
-  #else:
-?>
-							  <input type="checkbox" name="idOpcion[]" value="1">
-							  <i></i>Estudiante Efectivo</label><br><label>
-<?php
-  #endif;
-?>-->
-<?php
-  llamar_input("Estudiante Efectivo", $db, 1, 1);
-?>
-<?php
-  llamar_input("Profesor Efectivo", $db, 1, 2);
-?>
-<?php
-  llamar_input("Pago Credito", $db, 1, 3);
-?>
-                             <br><h4>Menu Familias</h4><label>
-<?php
-  llamar_input("Nueva / Editar", $db, 2, 4);
-?>
-<?php
-  llamar_input("Restablecer Contraseña", $db, 2, 5);
-?>
-                              <br><hr><h4>Menu Estudiantes</h4><label>
-<?php
-  llamar_input("Nueva / Editar", $db, 3, 6);
-?>
-<?php
-  llamar_input("Movimientos", $db, 3, 7);
-?>
-<?php
-  llamar_input("Registrar RFID", $db, 3, 8);
-?>
-<?php
-  llamar_input("Grados", $db, 3, 9);
-?>
-                              <br><hr><h4>Menu Profesores</h4><label>
-<?php
-  llamar_input("Nueva / Editar", $db, 4, 10);
-?>
-<?php
-  llamar_input("Movimientos", $db, 4, 11);
-?>
-<?php
-  llamar_input("Registrar RFID", $db, 4, 12);
-?>
-<?php
-  llamar_input("Movimientos Credito", $db, 4, 13);
-?>
-                              <br><hr><h4>Menu Productos</h4><label>
-<?php
-  llamar_input("Seleccionar", $db, 5, 14);
-?>
-<?php
-  llamar_input("Nuevo", $db, 5, 15);
-?>
-<?php
-  llamar_input("Listado", $db, 5, 16);
-?>
-<?php
-  llamar_input("Fotos Productos", $db, 5, 17);
-?>
-                              <br><hr><h4>Menu Inventario</h4><label>
-<?php
-  llamar_input("Ver Inventario", $db, 6, 18);
-?>
-<?php
-  llamar_input("Movimiento Producto", $db, 6, 19);
-?>
-<?php
-  llamar_input("Ingresar Factura", $db, 6, 20);
-?>
-                              <br><hr><h4>Menu Proveedores</h4><label>
-                              <input type="checkbox" name="idOpcion[]" value="18">
-                              <i></i>Nuevo / Editar</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="19">
-                              <i></i>Pagos Proveedor</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="20">
-                              <i></i>Facturas</label><br><hr><h4>Menu Menu </h4><label>
-                              <input type="checkbox" name="idOpcion[]" value="21">
-                              <i></i>Cargar Menu</label><br><hr><h4>Menu Informes</h4><label>
-                              <input type="checkbox" name="idOpcion[]" value="22">
-                              <i></i>Cuadre Cajeros</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="23">
-                              <i></i>Cuadre Admin</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="24">
-                              <i></i>Resumen Ventas</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="25">
-                              <i></i>Ventas Puntos</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="26">
-                              <i></i>Recargas</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="27">
-                              <i></i>Créditos Profesores</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="28">
-                              <i></i>Cuentas Por Cobrar</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="29">
-                              <i></i>Ventas Mensuales</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="30">
-                              <i></i>Productos Vendidos</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="51">
-                              <i></i>Pre Compras Estudiantes</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="52">
-                              <i></i>Pre Compras Profesores</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="61">
-                              <i></i>Saldos Familias</label><br><hr><h4>Menu Reversiones</h4><label>
-                              <input type="checkbox" name="idOpcion[]" value="31">
-                              <i></i>Venta Efectivo</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="32">
-                              <i></i>Recarga Familia</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="33">
-                              <i></i>Recarga Profesor</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="34">
-                              <i></i>Corte Créditos</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="35">
-                              <i></i>Cierre Caja</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="48">
-                              <i></i>Terceros</label><br><hr><h4>Menu Importar</h4><label>
-                              <input type="checkbox" name="idOpcion[]" value="38">
-                              <i></i>Estudiantes</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="39">
-                              <i></i>Profesores</label><br><hr><h4>Menu Configuración</h4><label>
-                              <input type="checkbox" name="idOpcion[]" value="40">
-                              <i></i>Puntos Venta</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="41">
-                              <i></i>Categorias Productos</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="42">
-                              <i></i>Cajeros</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="43">
-                              <i></i>Usuarios</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="44">
-                              <i></i>Parametrización</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="50">
-                              <i></i>Kioskos</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="54">
-                              <i></i>Subir Fotos</label><br><hr><h4>Menu Pagos / Bolsas</h4><label>
-                              <input type="checkbox" name="idOpcion[]" value="49"checked="checked">
-                              <i></i>Pagar</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="53"checked="checked">
-                              <i></i>Compra Bolsa SMS</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="60"checked="checked">
-                              <i></i>Compra Bolsa Recargas</label><br><hr><h4>Menu Planes Alimentación</h4><label>
-                              <input type="checkbox" name="idOpcion[]" value="56">
-                              <i></i>Registro</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="57">
-                              <i></i>Estudiantes</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="58">
-                              <i></i>Entregas</label><br><label>
-                              <input type="checkbox" name="idOpcion[]" value="59">
-                              <i></i>Configuración</label><br><hr>
 
                           </div>
                           <div class="modal-footer">
@@ -273,7 +111,8 @@ $arrPuntos[] = 0;
           </div>
       </div>
 
-
+<?php echo isset($_SESSION['errores']) ? mostrar_error($_SESSION['errores'], 'idUsuario') : ''; ?>
+<?php borrar_error();?> 
 
 
 </main>
