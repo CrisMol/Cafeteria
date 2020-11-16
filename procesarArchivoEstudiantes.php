@@ -3,7 +3,28 @@
 require 'PHPExcel/Classes/PHPExcel.php';
 require 'include/conexion.php';
 
-$archivo = "plantillaImportarEstudiantes.csv";
+$nombre=$_FILES['archivo']['name'];
+$guardado=$_FILES['archivo']['tmp_name'];
+
+if(!file_exists('archivos')){
+	mkdir('archivos',0777,true);
+	if(file_exists('archivos')){
+		if(move_uploaded_file($guardado, 'archivos/'.$nombre)){
+			
+		}else{
+			
+		}
+	}
+}else{
+	if(move_uploaded_file($guardado, 'archivos/'.$nombre)){
+		
+	}else{
+		
+	}
+}
+
+
+$archivo = 'archivos/'.$nombre;
 //$archivo = fopen("plantillaImportarEstudiantes.csv", "r");
 $excel = PHPExcel_IOFactory::load($archivo);
 
@@ -30,23 +51,32 @@ for($i = 2; $i <= $numeroFilas; $i++){
         $emailFamilia = $datosEstudiante[7];
         $celularFamilia = $datosEstudiante[8];
 
+        $sql_grado = "SELECT id_grado AS CODIGO_GRADO FROM grados WHERE nombre_grado = '$grado'";
+        $grado_select = mysqli_query($db,$sql_grado);
+
+        if (mysqli_num_rows($grado_select)==0) {
+        	$sql_insertar_grado = "INSERT INTO grados(nombre_grado) VALUES('$grado')";
+        	$grado_insert = mysqli_query($db,$sql_insertar_grado);
+        }
+
         $sql_familia = "SELECT id_familia AS CODIGO FROM familias WHERE id_familia = '$idFamilia'";
-        var_dump($sql_familia);
         $res=mysqli_query($db,$sql_familia);
 
         if(mysqli_num_rows($res)==0){ //La familia no existe
             $sql_insert_familia = "INSERT INTO familias(id_familia, nombre_familia, email_familia, celular_familia) VALUES('$idFamilia', '$nombreFamilia', '$emailFamilia', '$celularFamilia')";
             $insertar_familia=mysqli_query($db,$sql_insert_familia);
-            var_dump($sql_insert_familia);
         }
 
         $sql_grado = "SELECT id_grado AS CODIGO_GRADO FROM grados WHERE nombre_grado = '$grado'";
-        $grado = mysqli_query($db,$sql_grado);
-        if (mysqli_num_rows($grado)==0) {
-            $grado = 1;
-        }
+        $grado_select = mysqli_query($db,$sql_grado);
+        while($row=mysqli_fetch_assoc($grado_select)){
+  			$grado=$row['CODIGO_GRADO'];
+		}
 
         $sql_insert_estudiante = "INSERT INTO estudiantes(id_estudiante, id_grado, id_familia, apellidos_estudiante, nombres_estudiante, sexo_estudiante, maximo_compras) VALUES($codigoEstudiante, $grado, '$idFamilia', '$apellidosEstudiante', '$nombresEstudiante', '$sexo', 'Ilimitado')";
         $insertar_estudiante=mysqli_query($db,$sql_insert_estudiante);
+
+
+        header("Location: importarEstudiantes.php");
     }
 }
