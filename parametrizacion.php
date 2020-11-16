@@ -18,6 +18,9 @@ require_once 'include/helpers.php';
             <i class='subheader-icon fal fa-home'></i> Parametrizaci&oacute;n <span class='fw-300'>Dashboard</span>
         </h1>
   </div>
+
+<?php echo isset($_SESSION['completado']) ? mostrar_succesful($_SESSION['completado'], 'exito') : ''; ?>
+
   <div class="row">
       <div class="col-xl-6">
           <div id="panel-1" class="panel">
@@ -33,9 +36,9 @@ require_once 'include/helpers.php';
               <div class="panel-container show">
                   <div class="panel-content">
 <?php
-	$parametrizacion = conseguir_parametrizacion($db, 1);
+	$parametrizaciones = conseguir_parametrizacion($db, 1);
 ?>
-                  <form method="get" action="guardarcambiosConfiracion.php">
+                  <form method="POST" action="guardarcambiosConfiracion.php">
 
                       <div class="form-group">
                         <label class="form-label" for="addon-wrapping-left">Col&eacute;gio</label>
@@ -44,7 +47,8 @@ require_once 'include/helpers.php';
                                 <span class="input-group-text"><i class="fal fa-university fs-xl"></i></span>
                             </div>
                             <?php
-                            	if(!empty($parametrizacion) && mysqli_num_rows($parametrizacion) >= 1):
+                            	if(!empty($parametrizaciones) && mysqli_num_rows($parametrizaciones) >= 1):
+                                    $parametrizacion = mysqli_fetch_assoc($parametrizaciones);
                             ?>
                         		<input id="addon-wrapping-left" type="text" class="form-control" name="nombreColegio" value="<?=$parametrizacion['COLEGIO']?>" aria-label="Username" aria-describedby="addon-wrapping-left" autocomplete="off" required>
                         	<?php
@@ -64,13 +68,13 @@ require_once 'include/helpers.php';
                                 <span class="input-group-text"><i class="fal fa-user-circle fs-xl"></i></span>
                             </div>
                             <?php
-                            	if(!empty($parametrizacion) && mysqli_num_rows($parametrizacion) >= 1):
+                            	if(!empty($parametrizaciones) && mysqli_num_rows($parametrizaciones) >= 1):
                             ?>
-                        		<input id="addon-wrapping-left" type="text" class="form-control" name="reponsable" value="<?=$parametrizacion['RESPONSABLE']?>" aria-label="Username" aria-describedby="addon-wrapping-left" autocomplete="off" required>
+                        		<input id="addon-wrapping-left" type="text" class="form-control" name="responsable" value="<?=$parametrizacion['RESPONSABLE']?>" aria-label="Username" aria-describedby="addon-wrapping-left" autocomplete="off" required>
                         	<?php
                         		else:
                         	?>
-                        		<input id="addon-wrapping-left" type="text" class="form-control" name="reponsable" value="" aria-label="Username" aria-describedby="addon-wrapping-left" autocomplete="off" required>
+                        		<input id="addon-wrapping-left" type="text" class="form-control" name="responsable" value="" aria-label="Username" aria-describedby="addon-wrapping-left" autocomplete="off" required>
                         	<?php
                         		endif;
                         	?>
@@ -84,7 +88,7 @@ require_once 'include/helpers.php';
                                 <span class="input-group-text"><i class="fal fa-at fs-xl"></i></span>
                             </div>
                             <?php
-                            	if(!empty($parametrizacion) && mysqli_num_rows($parametrizacion) >= 1):
+                            	if(!empty($parametrizaciones) && mysqli_num_rows($parametrizaciones) >= 1):
                             ?>
                         		<input id="addon-wrapping-left" type="email" class="form-control" name="email" value="<?=$parametrizacion['EMAIL_NOTIFICACIONES']?>" aria-label="Username" aria-describedby="addon-wrapping-left" autocomplete="off" required>
                         	<?php
@@ -103,21 +107,58 @@ require_once 'include/helpers.php';
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fal fa-at fs-xl"></i></span>
                             </div>
-                            <input id="addon-wrapping-left" type="email" class="form-control" name="emailPrecompras" value="daniel.merino@katulatam.com" aria-label="Username" aria-describedby="addon-wrapping-left" autocomplete="off" required>
+                            <?php
+                                if(!empty($parametrizaciones) && mysqli_num_rows($parametrizaciones) >= 1):
+                            ?>
+                                <input id="addon-wrapping-left" type="email" class="form-control" name="emailPrecompras" value="<?=$parametrizacion['EMAIL_COMPRAS']?>" aria-label="Username" aria-describedby="addon-wrapping-left" autocomplete="off" required>
+                            <?php
+                                else:
+                            ?>
+                                <input id="addon-wrapping-left" type="email" class="form-control" name="emailPrecompras" value="" aria-label="Username" aria-describedby="addon-wrapping-left" autocomplete="off" required>
+                            <?php
+                                endif;
+                            ?>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="example-time-2">Hora M&aacute;xima Pre Compras (Pedidos mismo d&iacute;a)</label>
-                        <input class="form-control" id="example-time-2" type="time" name="horaPrecompras" value="09:00:00">
+                            <?php
+                                if(!empty($parametrizaciones) && mysqli_num_rows($parametrizaciones) >= 1):
+                            ?>
+                                <input class="form-control" id="example-time-2" type="time" name="horaPrecompras" value="<?=$parametrizacion['HORA_MAXIMA_PRECOMPRA']?>">
+                            <?php
+                                else:
+                            ?>
+                                <input class="form-control" id="example-time-2" type="time" name="horaPrecompras" value="09:00:00">
+                            <?php
+                                endif;
+                            ?>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="example-select">Entrega Pre Compras Sabados</label>
                         <select class="form-control" id="example-select" name="preCompraSabados">
-<option value="0">NO</option>
-                            <option value="0">NO</option>
-                            <option value="1">SI</option>
+                            <?php
+                                if(!empty($parametrizaciones) && mysqli_num_rows($parametrizaciones) >= 1):
+                                    if($parametrizacion['ENTREGA_PRECOMPRA_SABADO'] == 0):
+                            ?>
+                                    <option value="0" selected>NO</option>
+                                <?php
+                                    else:
+                                ?>
+                                    <option value="1" selected>SI</option>
+                                <?php
+                                    endif;
+                                ?>
+                            <?php
+                                else:
+                            ?>
+                                <option value="0">NO</option>
+                                <option value="1">SI</option>
+                            <?php
+                                endif;
+                            ?>
                         </select>
                     </div>
 
@@ -127,7 +168,17 @@ require_once 'include/helpers.php';
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fal fa-at fs-xl"></i></span>
                             </div>
-                            <input id="addon-wrapping-left" type="email" class="form-control" name="emailTiendaOnline" value="d.merino@corpsunrise.com" aria-label="Username" aria-describedby="addon-wrapping-left" autocomplete="off" required>
+                            <?php
+                                if(!empty($parametrizaciones) && mysqli_num_rows($parametrizaciones) >= 1):
+                            ?>
+                                <input id="addon-wrapping-left" type="email" class="form-control" name="emailTiendaOnline" value="<?=$parametrizacion['EMAIL_TIENDA']?>" aria-label="Username" aria-describedby="addon-wrapping-left" autocomplete="off" required>
+                            <?php
+                                else:
+                            ?>
+                                <input id="addon-wrapping-left" type="email" class="form-control" name="emailTiendaOnline" value="" aria-label="Username" aria-describedby="addon-wrapping-left" autocomplete="off" required>
+                            <?php
+                                endif;
+                            ?>
                         </div>
                     </div>
 
@@ -137,31 +188,79 @@ require_once 'include/helpers.php';
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fal fa-comments fs-xl"></i></span>
                             </div>
-                            <input id="addon-wrapping-left" type="number" class="form-control" name="whatsapp" value="593991943124" aria-label="Username" aria-describedby="addon-wrapping-left" autocomplete="off">
+                            <?php
+                                if(!empty($parametrizaciones) && mysqli_num_rows($parametrizaciones) >= 1):
+                            ?>
+                                <input id="addon-wrapping-left" type="number" class="form-control" name="whatsapp" value="<?=$parametrizacion['WHATSAPP']?>" aria-label="Username" aria-describedby="addon-wrapping-left" autocomplete="off">
+                            <?php
+                                else:
+                            ?>
+                                <input id="addon-wrapping-left" type="number" class="form-control" name="whatsapp" value="" aria-label="Username" aria-describedby="addon-wrapping-left" autocomplete="off">
+                            <?php
+                                endif;
+                            ?>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="example-select">Ventas Control Inventario</label>
                         <select class="form-control" id="example-select" name="controlInventario">
-<option value="no">NO</option>
-                            <option value="no">NO</option>
-                            <option value="si">SI</option>
+                            <?php
+                                if(!empty($parametrizaciones) && mysqli_num_rows($parametrizaciones) >= 1):
+                                    if($parametrizacion['CONTROL_INVENTARIO'] == 0):
+                            ?>
+                                    <option value="0" selected>NO</option>
+                                <?php
+                                    else:
+                                ?>
+                                    <option value="1" selected>SI</option>
+                                <?php
+                                    endif;
+                                ?>
+                            <?php
+                                else:
+                            ?>
+                                <option value="0">NO</option>
+                                <option value="1">SI</option>
+                            <?php
+                                endif;
+                            ?>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="example-select">Servicio Pre Compras</label>
                         <select class="form-control" id="example-select" name="servicioPrecompras">
-<option value="1">Activo</option>
-                            <option value="0">Desactivado</option>
-                            <option value="1">Activo</option>
+                            <?php
+                                if(!empty($parametrizaciones) && mysqli_num_rows($parametrizaciones) >= 1):
+                                    if($parametrizacion['CONTROL_INVENTARIO'] == 0):
+                            ?>
+                                    <option value="0" selected>Desactivado</option>
+                                <?php
+                                    else:
+                                ?>
+                                    <option value="1" selected>Activo</option>
+                                <?php
+                                    endif;
+                                ?>
+                            <?php
+                                else:
+                            ?>
+                                <option value="0">Desactivado</option>
+                                <option value="1">Activo</option>
+                            <?php
+                                endif;
+                            ?>
                         </select>
                     </div>
 
-
-
-
+                      <?php
+                                if(!empty($parametrizaciones) && mysqli_num_rows($parametrizaciones) >= 1):
+                       ?>
+                                <input name="idParametrizacion" type="hidden" id="idParametrizacion" value="<?=$parametrizacion['CODIGO']?>" />
+                        <?php
+                                endif;
+                        ?>
                       <div class="modal-footer">
                       <button type="submit" class="btn btn-info btn-primary">Guardar Cambios</button>
                       </form>

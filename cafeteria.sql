@@ -335,7 +335,7 @@ CREATE TABLE parametrizaciones (
 	hora_maxima_precompras		time,
 	entrega_precompras_sabado 	char(1) not null,
 	email_tienda_online			varchar(255) not null,
-	whatsapp_soporte			varchar(10) not null,
+	whatsapp_soporte			varchar(25) not null,
 	ventas_control_inventario	char(1) not null,
 	servicio_precompras			char(1) not null,
 	CONSTRAINT pk_paramtrizaciones PRIMARY KEY(id_parametrizacion)

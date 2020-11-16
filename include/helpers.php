@@ -654,7 +654,7 @@
 
 	//Conseguir Paramtrizacion
 	function conseguir_parametrizacion($conexion, $idParametrizacion){
-		$sql = "SELECT id_parametrizacion AS CODIGO, nombre_colegio AS COLEGIO, nombre_responsable AS RESPONSABLE, email_notificaciones AS EMAIL_NOTIFICACIONES, email_precompras AS EMAIL_COMPRAS, hora_maxima_precompras AS HORA_MAXIMA_PRECOMPRA, entrega_precompras_sabado AS ENTREGA_PRECOMPRA_SABADO, email_tienda_online AS EMAIL_TIENDA, whatsapp_soporte AS WHATSAPP, ventas_control_inventario AS CONTROL_INVENTARIO, servicio_precompras AS SERVICIO_PRECOMPRA, id_usuario FROM parametrizaciones WHERE id_parametrizacion = $idParametrizacion";
+		$sql = "SELECT id_parametrizacion AS CODIGO, nombre_colegio AS COLEGIO, nombre_responsable AS RESPONSABLE, email_notificaciones AS EMAIL_NOTIFICACIONES, email_precompras AS EMAIL_COMPRAS, hora_maxima_precompras AS HORA_MAXIMA_PRECOMPRA, entrega_precompras_sabado AS ENTREGA_PRECOMPRA_SABADO, email_tienda_online AS EMAIL_TIENDA, whatsapp_soporte AS WHATSAPP, ventas_control_inventario AS CONTROL_INVENTARIO, servicio_precompras AS SERVICIO_PRECOMPRA FROM parametrizaciones WHERE id_parametrizacion = $idParametrizacion";
 
 		$parametrizaciones = mysqli_query($conexion, $sql);
 		$result = array();

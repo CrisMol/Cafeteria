@@ -3,38 +3,39 @@
 require 'PHPExcel/Classes/PHPExcel.php';
 require 'include/conexion.php';
 
-//$archivo = "plantillaImportarEstudiantes.csv";
-$archivo = fopen("plantillaImportarEstudiantes.csv", "r");
-//$excel = PHPExcel_IOFactory::load($archivo);
+$archivo = "plantillaImportarEstudiantes.csv";
+//$archivo = fopen("plantillaImportarEstudiantes.csv", "r");
+$excel = PHPExcel_IOFactory::load($archivo);
 
 //Cargar la hoja de cálculo
-//$excel -> setActiveSheetIndex(0);
+$excel -> setActiveSheetIndex(0);
 
 //Obtener el número de filas de nuestro archivo
-//$numeroFilas = $excel -> setActiveSheetIndex(0) -> getHighestRow();
+$numeroFilas = $excel -> setActiveSheetIndex(0) -> getHighestRow();
 
 //echo $numeroFilas;
 
 
-while(($datos = fgetcsv($archivo, ",")) == true) {
-    $idFamilia = $datos[1];
+for($i = 2; $i <= $numeroFilas; $i++){
+    $Estudiante = $excel->getActiveSheet()->getCell('A'.$i)->getCalculatedValue();
+    $datosEstudiante = explode(";", $Estudiante);
+    $idFamilia = $datosEstudiante[0];
     if ($idFamilia != "") {
-        $nombreFamilia = $datos[1];
-        $codigoEstudiante = $datos[1];
-        $apellidosEstudiante = $datos[1];
-        $nombresEstudiante = $datos[1];
-        $grado = $datos[1];
-        $sexo = $datos[1];
-        $emailFamilia = $datos[1];
-        $celularFamilia = $datos[1];
+        $nombreFamilia = $datosEstudiante[1];
+        $codigoEstudiante = $datosEstudiante[2];
+        $apellidosEstudiante = $datosEstudiante[3];
+        $nombresEstudiante = $datosEstudiante[4];
+        $grado = $datosEstudiante[5];
+        $sexo = $datosEstudiante[6];
+        $emailFamilia = $datosEstudiante[7];
+        $celularFamilia = $datosEstudiante[8];
 
         $sql_familia = "SELECT id_familia AS CODIGO FROM familias WHERE id_familia = '$idFamilia'";
         var_dump($sql_familia);
         $res=mysqli_query($db,$sql_familia);
 
         if(mysqli_num_rows($res)==0){ //La familia no existe
-            $sql_insert_familia = "INSERT INTO familas(id_familia, nombre_familia, email_familia, celular_familia) VALUES($idFamilia, $nombreFamilia, $emailFamilia, $celularFamilia)";
-            $sql_insert_familia = str_replace(';',',', $sql_insert_familia);
+            $sql_insert_familia = "INSERT INTO familias(id_familia, nombre_familia, email_familia, celular_familia) VALUES('$idFamilia', '$nombreFamilia', '$emailFamilia', '$celularFamilia')";
             $insertar_familia=mysqli_query($db,$sql_insert_familia);
             var_dump($sql_insert_familia);
         }
@@ -45,9 +46,7 @@ while(($datos = fgetcsv($archivo, ",")) == true) {
             $grado = 1;
         }
 
-        $sql_insert_estudiante = "INSERT INTO estudiantes(id_estudiante, id_grado, id_familia, apellidos_estudiante, nombres_estudiante, sexo_estudiante, maximo_compras) VALUES($codigoEstudiante, $grado, $idFamilia, $apellidosEstudiante, $nombresEstudiante, $sexo, 'Ilimitado')";
-        $sql_insert_estudiante = str_replace(';',',', $sql_insert_estudiante);
-
+        $sql_insert_estudiante = "INSERT INTO estudiantes(id_estudiante, id_grado, id_familia, apellidos_estudiante, nombres_estudiante, sexo_estudiante, maximo_compras) VALUES($codigoEstudiante, $grado, '$idFamilia', '$apellidosEstudiante', '$nombresEstudiante', '$sexo', 'Ilimitado')";
         $insertar_estudiante=mysqli_query($db,$sql_insert_estudiante);
     }
 }
