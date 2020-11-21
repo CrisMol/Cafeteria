@@ -264,7 +264,7 @@ require_once 'include/conexion.php';
                                       <th scope="row"><?=$contador?></th>
                                       <td><?=$cajero['USUARIO']?></td>
                                       <?php
-                                      	$venta_efectivo = conseguir_ventas_efectivo_por_cajero($db, $cajero['CODIGO_USUARIO'], $fechaInforme);
+                                      	$venta_efectivo = conseguir_ventas_efectivo_por_cajero($db, $cajero['CODIGO_CAJERO'], $fechaInforme);
                                       	if(!empty($venta_efectivo) && mysqli_num_rows($venta_efectivo) >= 1):
                                       		$venta_efectivo = mysqli_fetch_assoc($venta_efectivo);
                                       			if($venta_efectivo['VENTAS'] != null):
@@ -284,7 +284,7 @@ require_once 'include/conexion.php';
                                   	  ?>
 
                                   	  <?php
-                                      	$pagos_por_usuario = conseguir_pagos_proveedor_por_usuario($db, $cajero['CODIGO_USUARIO'], $fechaInforme);
+                                      	$pagos_por_usuario = conseguir_pagos_proveedor_por_usuario($db, $cajero['CODIGO_CAJERO'], $fechaInforme);
                                       	if(!empty($pagos_por_usuario) && mysqli_num_rows($pagos_por_usuario) >= 1):
                                       		$pagos_por_usuario = mysqli_fetch_assoc($pagos_por_usuario);
                                       			if($pagos_por_usuario['VALOR'] != null):
@@ -304,7 +304,7 @@ require_once 'include/conexion.php';
                                   	  ?>
                                       <td align="right">0.00</td>
                                       <?php
-                                      	$movimientos_caja = conseguir_movimientos_caja($db, $cajero['CODIGO_USUARIO'], $fechaInforme);
+                                      	$movimientos_caja = conseguir_movimientos_caja($db, $cajero['CODIGO_CAJERO'], $fechaInforme);
                                       	if(!empty($movimientos_caja) && mysqli_num_rows($movimientos_caja) >= 1):
                                       		$movimiento_caja = mysqli_fetch_assoc($movimientos_caja);
                                       			if($movimiento_caja['VALOR'] != null):
@@ -324,7 +324,7 @@ require_once 'include/conexion.php';
                                   	  ?>
                                   	  <td align="right">0.00</td>
                                       <?php
-                                      	$estado_caja = conseguir_estado_caja($db, $cajero['CODIGO_USUARIO'], $fechaInforme);
+                                      	$estado_caja = conseguir_estado_caja($db, $cajero['CODIGO_CAJERO'], $fechaInforme);
                                       	if(!empty($estado_caja) && mysqli_num_rows($estado_caja) >= 1):
                                       		$estado_caja = mysqli_fetch_assoc($estado_caja);
                                       			if($estado_caja['ESTADO'] != null):
@@ -343,7 +343,7 @@ require_once 'include/conexion.php';
                                   	  	endif;
                                   	  ?>
                                       <?php
-                                      	$movimientos_caja = conseguir_movimientos_caja($db, $cajero['CODIGO_USUARIO'], $fechaInforme);
+                                      	$movimientos_caja = conseguir_movimientos_caja($db, $cajero['CODIGO_CAJERO'], $fechaInforme);
                                       	if(!empty($movimientos_caja) && mysqli_num_rows($movimientos_caja) >= 1):
                                       		$movimiento_caja = mysqli_fetch_assoc($movimientos_caja);
                                       			if($movimiento_caja['HORA'] != null):

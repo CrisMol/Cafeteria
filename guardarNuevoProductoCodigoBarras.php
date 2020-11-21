@@ -20,6 +20,8 @@ if(isset($_POST)){
     //Comprobar si existe estudiante
     $existe_codigo = saber_si_existe_codigo_barras($db, $codigoBarras);
 
+    $exito = array();
+
     if($existe_codigo > 0){
         $error_codigo['codigo_barra'] = 'Ya existe un producto con ese código de barra';
         $_SESSION['errores'] = $error_codigo;
@@ -62,6 +64,8 @@ if(isset($_POST)){
         
         if (count($errores) == 0) {
         	$sql = "INSERT INTO productos(id_categoria, codigo_barras_producto, titulo_producto, descripcion_producto, costo_producto, precio_venta_producto, cantidad_producto, disponibilidad_inventario, disponibilidad_precompra, id_clave_autorizacion) VALUES ($idCategoria,'$codigoBarras','$nombreProducto','$descripcionProducto',$costoProducto,$ventaProducto,$cantidadProducto,$verInventario,$kiosko, 1)";
+        	$exito['exito'] = "Datos Ingresados Correctamente";
+			$_SESSION['completado'] = $exito;
             $guardar = mysqli_query($db, $sql);
             header("Location: nuevoProducto.php");
         }else{

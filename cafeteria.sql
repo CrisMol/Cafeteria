@@ -109,6 +109,8 @@ CREATE TABLE cajeros (
 	id_punto_venta		int(255) not null,
 	id_estado_caja		int(255) not null,
 	nombre_cajero	  	varchar(100) not null,
+	nombre_usuario  	varchar(100) not null,
+	contrasena_usuario	varchar(255) not null,
 	CONSTRAINT pk_cajeros PRIMARY KEY(id_cajero),
 	CONSTRAINT fk_cajero_punto_venta FOREIGN KEY(id_punto_venta) REFERENCES puntos_venta(id_punto_venta),
 	CONSTRAINT fk_cajero_estado_caja FOREIGN KEY(id_estado_caja) REFERENCES estados_caja(id_estado_caja)

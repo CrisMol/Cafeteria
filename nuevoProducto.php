@@ -22,6 +22,7 @@ require_once 'include/conexion.php';
             <i class='subheader-icon fal fa-home'></i> Nuevo Producto<span class='fw-300'> Dashboard</span>
         </h1>
   </div>
+  <?php echo isset($_SESSION['completado']) ? mostrar_succesful($_SESSION['completado'], 'exito') : ''; ?>
  <div class="row">
      <div class="col-xl-6">
          <div id="panel-1" class="panel">

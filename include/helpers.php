@@ -39,7 +39,7 @@
 
 	//Conseguir cajeros
 	function conseguir_cajeros($conexion){
-		$sql = "SELECT c.id_usuario AS CODIGO_USUARIO, u.nombre_usuario AS USUARIO FROM cajeros c INNER JOIN usuarios u ON c.id_usuario = u.id_usuario GROUP BY c.id_usuario ORDER BY u.nombre_usuario ASC";
+		$sql = "SELECT id_cajero AS CODIGO_CAJERO, nombre_usuario AS USUARIO FROM cajeros GROUP BY id_cajero ORDER BY nombre_usuario ASC";
 		$cajeros = mysqli_query($conexion, $sql);
 
 		$result = array();
@@ -439,7 +439,7 @@
 
 	//Conseguir ventas de caja por efectivo
 	function conseguir_ventas_efectivo_por_caja($conexion, $fechaVenta){
-		$sql = "SELECT pv.nombre_punto_venta AS PUNTO_VENTA, u.alias_usuario AS USUARIO, c.nombre_cajero AS CAJERO, SUM(v.total_venta) AS TOTAL, v.id_cajero AS CODIGO_CAJERO, v.numero_pedido AS NUMERO_PEDIDO FROM ventas v INNER JOIN cajeros c ON v.id_cajero = c.id_cajero INNER JOIN puntos_venta pv ON c.id_punto_venta = pv.id_punto_venta INNER JOIN usuarios u ON c.id_usuario = u.id_usuario WHERE v.id_tipo_venta = 1 AND v.fecha_venta = '$fechaVenta' GROUP BY(v.id_cajero)";
+		$sql = "SELECT pv.nombre_punto_venta AS PUNTO_VENTA, c.nombre_usuario AS USUARIO, c.nombre_cajero AS CAJERO, SUM(v.total_venta) AS TOTAL, v.id_cajero AS CODIGO_CAJERO, v.numero_pedido AS NUMERO_PEDIDO FROM ventas v INNER JOIN cajeros c ON v.id_cajero = c.id_cajero INNER JOIN puntos_venta pv ON c.id_punto_venta = pv.id_punto_venta WHERE v.id_tipo_venta = 1 AND v.fecha_venta = '$fechaVenta' GROUP BY(v.id_cajero)";
 		$ventas_efectivo_por_cajas = mysqli_query($conexion, $sql);
 		$result = array();
 		if ($ventas_efectivo_por_cajas && mysqli_num_rows($ventas_efectivo_por_cajas) >=1) {
@@ -508,7 +508,7 @@
 
 	//Conseguir datos de cajeros
 	function conseguir_puntos_por_cajero($conexion,$idUsuario){
-		$sql = "SELECT p.nombre_punto_venta AS NOMBRE FROM cajeros c INNER JOIN puntos_venta p ON c.id_punto_venta = p.id_punto_venta WHERE id_usuario =$idUsuario";
+		$sql = "SELECT p.nombre_punto_venta AS NOMBRE FROM cajeros c INNER JOIN puntos_venta p ON c.id_punto_venta = p.id_punto_venta WHERE id_usuario = $idUsuario";
 		//$sql = "SELECT p.nombre_punto_venta AS PUNTO_VENTA, u.alias_usuario AS ALIAS_USUARIO, c.nombre_cajero AS CAJERO, COUNT(*)AS TRANSACCIONES, SUM(valor_pago) AS TOTAL FROM pagos_proveedor pv INNER JOIN usuarios u ON pv.id_usuario = u.id_usuario INNER JOIN cajeros c ON pv.id_usuario = c.id_usuario INNER JOIN puntos_venta p ON c.id_punto_venta = p.id_punto_venta WHERE pv.fecha_pago = '$fechaPago' GROUP BY(pv.id_usuario)";
 		$punto_venta = mysqli_query($conexion, $sql);
 		$result = array();
@@ -520,7 +520,7 @@
 	}
 	//Conseguir ventas efectivo por cajero y fecha
 	function conseguir_ventas_efectivo_por_cajero($conexion, $idUsuario, $fechaVenta){
-		$sql = "SELECT SUM(v.total_venta) AS VENTAS FROM cajeros c INNER JOIN ventas v ON c.id_cajero = v.id_cajero WHERE id_usuario = $idUsuario AND id_tipo_venta = 1 AND fecha_venta = '$fechaVenta'";
+		$sql = "SELECT SUM(v.total_venta) AS VENTAS FROM cajeros c INNER JOIN ventas v ON c.id_cajero = v.id_cajero WHERE c.id_cajero = $idUsuario AND id_tipo_venta = 1 AND fecha_venta = '$fechaVenta'";
 		//$sql = "SELECT SUM(total_venta) AS VENTAS FROM ventas WHERE id_cajero = $idCajero AND id_tipo_venta = 1 AND fecha_venta = '$fechaVenta'";
 		$ventas_efectivo_por_cajero = mysqli_query($conexion, $sql);
 		$result = array();
